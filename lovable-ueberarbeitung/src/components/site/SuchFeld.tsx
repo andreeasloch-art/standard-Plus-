@@ -124,7 +124,7 @@ export function SuchFeld({
           aria-activedescendant={zeige && aktiv >= 0 ? `${listId}-${aktiv}` : undefined}
           autoComplete="off"
           maxLength={100}
-          placeholder="Beruf, Skill oder Ort – z. B. Pflege"
+          placeholder="Beruf, Skill oder Ort"
           value={q}
           onChange={(e) => {
             setQ(e.target.value);

@@ -2,28 +2,45 @@
 
 Lovable-Projekt: https://lovable.dev/projects/7f5c0b23-7ff9-4e39-893f-85248fc880d6
 
-Diese Dateien ersetzen bzw. ergänzen die gleichnamigen Dateien im Lovable-Projekt
-(Pfade ab `src/` identisch):
+Alles in diesem Ordner ist fertig geschrieben, lokal gebaut, typgeprüft und im Browser
+getestet (Desktop 1280 px, Handy 390 px). Es muss nur noch ins Lovable-Projekt übernommen
+werden – dafür braucht Lovable Guthaben. Die Pfade entsprechen 1:1 denen im Lovable-Projekt.
 
-| Datei | Inhalt |
+Vorschau-Screenshots: [`vorschau/`](vorschau/)
+
+## Dateien
+
+| Datei | Was sich ändert |
 | --- | --- |
-| `src/components/site/SuchFeld.tsx` | neu – Suchfeld mit Autovervollständigung (Beruf, Skill, Ort, Branche), per Tastatur bedienbar |
-| `src/lib/use-mehr-laden.ts` | neu – lädt beim Runterscrollen weitere Einträge nach |
-| `src/components/site/ProfilListe.tsx` | neu – Profile zu zweit nebeneinander, mit Nachladen |
-| `src/components/site/ProfileCard.tsx` | aufgeräumt; Prozentwert nur noch bei Beispielprofilen |
-| `src/components/site/Schritte.tsx` | Texte gekürzt |
-| `src/routes/index.tsx` | Startseite: kaum Text, großes Suchfeld, Schnellsuchen, Profilliste |
-| `src/routes/talente.tsx` | Suche mit `?q=`, eingeklappte Filter, zwei Spalten |
+| `src/routes/index.tsx` | Startseite: kaum Text, großes Suchfeld, Schnellsuchen, Profilliste, kurze Schritte |
+| `src/components/site/SuchFeld.tsx` | **neu** – Suche mit Autovervollständigung (Beruf, Skill, Ort, Branche), Tastatur & Screenreader |
+| `src/lib/use-mehr-laden.ts` | **neu** – lädt beim Runterscrollen weitere Profile nach |
+| `src/components/site/ProfilListe.tsx` | **neu** – immer zwei Profile nebeneinander (Handy: eins) |
+| `src/components/site/ProfileCard.tsx` | aufgeräumt; Prozentwert nur bei Beispielprofilen (bei echten wäre er erfunden) |
+| `src/components/site/Schritte.tsx` | Texte auf einen Halbsatz gekürzt |
+| `src/components/site/Vorteile.tsx` | **neu** – kurze Vorteilsliste mit Badge „in Vorbereitung“ |
+| `src/routes/talente.tsx` | Suchfeld mit `?q=`, Filter eingeklappt, zwei Spalten |
+| `src/routes/preise.tsx` | zwei Modelle nebeneinander, Stufentabelle, Beispiele aufklappbar |
+| `src/routes/arbeitnehmer.tsx`, `unternehmen.tsx`, `ablauf.tsx` | gekürzt; nicht vorhandene Funktionen als „in Vorbereitung“ markiert |
+| `src/components/site/Header.tsx` | Navigation: Talente finden · Unternehmen · Arbeitnehmer · Preise |
+| `src/components/site/CookieBanner.tsx` | ein Satz statt Absatz, Buttons weiterhin gleichwertig |
+| `src/lib/konto.functions.ts` | Konto löschen: Dateien rekursiv + seitenweise löschen; Kündigungen als Nachweis behalten |
+| `supabase/migrations/20261001120000_kuendigungen_aufbewahren.sql` | `kuendigungen.user_id` darf leer sein, Zeitpunkt der Kontolöschung wird vermerkt |
+| `src/routes/datenschutz.tsx` | Abschnitte 9 und 13 passend zur Aufbewahrung von Kündigungen |
 
-## Übernehmen
+## Beim Übernehmen in Lovable zusätzlich
 
-Sobald wieder Lovable-Guthaben vorhanden ist, den Inhalt der Dateien an Lovable geben
-mit der Bitte, sie genau so zu übernehmen. Danach zusätzlich:
+1. Migration ausführen; danach die Supabase-Typen neu erzeugen lassen (sonst meldet
+   `update({ user_id: null })` einen Typfehler).
+2. In `src/routes/auth.tsx` `DATENSCHUTZ_VERSION` auf `"2026-10-01"` setzen.
+3. Dashboard-Vorschläge ebenfalls über `ProfilListe` (max. 2 Spalten) anzeigen.
+4. Danach im Browser prüfen: Konto löschen mit Testkonto, keine Konsolenfehler.
 
-1. Cookie-Banner-Text auf einen Satz kürzen.
-2. Übrige Seiten (Preise, Arbeitnehmer, Unternehmen, Ablauf, Dashboard …) straffen –
-   Rechtstexte nicht kürzen.
-3. Beim Konto-Löschen Kündigungen als Nachweis behalten (`user_id` auf NULL), wie in
-   der Datenschutzerklärung beschrieben.
-4. Storage-Löschung in `kontoLoeschen` rekursiv und mit Paginierung.
-5. Im Browser prüfen: Autocomplete, zwei Spalten, Nachladen, keine Konsolenfehler.
+## Getestet (lokal, mit Testdaten statt Datenbank)
+
+- Build und TypeScript-Prüfung ohne Fehler
+- „pf“ → Pflegefachkraft, Pflegehelferin, Altenpflegerin …; Pfeiltasten, Enter, Escape, Mausklick
+- Schnellsuche „IT & Software“ → passender Treffer
+- 2 Spalten am Computer, 1 Spalte am Handy; 6 Profile, beim Scrollen alle 14
+- Keine horizontale Scrollleiste am Handy, mobiles Menü mit Escape schließbar
+- Keine Konsolenfehler, keine Anfragen an fremde Server
