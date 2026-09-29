@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { useQueryClient } from "@tanstack/react-query";
-import { Menu, Moon, Sun, X, LogOut, LayoutDashboard } from "lucide-react";
+import { Menu, Moon, Sun, X, LogOut, LayoutDashboard, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "./Logo";
 import { useAuth } from "@/lib/auth";
+import { useFavoriten } from "@/lib/favoriten";
 import { supabase } from "@/integrations/supabase/client";
 
 const NAV = [
@@ -27,6 +28,20 @@ function ThemeToggle() {
     <Button variant="ghost" size="icon" onClick={toggle} aria-label={dark ? "Hellmodus aktivieren" : "Dunkelmodus aktivieren"}>
       {dark ? <Sun /> : <Moon />}
     </Button>
+  );
+}
+
+function FavoritenLink() {
+  const { ids } = useFavoriten();
+  return (
+    <Link to="/favoriten" aria-label={`Favoriten (${ids.length})`} className="relative flex h-11 w-11 items-center justify-center rounded-xl hover:bg-accent">
+      <Star className="h-5 w-5" aria-hidden />
+      {ids.length > 0 && (
+        <span className="absolute right-1 top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1 text-[11px] font-bold text-primary-foreground" aria-hidden>
+          {ids.length}
+        </span>
+      )}
+    </Link>
   );
 }
 
@@ -70,6 +85,7 @@ export function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-1">
+          <FavoritenLink />
           <ThemeToggle />
           <div className="hidden items-center gap-2 md:flex">
             {session ? (

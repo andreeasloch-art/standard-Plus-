@@ -48,6 +48,31 @@ In Lovable noch einbauen:
 - `src/routes/profil.$id.tsx`: den runden Buchstaben-Kreis durch
   `<ProfilFoto url={p.foto_url} name={p.anzeigename} gross className="w-40 rounded-2xl sm:w-56" />` ersetzen (Foto links, Angaben rechts).
 
+### Wischen, Favoriten, Interview-Einladung, Dolmetscher (Runde 3)
+
+Weniger Grün: Seitenköpfe wieder hell (`flaeche-hell`), Türkis nur als Akzent, Abschlussbanner dunkel.
+
+| Datei | Was sich ändert |
+| --- | --- |
+| `src/components/site/WischStapel.tsx` | **neu** – Kartenstapel: nach rechts = Favorit, nach links = weiter, Rückgängig, „Einladen“; Maus, Finger und Pfeiltasten |
+| `src/components/site/EinladenDialog.tsx` | **neu** – Interview-Einladung: Video oder Telefon, Wunschtermin, Dolmetscher zuschalten, Nachricht |
+| `src/components/site/Modal.tsx` | **neu** – Dialogfenster (Escape, Fokus bleibt im Fenster) |
+| `src/components/site/DolmetscherDemo.tsx` | **neu** – Beispielgespräch Deutsch ↔ Rumänisch, klar als Beispiel gekennzeichnet |
+| `src/lib/favoriten.ts` | **neu** – Favoriten (angemeldet: Datenbank, sonst nur Sitzung) und Einladungen (als Anfrage mit Interviewwunsch) |
+| `src/lib/merkliste-lokal.ts` | **neu** – Merkliste im Browser für nicht angemeldete Besucher |
+| `src/routes/favoriten.tsx` | **neu** – Favoriten-Seite mit „Einladen“ |
+| `src/routes/talente.tsx` | Umschalter **Wischen / Liste** (Standard: Wischen), Favoriten-Zähler |
+| `src/routes/index.tsx` | Ablauf zuerst erklärt (Suchen → Wischen → Einladen → Dolmetscher), Dolmetscher-Abschnitt |
+| `src/components/site/Schritte.tsx` | vier Schritte mit Symbolen |
+| `src/components/site/Header.tsx` | Stern mit Anzahl der Favoriten |
+| `supabase/migrations/20261001140000_favoriten_interview.sql` | Tabelle `favoriten` (nur das Unternehmen sieht sie), Interview-Spalten an `anfragen` |
+
+Noch zu tun in Lovable:
+- Dashboard der Fachkraft: Einladungen mit Art, Termin, Dolmetscher-Wunsch und Nachricht anzeigen; Zusagen/Absagen.
+- Datenexport und Datenschutzerklärung um Favoriten und Interview-Einladungen ergänzen.
+- Echten Dolmetscher anbinden: Server aus `dolmetscher-server/` (Whisper, NLLB, Piper) auf einem EU-Server
+  betreiben und den Client aus `assets/sp-dolmetscher.js` in React übernehmen. Bis dahin bleibt „in Vorbereitung“ stehen.
+
 ## Beim Übernehmen in Lovable zusätzlich
 
 1. Migration ausführen; danach die Supabase-Typen neu erzeugen lassen (sonst meldet
