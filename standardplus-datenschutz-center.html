@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0a8086"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Standard Plus"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<link rel="apple-touch-icon" href="assets/app/apple-touch-icon.png"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<!-- Hinweis: frame-ancestors, HSTS, X-Content-Type-Options und Permissions-Policy
+     wirken nur als HTTP-Kopfzeilen. Sie stehen in assets/security-headers.conf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Datenschutz-Center &ndash; Standard Plus</title>
+<link rel="stylesheet" href="assets/sp-theme.css?v=20260929153130"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a9296'/%3E%3Cpath d='M9 10l6 6-6 6M18 10l6 6-6 6' stroke='%23ffd84d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
+<link rel="alternate" hreflang="de" href="standardplus-datenschutz-center.html"/>
+<link rel="alternate" hreflang="en" href="en/standardplus-datenschutz-center.html"/>
+<link rel="alternate" hreflang="ro" href="ro/standardplus-datenschutz-center.html"/>
+</head>
+<body data-protected>
+<a class="sp-skip" href="#main">Zum Inhalt springen</a>
+
+<header class="sp-header">
+  <div class="sp-header-in">
+    <a class="sp-logo" href="standardplus-dashboard.html">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Datenschutz-Center</span>
+    </a>
+    <nav aria-label="Hauptnavigation">
+      <ul class="sp-nav">
+        <li><a href="standardplus-talente.html" data-nav>Arbeitnehmer</a></li>
+        <li><a href="standardplus-unternehmen.html" data-nav>Unternehmen</a></li>
+        <li><a href="standardplus-main.html#ablauf">Ablauf</a></li>
+        <li><a href="standardplus-preise.html" data-nav>Preise</a></li>
+      </ul>
+    </nav>
+    <div class="sp-header-act">
+      <a class="btn btn-primary btn-sm" href="standardplus-login.html" hidden data-anon>Anmelden</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-dashboard.html" hidden data-auth>Dashboard</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-profil.html" hidden data-auth>Mein Profil</a>
+      <button class="btn btn-outline btn-sm" type="button" data-logout hidden data-auth>
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-logout"></use></svg>Abmelden</button>
+      <button class="iconbtn sp-burger" type="button" aria-label="Men&uuml; &ouml;ffnen" aria-expanded="false">
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  
+  </div>
+</header>
+
+<main class="legal" id="main">
+  <h1>Datenschutz-Center</h1>
+  <p class="lede mb24">Hier sehen Sie, welche Daten zu Ihrem Konto vorliegen, wer darauf
+    zugegriffen hat, und hier &uuml;ben Sie Ihre Rechte aus &ndash; ohne Umweg &uuml;ber
+    den Support.</p>
+
+  <div class="card card-pad mb32">
+    <div class="flex ai-c g14 wrapf">
+      <span class="ava ava-lg gold"><span data-initials>SP</span></span>
+      <div class="grow">
+        <h2 class="h3" data-user>Angemeldetes Konto</h2>
+        <p class="small muted" data-org>Unternehmen</p>
+      </div>
+      <span class="tag tag-ok"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-fingerprint"></use></svg>Zwei-Faktor aktiv</span>
+      <span class="tag tag-teal"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-clock"></use></svg>Sperre nach 15&nbsp;Min.</span>
+    </div>
+  </div>
+
+  <!-- ---------- EINWILLIGUNGEN ---------- -->
+  <h2>Einwilligungen</h2>
+  <p>Ihre aktuelle Auswahl. &Auml;nderungen wirken sofort und werden mit Zeitstempel
+    protokolliert (Art.&nbsp;7 Abs.&nbsp;1 DSGVO).</p>
+  <div id="consent-status" class="mb16"></div>
+  <div class="flex wrapf g10 mb32">
+    <button class="btn btn-primary btn-sm" type="button" data-consent>
+      <svg class="ic ic-sm" aria-hidden="true"><use href="#i-sliders"></use></svg>Einstellungen &auml;ndern</button>
+    <button class="btn btn-outline btn-sm" type="button" id="btn-widerruf">
+      <svg class="ic ic-sm" aria-hidden="true"><use href="#i-x"></use></svg>Alle Einwilligungen widerrufen</button>
+  </div>
+
+  <!-- ---------- IHRE RECHTE ---------- -->
+  <h2>Ihre Rechte aus&uuml;ben</h2>
+
+  <div class="dsg-row">
+    <svg class="ic ic-lg" aria-hidden="true"><use href="#i-eye"></use></svg>
+    <div class="grow">
+      <h3>Auskunft nach Art.&nbsp;15 DSGVO</h3>
+      <p class="small muted">&Uuml;bersicht aller zu Ihnen gespeicherten Daten, Zwecke,
+        Empf&auml;nger und Speicherfristen. Bearbeitung innerhalb eines Monats.</p>
+    </div>
+    <button class="btn btn-outline btn-sm" type="button" id="btn-auskunft">Anfordern</button>
+  </div>
+
+  <div class="dsg-row">
+    <svg class="ic ic-lg" aria-hidden="true"><use href="#i-download"></use></svg>
+    <div class="grow">
+      <h3>Daten&uuml;bertragbarkeit nach Art.&nbsp;20 DSGVO</h3>
+      <p class="small muted">Export im maschinenlesbaren JSON-Format zur Weitergabe an
+        einen anderen Anbieter. Erzeugung erfolgt direkt in Ihrem Browser.</p>
+    </div>
+    <button class="btn btn-primary btn-sm" type="button" id="btn-export">Export erstellen</button>
+  </div>
+
+  <div class="dsg-row">
+    <svg class="ic ic-lg" aria-hidden="true"><use href="#i-refresh"></use></svg>
+    <div class="grow">
+      <h3>Berichtigung nach Art.&nbsp;16 DSGVO</h3>
+      <p class="small muted">Unrichtige Angaben in Profil, Qualifikationen oder Kontaktdaten
+        korrigieren lassen.</p>
+    </div>
+    <button class="btn btn-outline btn-sm" type="button" id="btn-berichtigung">Korrektur melden</button>
+  </div>
+
+  <div class="dsg-row">
+    <svg class="ic ic-lg ic-err" aria-hidden="true"><use href="#i-trash"></use></svg>
+    <div class="grow">
+      <h3>L&ouml;schung nach Art.&nbsp;17 DSGVO</h3>
+      <p class="small muted">Konto und Profildaten dauerhaft entfernen. Rechnungsdaten bleiben
+        aufgrund gesetzlicher Aufbewahrungspflichten bis zu zehn Jahre gespeichert und werden
+        dabei gesperrt.</p>
+    </div>
+    <button class="btn btn-outline btn-sm" type="button" id="btn-loeschen">Konto l&ouml;schen</button>
+  </div>
+
+  <!-- ---------- ZUGRIFFE ---------- -->
+  <h2>Wer hat auf Ihr Profil zugegriffen?</h2>
+  <p>Jeder Zugriff auf personenbezogene Daten wird erfasst. Unternehmen sehen nur Profile,
+    f&uuml;r die eine Freigabe oder eine offene Anfrage vorliegt.</p>
+  <div class="tbl-wrap mb32">
+    <table class="tbl">
+      <thead><tr><th>Zeitpunkt</th><th>Zugreifende Stelle</th><th>Anlass</th><th>Umfang</th></tr></thead>
+      <tbody>
+        <tr><td>heute, 09:41</td><td>Musterklinikum Berlin</td><td>offene Stelle Intensivpflege</td><td><span class="tag tag-teal">pseudonymisiert</span></td></tr>
+        <tr><td>gestern, 16:02</td><td>Musterbau AG</td><td>Interviewvorbereitung</td><td><span class="tag tag-gold">nach Freigabe</span></td></tr>
+        <tr><td>gestern, 11:18</td><td>Standard Plus Support</td><td>Ticket 4821, auf Ihre Anfrage</td><td><span class="tag">Stammdaten</span></td></tr>
+        <tr><td>vor 3 Tagen, 08:55</td><td>TechCorp GmbH</td><td>Suchtreffer</td><td><span class="tag tag-teal">pseudonymisiert</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ---------- GERAETE ---------- -->
+  <h2>Angemeldete Ger&auml;te</h2>
+  <div class="tbl-wrap mb16">
+    <table class="tbl">
+      <thead><tr><th>Ger&auml;t</th><th>Ort</th><th>Letzte Aktivit&auml;t</th><th></th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="flex ai-c g8"><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-monitor"></use></svg>Dieses Ger&auml;t</span></td>
+          <td>Deutschland</td><td>jetzt</td>
+          <td><span class="tag tag-ok">aktiv</span></td>
+        </tr>
+        <tr>
+          <td><span class="flex ai-c g8"><svg class="ic ic-sm ic-muted" aria-hidden="true"><use href="#i-monitor"></use></svg>B&uuml;ro-Rechner</span></td>
+          <td>Deutschland</td><td>vor 2 Tagen</td>
+          <td><button class="btn btn-outline btn-sm" type="button" data-abmelden="B&uuml;ro-Rechner">Abmelden</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted mb32">Erkennen Sie ein Ger&auml;t nicht wieder? Melden Sie es ab,
+    &auml;ndern Sie Ihr Passwort und informieren Sie [security@ihre-domain.de].</p>
+
+  <!-- ---------- PROTOKOLL ---------- -->
+  <h2>Protokoll dieser Sitzung</h2>
+  <p>Alle Aktionen, die in dieser Sitzung ausgef&uuml;hrt wurden. Die Aufzeichnung bleibt
+    ausschlie&szlig;lich in Ihrem Browser und wird beim Schlie&szlig;en gel&ouml;scht.</p>
+  <div class="log mb16" id="protokoll">Noch keine Eintr&auml;ge.</div>
+  <div class="flex wrapf g10 mb32">
+    <button class="btn btn-outline btn-sm" type="button" id="btn-log-neu">
+      <svg class="ic ic-sm" aria-hidden="true"><use href="#i-refresh"></use></svg>Aktualisieren</button>
+    <button class="btn btn-outline btn-sm" type="button" id="btn-log-export">
+      <svg class="ic ic-sm" aria-hidden="true"><use href="#i-download"></use></svg>Protokoll herunterladen</button>
+  </div>
+
+  <div class="notice notice-info">
+    <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+    <span>Bei Fragen erreichen Sie unsere datenschutzbeauftragte Person unter
+      [datenschutz@ihre-domain.de]. Ihr Beschwerderecht bei der Aufsichtsbeh&ouml;rde bleibt
+      davon unber&uuml;hrt.</span>
+  </div>
+</main>
+
+<!-- ---------- BESTAETIGUNG LOESCHUNG ---------- -->
+<div class="modal" id="modal-loeschen" role="alertdialog" aria-labelledby="ml-h" aria-modal="true">
+  <div class="modal-box">
+    <h2 id="ml-h"><svg class="ic ic-lg ic-err" aria-hidden="true"><use href="#i-alert"></use></svg>Konto wirklich l&ouml;schen?</h2>
+    <p>Ihr Profil, Ihre Nachrichten und alle Freigaben werden unwiderruflich entfernt.
+      Laufende Vermittlungen werden abgebrochen. Rechnungsdaten bleiben gesperrt bis zum
+      Ablauf der gesetzlichen Aufbewahrungsfrist gespeichert.</p>
+    <div class="field mt20">
+      <label for="bestaetigung">Zur Best&auml;tigung <b>LOESCHEN</b> eingeben</label>
+      <div class="inp-wrap">
+        <svg class="ic" aria-hidden="true"><use href="#i-key"></use></svg>
+        <input class="inp" type="text" id="bestaetigung" autocomplete="off" maxlength="20"/>
+      </div>
+    </div>
+    <div class="flex g10 mt20">
+      <button class="btn btn-danger f1" type="button" id="loeschen-ok" disabled>Endg&uuml;ltig l&ouml;schen</button>
+      <button class="btn btn-outline f1" type="button" id="loeschen-ab">Abbrechen</button>
+    </div>
+  </div>
+</div>
+
+<footer class="sp-foot">
+  <div class="wrap">
+    <div class="foot-bot">
+      <span>&copy; 2026 Standard Plus. Alle Rechte vorbehalten.</span>
+      <span class="foot-seal">
+        <a class="seal" href="standardplus-dashboard.html"><svg class="ic" aria-hidden="true"><use href="#i-grid"></use></svg>Dashboard</a>
+        <a class="seal" href="standardplus-datenschutz.html"><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>Datenschutz</a>
+        <a class="seal" href="standardplus-sicherheit.html"><svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg>Sicherheit</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/sp-icons.js?v=20260929153130"></script>
+<script src="assets/sp-app.js?v=20260929153130"></script>
+<script src="assets/sp-db.js?v=20260929153130"></script>
+<script src="assets/sp-center.js?v=20260929153130"></script>
+<script src="assets/sp-effekte.js?v=20260929153130"></script>
+</body>
+</html>

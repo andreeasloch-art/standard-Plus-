@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0a8086"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Standard Plus"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<link rel="apple-touch-icon" href="../assets/app/apple-touch-icon.png"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<!-- Hinweis: frame-ancestors, HSTS, X-Content-Type-Options und Permissions-Policy
+     wirken nur als HTTP-Kopfzeilen. Sie stehen in assets/security-headers.conf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Dashboard – Standard Plus</title>
+<link rel="stylesheet" href="../assets/sp-theme.css?v=20260929153130"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a9296'/%3E%3Cpath d='M9 10l6 6-6 6M18 10l6 6-6 6' stroke='%23ffd84d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
+<link rel="alternate" hreflang="de" href="../standardplus-dashboard.html"/>
+<link rel="alternate" hreflang="en" href="standardplus-dashboard.html"/>
+<link rel="alternate" hreflang="ro" href="../ro/standardplus-dashboard.html"/>
+</head>
+<body data-protected>
+<a class="sp-skip" href="#main">Skip to content</a>
+<div class="app">
+
+<!-- ================= SIDEBAR ================= -->
+<aside class="side">
+  <div class="side-top">
+    <a class="sp-logo on-dark" href="standardplus-main.html">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Recruitment</span>
+    </a>
+  </div>
+
+  <nav class="side-nav" aria-label="Main menu">
+    <p class="side-t">Workspace</p>
+    <a class="side-i" href="standardplus-dashboard.html" data-nav>
+      <svg class="ic" aria-hidden="true"><use href="#i-grid"></use></svg>Dashboard</a>
+    <a class="side-i" href="standardplus-profil.html" data-nav>
+      <svg class="ic" aria-hidden="true"><use href="#i-user"></use></svg>My profile</a>
+    <a class="side-i" href="standardplus-talente.html" data-nav>
+      <svg class="ic" aria-hidden="true"><use href="#i-target"></use></svg><span id="side-suchen">Find talent</span><span class="side-c" id="c-talente">0</span></a>
+    <a class="side-i" href="standardplus-unternehmen.html" data-nav>
+      <svg class="ic" aria-hidden="true"><use href="#i-building"></use></svg>Companies</a>
+    <a class="side-i" href="standardplus-suche.html" data-nav>
+      <svg class="ic" aria-hidden="true"><use href="#i-search"></use></svg>Free-text search</a>
+
+    <p class="side-t">Processes</p>
+    <a class="side-i" href="standardplus-profil.html#anfragen">
+      <svg class="ic" aria-hidden="true"><use href="#i-list"></use></svg>Anfragen und Vorgänge</a>
+    <a class="side-i" href="standardplus-interview.html" data-nav>
+      <svg class="ic" aria-hidden="true"><use href="#i-video"></use></svg>Interviews</a>
+    <a class="side-i" href="standardplus-dolmetscher.html" data-nav>
+      <svg class="ic" aria-hidden="true"><use href="#i-translate"></use></svg>Interpreter</a>
+    <a class="side-i" href="standardplus-transport.html" data-nav>
+      <svg class="ic" aria-hidden="true"><use href="#i-bus"></use></svg>Travel</a>
+
+    <p class="side-t">Tools</p>
+    <a class="side-i" href="standardplus-musterprofile.html">
+      <svg class="ic" aria-hidden="true"><use href="#i-portrait"></use></svg>Sample profiles</a>
+
+    <p class="side-t">Privacy</p>
+    <a class="side-i" href="standardplus-datenschutz-center.html" data-nav>
+      <svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>Privacy centre</a>
+    <a class="side-i" href="standardplus-sicherheit.html" data-nav>
+      <svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg>Security</a>
+    <a class="side-i" href="standardplus-datenschutz.html">
+      <svg class="ic" aria-hidden="true"><use href="#i-doc"></use></svg>Privacy policy</a>
+  </nav>
+
+  <div class="side-bot">
+    <a class="side-user" href="standardplus-datenschutz-center.html">
+      <span class="ava ava-sm gold"><span data-initials>MG</span></span>
+      <span class="grow">
+        <strong data-org>Musterfirma GmbH</strong> <span data-user>Signed in</span>
+      </span>
+      <svg class="ic ic-sm" aria-hidden="true"><use href="#i-chevrondown"></use></svg>
+    </a>
+    <button class="side-i w100 mt8" type="button" data-logout>
+      <svg class="ic" aria-hidden="true"><use href="#i-logout"></use></svg>Sign out</button>
+  </div>
+</aside>
+
+<!-- ================= HAUPTBEREICH ================= -->
+<div class="main">
+
+  <div class="topbar">
+    <div class="flex ai-c g12">
+      <button class="iconbtn side-toggle" type="button" aria-label="Show or hide menu">
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+      <div>
+        <h1>Good day, <span data-user>welcome</span></h1>
+        <p id="topline">Overview of your ongoing placements</p>
+      </div>
+    </div>
+    <div class="flex ai-c g10">
+      <div class="searchbox">
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-search"></use></svg>
+        <label class="hp" for="suche">Search</label>
+        <input id="suche" type="search" placeholder="Profiles, jobs, contracts" maxlength="80"/>
+      </div>
+      <button class="iconbtn" type="button" data-consent aria-label="Privacy settings">
+        <svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>
+      </button>
+      <button class="iconbtn" type="button" id="btn-bell" aria-label="Notifications">
+        <svg class="ic" aria-hidden="true"><use href="#i-bell"></use></svg><span class="dot"></span>
+      </button>
+    </div>
+  </div>
+
+  <main class="page" id="main">
+
+    <!-- ---------- KENNZAHLEN ---------- -->
+    <div class="grid g4 mb24">
+      <article class="kpi">
+        <div class="kpi-top">
+          <span class="kpi-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-target"></use></svg></span>
+        </div>
+        <p class="kpi-v" id="kpi-profile">0</p>
+        <p class="kpi-l">Profiles in the database</p>
+      </article>
+      <article class="kpi">
+        <div class="kpi-top">
+          <span class="kpi-ic ok"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-verified"></use></svg></span>
+        </div>
+        <p class="kpi-v" id="kpi-freigaben">0</p>
+        <p class="kpi-l">Mutual approvals</p>
+      </article>
+      <article class="kpi">
+        <div class="kpi-top">
+          <span class="kpi-ic gold"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-video"></use></svg></span>
+        </div>
+        <p class="kpi-v" id="kpi-offen">0</p>
+        <p class="kpi-l">Open requests</p>
+      </article>
+      <article class="kpi">
+        <div class="kpi-top">
+          <span class="kpi-ic slate"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-euro"></use></svg></span>
+        </div>
+        <p class="kpi-v" id="kpi-stellen">0</p>
+        <p class="kpi-l">Own open positions</p>
+      </article>
+    </div>
+
+    <!-- ---------- ANREISE ----------
+         Erscheint erst, wenn eine Zusammenarbeit beidseitig freigegeben ist. -->
+    <section class="card mb20" id="anreise-karte" hidden>
+      <div class="card-head">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-bus"></use></svg>
+          <span id="anreise-titel">Your journey</span></h3>
+        <a class="card-link" href="standardplus-transport.html">View all routes
+          <svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg></a>
+      </div>
+      <div class="card-body" id="anreise-inhalt"></div>
+    </section>
+
+    <!-- ---------- VORSCHLAEGE + AKTIVITAET ---------- -->
+    <div class="g-side mb20">
+      <section class="card">
+        <div class="card-head">
+          <h3><svg class="ic" aria-hidden="true"><use href="#i-target"></use></svg><span id="vorschlag-titel">Matching profiles</span></h3>
+          <a class="card-link" id="vorschlag-alle" href="standardplus-talente.html">View all
+            <svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg></a>
+        </div>
+        <div class="card-body" id="match-list">
+
+          <p class="hint mt16"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-lock"></use></svg>
+            Full names and contact details are only shown after mutual approval. Your selection is logged and can be viewed in the privacy centre.</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h3><svg class="ic" aria-hidden="true"><use href="#i-clock"></use></svg>Activity</h3>
+        </div>
+        <div class="card-body" id="aktivitaeten"></div>
+      </section>
+    </div>
+
+    <!-- ---------- DATENSCHUTZ-STATUS ---------- -->
+    <section class="card mb20">
+      <div class="card-head">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>Privacy and security status</h3>
+        <a class="card-link" href="standardplus-datenschutz-center.html">Go to privacy centre
+          <svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg></a>
+      </div>
+      <div class="card-body">
+        <div class="grid g4">
+          <div class="flex g12 ai-s">
+            <svg class="ic ic-lg ic-ok" aria-hidden="true"><use href="#i-fingerprint"></use></svg>
+            <div><strong class="small">Two-factor active</strong>
+              <p class="tiny muted" id="ds-2fa">Loading</p></div>
+          </div>
+          <div class="flex g12 ai-s">
+            <svg class="ic ic-lg ic-ok" aria-hidden="true"><use href="#i-trash"></use></svg>
+            <div><strong class="small">Deletion periods running</strong>
+              <p class="tiny muted">Declined requests after 30 days, application data six months after completion.</p></div>
+          </div>
+          <div class="flex g12 ai-s">
+            <svg class="ic ic-lg ic-teal" aria-hidden="true"><use href="#i-eye"></use></svg>
+            <div><strong class="small">Access logged</strong>
+              <p class="tiny muted" id="ds-zugriffe">Loading</p></div>
+          </div>
+          <div class="flex g12 ai-s">
+            <svg class="ic ic-lg" aria-hidden="true"><use href="#i-alert"></use></svg>
+            <div><strong class="small" id="ds-offen">Requests</strong>
+              <p class="tiny muted" id="ds-offen-text">Loading</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- PIPELINE ---------- -->
+    <section class="card mb20">
+      <div class="card-head">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-list"></use></svg>Hiring pipeline</h3>
+        <a class="card-link" href="standardplus-profil.html#anfragen">Manage
+          <svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg></a>
+      </div>
+      <div class="card-body">
+        <div class="pipe">
+          <div>
+            <div class="pipe-h a"><span>New</span><b>8</b></div>
+            <article class="pcard"><b>Maria K.</b><span>Nurse · Hungary</span>
+              <div class="pcard-f"><span class="tag tag-teal"><span class="cc">DE</span>Target</span><span class="tiny muted">today</span></div></article>
+            <article class="pcard"><b>Stefan I.</b><span>Electrician · Romania</span>
+              <div class="pcard-f"><span class="tag tag-teal"><span class="cc">AT</span>Target</span><span class="tiny muted">today</span></div></article>
+          </div>
+          <div>
+            <div class="pipe-h b"><span>Review</span><b>5</b></div>
+            <article class="pcard"><b>Jana N.</b><span>Accounting · Czechia</span>
+              <div class="pcard-f"><span class="tag tag-teal"><span class="cc">DE</span>Target</span><span class="tiny muted">Monday</span></div></article>
+            <article class="pcard"><b>Luca E.</b><span>Electrical · Italy</span>
+              <div class="pcard-f"><span class="tag tag-gold"><span class="cc">CH</span>Target</span><span class="tiny muted">Tuesday</span></div></article>
+          </div>
+          <div>
+            <div class="pipe-h c"><span>Interview</span><b>4</b></div>
+            <article class="pcard"><b>Andreea M.</b><span>Kitchen · Romania</span>
+              <div class="pcard-f"><span class="tag tag-teal"><span class="cc">AT</span>Target</span><span class="tiny muted">tomorrow</span></div></article>
+            <article class="pcard"><b>Piotr W.</b><span>Development · Poland</span>
+              <div class="pcard-f"><span class="tag">Remote</span><span class="tiny muted">Wednesday</span></div></article>
+          </div>
+          <div>
+            <div class="pipe-h d"><span>Offer</span><b>3</b></div>
+            <article class="pcard"><b>Ion T.</b><span>Site management · Romania</span>
+              <div class="pcard-f"><span class="tag tag-teal"><span class="cc">DE</span>Target</span><span class="tiny muted">Thursday</span></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- BRANCHEN + SCHNELLAKTIONEN ---------- -->
+    <div class="grid g2">
+      <section class="card">
+        <div class="card-head">
+          <h3><svg class="ic" aria-hidden="true"><use href="#i-chart"></use></svg>Placements by sector</h3>
+          <a class="card-link" href="standardplus-talente.html">Alle Profile
+          <svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg></a>
+        </div>
+        <div class="card-body">
+          <div class="bar">
+            <div class="bar-h"><span class="flex g8 ai-c"><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-health"></use></svg>Healthcare and nursing</span><b>38&nbsp;%</b></div>
+            <div class="bar-t"><div class="bar-f pct-38"></div></div>
+          </div>
+          <div class="bar">
+            <div class="bar-h"><span class="flex g8 ai-c"><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-helmet"></use></svg>Construction and trades</span><b>24&nbsp;%</b></div>
+            <div class="bar-t"><div class="bar-f gold pct-24"></div></div>
+          </div>
+          <div class="bar">
+            <div class="bar-h"><span class="flex g8 ai-c"><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-code"></use></svg>IT and technology</span><b>19&nbsp;%</b></div>
+            <div class="bar-t"><div class="bar-f deep pct-19"></div></div>
+          </div>
+          <div class="bar">
+            <div class="bar-h"><span class="flex g8 ai-c"><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-truck"></use></svg>Logistics</span><b>12&nbsp;%</b></div>
+            <div class="bar-t"><div class="bar-f gold pct-12"></div></div>
+          </div>
+          <div class="bar mb0">
+            <div class="bar-h"><span class="flex g8 ai-c"><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-utensils"></use></svg>Hospitality</span><b>7&nbsp;%</b></div>
+            <div class="bar-t"><div class="bar-f pct-7"></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h3><svg class="ic" aria-hidden="true"><use href="#i-bolt"></use></svg>Quick actions</h3>
+        </div>
+        <div class="card-body">
+          <div class="qa">
+            <a href="standardplus-profil.html#stellen-liste">
+              <svg class="ic ic-lg" aria-hidden="true"><use href="#i-plus"></use></svg>
+              <span><strong>Post a job</strong><span>Create a new vacancy</span></span></a>
+            <a href="standardplus-talente.html"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-search"></use></svg>
+                <span><strong>Search profiles</strong><span>Filters and suggestions</span></span></a>
+            <a href="standardplus-interview.html"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-video"></use></svg>
+                <span><strong>Start interview</strong><span>With live translation</span></span></a>
+            <a href="standardplus-dolmetscher.html">
+              <svg class="ic ic-lg" aria-hidden="true"><use href="#i-translate"></use></svg>
+              <span><strong>Live-Dolmetscher</strong><span>Gespräch übersetzen</span></span></a>
+            <a href="standardplus-transport.html">
+              <svg class="ic ic-lg" aria-hidden="true"><use href="#i-bus"></use></svg>
+              <span><strong>Book travel</strong><span>Coordinate transport</span></span></a>
+            <a href="standardplus-datenschutz-center.html"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-download"></use></svg>
+                <span><strong>Export data</strong><span>Access under Art. 15</span></span></a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <p class="tiny muted t-c mt32">
+      <a class="u" href="standardplus-datenschutz.html">Privacy</a> · <a class="u" href="standardplus-sicherheit.html">Security</a> · <a class="u" href="standardplus-impressum.html">Legal notice</a> · <a class="u" href="standardplus-agb.html">Terms</a> · <a class="u" href="#" data-consent>Cookie settings</a>
+    </p>
+  </main>
+</div>
+</div>
+
+<script src="../assets/sp-i18n-en.js?v=20260929153130"></script>
+<script src="../assets/sp-icons.js?v=20260929153130"></script>
+<script src="../assets/sp-app.js?v=20260929153130"></script>
+<script src="../assets/sp-db.js?v=20260929153130"></script>
+<script src="../assets/sp-reiseplan.js?v=20260929153130"></script>
+<script src="../assets/sp-suche.js?v=20260929153130"></script>
+<script src="../assets/sp-vokabular.js?v=20260929153130"></script>
+<script src="../assets/sp-dashboard.js?v=20260929153130"></script>
+<script src="../assets/sp-effekte.js?v=20260929153130"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+services:
+  dolmetscher:
+    build: .
+    restart: unless-stopped
+    # Nur an localhost binden. Nach aussen geht es ueber den Webserver
+    # davor (siehe nginx-dolmetscher.conf) - der bringt HTTPS mit.
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - ./modelle:/modelle
+    environment:
+      SP_WHISPER: large-v3
+      SP_GERAET: cuda            # ohne Grafikkarte: cpu
+      SP_RECHENTYP: float16      # auf CPU: int8
+      SP_UEBERSETZER: facebook/nllb-200-distilled-600M
+      SP_STIMMEN: /modelle/stimmen
+      SP_STILLE_MS: "900"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0a8086"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Standard Plus"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<link rel="apple-touch-icon" href="../assets/app/apple-touch-icon.png"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<!-- Hinweis: frame-ancestors, HSTS, X-Content-Type-Options und Permissions-Policy
+     wirken nur als HTTP-Kopfzeilen. Sie stehen in assets/security-headers.conf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Panou – Standard Plus</title>
+<link rel="stylesheet" href="../assets/sp-theme.css?v=20260929153130"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a9296'/%3E%3Cpath d='M9 10l6 6-6 6M18 10l6 6-6 6' stroke='%23ffd84d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
+<link rel="alternate" hreflang="de" href="../standardplus-dashboard.html"/>
+<link rel="alternate" hreflang="en" href="../en/standardplus-dashboard.html"/>
+<link rel="alternate" hreflang="ro" href="standardplus-dashboard.html"/>
+</head>
+<body data-protected>
+<a class="sp-skip" href="#main">Salt la conținut</a>
+<div class="app">
+
+<!-- ================= SIDEBAR ================= -->
+<aside class="side">
+  <div class="side-top">
+    <a class="sp-logo on-dark" href="standardplus-main.html">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Recrutare de personal</span>
+    </a>
+  </div>
+
+  <nav class="side-nav" aria-label="Meniu principal">
+    <p class="side-t">Spațiu de lucru</p>
+    <a class="side-i" href="standardplus-dashboard.html" data-nav>
+      <svg class="ic" aria-hidden="true"><use href="#i-grid"></use></svg>Panou</a>
+    <a class="side-i" href="standardplus-profil.html" data-nav>
+      <svg class="ic" aria-hidden="true"><use href="#i-user"></use></svg>Profilul meu</a>
+    <a class="side-i" href="standardplus-talente.html" data-nav>
+      <svg class="ic" aria-hidden="true"><use href="#i-target"></use></svg><span id="side-suchen">Caută talente</span><span class="side-c" id="c-talente">0</span></a>
+    <a class="side-i" href="standardplus-unternehmen.html" data-nav>
+      <svg class="ic" aria-hidden="true"><use href="#i-building"></use></svg>Companii</a>
+    <a class="side-i" href="standardplus-suche.html" data-nav>
+      <svg class="ic" aria-hidden="true"><use href="#i-search"></use></svg>Căutare liberă</a>
+
+    <p class="side-t">Procese</p>
+    <a class="side-i" href="standardplus-profil.html#anfragen">
+      <svg class="ic" aria-hidden="true"><use href="#i-list"></use></svg>Anfragen und Vorgänge</a>
+    <a class="side-i" href="standardplus-interview.html" data-nav>
+      <svg class="ic" aria-hidden="true"><use href="#i-video"></use></svg>Interviuri</a>
+    <a class="side-i" href="standardplus-dolmetscher.html" data-nav>
+      <svg class="ic" aria-hidden="true"><use href="#i-translate"></use></svg>Interpret</a>
+    <a class="side-i" href="standardplus-transport.html" data-nav>
+      <svg class="ic" aria-hidden="true"><use href="#i-bus"></use></svg>Călătorie</a>
+
+    <p class="side-t">Instrumente</p>
+    <a class="side-i" href="standardplus-musterprofile.html">
+      <svg class="ic" aria-hidden="true"><use href="#i-portrait"></use></svg>Profiluri exemplu</a>
+
+    <p class="side-t">Confidențialitate</p>
+    <a class="side-i" href="standardplus-datenschutz-center.html" data-nav>
+      <svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>Centrul de confidențialitate</a>
+    <a class="side-i" href="standardplus-sicherheit.html" data-nav>
+      <svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg>Securitate</a>
+    <a class="side-i" href="standardplus-datenschutz.html">
+      <svg class="ic" aria-hidden="true"><use href="#i-doc"></use></svg>Politica de confidențialitate</a>
+  </nav>
+
+  <div class="side-bot">
+    <a class="side-user" href="standardplus-datenschutz-center.html">
+      <span class="ava ava-sm gold"><span data-initials>MG</span></span>
+      <span class="grow">
+        <strong data-org>Musterfirma GmbH</strong> <span data-user>Autentificat</span>
+      </span>
+      <svg class="ic ic-sm" aria-hidden="true"><use href="#i-chevrondown"></use></svg>
+    </a>
+    <button class="side-i w100 mt8" type="button" data-logout>
+      <svg class="ic" aria-hidden="true"><use href="#i-logout"></use></svg>Deconectare</button>
+  </div>
+</aside>
+
+<!-- ================= HAUPTBEREICH ================= -->
+<div class="main">
+
+  <div class="topbar">
+    <div class="flex ai-c g12">
+      <button class="iconbtn side-toggle" type="button" aria-label="Afișează sau ascunde meniul">
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+      <div>
+        <h1>Bună ziua, <span data-user>bun venit</span></h1>
+        <p id="topline">Prezentarea plasărilor în curs</p>
+      </div>
+    </div>
+    <div class="flex ai-c g10">
+      <div class="searchbox">
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-search"></use></svg>
+        <label class="hp" for="suche">Căutare</label>
+        <input id="suche" type="search" placeholder="Profiluri, posturi, contracte" maxlength="80"/>
+      </div>
+      <button class="iconbtn" type="button" data-consent aria-label="Setări de confidențialitate">
+        <svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>
+      </button>
+      <button class="iconbtn" type="button" id="btn-bell" aria-label="Notificări">
+        <svg class="ic" aria-hidden="true"><use href="#i-bell"></use></svg><span class="dot"></span>
+      </button>
+    </div>
+  </div>
+
+  <main class="page" id="main">
+
+    <!-- ---------- KENNZAHLEN ---------- -->
+    <div class="grid g4 mb24">
+      <article class="kpi">
+        <div class="kpi-top">
+          <span class="kpi-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-target"></use></svg></span>
+        </div>
+        <p class="kpi-v" id="kpi-profile">0</p>
+        <p class="kpi-l">Profiluri în baza de date</p>
+      </article>
+      <article class="kpi">
+        <div class="kpi-top">
+          <span class="kpi-ic ok"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-verified"></use></svg></span>
+        </div>
+        <p class="kpi-v" id="kpi-freigaben">0</p>
+        <p class="kpi-l">Aprobări reciproce</p>
+      </article>
+      <article class="kpi">
+        <div class="kpi-top">
+          <span class="kpi-ic gold"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-video"></use></svg></span>
+        </div>
+        <p class="kpi-v" id="kpi-offen">0</p>
+        <p class="kpi-l">Cereri deschise</p>
+      </article>
+      <article class="kpi">
+        <div class="kpi-top">
+          <span class="kpi-ic slate"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-euro"></use></svg></span>
+        </div>
+        <p class="kpi-v" id="kpi-stellen">0</p>
+        <p class="kpi-l">Posturi proprii deschise</p>
+      </article>
+    </div>
+
+    <!-- ---------- ANREISE ----------
+         Erscheint erst, wenn eine Zusammenarbeit beidseitig freigegeben ist. -->
+    <section class="card mb20" id="anreise-karte" hidden>
+      <div class="card-head">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-bus"></use></svg>
+          <span id="anreise-titel">Călătoria dumneavoastră</span></h3>
+        <a class="card-link" href="standardplus-transport.html">Vezi toate cursele
+          <svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg></a>
+      </div>
+      <div class="card-body" id="anreise-inhalt"></div>
+    </section>
+
+    <!-- ---------- VORSCHLAEGE + AKTIVITAET ---------- -->
+    <div class="g-side mb20">
+      <section class="card">
+        <div class="card-head">
+          <h3><svg class="ic" aria-hidden="true"><use href="#i-target"></use></svg><span id="vorschlag-titel">Profiluri potrivite</span></h3>
+          <a class="card-link" id="vorschlag-alle" href="standardplus-talente.html">Vezi toate
+            <svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg></a>
+        </div>
+        <div class="card-body" id="match-list">
+
+          <p class="hint mt16"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-lock"></use></svg>
+            Numele complete și datele de contact sunt afișate doar după aprobarea reciprocă. Selecția dumneavoastră este înregistrată și poate fi consultată în centrul de confidențialitate.</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h3><svg class="ic" aria-hidden="true"><use href="#i-clock"></use></svg>Activitate</h3>
+        </div>
+        <div class="card-body" id="aktivitaeten"></div>
+      </section>
+    </div>
+
+    <!-- ---------- DATENSCHUTZ-STATUS ---------- -->
+    <section class="card mb20">
+      <div class="card-head">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>Stare confidențialitate și securitate</h3>
+        <a class="card-link" href="standardplus-datenschutz-center.html">Spre centrul de confidențialitate
+          <svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg></a>
+      </div>
+      <div class="card-body">
+        <div class="grid g4">
+          <div class="flex g12 ai-s">
+            <svg class="ic ic-lg ic-ok" aria-hidden="true"><use href="#i-fingerprint"></use></svg>
+            <div><strong class="small">Autentificare în doi pași activă</strong>
+              <p class="tiny muted" id="ds-2fa">Se încarcă</p></div>
+          </div>
+          <div class="flex g12 ai-s">
+            <svg class="ic ic-lg ic-ok" aria-hidden="true"><use href="#i-trash"></use></svg>
+            <div><strong class="small">Termene de ștergere active</strong>
+              <p class="tiny muted">Cererile respinse după 30 de zile, datele candidaturilor la șase luni după încheiere.</p></div>
+          </div>
+          <div class="flex g12 ai-s">
+            <svg class="ic ic-lg ic-teal" aria-hidden="true"><use href="#i-eye"></use></svg>
+            <div><strong class="small">Accesări înregistrate</strong>
+              <p class="tiny muted" id="ds-zugriffe">Se încarcă</p></div>
+          </div>
+          <div class="flex g12 ai-s">
+            <svg class="ic ic-lg" aria-hidden="true"><use href="#i-alert"></use></svg>
+            <div><strong class="small" id="ds-offen">Cereri</strong>
+              <p class="tiny muted" id="ds-offen-text">Se încarcă</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- PIPELINE ---------- -->
+    <section class="card mb20">
+      <div class="card-head">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-list"></use></svg>Flux de ocupare a posturilor</h3>
+        <a class="card-link" href="standardplus-profil.html#anfragen">Gestionează
+          <svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg></a>
+      </div>
+      <div class="card-body">
+        <div class="pipe">
+          <div>
+            <div class="pipe-h a"><span>Nou</span><b>8</b></div>
+            <article class="pcard"><b>Maria K.</b><span>Asistentă medicală · Ungaria</span>
+              <div class="pcard-f"><span class="tag tag-teal"><span class="cc">DE</span>Termen</span><span class="tiny muted">azi</span></div></article>
+            <article class="pcard"><b>Stefan I.</b><span>Electrician · România</span>
+              <div class="pcard-f"><span class="tag tag-teal"><span class="cc">AT</span>Termen</span><span class="tiny muted">azi</span></div></article>
+          </div>
+          <div>
+            <div class="pipe-h b"><span>Verificare</span><b>5</b></div>
+            <article class="pcard"><b>Jana N.</b><span>Contabilitate · Cehia</span>
+              <div class="pcard-f"><span class="tag tag-teal"><span class="cc">DE</span>Termen</span><span class="tiny muted">Luni</span></div></article>
+            <article class="pcard"><b>Luca E.</b><span>Electrice · Italia</span>
+              <div class="pcard-f"><span class="tag tag-gold"><span class="cc">CH</span>Termen</span><span class="tiny muted">Marți</span></div></article>
+          </div>
+          <div>
+            <div class="pipe-h c"><span>Interviu</span><b>4</b></div>
+            <article class="pcard"><b>Andreea M.</b><span>Bucătărie · România</span>
+              <div class="pcard-f"><span class="tag tag-teal"><span class="cc">AT</span>Termen</span><span class="tiny muted">mâine</span></div></article>
+            <article class="pcard"><b>Piotr W.</b><span>Dezvoltare · Polonia</span>
+              <div class="pcard-f"><span class="tag">La distanță</span><span class="tiny muted">Miercuri</span></div></article>
+          </div>
+          <div>
+            <div class="pipe-h d"><span>Ofertă</span><b>3</b></div>
+            <article class="pcard"><b>Ion T.</b><span>Conducere șantier · România</span>
+              <div class="pcard-f"><span class="tag tag-teal"><span class="cc">DE</span>Termen</span><span class="tiny muted">Joi</span></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- BRANCHEN + SCHNELLAKTIONEN ---------- -->
+    <div class="grid g2">
+      <section class="card">
+        <div class="card-head">
+          <h3><svg class="ic" aria-hidden="true"><use href="#i-chart"></use></svg>Plasări pe domenii</h3>
+          <a class="card-link" href="standardplus-talente.html">Alle Profile
+          <svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg></a>
+        </div>
+        <div class="card-body">
+          <div class="bar">
+            <div class="bar-h"><span class="flex g8 ai-c"><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-health"></use></svg>Sănătate și îngrijire</span><b>38&nbsp;%</b></div>
+            <div class="bar-t"><div class="bar-f pct-38"></div></div>
+          </div>
+          <div class="bar">
+            <div class="bar-h"><span class="flex g8 ai-c"><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-helmet"></use></svg>Construcții și meserii</span><b>24&nbsp;%</b></div>
+            <div class="bar-t"><div class="bar-f gold pct-24"></div></div>
+          </div>
+          <div class="bar">
+            <div class="bar-h"><span class="flex g8 ai-c"><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-code"></use></svg>IT și tehnologie</span><b>19&nbsp;%</b></div>
+            <div class="bar-t"><div class="bar-f deep pct-19"></div></div>
+          </div>
+          <div class="bar">
+            <div class="bar-h"><span class="flex g8 ai-c"><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-truck"></use></svg>Logistică</span><b>12&nbsp;%</b></div>
+            <div class="bar-t"><div class="bar-f gold pct-12"></div></div>
+          </div>
+          <div class="bar mb0">
+            <div class="bar-h"><span class="flex g8 ai-c"><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-utensils"></use></svg>Gastronomie</span><b>7&nbsp;%</b></div>
+            <div class="bar-t"><div class="bar-f pct-7"></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h3><svg class="ic" aria-hidden="true"><use href="#i-bolt"></use></svg>Acțiuni rapide</h3>
+        </div>
+        <div class="card-body">
+          <div class="qa">
+            <a href="standardplus-profil.html#stellen-liste">
+              <svg class="ic ic-lg" aria-hidden="true"><use href="#i-plus"></use></svg>
+              <span><strong>Publică un post</strong><span>Creează un post vacant</span></span></a>
+            <a href="standardplus-talente.html"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-search"></use></svg>
+                <span><strong>Caută profiluri</strong><span>Filtre și sugestii</span></span></a>
+            <a href="standardplus-interview.html"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-video"></use></svg>
+                <span><strong>Pornește interviul</strong><span>Cu traducere live</span></span></a>
+            <a href="standardplus-dolmetscher.html">
+              <svg class="ic ic-lg" aria-hidden="true"><use href="#i-translate"></use></svg>
+              <span><strong>Live-Dolmetscher</strong><span>Gespräch übersetzen</span></span></a>
+            <a href="standardplus-transport.html">
+              <svg class="ic ic-lg" aria-hidden="true"><use href="#i-bus"></use></svg>
+              <span><strong>Rezervă călătoria</strong><span>Coordonează transportul</span></span></a>
+            <a href="standardplus-datenschutz-center.html"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-download"></use></svg>
+                <span><strong>Exportă datele</strong><span>Acces conform art. 15</span></span></a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <p class="tiny muted t-c mt32">
+      <a class="u" href="standardplus-datenschutz.html">Confidențialitate</a> · <a class="u" href="standardplus-sicherheit.html">Securitate</a> · <a class="u" href="standardplus-impressum.html">Date de identificare</a> · <a class="u" href="standardplus-agb.html">Termeni</a> · <a class="u" href="#" data-consent>Setări cookie-uri</a>
+    </p>
+  </main>
+</div>
+</div>
+
+<script src="../assets/sp-i18n-ro.js?v=20260929153130"></script>
+<script src="../assets/sp-icons.js?v=20260929153130"></script>
+<script src="../assets/sp-app.js?v=20260929153130"></script>
+<script src="../assets/sp-db.js?v=20260929153130"></script>
+<script src="../assets/sp-reiseplan.js?v=20260929153130"></script>
+<script src="../assets/sp-suche.js?v=20260929153130"></script>
+<script src="../assets/sp-vokabular.js?v=20260929153130"></script>
+<script src="../assets/sp-dashboard.js?v=20260929153130"></script>
+<script src="../assets/sp-effekte.js?v=20260929153130"></script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0a8086"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Standard Plus"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<link rel="apple-touch-icon" href="../assets/app/apple-touch-icon.png"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<!-- Hinweis: frame-ancestors, HSTS, X-Content-Type-Options und Permissions-Policy
+     wirken nur als HTTP-Kopfzeilen. Sie stehen in assets/security-headers.conf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'"/>
+<meta name="description" content="Măsurile de securitate Standard Plus: criptare, protecția accesului, jurnalizare, canale de raportare a vulnerabilităților."/>
+<title>Securitate – Standard Plus</title>
+<link rel="stylesheet" href="../assets/sp-theme.css?v=20260929153130"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a9296'/%3E%3Cpath d='M9 10l6 6-6 6M18 10l6 6-6 6' stroke='%23ffd84d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
+<link rel="alternate" hreflang="de" href="../standardplus-sicherheit.html"/>
+<link rel="alternate" hreflang="en" href="../en/standardplus-sicherheit.html"/>
+<link rel="alternate" hreflang="ro" href="standardplus-sicherheit.html"/>
+</head>
+<body>
+<a class="sp-skip" href="#main">Salt la conținut</a>
+
+<header class="sp-header">
+  <div class="sp-header-in">
+    <a class="sp-logo" href="standardplus-main.html">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Recrutare de personal</span>
+    </a>
+    <nav aria-label="Navigare principală">
+      <ul class="sp-nav">
+        <li><a href="standardplus-talente.html" data-nav>Angajați</a></li>
+        <li><a href="standardplus-unternehmen.html" data-nav>Companii</a></li>
+        <li><a href="standardplus-main.html#ablauf">Cum funcționează</a></li>
+        <li><a href="standardplus-preise.html" data-nav>Prețuri</a></li>
+      </ul>
+    </nav>
+    <div class="sp-header-act">
+      <a class="btn btn-primary btn-sm" href="standardplus-login.html" hidden data-anon>Autentificare</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-dashboard.html" hidden data-auth>Panou</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-profil.html" hidden data-auth>Profilul meu</a>
+      <button class="btn btn-outline btn-sm" type="button" data-logout hidden data-auth>
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-logout"></use></svg>Deconectare</button>
+      <button class="iconbtn sp-burger" type="button" aria-label="Deschide meniul" aria-expanded="false">
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero">
+  <svg class="hero-pattern" aria-hidden="true" preserveAspectRatio="none">
+    <defs><pattern id="dots3" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#ffffff"/></pattern></defs>
+    <rect width="100%" height="100%" fill="url(#dots3)"/>
+  </svg>
+  <div class="wrap">
+    <span class="eyebrow on-dark">
+      <svg class="ic ic-sm" aria-hidden="true"><use href="#i-shield"></use></svg>Securitate</span>
+    <h1 class="h1 t-white">Cum vă protejăm datele</h1>
+    <p class="lede t-w70 mt20">Această pagină descrie măsurile tehnice și organizatorice conform art. 32 GDPR – verificabil și fără promisiuni de marketing.</p>
+  </div>
+</section>
+
+<!-- ---------- UEBERBLICK ---------- -->
+<section class="sec">
+  <div class="wrap">
+    <div class="notice notice-info mb32">
+      <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+      <span><b>Onestitate înaintea sigiliilor:</b> Enumerăm aici doar măsurile implementate efectiv. Informațiile despre certificări precum ISO 27001 sau TISAX pot apărea doar când există un certificat valabil – altfel există riscul unor somații în baza dreptului concurenței.</span>
+    </div>
+
+    <h2 class="h2 mb24">Protecție la toate nivelurile</h2>
+    <div class="grid g3">
+
+      <article class="card card-pad">
+        <span class="feature-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-lock"></use></svg></span>
+        <h3 class="h3">Criptare</h3>
+        <ul class="list-check mt12">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>TLS 1.3 pentru fiecare conexiune, HTTP este redirecționat către HTTPS</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>HSTS cu durată lungă și subdomenii</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>AES-256 pentru baza de date, stocarea fișierelor și copiile de siguranță</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Gestionarea cheilor separată de date</li>
+        </ul>
+      </article>
+
+      <article class="card card-pad">
+        <span class="feature-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-fingerprint"></use></svg></span>
+        <h3 class="h3">Acces și identitate</h3>
+        <ul class="list-check mt12">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Autentificare în doi pași, obligatorie pentru conturile de companie</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Verificarea parolei conform recomandărilor BSI, stocare ca hash Argon2id</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Blocare după cinci încercări eșuate, timpi de așteptare progresivi</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Deconectare automată după 15 minute de inactivitate</li>
+        </ul>
+      </article>
+
+      <article class="card card-pad">
+        <span class="feature-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-users"></use></svg></span>
+        <h3 class="h3">Permisiuni</h3>
+        <ul class="list-check mt12">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Concept de roluri după principiul privilegiilor minime</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Datele de contact vizibile doar după aprobarea reciprocă</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Separarea clienților la nivelul bazei de date</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Acces al angajaților doar cu motiv și jurnal</li>
+        </ul>
+      </article>
+
+      <article class="card card-pad">
+        <span class="feature-ic gold"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-server"></use></svg></span>
+        <h3 class="h3">Operare și locație</h3>
+        <ul class="list-check mt12">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Centre de date exclusiv în UE</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Copie de siguranță zilnică, criptată, păstrare 30 de zile</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Restaurare testată cel puțin o dată la șase luni</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Contracte de prelucrare a datelor cu toți furnizorii de servicii</li>
+        </ul>
+      </article>
+
+      <article class="card card-pad">
+        <span class="feature-ic gold"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-eye"></use></svg></span>
+        <h3 class="h3">Jurnalizare</h3>
+        <ul class="list-check mt12">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Fiecare accesare a unui profil este înregistrată cu momentul și motivul</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Jurnalele pot fi consultate de persoanele vizate în cont</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Stocare protejată împotriva manipulării, separată de sistemul aplicației</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Alertă automată pentru tipare neobișnuite de acces</li>
+        </ul>
+      </article>
+
+      <article class="card card-pad">
+        <span class="feature-ic gold"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-code"></use></svg></span>
+        <h3 class="h3">Securitatea aplicației</h3>
+        <ul class="list-check mt12">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Content Security Policy strictă, fără <code>unsafe-inline</code></li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Afișare exclusiv ca text, deci nicio cale pentru XSS</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Token CSRF pentru fiecare cerere care modifică date</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Dependențele sunt verificate automat pentru vulnerabilități</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- CSP ERKLAERT ---------- -->
+<section class="sec sec-tint">
+  <div class="wrap g-1-1">
+    <div>
+      <span class="eyebrow"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>În detaliu</span>
+      <h2 class="h2">De ce acest site nu încarcă conținut extern</h2>
+      <p class="lede">Fiecare resursă externă inclusă este o posibilă cale de atac și transmite totodată adresa IP a vizitatorilor către terți. De aceea fonturile, pictogramele și scripturile se află pe propriul nostru server.</p>
+      <p class="small muted mt16">Regula nu este doar afirmată, ci impusă de browser: politica următoare interzice încărcarea surselor externe și blochează scripturile injectate în conținutul paginii.</p>
+    </div>
+    <div>
+      <div class="log">
+        <b>Content-Security-Policy:</b><br/> default-src 'self';<br/> script-src 'self';<br/> style-src 'self';<br/> img-src 'self' data:;<br/> connect-src 'self';<br/> form-action 'self';<br/> <br/> base-uri 'none';<br/> object-src 'none';
+      </div>
+      <p class="tiny muted mt12">Setate suplimentar ca antete HTTP: Strict-Transport-Security, X-Content-Type-Options, Referrer-Policy, Permissions-Policy și Cross-Origin-Opener-Policy. Configurația de server gata făcută este inclusă în aplicație.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- VORFALL UND MELDUNG ---------- -->
+<section class="sec">
+  <div class="wrap">
+    <div class="grid g2">
+      <article class="card card-pad">
+        <span class="feature-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-alert"></use></svg></span>
+        <h2 class="h3">Gestionarea incidentelor de securitate</h2>
+        <ol class="mt12">
+          <li class="small mb8"><b>Detectare:</b> monitorizare automată, semnalări externe, verificarea periodică a jurnalelor.</li>
+          <li class="small mb8"><b>Limitare:</b> blocarea accesului afectat, încheierea sesiunilor, schimbarea cheilor.</li>
+          <li class="small mb8"><b>Raportare:</b> dacă există un risc pentru persoanele vizate, notificarea autorității de supraveghere în 72 de ore (art. 33 GDPR); la risc ridicat, și informarea persoanelor vizate (art. 34 GDPR).</li>
+          <li class="small mb8"><b>Analiză ulterioară:</b> analiza cauzelor, măsuri, raport scris în registrul activităților de prelucrare.</li>
+        </ol>
+      </article>
+
+      <article class="card card-pad">
+        <span class="feature-ic gold"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-key"></use></svg></span>
+        <h2 class="h3">Ați găsit o vulnerabilitate?</h2>
+        <p class="small muted mt12">Ne bucurăm de semnalări și nu luăm măsuri legale atâta timp cât procedați responsabil:</p>
+        <ul class="list-check mt12">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>nu vizualizați, modificați sau publicați datele altor persoane</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>fără atacuri asupra disponibilității, fără testări în masă</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>90 de zile pentru remediere înainte de publicare</li>
+        </ul>
+        <p class="small mt16"><b>Contact:</b> [security@ihre-domain.de]<br/> <b>Amprentă PGP:</b> [introduceți aici]<br/> <b>Citibil automat:</b> <code>/.well-known/security.txt</code></p>
+        <p class="tiny muted mt12">Primul răspuns în două zile lucrătoare.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- OFFENE PUNKTE ---------- -->
+<section class="sec sec-teal nur-entwurf">
+  <div class="wrap">
+    <div class="center mb32">
+      <span class="eyebrow gold"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-list"></use></svg>Înainte de lansare</span>
+      <h2 class="h2">Ce trebuie încă implementat pe server</h2>
+      <p class="lede">Această aplicație este un prototip fără backend. Punctele următoare nu pot fi realizate în browser și trebuie neapărat implementate pe server.</p>
+    </div>
+    <div class="grid g2">
+      <div class="card card-pad">
+        <h3 class="h3 mb12">Tehnic</h3>
+        <ul class="list-check">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg>Livrarea antetelor de securitate prin serverul web (fișierul <code>assets/security-headers.conf</code> este inclus)</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg>Cookie-uri de sesiune cu <code>HttpOnly</code>, <code>Secure</code> și <code>SameSite=Strict</code></li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg>Limitarea numărului de cereri pe cont și adresă IP, verificare TOTP reală</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg>Validarea pe server a tuturor datelor introduse și a fișierelor încărcate</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg>Scanare antivirus a referințelor încărcate, stocare în afara directorului web</li>
+        </ul>
+      </div>
+      <div class="card card-pad">
+        <h3 class="h3 mb12">Organizatoric</h3>
+        <ul class="list-check">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg>Crearea registrului activităților de prelucrare (art. 30 GDPR)</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg>Evaluarea impactului asupra protecției datelor pentru potrivirea candidaților</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg>Contracte de prelucrare a datelor cu serviciul de găzduire și cel de traducere</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg>Verificarea autorizației conform Legii germane privind munca temporară, dacă este cazul</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg>Instruirea angajaților, angajament de confidențialitate</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2 class="h2 t-white">Întrebări despre protecția datelor?</h2>
+    <p class="lede t-w80 mx-auto mb32">Datele dumneavoastră, controlul dumneavoastră – consultabile și exportabile în centrul de confidențialitate.</p>
+    <div class="flex wrapf g12 jc-c">
+      <a class="btn btn-gold btn-lg" href="standardplus-datenschutz-center.html">Spre centrul de confidențialitate</a>
+      <a class="btn btn-onDark btn-lg" href="standardplus-datenschutz.html">Citește politica de confidențialitate</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="sp-foot">
+  <div class="wrap">
+    <div class="foot-bot">
+      <span>© 2026 Standard Plus. Toate drepturile rezervate.</span>
+      <span class="foot-seal">
+        <a class="seal" href="standardplus-main.html"><svg class="ic" aria-hidden="true"><use href="#i-bridge"></use></svg>Pagina principală</a>
+        <a class="seal" href="standardplus-datenschutz.html"><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>Confidențialitate</a>
+        <a class="seal" href="standardplus-impressum.html"><svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>Date de identificare</a>
+        <a class="seal" href="#" data-consent><svg class="ic" aria-hidden="true"><use href="#i-sliders"></use></svg>Cookie-uri</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/sp-i18n-ro.js?v=20260929153130"></script>
+<script src="../assets/sp-icons.js?v=20260929153130"></script>
+<script src="../assets/sp-app.js?v=20260929153130"></script>
+<script src="../assets/sp-effekte.js?v=20260929153130"></script>
+</body>
+</html>

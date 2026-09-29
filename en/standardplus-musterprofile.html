@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0a8086"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Standard Plus"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<link rel="apple-touch-icon" href="../assets/app/apple-touch-icon.png"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<!-- Hinweis: frame-ancestors, HSTS, X-Content-Type-Options und Permissions-Policy
+     wirken nur als HTTP-Kopfzeilen. Sie stehen in assets/security-headers.conf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Sample profiles – Standard Plus</title>
+<link rel="stylesheet" href="../assets/sp-theme.css?v=20260929153130"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a9296'/%3E%3Cpath d='M9 10l6 6-6 6M18 10l6 6-6 6' stroke='%23ffd84d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
+<link rel="alternate" hreflang="de" href="../standardplus-musterprofile.html"/>
+<link rel="alternate" hreflang="en" href="standardplus-musterprofile.html"/>
+<link rel="alternate" hreflang="ro" href="../ro/standardplus-musterprofile.html"/>
+</head>
+<body>
+<a class="sp-skip" href="#main">Skip to content</a>
+
+<header class="sp-header">
+  <div class="sp-header-in">
+    <a class="sp-logo" href="standardplus-main.html">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Recruitment</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="sp-nav">
+        <li><a href="standardplus-talente.html" data-nav>Workers</a></li>
+        <li><a href="standardplus-unternehmen.html" data-nav>Companies</a></li>
+        <li><a href="standardplus-main.html#ablauf">How it works</a></li>
+        <li><a href="standardplus-preise.html" data-nav>Pricing</a></li>
+      </ul>
+    </nav>
+    <div class="sp-header-act">
+      <a class="btn btn-primary btn-sm" href="standardplus-login.html" hidden data-anon>Sign in</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-dashboard.html" hidden data-auth>Dashboard</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-profil.html" hidden data-auth>My profile</a>
+      <button class="btn btn-outline btn-sm" type="button" data-logout hidden data-auth>
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-logout"></use></svg>Sign out</button>
+      <button class="iconbtn sp-burger" type="button" aria-label="Open menu" aria-expanded="false">
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  
+  </div>
+</header>
+
+<main id="main">
+<section class="sec-tight seitenkopf">
+  <div class="wrap">
+    <span class="eyebrow"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-eye"></use></svg>Sample profiles</span>
+    <h1 class="h2">This is what the profiles look like</h1>
+    <p class="lede">Here you can view both types of profile in full detail – without signing in and without approval. These are fictitious sample accounts; for real profiles, the graded visibility of course continues to apply.</p>
+  </div>
+</section>
+
+<section class="sec-tight">
+  <div class="wrap">
+    <div class="preis-split">
+
+      <!-- ---------- Arbeitnehmer ---------- -->
+      <article class="card preis-karte">
+        <div class="preis-kopf">
+          <span class="tag tag-teal mb12">Worker profile</span>
+          <h2 class="h2">Ion Tudose</h2>
+          <p class="small muted mt8">Foreman and site manager from Romania – a fully completed applicant profile.</p>
+        </div>
+
+        <p class="tiny fw7 t-teal mb8">WHAT THE PROFILE CONTAINS</p>
+        <ul class="list-check">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Name, age, nationality, origin and preferred country</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Occupation, sector, experience, salary expectation, availability</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Driving licence categories and willingness to relocate</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Language skills with levels A1 to C2</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Career history as a timeline</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>References, diplomas and certificates with verification note</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Ratings from previous employers</li>
+        </ul>
+
+        <a class="btn btn-primary btn-block btn-lg mt20"
+           href="standardplus-profil-ansicht.html?id=k-demo-1&amp;muster=1">
+          View full worker profile
+          <svg class="ic" aria-hidden="true"><use href="#i-arrowright"></use></svg></a>
+        <a class="btn btn-outline btn-block mt12"
+           href="standardplus-profil-ansicht.html?id=k-demo-1">
+          For comparison: restricted view</a>
+        <p class="tiny muted t-c mt12">Another example: <a class="t-teal u" href="standardplus-profil-ansicht.html?id=k-demo-0&amp;muster=1">Maria Kovács, registered nurse</a></p>
+      </article>
+
+      <!-- ---------- Arbeitgeber ---------- -->
+      <article class="card preis-karte card-dark">
+        <div class="preis-kopf">
+          <span class="tag tag-gold mb12">Employer profile</span>
+          <h2 class="h2 t-white">Musterbau AG</h2>
+          <p class="small t-w60 mt8">Construction company from Munich – a fully completed company profile.</p>
+        </div>
+
+        <p class="tiny fw7 t-gold mb8">WHAT THE PROFILE CONTAINS</p>
+        <ul class="list-check on-dark">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Company, legal form, sector, headquarters and year founded</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Size and all locations</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Contact person with position and contact details</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>What employees are offered: accommodation, language course, travel costs</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Open positions with pay</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Commercial register extract and temporary employment licence</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Ratings from former employees</li>
+        </ul>
+
+        <a class="btn btn-gold btn-block btn-lg mt20"
+           href="standardplus-profil-ansicht.html?id=k-demo-ag&amp;muster=1">
+          View full employer profile
+          <svg class="ic" aria-hidden="true"><use href="#i-arrowright"></use></svg></a>
+        <a class="btn btn-onDark btn-block mt12"
+           href="standardplus-profil-ansicht.html?id=k-demo-ag">
+          For comparison: restricted view</a>
+        <p class="tiny t-w50 t-c mt12">Another example: <a class="t-gold u" href="standardplus-profil-ansicht.html?id=k-demo-ag2&amp;muster=1">Musterklinikum Berlin</a></p>
+      </article>
+    </div>
+
+    <!-- ---------- Erklaerung der Stufen ---------- -->
+    <div class="card card-pad mt24">
+      <h2 class="h3 mb12 flex ai-c g8">
+        <svg class="ic ic-lg ic-teal" aria-hidden="true"><use href="#i-lock"></use></svg>
+        Who sees how much?
+      </h2>
+      <p class="small muted mb16">The same data, four levels. This is the core of the data protection concept: there is no way to contact details or documents except through mutual approval.</p>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Level</th><th>Who</th><th>Visible</th><th>Hidden</th></tr></thead>
+          <tbody>
+            <tr><td><b>Public</b></td><td>not signed in</td>
+              <td>Occupation, sector, region, experience</td>
+              <td>everything else</td></tr>
+            <tr><td><b>Restricted</b></td><td>signed in, no approval</td>
+              <td>everything professional, languages, career, ratings</td>
+              <td>Surname, contact details, names of former employers, document contents</td></tr>
+            <tr><td><b>Full view</b></td><td>mutual approval</td>
+              <td>everything, documents downloadable</td>
+              <td>nothing</td></tr>
+            <tr><td><b>Blocked</b></td><td>one side has blocked</td>
+              <td>nothing</td><td>everything</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="notice notice-warn mt24">
+      <svg class="ic" aria-hidden="true"><use href="#i-alert"></use></svg>
+      <span><b>For sample accounts only:</b> The sample view only works for the fictitious demo profiles. If the parameter is added to a real account, the normal graded visibility still applies – otherwise the protection would be worthless.</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="sp-foot">
+  <div class="wrap">
+    <div class="foot-bot">
+      <span>© 2026 Standard Plus. All rights reserved.</span>
+      <span class="foot-seal">
+        <a class="seal" href="standardplus-datenschutz.html"><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>Privacy</a>
+        <a class="seal" href="standardplus-sicherheit.html"><svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg>Security</a>
+        <a class="seal" href="standardplus-impressum.html"><svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>Legal notice</a>
+        <a class="seal" href="#" data-consent><svg class="ic" aria-hidden="true"><use href="#i-sliders"></use></svg>Cookies</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/sp-i18n-en.js?v=20260929153130"></script>
+<script src="../assets/sp-icons.js?v=20260929153130"></script>
+<script src="../assets/sp-app.js?v=20260929153130"></script>
+<script src="../assets/sp-db.js?v=20260929153130"></script>
+<script src="../assets/sp-effekte.js?v=20260929153130"></script>
+</body>
+</html>

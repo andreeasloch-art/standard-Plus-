@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0a8086"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Standard Plus"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<link rel="apple-touch-icon" href="../assets/app/apple-touch-icon.png"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<!-- Hinweis: frame-ancestors, HSTS, X-Content-Type-Options und Permissions-Policy
+     wirken nur als HTTP-Kopfzeilen. Sie stehen in assets/security-headers.conf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'"/>
+<meta name="description" content="Security measures at Standard Plus: encryption, access protection, logging, reporting channels for vulnerabilities."/>
+<title>Security – Standard Plus</title>
+<link rel="stylesheet" href="../assets/sp-theme.css?v=20260929153130"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a9296'/%3E%3Cpath d='M9 10l6 6-6 6M18 10l6 6-6 6' stroke='%23ffd84d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
+<link rel="alternate" hreflang="de" href="../standardplus-sicherheit.html"/>
+<link rel="alternate" hreflang="en" href="standardplus-sicherheit.html"/>
+<link rel="alternate" hreflang="ro" href="../ro/standardplus-sicherheit.html"/>
+</head>
+<body>
+<a class="sp-skip" href="#main">Skip to content</a>
+
+<header class="sp-header">
+  <div class="sp-header-in">
+    <a class="sp-logo" href="standardplus-main.html">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Recruitment</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="sp-nav">
+        <li><a href="standardplus-talente.html" data-nav>Workers</a></li>
+        <li><a href="standardplus-unternehmen.html" data-nav>Companies</a></li>
+        <li><a href="standardplus-main.html#ablauf">How it works</a></li>
+        <li><a href="standardplus-preise.html" data-nav>Pricing</a></li>
+      </ul>
+    </nav>
+    <div class="sp-header-act">
+      <a class="btn btn-primary btn-sm" href="standardplus-login.html" hidden data-anon>Sign in</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-dashboard.html" hidden data-auth>Dashboard</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-profil.html" hidden data-auth>My profile</a>
+      <button class="btn btn-outline btn-sm" type="button" data-logout hidden data-auth>
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-logout"></use></svg>Sign out</button>
+      <button class="iconbtn sp-burger" type="button" aria-label="Open menu" aria-expanded="false">
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero">
+  <svg class="hero-pattern" aria-hidden="true" preserveAspectRatio="none">
+    <defs><pattern id="dots3" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#ffffff"/></pattern></defs>
+    <rect width="100%" height="100%" fill="url(#dots3)"/>
+  </svg>
+  <div class="wrap">
+    <span class="eyebrow on-dark">
+      <svg class="ic ic-sm" aria-hidden="true"><use href="#i-shield"></use></svg>Security</span>
+    <h1 class="h1 t-white">How we protect your data</h1>
+    <p class="lede t-w70 mt20">This page describes the technical and organisational measures pursuant to Art. 32 GDPR – verifiable and without marketing promises.</p>
+  </div>
+</section>
+
+<!-- ---------- UEBERBLICK ---------- -->
+<section class="sec">
+  <div class="wrap">
+    <div class="notice notice-info mb32">
+      <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+      <span><b>Honesty before badges:</b> We only list measures here that are actually in place. Information about certifications such as ISO 27001 or TISAX may only appear once a valid certificate exists – otherwise there is a risk of warnings under competition law.</span>
+    </div>
+
+    <h2 class="h2 mb24">Protection at every level</h2>
+    <div class="grid g3">
+
+      <article class="card card-pad">
+        <span class="feature-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-lock"></use></svg></span>
+        <h3 class="h3">Encryption</h3>
+        <ul class="list-check mt12">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>TLS 1.3 for every connection, HTTP is redirected to HTTPS</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>HSTS with a long duration and subdomains</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>AES-256 for database, file storage and backups</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Key management separate from the data</li>
+        </ul>
+      </article>
+
+      <article class="card card-pad">
+        <span class="feature-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-fingerprint"></use></svg></span>
+        <h3 class="h3">Access and identity</h3>
+        <ul class="list-check mt12">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Two-factor authentication, mandatory for company accounts</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Password check according to BSI recommendation, stored as an Argon2id hash</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Lock after five failed attempts, graduated waiting times</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Automatic sign-out after 15 minutes of inactivity</li>
+        </ul>
+      </article>
+
+      <article class="card card-pad">
+        <span class="feature-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-users"></use></svg></span>
+        <h3 class="h3">Permissions</h3>
+        <ul class="list-check mt12">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Role concept based on the principle of least privilege</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Contact details only visible after mutual approval</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Tenant separation at database level</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Access by staff only with a reason and a log</li>
+        </ul>
+      </article>
+
+      <article class="card card-pad">
+        <span class="feature-ic gold"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-server"></use></svg></span>
+        <h3 class="h3">Operation and location</h3>
+        <ul class="list-check mt12">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Data centres exclusively in the EU</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Daily backup, encrypted, 30 days retention</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Restore tested at least every six months</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Data processing agreements with all service providers</li>
+        </ul>
+      </article>
+
+      <article class="card card-pad">
+        <span class="feature-ic gold"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-eye"></use></svg></span>
+        <h3 class="h3">Logging</h3>
+        <ul class="list-check mt12">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Every profile access is recorded with time and reason</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Logs can be viewed by data subjects in their account</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Tamper-proof storage, separate from the application system</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Automatic alert for unusual access patterns</li>
+        </ul>
+      </article>
+
+      <article class="card card-pad">
+        <span class="feature-ic gold"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-code"></use></svg></span>
+        <h3 class="h3">Application security</h3>
+        <ul class="list-check mt12">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Strict Content Security Policy without <code>unsafe-inline</code></li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Output only as text, so there is no path for XSS</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>CSRF token for every modifying request</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Dependencies are automatically checked for vulnerabilities</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- CSP ERKLAERT ---------- -->
+<section class="sec sec-tint">
+  <div class="wrap g-1-1">
+    <div>
+      <span class="eyebrow"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>In detail</span>
+      <h2 class="h2">Why this site does not load third-party content</h2>
+      <p class="lede">Every embedded third-party resource is a potential attack path and at the same time transmits the visitor's IP address to third parties. That is why fonts, icons and scripts are hosted on our own server.</p>
+      <p class="small muted mt16">The rule is not just claimed but enforced by the browser: the following policy prohibits loading external sources and blocks scripts injected into page content.</p>
+    </div>
+    <div>
+      <div class="log">
+        <b>Content-Security-Policy:</b><br/> default-src 'self';<br/> script-src 'self';<br/> style-src 'self';<br/> img-src 'self' data:;<br/> connect-src 'self';<br/> form-action 'self';<br/> <br/> base-uri 'none';<br/> object-src 'none';
+      </div>
+      <p class="tiny muted mt12">Also set as HTTP headers: Strict-Transport-Security, X-Content-Type-Options, Referrer-Policy, Permissions-Policy and Cross-Origin-Opener-Policy. The finished server configuration is included with the application.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- VORFALL UND MELDUNG ---------- -->
+<section class="sec">
+  <div class="wrap">
+    <div class="grid g2">
+      <article class="card card-pad">
+        <span class="feature-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-alert"></use></svg></span>
+        <h2 class="h3">Handling security incidents</h2>
+        <ol class="mt12">
+          <li class="small mb8"><b>Detect:</b> automatic monitoring, external reports, regular review of logs.</li>
+          <li class="small mb8"><b>Contain:</b> block affected access, end sessions, rotate keys.</li>
+          <li class="small mb8"><b>Report:</b> if there is a risk to data subjects, notification of the supervisory authority within 72 hours (Art. 33 GDPR); if the risk is high, data subjects are also notified (Art. 34 GDPR).</li>
+          <li class="small mb8"><b>Follow up:</b> root cause analysis, measures, written report in the record of processing activities.</li>
+        </ol>
+      </article>
+
+      <article class="card card-pad">
+        <span class="feature-ic gold"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-key"></use></svg></span>
+        <h2 class="h3">Found a vulnerability?</h2>
+        <p class="small muted mt12">We welcome reports and will not take legal action as long as you act responsibly:</p>
+        <ul class="list-check mt12">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>do not view, change or publish other people's data</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>no attacks on availability, no mass testing</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>90 days to fix the issue before publication</li>
+        </ul>
+        <p class="small mt16"><b>Contact:</b> [security@ihre-domain.de]<br/> <b>PGP fingerprint:</b> [enter here]<br/> <b>Machine-readable:</b> <code>/.well-known/security.txt</code></p>
+        <p class="tiny muted mt12">First response within two working days.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- OFFENE PUNKTE ---------- -->
+<section class="sec sec-teal nur-entwurf">
+  <div class="wrap">
+    <div class="center mb32">
+      <span class="eyebrow gold"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-list"></use></svg>Before going live</span>
+      <h2 class="h2">What still needs to be implemented on the server</h2>
+      <p class="lede">This application is a prototype without a backend. The following points cannot be implemented in the browser and must be handled on the server.</p>
+    </div>
+    <div class="grid g2">
+      <div class="card card-pad">
+        <h3 class="h3 mb12">Technical</h3>
+        <ul class="list-check">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg>Serve security headers via the web server (the file <code>assets/security-headers.conf</code> is included)</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg>Session cookies with <code>HttpOnly</code>, <code>Secure</code> and <code>SameSite=Strict</code></li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg>Rate limiting per account and IP address, real TOTP verification</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg>Server-side validation of all inputs and file uploads</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg>Virus scanning of uploaded references, storage outside the web directory</li>
+        </ul>
+      </div>
+      <div class="card card-pad">
+        <h3 class="h3 mb12">Organisational</h3>
+        <ul class="list-check">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg>Create a record of processing activities (Art. 30 GDPR)</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg>Data protection impact assessment for applicant matching</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg>Data processing agreements with hosting and translation service</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg>Check the licence under the German Temporary Employment Act, if applicable</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg>Staff training, confidentiality undertaking</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2 class="h2 t-white">Questions about data protection?</h2>
+    <p class="lede t-w80 mx-auto mb32">Your data, your control – viewable and exportable in the privacy centre.</p>
+    <div class="flex wrapf g12 jc-c">
+      <a class="btn btn-gold btn-lg" href="standardplus-datenschutz-center.html">Go to privacy centre</a>
+      <a class="btn btn-onDark btn-lg" href="standardplus-datenschutz.html">Read the privacy policy</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="sp-foot">
+  <div class="wrap">
+    <div class="foot-bot">
+      <span>© 2026 Standard Plus. All rights reserved.</span>
+      <span class="foot-seal">
+        <a class="seal" href="standardplus-main.html"><svg class="ic" aria-hidden="true"><use href="#i-bridge"></use></svg>Home</a>
+        <a class="seal" href="standardplus-datenschutz.html"><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>Privacy</a>
+        <a class="seal" href="standardplus-impressum.html"><svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>Legal notice</a>
+        <a class="seal" href="#" data-consent><svg class="ic" aria-hidden="true"><use href="#i-sliders"></use></svg>Cookies</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/sp-i18n-en.js?v=20260929153130"></script>
+<script src="../assets/sp-icons.js?v=20260929153130"></script>
+<script src="../assets/sp-app.js?v=20260929153130"></script>
+<script src="../assets/sp-effekte.js?v=20260929153130"></script>
+</body>
+</html>

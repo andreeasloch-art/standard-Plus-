@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0a8086"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Standard Plus"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<link rel="apple-touch-icon" href="assets/app/apple-touch-icon.png"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<!-- Hinweis: frame-ancestors, HSTS, X-Content-Type-Options und Permissions-Policy
+     wirken nur als HTTP-Kopfzeilen. Sie stehen in assets/security-headers.conf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'"/>
+<meta name="description" content="Standard Plus - europaeische Plattform fuer Personalvermittlung. Datensparsames Matching, Live-Uebersetzung im Interview, digitale Vertraege. Betrieb ausschliesslich in der EU."/>
+<title>Standard Plus &ndash; Personalvermittlung f&uuml;r Europa</title>
+<link rel="stylesheet" href="assets/sp-theme.css?v=20260929153130"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a9296'/%3E%3Cpath d='M9 10l6 6-6 6M18 10l6 6-6 6' stroke='%23ffd84d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
+<link rel="alternate" hreflang="de" href="standardplus-main.html"/>
+<link rel="alternate" hreflang="en" href="en/standardplus-main.html"/>
+<link rel="alternate" hreflang="ro" href="ro/standardplus-main.html"/>
+</head>
+<body>
+<a class="sp-skip" href="#main">Zum Inhalt springen</a>
+
+<!-- ================= HEADER ================= -->
+<header class="sp-header">
+  <div class="sp-header-in">
+    <a class="sp-logo" href="standardplus-main.html" data-nav aria-label="Standard Plus Startseite">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Personalvermittlung</span>
+    </a>
+    <nav aria-label="Hauptnavigation">
+      <ul class="sp-nav">
+        <li><a href="standardplus-talente.html" data-nav>Arbeitnehmer</a></li>
+        <li><a href="standardplus-unternehmen.html" data-nav>Unternehmen</a></li>
+        <li><a href="standardplus-main.html#ablauf">Ablauf</a></li>
+        <li><a href="standardplus-preise.html" data-nav>Preise</a></li>
+      </ul>
+    </nav>
+    <div class="sp-header-act">
+      <a class="btn btn-primary btn-sm" href="standardplus-login.html" hidden data-anon>Anmelden</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-dashboard.html" hidden data-auth>Dashboard</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-profil.html" hidden data-auth>Mein Profil</a>
+      <button class="btn btn-outline btn-sm" type="button" data-logout hidden data-auth>
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-logout"></use></svg>Abmelden</button>
+      <button class="iconbtn sp-burger" type="button" aria-label="Men&uuml; &ouml;ffnen" aria-expanded="false">
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap g-hero">
+    <div>
+      <span class="eyebrow on-dark">
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>
+        Personalvermittlung in Europa
+      </span>
+      <h1 class="h1 t-white">Standard Plus<br/>Menschen verbinden.<br/><span class="t-gold">Erfolg gestalten.</span></h1>
+      <span class="leitzeile">Qualifizierte Fachkr&auml;fte. Zuverl&auml;ssig. Pers&ouml;nlich. Schnell.</span>
+      <p class="lede t-w70 mt20">
+        Die europ&auml;ische Plattform, die Unternehmen, Vermittler und Talente zusammenbringt &ndash;
+        mit gepr&uuml;ften Profilen, Live-&Uuml;bersetzung im Interview und digitalen Vertr&auml;gen.
+        Personenbezogene Daten werden erst nach beidseitiger Freigabe sichtbar.
+      </p>
+      <form class="suchbox suchbox-hero mt-l" action="standardplus-suche.html" method="get">
+        <label class="hp" for="hero-q">Was suchen Sie?</label>
+        <input class="suchfeld suchfeld-einzeilig" type="text" id="hero-q" name="q" maxlength="400"
+               placeholder="Beschreiben Sie, wen Sie suchen &ndash; z.&nbsp;B. Polier f&uuml;r M&uuml;nchen, sofort verf&uuml;gbar"/>
+        <button class="btn btn-primary" type="submit">
+          <svg class="ic" aria-hidden="true"><use href="#i-search"></use></svg>Vorschl&auml;ge</button>
+      </form>
+      <p class="tiny t-w50 mt8">Ohne Anmeldung &middot; jeder Vorschlag wird begr&uuml;ndet &middot;
+        <a class="u t-w50" href="standardplus-suche.html?art=unternehmen">Sie suchen ein Unternehmen?</a></p>
+
+      <div class="row row-wrap mt24">
+        <a class="btn btn-gold btn-lg" href="standardplus-login.html?tab=registrieren">
+          Kostenlos registrieren
+          <svg class="ic" aria-hidden="true"><use href="#i-arrowright"></use></svg>
+        </a>
+        <a class="btn btn-onDark btn-lg" href="standardplus-talente.html">Profile ansehen</a>
+      </div>
+      <div class="flex wrapf g32 mt40">
+        <div><strong class="hero-num" data-zahl="27">27</strong><span class="small t-w50">EU-Mitgliedsstaaten</span></div>
+        <div><strong class="hero-num" data-zahl="24">24</strong><span class="small t-w50">Sprachen im Interview</span></div>
+        <div><strong class="hero-num">0</strong><span class="small t-w50">externe Tracker</span></div>
+      </div>
+    </div>
+
+    <!-- Produktvorschau statt Symbolbild -->
+    <div class="card card-pad glass">
+      <div class="flex jc-b ai-c mb16">
+        <strong class="t-white">Ihre Vorschl&auml;ge heute</strong>
+        <span class="tag tag-gold">4 neu</span>
+      </div>
+
+      <div class="lrow glass-2">
+        <span class="ava">
+          <svg class="silhouette" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-portrait"></use></svg>
+          <span>MK</span>
+          <span class="ava-role"><svg class="ic" aria-hidden="true"><use href="#i-health"></use></svg></span>
+        </span>
+        <span class="lrow-main">
+          <strong class="t-white">Maria K.</strong>
+          <span class="t-w50">Pflegefachkraft &middot; 12 Jahre &middot; Deutsch B2</span>
+        </span>
+        <span class="lrow-end"><span class="score hi">96&nbsp;%</span></span>
+      </div>
+
+      <div class="lrow glass-2">
+        <span class="ava gold">
+          <svg class="silhouette" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-portrait"></use></svg>
+          <span>IT</span>
+          <span class="ava-role"><svg class="ic" aria-hidden="true"><use href="#i-helmet"></use></svg></span>
+        </span>
+        <span class="lrow-main">
+          <strong class="t-white">Ion T.</strong>
+          <span class="t-w50">Polier &middot; 8 Jahre &middot; Deutsch B1</span>
+        </span>
+        <span class="lrow-end"><span class="score md">91&nbsp;%</span></span>
+      </div>
+
+      <div class="lrow glass-2 mb0">
+        <span class="ava slate">
+          <svg class="silhouette" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-portrait"></use></svg>
+          <span>PW</span>
+          <span class="ava-role"><svg class="ic" aria-hidden="true"><use href="#i-code"></use></svg></span>
+        </span>
+        <span class="lrow-main">
+          <strong class="t-white">Piotr W.</strong>
+          <span class="t-w50">Full-Stack Entwickler &middot; 10 Jahre</span>
+        </span>
+        <span class="lrow-end"><span class="score md">88&nbsp;%</span></span>
+      </div>
+
+      <p class="tiny t-w50 mt16 flex g8 ai-s">
+        <svg class="ic ic-sm ic-gold f0 mt4" aria-hidden="true"><use href="#i-lock"></use></svg>
+        Pseudonymisierte Ansicht: Nachname, Kontaktdaten und Dokumente werden erst nach
+        beidseitiger Zustimmung freigegeben (Datenminimierung, Art.&nbsp;5 Abs.&nbsp;1 lit.&nbsp;c DSGVO).
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TALENTE ================= -->
+<section class="sec sec-kachel" id="talente">
+  <div class="wrap">
+    <div class="center mb46">
+      <span class="eyebrow"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-users"></use></svg>Arbeitnehmer</span>
+      <h2 class="h2">Gepr&uuml;fte Profile aus ganz Europa</h2>
+      <p class="lede">Jedes Profil wird vor der Freischaltung auf Qualifikationsnachweise gepr&uuml;ft.
+        Sichtbar ist nur, was f&uuml;r die Vorauswahl erforderlich ist.</p>
+    </div>
+
+    <div class="grid g3">
+
+      <article class="card card-hover card-pad">
+        <div class="flex ai-s g14">
+          <span class="ava ava-lg">
+            <svg class="silhouette" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-portrait"></use></svg>
+            <span>MK</span>
+            <span class="ava-badge"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span>
+          </span>
+          <div>
+            <h3 class="h3">Maria K.</h3>
+            <p class="small t-teal fw6">Examinierte Pflegefachkraft</p>
+            <p class="tiny muted flex g6 ai-c mt4">
+              <svg class="ic ic-sm" aria-hidden="true"><use href="#i-pin"></use></svg>Cluj (RO) &rarr; Deutschland</p>
+          </div>
+        </div>
+        <div class="flex wrapf g6 mt16">
+          <span class="tag tag-teal">Intensivpflege</span><span class="tag tag-teal">Notaufnahme</span>
+          <span class="tag">Deutsch B2</span><span class="tag">12&nbsp;Jahre</span>
+        </div>
+        <div class="bar mt20">
+          <div class="bar-h"><span class="muted small">Fachliche &Uuml;bereinstimmung</span><b>96&nbsp;%</b></div>
+          <div class="bar-t"><div class="bar-f pct-96"></div></div>
+        </div>
+        <div class="flex g8">
+          <a class="btn btn-primary btn-sm f1" href="standardplus-login.html">Kontakt anfragen</a>
+          <a class="btn btn-outline btn-sm f1" href="standardplus-talente.html">Profil ansehen</a>
+        </div>
+      </article>
+
+      <article class="card card-hover card-pad">
+        <div class="flex ai-s g14">
+          <span class="ava ava-lg gold">
+            <svg class="silhouette" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-portrait"></use></svg>
+            <span>IT</span>
+            <span class="ava-badge gold"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span>
+          </span>
+          <div>
+            <h3 class="h3">Ion T.</h3>
+            <p class="small t-gold-d fw6">Polier und Bauf&uuml;hrer</p>
+            <p class="tiny muted flex g6 ai-c mt4">
+              <svg class="ic ic-sm" aria-hidden="true"><use href="#i-pin"></use></svg>Timi&#537;oara (RO) &rarr; Bayern</p>
+          </div>
+        </div>
+        <div class="flex wrapf g6 mt16">
+          <span class="tag tag-gold">Rohbau</span><span class="tag tag-gold">Stahlbeton</span>
+          <span class="tag">Kranschein</span><span class="tag">Deutsch B1</span>
+        </div>
+        <div class="bar mt20">
+          <div class="bar-h"><span class="muted small">Fachliche &Uuml;bereinstimmung</span><b>91&nbsp;%</b></div>
+          <div class="bar-t"><div class="bar-f gold pct-91"></div></div>
+        </div>
+        <div class="flex g8">
+          <a class="btn btn-primary btn-sm f1" href="standardplus-login.html">Kontakt anfragen</a>
+          <a class="btn btn-outline btn-sm f1" href="standardplus-talente.html">Profil ansehen</a>
+        </div>
+      </article>
+
+      <article class="card card-hover card-pad">
+        <div class="flex ai-s g14">
+          <span class="ava ava-lg deep">
+            <svg class="silhouette" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-portrait"></use></svg>
+            <span>PW</span>
+            <span class="ava-badge"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span>
+          </span>
+          <div>
+            <h3 class="h3">Piotr W.</h3>
+            <p class="small t-teal fw6">Full-Stack Entwickler</p>
+            <p class="tiny muted flex g6 ai-c mt4">
+              <svg class="ic ic-sm" aria-hidden="true"><use href="#i-pin"></use></svg>Warschau (PL) &rarr; Remote / EU</p>
+          </div>
+        </div>
+        <div class="flex wrapf g6 mt16">
+          <span class="tag tag-teal">React</span><span class="tag tag-teal">Node.js</span>
+          <span class="tag">AWS</span><span class="tag">Englisch C2</span>
+        </div>
+        <div class="bar mt20">
+          <div class="bar-h"><span class="muted small">Fachliche &Uuml;bereinstimmung</span><b>88&nbsp;%</b></div>
+          <div class="bar-t"><div class="bar-f deep pct-88"></div></div>
+        </div>
+        <div class="flex g8">
+          <a class="btn btn-primary btn-sm f1" href="standardplus-login.html">Kontakt anfragen</a>
+          <a class="btn btn-outline btn-sm f1" href="standardplus-talente.html">Profil ansehen</a>
+        </div>
+      </article>
+
+      <article class="card card-hover card-pad">
+        <div class="flex ai-s g14">
+          <span class="ava ava-lg gold">
+            <svg class="silhouette" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-portrait"></use></svg>
+            <span>AM</span>
+            <span class="ava-badge gold"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span>
+          </span>
+          <div>
+            <h3 class="h3">Andreea M.</h3>
+            <p class="small t-gold-d fw6">Sous Chef</p>
+            <p class="tiny muted flex g6 ai-c mt4">
+              <svg class="ic ic-sm" aria-hidden="true"><use href="#i-pin"></use></svg>Bukarest (RO) &rarr; Wien</p>
+          </div>
+        </div>
+        <div class="flex wrapf g6 mt16">
+          <span class="tag tag-gold">Fine Dining</span><span class="tag tag-gold">&Agrave; la carte</span>
+          <span class="tag">Patisserie</span><span class="tag">Deutsch B2</span>
+        </div>
+        <div class="bar mt20">
+          <div class="bar-h"><span class="muted small">Fachliche &Uuml;bereinstimmung</span><b>85&nbsp;%</b></div>
+          <div class="bar-t"><div class="bar-f gold pct-85"></div></div>
+        </div>
+        <div class="flex g8">
+          <a class="btn btn-primary btn-sm f1" href="standardplus-login.html">Kontakt anfragen</a>
+          <a class="btn btn-outline btn-sm f1" href="standardplus-talente.html">Profil ansehen</a>
+        </div>
+      </article>
+
+      <article class="card card-hover card-pad">
+        <div class="flex ai-s g14">
+          <span class="ava ava-lg slate">
+            <svg class="silhouette" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-portrait"></use></svg>
+            <span>LE</span>
+            <span class="ava-badge"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span>
+          </span>
+          <div>
+            <h3 class="h3">Luca E.</h3>
+            <p class="small t-teal fw6">Elektroinstallateur</p>
+            <p class="tiny muted flex g6 ai-c mt4">
+              <svg class="ic ic-sm" aria-hidden="true"><use href="#i-pin"></use></svg>Mailand (IT) &rarr; Frankfurt</p>
+          </div>
+        </div>
+        <div class="flex wrapf g6 mt16">
+          <span class="tag tag-teal">Industrieanlagen</span><span class="tag tag-teal">SPS</span>
+          <span class="tag">Photovoltaik</span><span class="tag">Deutsch A2</span>
+        </div>
+        <div class="bar mt20">
+          <div class="bar-h"><span class="muted small">Fachliche &Uuml;bereinstimmung</span><b>82&nbsp;%</b></div>
+          <div class="bar-t"><div class="bar-f pct-82"></div></div>
+        </div>
+        <div class="flex g8">
+          <a class="btn btn-primary btn-sm f1" href="standardplus-login.html">Kontakt anfragen</a>
+          <a class="btn btn-outline btn-sm f1" href="standardplus-talente.html">Profil ansehen</a>
+        </div>
+      </article>
+
+      <article class="card card-hover card-pad">
+        <div class="flex ai-s g14">
+          <span class="ava ava-lg">
+            <svg class="silhouette" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-portrait"></use></svg>
+            <span>SD</span>
+            <span class="ava-badge"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span>
+          </span>
+          <div>
+            <h3 class="h3">Sofia D.</h3>
+            <p class="small t-teal fw6">Altenpflegerin (examiniert)</p>
+            <p class="tiny muted flex g6 ai-c mt4">
+              <svg class="ic ic-sm" aria-hidden="true"><use href="#i-pin"></use></svg>Sofia (BG) &rarr; Stuttgart</p>
+          </div>
+        </div>
+        <div class="flex wrapf g6 mt16">
+          <span class="tag tag-teal">Demenzpflege</span><span class="tag tag-teal">Palliativ</span>
+          <span class="tag">Deutsch B1</span><span class="tag">9&nbsp;Jahre</span>
+        </div>
+        <div class="bar mt20">
+          <div class="bar-h"><span class="muted small">Fachliche &Uuml;bereinstimmung</span><b>93&nbsp;%</b></div>
+          <div class="bar-t"><div class="bar-f pct-93"></div></div>
+        </div>
+        <div class="flex g8">
+          <a class="btn btn-primary btn-sm f1" href="standardplus-login.html">Kontakt anfragen</a>
+          <a class="btn btn-outline btn-sm f1" href="standardplus-talente.html">Profil ansehen</a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="center mt-l">
+      <a class="btn btn-primary btn-lg" href="standardplus-talente.html">
+        Alle Profile durchsuchen
+        <svg class="ic" aria-hidden="true"><use href="#i-arrowright"></use></svg>
+      </a>
+      <p class="small muted mt12">Suche, Filter und vollst&auml;ndige Profile stehen nach der Anmeldung zur Verf&uuml;gung.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABLAUF ================= -->
+<section class="sec sec-gruen" id="ablauf">
+  <div class="wrap">
+    <div class="center mb46">
+      <span class="eyebrow"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-list"></use></svg>Ablauf</span>
+      <h2 class="h2">Vom Profil zum Vertrag in vier Schritten</h2>
+      <p class="lede">Jeder Schritt ist dokumentiert und f&uuml;r beide Seiten nachvollziehbar.</p>
+    </div>
+    <div class="grid g4">
+      <article class="card card-pad card-hover mit-nr">
+        <span class="feature-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-doc"></use></svg></span>
+        <span class="schritt-nr" aria-hidden="true">01</span>
+        <p class="tiny t-gold-d fw8 hp">Schritt 01</p>
+        <h3 class="h3 mt6 mb8">Profil anlegen</h3>
+        <p class="small muted">Qualifikationen, Sprachniveau und W&uuml;nsche erfassen. Nachweise werden
+          verschl&uuml;sselt abgelegt und nur nach ausdr&uuml;cklicher Freigabe geteilt.</p>
+      </article>
+      <article class="card card-pad card-hover mit-nr">
+        <span class="feature-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-target"></use></svg></span>
+        <span class="schritt-nr" aria-hidden="true">02</span>
+        <p class="tiny t-gold-d fw8 hp">Schritt 02</p>
+        <h3 class="h3 mt6 mb8">Vorschl&auml;ge erhalten</h3>
+        <p class="small muted">Der Abgleich bewertet Qualifikation, Erfahrung, Region und Verf&uuml;gbarkeit.
+          Die Gewichtung ist jederzeit einsehbar.</p>
+      </article>
+      <article class="card card-pad card-hover mit-nr">
+        <span class="feature-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-handshake"></use></svg></span>
+        <span class="schritt-nr" aria-hidden="true">03</span>
+        <p class="tiny t-gold-d fw8 hp">Schritt 03</p>
+        <h3 class="h3 mt6 mb8">Beidseitig freigeben</h3>
+        <p class="small muted">Erst wenn beide Seiten zustimmen, werden Kontaktdaten sichtbar.
+          Kein unaufgeforderter Kontakt, keine Weitergabe an Dritte.</p>
+      </article>
+      <article class="card card-pad card-hover mit-nr">
+        <span class="feature-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-verified"></use></svg></span>
+        <span class="schritt-nr" aria-hidden="true">04</span>
+        <p class="tiny t-gold-d fw8 hp">Schritt 04</p>
+        <h3 class="h3 mt6 mb8">Interview und Vertrag</h3>
+        <p class="small muted">Videointerview mit Live-&Uuml;bersetzung, anschlie&szlig;end digitaler
+          Vertragsabschluss und Koordination der Anreise.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FUNKTIONEN ================= -->
+<section class="sec sec-kachel" id="funktionen">
+  <div class="wrap">
+    <div class="center mb46">
+      <span class="eyebrow"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-grid"></use></svg>Funktionen</span>
+      <h2 class="h2">Alle Module greifen ineinander</h2>
+      <p class="lede">Vom ersten Vorschlag bis zum Arbeitsbeginn &ndash; ohne Systemwechsel.</p>
+    </div>
+    <div class="grid g3">
+      <a class="card card-pad card-hover" href="standardplus-talente.html">
+        <span class="feature-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-target"></use></svg></span>
+        <h3 class="h3">Matching</h3>
+        <p class="small muted mt8">Bewertet &uuml;ber 40 Kriterien und begr&uuml;ndet jeden Vorschlag nachvollziehbar.
+          Keine automatisierte Ablehnung ohne menschliche Pr&uuml;fung (Art.&nbsp;22 DSGVO).</p>
+        <span class="tag tag-teal mt12">Nachvollziehbar</span>
+      </a>
+      <a class="card card-pad card-hover" href="standardplus-interview.html">
+        <span class="feature-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-translate"></use></svg></span>
+        <h3 class="h3">Live-&Uuml;bersetzung</h3>
+        <p class="small muted mt8">Echtzeit&uuml;bersetzung in 24 EU-Sprachen direkt im Videointerview.
+          Verarbeitung auf EU-Servern, Aufzeichnung nur mit Einwilligung beider Seiten.</p>
+        <span class="tag tag-teal mt12">24 Sprachen</span>
+      </a>
+      <a class="card card-pad card-hover" href="standardplus-dashboard.html">
+        <span class="feature-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-doc"></use></svg></span>
+        <h3 class="h3">Digitale Vertr&auml;ge</h3>
+        <p class="small muted mt8">Signatur nach eIDAS, revisionssichere Ablage und automatische
+          L&ouml;schfristen je Dokumentart.</p>
+        <span class="tag tag-teal mt12">eIDAS</span>
+      </a>
+      <a class="card card-pad card-hover" href="standardplus-dashboard.html">
+        <span class="feature-ic gold"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-bus"></use></svg></span>
+        <h3 class="h3">Transport und Ankunft</h3>
+        <p class="small muted mt8">Anreise, Unterkunft und Beh&ouml;rdentermine koordiniert &uuml;ber die
+          Plattform &ndash; mit Statusverfolgung f&uuml;r alle Beteiligten.</p>
+      </a>
+      <a class="card card-pad card-hover" href="standardplus-dashboard.html">
+        <span class="feature-ic gold"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-chart"></use></svg></span>
+        <h3 class="h3">Auswertungen</h3>
+        <p class="small muted mt8">Kennzahlen zu Laufzeiten, Abbruchgr&uuml;nden und Erfolgsquoten.
+          Export als CSV oder PDF, aggregiert und ohne Personenbezug.</p>
+      </a>
+      <a class="card card-pad card-hover" href="standardplus-sicherheit.html">
+        <span class="feature-ic gold"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-shieldcheck"></use></svg></span>
+        <h3 class="h3">Sicherheitszentrum</h3>
+        <p class="small muted mt8">Zwei-Faktor-Anmeldung, Ger&auml;te&uuml;bersicht, Zugriffsprotokoll und
+          Meldeweg f&uuml;r Schwachstellen &ndash; f&uuml;r jedes Konto einsehbar.</p>
+        <span class="tag tag-gold mt12">Neu</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BRANCHEN ================= -->
+<section class="sec sec-gruen">
+  <div class="wrap">
+    <div class="center mb40">
+      <span class="eyebrow"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-briefcase"></use></svg>Branchen</span>
+      <h2 class="h2">Vermittlung in allen Berufsfeldern</h2>
+    </div>
+    <div class="flex wrapf g10 jc-c">
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-health"></use></svg>Pflege und Gesundheit</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-helmet"></use></svg>Bau und Handwerk</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-truck"></use></svg>Logistik und Transport</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-code"></use></svg>IT und Technologie</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-utensils"></use></svg>Gastronomie und Hotellerie</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-office"></use></svg>Verwaltung und B&uuml;ro</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-leaf"></use></svg>Landwirtschaft</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-factory"></use></svg>Industrie und Produktion</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-cap"></use></svg>Bildung und Erziehung</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-bolt"></use></svg>Elektrotechnik</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-cart"></use></svg>Einzelhandel</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-scale"></use></svg>Recht und Finanzen</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-flask"></use></svg>Forschung und Labor</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-palette"></use></svg>Kreativ und Design</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LAENDER ================= -->
+<section class="sec">
+  <div class="wrap g-1-2">
+    <div>
+      <span class="eyebrow"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-globe"></use></svg>Regionen</span>
+      <h2 class="h2">Alle 27 EU-Staaten</h2>
+      <p class="small muted">Schwerpunkt im Korridor Deutschland, &Ouml;sterreich und S&uuml;dosteuropa.
+        Vermittlungen in die Schweiz erfolgen nach gesonderten Regelungen, da sie nicht der
+        EU-Freiz&uuml;gigkeit unterliegen.</p>
+    </div>
+    <div class="flex wrapf g8">
+      <span class="tag"><span class="cc">DE</span>Deutschland</span><span class="tag"><span class="cc">AT</span>&Ouml;sterreich</span>
+      <span class="tag"><span class="cc">RO</span>Rum&auml;nien</span><span class="tag"><span class="cc">PL</span>Polen</span>
+      <span class="tag"><span class="cc">CZ</span>Tschechien</span><span class="tag"><span class="cc">HU</span>Ungarn</span>
+      <span class="tag"><span class="cc">BG</span>Bulgarien</span><span class="tag"><span class="cc">HR</span>Kroatien</span>
+      <span class="tag"><span class="cc">SK</span>Slowakei</span><span class="tag"><span class="cc">SI</span>Slowenien</span>
+      <span class="tag"><span class="cc">IT</span>Italien</span><span class="tag"><span class="cc">FR</span>Frankreich</span>
+      <span class="tag"><span class="cc">ES</span>Spanien</span><span class="tag"><span class="cc">PT</span>Portugal</span>
+      <span class="tag"><span class="cc">NL</span>Niederlande</span><span class="tag"><span class="cc">BE</span>Belgien</span>
+      <span class="tag"><span class="cc">LU</span>Luxemburg</span><span class="tag"><span class="cc">DK</span>D&auml;nemark</span>
+      <span class="tag"><span class="cc">SE</span>Schweden</span><span class="tag"><span class="cc">FI</span>Finnland</span>
+      <span class="tag"><span class="cc">IE</span>Irland</span><span class="tag"><span class="cc">GR</span>Griechenland</span>
+      <span class="tag"><span class="cc">MT</span>Malta</span><span class="tag"><span class="cc">CY</span>Zypern</span>
+      <span class="tag"><span class="cc">EE</span>Estland</span><span class="tag"><span class="cc">LV</span>Lettland</span>
+      <span class="tag"><span class="cc">LT</span>Litauen</span>
+      <span class="tag tag-gold"><span class="cc">CH</span>Schweiz &middot; Sonderregelung</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta">
+  <div class="wrap">
+    <h2 class="h2 t-white">Bereit f&uuml;r die n&auml;chste Einstellung?</h2>
+    <p class="lede t-w80 mx-auto mb32">
+      Konto anlegen, Bedarf beschreiben, passende Profile erhalten &ndash; ohne Vorabkosten.</p>
+    <div class="flex wrapf g12 jc-c">
+      <a class="btn btn-gold btn-lg" href="standardplus-login.html?tab=registrieren">Kostenlos registrieren</a>
+      <a class="btn btn-onDark btn-lg" href="standardplus-sicherheit.html">Sicherheit pr&uuml;fen</a>
+    </div>
+    <div class="aussagen">
+      <span class="aussage"><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>Zuverl&auml;ssig.</span>
+      <span class="aussage"><svg class="ic" aria-hidden="true"><use href="#i-users"></use></svg>Kompetent.</span>
+      <span class="aussage"><svg class="ic" aria-hidden="true"><use href="#i-chart"></use></svg>Nachhaltig.</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="sp-foot">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <span class="sp-logo on-dark mb16">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Personalvermittlung</span>
+    </span>
+        <p>Die europ&auml;ische Plattform f&uuml;r Personalvermittlung. Datensparsam aufgebaut,
+          vollst&auml;ndig in der EU betrieben.</p>
+      </div>
+      <div>
+        <h4>Plattform</h4>
+        <ul>
+          <li><a href="standardplus-talente.html">Arbeitnehmer</a></li>
+          <li><a href="standardplus-dashboard.html">Dashboard</a></li>
+          <li><a href="standardplus-suche.html">Suche</a></li>
+          <li><a href="standardplus-musterprofile.html">Musterprofile</a></li>
+          <li><a href="standardplus-interview.html">Videointerview</a></li>
+          <li><a href="standardplus-dolmetscher.html">Live-Dolmetscher</a></li>
+          <li><a href="standardplus-transport.html">Busverbindungen</a></li>
+          <li><a href="standardplus-preise.html" data-nav>Preise</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Unternehmen</h4>
+        <ul>
+          <li><a href="standardplus-main.html#ablauf">So funktioniert es</a></li>
+          <li><a href="standardplus-main.html#funktionen">Funktionen</a></li>
+          <li><a href="standardplus-login.html">Anmelden</a></li>
+          <li><a href="standardplus-login.html?tab=registrieren">Registrieren</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Recht und Sicherheit</h4>
+        <ul>
+          <li><a href="standardplus-datenschutz.html">Datenschutzerkl&auml;rung</a></li>
+          <li><a href="standardplus-datenschutz-center.html">Datenschutz-Center</a></li>
+          <li><a href="standardplus-impressum.html">Impressum</a></li>
+          <li><a href="standardplus-sicherheit.html">Datenschutz und Sicherheit</a></li>
+          <li><a href="standardplus-agb.html">AGB</a></li>
+          <li><a href="#" data-consent>Cookie-Einstellungen</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>&copy; 2026 Standard Plus. Alle Rechte vorbehalten.</span>
+      <span class="foot-seal">
+        <span class="seal"><svg class="ic" aria-hidden="true"><use href="#i-server"></use></svg>EU-Hosting</span>
+        <span class="seal"><svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg>TLS 1.3</span>
+        <span class="seal"><svg class="ic" aria-hidden="true"><use href="#i-fingerprint"></use></svg>2FA</span>
+        <span class="seal"><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>DSGVO</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/sp-icons.js?v=20260929153130"></script>
+<script src="assets/sp-app.js?v=20260929153130"></script>
+<script src="assets/sp-suche.js?v=20260929153130"></script>
+<script src="assets/sp-vokabular.js?v=20260929153130"></script>
+<script src="assets/sp-start.js?v=20260929153130"></script>
+<script src="assets/sp-effekte.js?v=20260929153130"></script>
+</body>
+</html>

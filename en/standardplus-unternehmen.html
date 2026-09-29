@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0a8086"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Standard Plus"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<link rel="apple-touch-icon" href="../assets/app/apple-touch-icon.png"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<!-- Hinweis: frame-ancestors, HSTS, X-Content-Type-Options und Permissions-Policy
+     wirken nur als HTTP-Kopfzeilen. Sie stehen in assets/security-headers.conf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'"/>
+<meta name="description" content="Verified companies at Standard Plus - with ratings, benefits and open positions."/>
+<title>Companies – Standard Plus</title>
+<link rel="stylesheet" href="../assets/sp-theme.css?v=20260929153130"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a9296'/%3E%3Cpath d='M9 10l6 6-6 6M18 10l6 6-6 6' stroke='%23ffd84d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
+<link rel="alternate" hreflang="de" href="../standardplus-unternehmen.html"/>
+<link rel="alternate" hreflang="en" href="standardplus-unternehmen.html"/>
+<link rel="alternate" hreflang="ro" href="../ro/standardplus-unternehmen.html"/>
+</head>
+<body>
+<a class="sp-skip" href="#main">Skip to content</a>
+
+<header class="sp-header">
+  <div class="sp-header-in">
+    <a class="sp-logo" href="standardplus-main.html">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Recruitment</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="sp-nav">
+        <li><a href="standardplus-talente.html" data-nav>Workers</a></li>
+        <li><a href="standardplus-unternehmen.html" data-nav>Companies</a></li>
+        <li><a href="standardplus-main.html#ablauf">How it works</a></li>
+        <li><a href="standardplus-preise.html" data-nav>Pricing</a></li>
+      </ul>
+    </nav>
+    <div class="sp-header-act">
+      <a class="btn btn-primary btn-sm" href="standardplus-login.html" hidden data-anon>Sign in</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-dashboard.html" hidden data-auth>Dashboard</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-profil.html" hidden data-auth>My profile</a>
+      <button class="btn btn-outline btn-sm" type="button" data-logout hidden data-auth>
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-logout"></use></svg>Sign out</button>
+      <button class="iconbtn sp-burger" type="button" aria-label="Open menu" aria-expanded="false">
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  
+  </div>
+</header>
+
+<main id="main">
+<section class="sec-tight seitenkopf">
+  <div class="wrap">
+    <span class="eyebrow"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-building"></use></svg>Companies</span>
+    <h1 class="h2">Who is hiring at Standard Plus?</h1>
+    <p class="lede">Before you approve a request, you can check the company: size, locations, benefits for employees, credentials on file and ratings from former employees.</p>
+
+    <p class="small mt16"><a class="t-teal fw6" href="standardplus-suche.html?art=unternehmen">→ Prefer to describe freely what you are looking for? Go to free-text search with reasons.</a></p>
+
+    <form class="card card-pad mt24" id="filter" novalidate>
+      <div class="grid g3 g12">
+        <div class="field mb0">
+          <label for="q">Search term</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-search"></use></svg>
+            <input class="inp" type="search" id="q" placeholder="Company, place" maxlength="80"/></div>
+        </div>
+        <div class="field mb0">
+          <label for="f-branche">Sector</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-grid"></use></svg>
+            <select class="inp" id="f-branche">
+              <option value="">All sectors</option>
+              <option value="pflege">Healthcare and nursing</option>
+              <option value="bau">Construction and trades</option>
+              <option value="it">IT and technology</option>
+              <option value="gastro">Hospitality</option>
+              <option value="logistik">Logistics</option>
+              <option value="produktion">Industry and manufacturing</option>
+              <option value="buero">Administration and office</option>
+            </select></div>
+        </div>
+        <div class="field mb0">
+          <label for="f-bewertung">Minimum rating</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-star"></use></svg>
+            <select class="inp" id="f-bewertung">
+              <option value="">All</option>
+              <option value="3">3 stars or more</option>
+              <option value="4">4 stars or more</option>
+              <option value="4.5">4.5 stars or more</option>
+            </select></div>
+        </div>
+      </div>
+      <p class="small muted mt16" id="count">0 companies</p>
+    </form>
+  </div>
+</section>
+
+<section class="sec-tight">
+  <div class="wrap">
+    <div class="grid g3" id="ergebnisse"></div>
+    <p class="notice notice-warn mt24 hidden" id="leer">
+      <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+      <span>No companies match this selection.</span>
+    </p>
+  </div>
+</section>
+</main>
+
+<footer class="sp-foot">
+  <div class="wrap">
+    <div class="foot-bot">
+      <span>© 2026 Standard Plus. All rights reserved.</span>
+      <span class="foot-seal">
+        <a class="seal" href="standardplus-datenschutz.html"><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>Privacy</a>
+        <a class="seal" href="standardplus-sicherheit.html"><svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg>Security</a>
+        <a class="seal" href="standardplus-impressum.html"><svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>Legal notice</a>
+        <a class="seal" href="#" data-consent><svg class="ic" aria-hidden="true"><use href="#i-sliders"></use></svg>Cookies</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/sp-i18n-en.js?v=20260929153130"></script>
+<script src="../assets/sp-icons.js?v=20260929153130"></script>
+<script src="../assets/sp-app.js?v=20260929153130"></script>
+<script src="../assets/sp-db.js?v=20260929153130"></script>
+<script src="../assets/sp-suche.js?v=20260929153130"></script>
+<script src="../assets/sp-vokabular.js?v=20260929153130"></script>
+<script src="../assets/sp-unternehmen.js?v=20260929153130"></script>
+<script src="../assets/sp-effekte.js?v=20260929153130"></script>
+</body>
+</html>

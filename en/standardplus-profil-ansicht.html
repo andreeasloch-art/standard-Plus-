@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0a8086"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Standard Plus"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<link rel="apple-touch-icon" href="../assets/app/apple-touch-icon.png"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<!-- Hinweis: frame-ancestors, HSTS, X-Content-Type-Options und Permissions-Policy
+     wirken nur als HTTP-Kopfzeilen. Sie stehen in assets/security-headers.conf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>View profile – Standard Plus</title>
+<link rel="stylesheet" href="../assets/sp-theme.css?v=20260929153130"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a9296'/%3E%3Cpath d='M9 10l6 6-6 6M18 10l6 6-6 6' stroke='%23ffd84d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
+<link rel="alternate" hreflang="de" href="../standardplus-profil-ansicht.html"/>
+<link rel="alternate" hreflang="en" href="standardplus-profil-ansicht.html"/>
+<link rel="alternate" hreflang="ro" href="../ro/standardplus-profil-ansicht.html"/>
+</head>
+<body>
+<a class="sp-skip" href="#main">Skip to content</a>
+
+<header class="sp-header">
+  <div class="sp-header-in">
+    <a class="sp-logo" href="standardplus-main.html">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Recruitment</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="sp-nav">
+        <li><a href="standardplus-talente.html" data-nav>Workers</a></li>
+        <li><a href="standardplus-unternehmen.html" data-nav>Companies</a></li>
+        <li><a href="standardplus-main.html#ablauf">How it works</a></li>
+        <li><a href="standardplus-preise.html" data-nav>Pricing</a></li>
+      </ul>
+    </nav>
+    <div class="sp-header-act">
+      <a class="btn btn-primary btn-sm" href="standardplus-login.html" hidden data-anon>Sign in</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-dashboard.html" hidden data-auth>Dashboard</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-profil.html" hidden data-auth>My profile</a>
+      <button class="btn btn-outline btn-sm" type="button" data-logout hidden data-auth>
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-logout"></use></svg>Sign out</button>
+      <button class="iconbtn sp-burger" type="button" aria-label="Open menu" aria-expanded="false">
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  
+  </div>
+</header>
+
+<main class="legal" id="main">
+  <p class="mb16">
+    <button class="card-link" type="button" id="zurueck">
+      <svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowleft"></use></svg>Back</button>
+  </p>
+
+  <!-- Kopfbereich, Sichtbarkeitshinweis, Inhalt und Aktionen werden gef&uuml;llt -->
+  <div id="kopf" class="card card-pad mb20"></div>
+  <div id="sicht" class="mb24"></div>
+  <div id="aktionen" class="flex wrapf g10 mb32"></div>
+  <div id="inhalt"></div>
+
+  <div class="notice notice-warn mt32">
+    <svg class="ic" aria-hidden="true"><use href="#i-alert"></use></svg>
+    <span><b>Prototype:</b> All information shown here comes from the local database in this browser. Sample profiles are fictitious. In live operation, the server decides again on every request which fields you may see.</span>
+  </div>
+</main>
+
+<!-- ---------- Bewertung abgeben ---------- -->
+<div class="modal" id="modal-bewertung" role="dialog" aria-labelledby="mb-h" aria-modal="true">
+  <div class="modal-box">
+    <h2 id="mb-h"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-star"></use></svg>Leave a rating</h2>
+    <p class="small muted mb16">Only accounts that have actually worked together can leave ratings. Your rating is published and linked to your account.</p>
+
+    <div class="field">
+      <span class="lbl">Overall impression</span>
+      <div class="sternwahl" id="sternwahl" role="radiogroup" aria-label="Stars"></div>
+    </div>
+    <div class="field">
+      <label for="bw-taetigkeit">What was it about?</label>
+      <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-briefcase"></use></svg>
+        <input class="inp" id="bw-taetigkeit" maxlength="120" placeholder="e.g. employment as foreman"/></div>
+    </div>
+    <div class="field">
+      <label for="bw-zeitraum">Period</label>
+      <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-calendar"></use></svg>
+        <input class="inp" id="bw-zeitraum" maxlength="60" placeholder="e.g. 2024 to 2025"/></div>
+    </div>
+    <div class="field">
+      <label for="bw-text">Your experience</label>
+      <textarea class="inp plain" id="bw-text" rows="4" maxlength="600"
+        placeholder="Factual and verifiable. No information on health, religion or origin."></textarea>
+      <p class="hint"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-info"></use></svg>
+        Inappropriate or unlawful ratings will be removed.</p>
+    </div>
+    <div class="flex g10">
+      <button class="btn btn-primary f1" type="button" id="bw-senden">Publish rating</button>
+      <button class="btn btn-outline f1" type="button" id="bw-abbrechen">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- ---------- Sperren ---------- -->
+<div class="modal" id="modal-sperre" role="dialog" aria-labelledby="ms-h" aria-modal="true">
+  <div class="modal-box">
+    <h2 id="ms-h"><svg class="ic ic-lg ic-err" aria-hidden="true"><use href="#i-shield"></use></svg>Add to my block list</h2>
+    <p>This profile will be hidden for you, and no more requests are possible in either direction. The block applies <b>only to your account</b> – other companies and applicants see nothing of it.</p>
+    <div class="notice notice-info mt16">
+      <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+      <span>We deliberately do not have a shared, cross-company blacklist. It would be unlawful.</span>
+    </div>
+    <div class="field mt16">
+      <label for="sp-grund">Reason (visible only to you, optional)</label>
+      <textarea class="inp plain" id="sp-grund" rows="2" maxlength="300"></textarea>
+    </div>
+    <div class="flex g10">
+      <button class="btn btn-danger f1" type="button" id="sp-setzen">Block</button>
+      <button class="btn btn-outline f1" type="button" id="sp-abbrechen">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<footer class="sp-foot">
+  <div class="wrap">
+    <div class="foot-bot">
+      <span>© 2026 Standard Plus. All rights reserved.</span>
+      <span class="foot-seal">
+        <a class="seal" href="standardplus-datenschutz.html"><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>Privacy</a>
+        <a class="seal" href="standardplus-sicherheit.html"><svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg>Security</a>
+        <a class="seal" href="standardplus-impressum.html"><svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>Legal notice</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/sp-i18n-en.js?v=20260929153130"></script>
+<script src="../assets/sp-icons.js?v=20260929153130"></script>
+<script src="../assets/sp-app.js?v=20260929153130"></script>
+<script src="../assets/sp-db.js?v=20260929153130"></script>
+<script src="../assets/sp-ansicht.js?v=20260929153130"></script>
+<script src="../assets/sp-effekte.js?v=20260929153130"></script>
+</body>
+</html>

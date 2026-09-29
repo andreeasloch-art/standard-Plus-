@@ -1,0 +1,65 @@
+# ============================================================
+#  Standard Plus - Ihre Firmendaten
+# ------------------------------------------------------------
+#  Diese Angaben werden beim Erstellen des Upload-Pakets in
+#  Impressum, Datenschutzerklaerung, AGB und security.txt
+#  eingesetzt - in allen drei Sprachen.
+#
+#  So geht es:
+#   1. Hinter jedem Doppelpunkt Ihre Angabe eintragen.
+#   2. Doppelklick auf "Upload-Paket erstellen.command"
+#      (oder im Terminal:  bash veroeffentlichen.sh)
+#   3. Die Datei StandardPlus-Upload.zip auf dem Schreibtisch
+#      entpacken und den Inhalt auf Ihren Webspace laden.
+#
+#  Solange ein Pflichtfeld leer ist, wird KEIN Paket erstellt -
+#  so kann kein unvollstaendiges Impressum online gehen.
+# ============================================================
+
+# ---------- Unternehmen (Pflicht) ----------
+firmenname:
+rechtsform:
+strasse_hausnummer:
+plz_ort:
+land: Deutschland
+telefon:
+geschaeftsfuehrung:
+
+# ---------- E-Mail-Adressen (Pflicht) ----------
+email_kontakt:
+email_datenschutz:
+email_sicherheit:
+
+# ---------- Internetadresse (Pflicht, ohne https://, z. B. standardplus.de) ----------
+domain:
+
+# ---------- Register und Steuer (leer lassen, wenn nicht vorhanden) ----------
+# Registergericht z. B. "Amtsgericht Stuttgart", Registernummer z. B. "HRB 123456"
+registergericht:
+registernummer:
+# Umsatzsteuer-Identifikationsnummer z. B. "DE123456789"
+ust_id:
+
+# ---------- Verantwortlich fuer Inhalte nach § 18 Abs. 2 MStV ----------
+# Leer lassen = Geschaeftsfuehrung mit Firmenanschrift
+verantwortlich_name:
+verantwortlich_anschrift:
+
+# ---------- Datenschutz-Aufsichtsbehoerde (Pflicht) ----------
+# Die Behoerde Ihres Bundeslandes, z. B.
+# "Der Landesbeauftragte fuer den Datenschutz und die Informationsfreiheit Baden-Wuerttemberg, Lautenschlagerstrasse 20, 70173 Stuttgart"
+aufsichtsbehoerde:
+
+# ---------- AGB ----------
+# Gerichtsstand fuer Kaufleute, z. B. "Stuttgart"
+gerichtsstand:
+
+# ---------- Erlaubnis nach AÜG (nur bei Arbeitnehmerueberlassung) ----------
+# "nein" = reine Vermittlung, der Abschnitt entfaellt.
+# Sonst:  Behoerde | Datum | Aktenzeichen
+#   z. B. Bundesagentur fuer Arbeit, Regionaldirektion Baden-Wuerttemberg | 01.03.2026 | AZ 123
+aueg_erlaubnis: nein
+
+# ---------- Verbraucherschlichtung ----------
+# "nein" = Sie nehmen nicht an Schlichtungsverfahren teil (ueblich)
+schlichtung: nein

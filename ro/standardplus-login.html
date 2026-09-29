@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0a8086"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Standard Plus"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<link rel="apple-touch-icon" href="../assets/app/apple-touch-icon.png"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<!-- Hinweis: frame-ancestors, HSTS, X-Content-Type-Options und Permissions-Policy
+     wirken nur als HTTP-Kopfzeilen. Sie stehen in assets/security-headers.conf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Autentificare – Standard Plus</title>
+<link rel="stylesheet" href="../assets/sp-theme.css?v=20260929153130"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a9296'/%3E%3Cpath d='M9 10l6 6-6 6M18 10l6 6-6 6' stroke='%23ffd84d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
+<link rel="alternate" hreflang="de" href="../standardplus-login.html"/>
+<link rel="alternate" hreflang="en" href="../en/standardplus-login.html"/>
+<link rel="alternate" hreflang="ro" href="standardplus-login.html"/>
+</head>
+<body>
+<div class="split">
+
+  <!-- ============ LINKE SEITE ============ -->
+  <aside class="split-left">
+    <svg class="hero-pattern" aria-hidden="true" preserveAspectRatio="none">
+      <defs><pattern id="dots2" width="34" height="34" patternUnits="userSpaceOnUse">
+        <circle cx="2" cy="2" r="1.4" fill="#ffffff"/></pattern></defs>
+      <rect width="100%" height="100%" fill="url(#dots2)"/>
+    </svg>
+
+    <a class="sp-logo on-dark rel" href="standardplus-main.html">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Recrutare de personal</span>
+    </a>
+
+    <div class="rel">
+      <h2 class="h2 t-white">Accesul dumneavoastră la<br/>specialiști verificați</h2>
+      <p class="lede t-w70 mb32">Un singur cont pentru potrivire, interviuri, contracte și transport – securizat conform stadiului actual al tehnicii.</p>
+      <ul class="stack">
+        <li class="flex g14 ai-c t-w80">
+          <span class="feature-ic dark mb0"><svg class="ic" aria-hidden="true"><use href="#i-fingerprint"></use></svg></span>
+          <span class="small">Autentificare în doi pași pentru fiecare cont de companie</span></li>
+        <li class="flex g14 ai-c t-w80">
+          <span class="feature-ic dark mb0"><svg class="ic" aria-hidden="true"><use href="#i-server"></use></svg></span>
+          <span class="small">Datele rămân în centre de date din UE</span></li>
+        <li class="flex g14 ai-c t-w80">
+          <span class="feature-ic dark mb0"><svg class="ic" aria-hidden="true"><use href="#i-eye"></use></svg></span>
+          <span class="small">Fiecare autentificare este înregistrată și poate fi consultată</span></li>
+        <li class="flex g14 ai-c t-w80">
+          <span class="feature-ic dark mb0"><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg></span>
+          <span class="small">Datele de contact nu sunt transmise fără aprobare</span></li>
+      </ul>
+    </div>
+
+    <div class="rel flex g24">
+      <div><strong class="hero-num">27</strong><span class="tiny t-w50">state UE</span></div>
+      <div><strong class="hero-num">24</strong><span class="tiny t-w50">limbi</span></div>
+      <div><strong class="hero-num">0</strong><span class="tiny t-w50">trackere</span></div>
+    </div>
+  </aside>
+
+  <!-- ============ RECHTE SEITE ============ -->
+  <main class="split-right" id="main">
+    <div class="authbox">
+
+      <div class="notice notice-warn mb20 hidden" id="timeout-note">
+        <svg class="ic" aria-hidden="true"><use href="#i-clock"></use></svg>
+        <span>Sesiunea dumneavoastră s-a încheiat automat după 15 minute de inactivitate. Vă rugăm să vă autentificați din nou.</span>
+      </div>
+
+      <div class="authtabs" role="tablist" aria-label="Autentificare sau înregistrare">
+        <button type="button" role="tab" id="tab-login" aria-selected="true" aria-controls="panel-login">Autentificare</button>
+        <button type="button" role="tab" id="tab-reg" aria-selected="false" aria-controls="panel-reg">Înregistrare</button>
+      </div>
+
+      <!-- ---------- ANMELDEN ---------- -->
+      <section id="panel-login" role="tabpanel" aria-labelledby="tab-login">
+        <h1 class="h2 mb8">Bine ați revenit</h1>
+        <p class="small muted mb24">Autentificați-vă cu datele de acces.</p>
+
+        <form id="form-login" novalidate autocomplete="on">
+          <input type="hidden" name="csrf_token" value="demo-token-serverseitig-erzeugen"/>
+          <div class="hp" aria-hidden="true">
+            <label for="fax">Fax (vă rugăm să lăsați gol)</label>
+            <input class="inp plain" type="text" id="fax" name="fax" tabindex="-1" autocomplete="off"/>
+          </div>
+
+          <div class="field">
+            <label for="login-mail">Adresă de e-mail</label>
+            <div class="inp-wrap">
+              <svg class="ic" aria-hidden="true"><use href="#i-mail"></use></svg>
+              <input class="inp" type="email" id="login-mail" name="email" required
+                     autocomplete="username" placeholder="nume@companie.ro" spellcheck="false"/>
+            </div>
+            <p class="err-msg" id="err-mail"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-alert"></use></svg>Vă rugăm să introduceți o adresă de e-mail validă.</p>
+          </div>
+
+          <div class="field">
+            <label for="login-pw">Parolă</label>
+            <div class="inp-wrap">
+              <svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg>
+              <input class="inp" type="password" id="login-pw" name="password" required
+                     autocomplete="current-password" placeholder="Parola dumneavoastră"/>
+              <button class="inp-btn" type="button" data-toggle-pw="login-pw" aria-label="Afișează parola">
+                <svg class="ic" aria-hidden="true"><use href="#i-eye"></use></svg>
+              </button>
+            </div>
+            <p class="err-msg" id="err-pw"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-alert"></use></svg>Vă rugăm să introduceți parola.</p>
+          </div>
+
+          <div class="flex jc-b ai-c mb20">
+            <label class="check mb0" for="trust">
+              <input type="checkbox" id="trust" name="trust"/>
+              <span class="small">Ține minte acest dispozitiv 30 de zile</span>
+            </label>
+            <a class="small t-teal u" href="#" id="forgot">Ați uitat parola?</a>
+          </div>
+
+          <button class="btn btn-primary btn-block btn-lg" type="submit">
+            Continuă spre confirmare
+            <svg class="ic" aria-hidden="true"><use href="#i-arrowright"></use></svg>
+          </button>
+        </form>
+
+        <div class="notice notice-info mt20">
+          <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+          <span><b>Prototip:</b> Conturile sunt create cu adevărat, dar stocate exclusiv în acest browser. Nimic nu este trimis către un server. Parolele sunt sărate și stocate ca valoare hash, niciodată în text clar.</span>
+        </div>
+
+        <details class="card card-pad mt16">
+          <summary class="small fw7 t-teal">Date de acces pentru testare</summary>
+          <p class="small muted mt12">Pentru a putea vedea întregul proces din ambele perspective, sunt configurate conturi exemplu. Parola în fiecare caz: <b>Demo!2026</b></p>
+          <div class="tbl-wrap mt12">
+            <table class="tbl">
+              <thead><tr><th>Rol</th><th>Adresă de e-mail</th></tr></thead>
+              <tbody>
+                <tr><td>Angajator (Musterbau AG)</td><td>demo@unternehmen.invalid</td></tr>
+                <tr><td>Angajat (Ion Tudose)</td><td>demo1@beispiel.invalid</td></tr>
+                <tr><td>Angajată (Maria Kovacs)</td><td>demo0@beispiel.invalid</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="tiny muted mt12">Astfel de conturi comune există doar în prototip. În funcționarea reală, fiecare cont are propria parolă și protecție în doi pași.</p>
+        </details>
+
+        <p class="small muted t-c mt24">Nu aveți încă un cont?
+          <button class="card-link" type="button" id="to-reg">Înregistrați-vă acum</button></p>
+      </section>
+
+      <!-- ---------- REGISTRIEREN ---------- -->
+      <section id="panel-reg" role="tabpanel" aria-labelledby="tab-reg" hidden>
+
+        <ol class="schritte" id="reg-schritte">
+          <li class="an" id="sch1"><b>1</b>Rol</li>
+          <li id="sch2"><b>2</b>Date de acces</li>
+          <li id="sch3"><b>3</b>Confirmare</li>
+        </ol>
+
+        <!-- Schritt 1: Rolle -->
+        <div id="reg-schritt1">
+          <h1 class="h2 mb8">Cum doriți să folosiți Standard Plus?</h1>
+          <p class="small muted mb24">Alegeți-vă rolul. După aceea vă cerem doar ce este cu adevărat necesar.</p>
+
+          <div class="rollenwahl">
+            <button class="rollenkarte gold" type="button" data-wahl="arbeitgeber">
+              <span class="rollenkarte-ic">
+                <svg class="ic ic-lg" aria-hidden="true"><use href="#i-building"></use></svg></span>
+              <span class="rollenkarte-text">
+                <span class="rolle-unter">Angajator</span>
+                <strong>Caut personal</strong> <span class="rolle-text">Publicați posturi, căutați profiluri verificate și trimiteți cereri. Plătiți doar când se realizează o plasare.</span>
+              </span>
+              <svg class="ic" aria-hidden="true"><use href="#i-arrowright"></use></svg>
+            </button>
+
+            <button class="rollenkarte" type="button" data-wahl="arbeitnehmer">
+              <span class="rollenkarte-ic">
+                <svg class="ic ic-lg" aria-hidden="true"><use href="#i-user"></use></svg></span>
+              <span class="rollenkarte-text">
+                <span class="rolle-unter">Angajați</span>
+                <strong>Caut un loc de muncă</strong> <span class="rolle-text">Creați un profil, încărcați documentele și fiți găsit de companii. Utilizarea este permanent gratuită pentru dumneavoastră.</span>
+              </span>
+              <svg class="ic" aria-hidden="true"><use href="#i-arrowright"></use></svg>
+            </button>
+
+            <button class="rollenkarte" type="button" data-wahl="transport">
+              <span class="rollenkarte-ic">
+                <svg class="ic ic-lg" aria-hidden="true"><use href="#i-bus"></use></svg></span>
+              <span class="rollenkarte-text">
+                <span class="rolle-unter">Companie de transport</span>
+                <strong>Eu fac cursa</strong> <span class="rolle-text">Introduceți curse cu zilele săptămânii și opririle. Lucrătorii plasați vă găsesc cursele și rezervă direct ziua potrivită.</span>
+              </span>
+              <svg class="ic" aria-hidden="true"><use href="#i-arrowright"></use></svg>
+            </button>
+          </div>
+
+          <div class="notice notice-info">
+            <svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>
+            <span>Datele dumneavoastră devin vizibile doar după ce aprobați o cerere. Până atunci, ceilalți văd doar informații profesionale, fără nume și date de contact.</span>
+          </div>
+
+          <p class="small muted t-c mt24">Sunteți deja înregistrat?
+            <button class="card-link" type="button" id="to-login">Autentificați-vă acum</button></p>
+        </div>
+
+        <!-- Schritt 2: Zugangsdaten -->
+        <div id="reg-schritt2" hidden>
+          <div class="rolle-gewaehlt">
+            <svg class="ic ic-lg" aria-hidden="true" id="rolle-icon"><use href="#i-building"></use></svg>
+            <div>
+              <strong id="rolle-titel">Angajator</strong> <span id="rolle-text">Caut personal</span>
+            </div>
+            <button class="btn btn-outline btn-sm" type="button" id="rolle-wechseln">Modifică</button>
+          </div>
+
+          <h1 class="h2 mb8">Creează cont</h1>
+          <p class="small muted mb24" id="reg-untertitel">Doar cinci informații – profilul îl completați apoi în liniște.</p>
+
+          <form id="form-reg" novalidate>
+            <input type="hidden" name="csrf_token" value="demo-token-serverseitig-erzeugen"/>
+
+            <div class="field" id="wrap-firma">
+              <label for="reg-firma">Denumirea companiei</label>
+              <div class="inp-wrap">
+                <svg class="ic" aria-hidden="true"><use href="#i-building"></use></svg>
+                <input class="inp" type="text" id="reg-firma" name="firma" autocomplete="organization" maxlength="120"/>
+              </div>
+            </div>
+
+            <p class="lbl" id="name-legende">Numele dumneavoastră</p>
+            <div class="grid g2 g12">
+              <div class="field">
+                <label for="reg-vor">Prenume</label>
+                <div class="inp-wrap">
+                  <svg class="ic" aria-hidden="true"><use href="#i-user"></use></svg>
+                  <input class="inp" type="text" id="reg-vor" name="vorname" required autocomplete="given-name" maxlength="60"/>
+                </div>
+              </div>
+              <div class="field">
+                <label for="reg-nach">Nume</label>
+                <div class="inp-wrap">
+                  <svg class="ic" aria-hidden="true"><use href="#i-user"></use></svg>
+                  <input class="inp" type="text" id="reg-nach" name="nachname" required autocomplete="family-name" maxlength="60"/>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="reg-mail" id="mail-label">Adresă de e-mail</label>
+              <div class="inp-wrap">
+                <svg class="ic" aria-hidden="true"><use href="#i-mail"></use></svg>
+                <input class="inp" type="email" id="reg-mail" name="email" required autocomplete="email" spellcheck="false"/>
+              </div>
+              <p class="hint"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-info"></use></svg>
+                Servește drept nume de utilizator. Nu trimitem publicitate fără acordul dumneavoastră.</p>
+            </div>
+
+            <div class="field">
+              <label for="reg-pw">Parolă</label>
+              <div class="inp-wrap">
+                <svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg>
+                <input class="inp" type="password" id="reg-pw" name="password" required
+                       autocomplete="new-password" placeholder="Cel puțin 12 caractere"/>
+                <button class="inp-btn" type="button" data-toggle-pw="reg-pw" aria-label="Afișează parola">
+                  <svg class="ic" aria-hidden="true"><use href="#i-eye"></use></svg>
+                </button>
+              </div>
+              <div class="pw-meter" aria-hidden="true"><i id="pb1"></i><i id="pb2"></i><i id="pb3"></i><i id="pb4"></i></div>
+              <ul class="pw-rules" id="pw-rules">
+                <li data-rule="len"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>cel puțin 12 caractere</li>
+                <li data-rule="upper"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>Litere mari și mici</li>
+                <li data-rule="num"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>cel puțin o cifră</li>
+                <li data-rule="spec"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>un caracter special</li>
+              </ul>
+            </div>
+
+            <label class="check" for="ok-agb">
+              <input type="checkbox" id="ok-agb" required/>
+              <span>Am citit <a href="standardplus-agb.html">termenii și condițiile</a> și <a href="standardplus-datenschutz.html">politica de confidențialitate</a> și sunt de acord cu prelucrarea descrisă acolo. <b>(obligatoriu)</b></span>
+            </label>
+            <label class="check" for="ok-mail">
+              <input type="checkbox" id="ok-mail"/>
+              <span>Doresc să primesc noutăți despre produs prin e-mail. Pot retrage acordul oricând.</span>
+            </label>
+            <p class="err-msg mb12" id="err-agb"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-alert"></use></svg>Înregistrarea nu este posibilă fără acest acord.</p>
+
+            <button class="btn btn-primary btn-block btn-lg" type="submit">
+              Continuă spre confirmare
+              <svg class="ic" aria-hidden="true"><use href="#i-arrowright"></use></svg>
+            </button>
+          </form>
+
+          <p class="small muted t-c mt24">Sunteți deja înregistrat?
+            <button class="card-link" type="button" id="to-login2">Autentificați-vă acum</button></p>
+        </div>
+      </section>
+
+      <!-- ---------- ZWEITER FAKTOR ---------- -->
+      <section id="panel-2fa" hidden>
+        <button class="card-link mb16" type="button" id="back-login">
+          <svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowleft"></use></svg>Înapoi
+        </button>
+        <span class="feature-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-fingerprint"></use></svg></span>
+        <h1 class="h2 mb8">Confirmare în doi pași</h1>
+        <p class="small muted mb24">Introduceți codul de șase cifre din aplicația de autentificare. Codul se schimbă la fiecare 30 de secunde.</p>
+
+        <form id="form-2fa" novalidate>
+          <div class="otp" id="otp">
+            <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Cifra 1" autocomplete="one-time-code"/>
+            <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Cifra 2"/>
+            <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Cifra 3"/>
+            <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Cifra 4"/>
+            <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Cifra 5"/>
+            <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Cifra 6"/>
+          </div>
+          <p class="err-msg t-c mb12" id="err-otp"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-alert"></use></svg>Vă rugăm să introduceți toate cele șase cifre.</p>
+          <button class="btn btn-primary btn-block btn-lg" type="submit">Finalizează autentificarea</button>
+        </form>
+
+        <div class="notice notice-info mt20">
+          <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+          <span>În prototip este acceptat orice cod de șase cifre. În producție: TOTP conform RFC 6238, codurile pot fi folosite o singură dată, după cinci încercări eșuate contul este blocat 15 minute.</span>
+        </div>
+
+        <p class="small muted t-c mt16">
+          <button class="card-link" type="button" id="recovery">Acces cu cod de recuperare</button></p>
+      </section>
+
+      <p class="tiny muted t-c mt32">
+        <a class="u" href="standardplus-datenschutz.html">Confidențialitate</a> · <a class="u" href="standardplus-sicherheit.html">Securitate</a> · <a class="u" href="standardplus-impressum.html">Date de identificare</a> · <a class="u" href="#" data-consent>Setări cookie-uri</a>
+      </p>
+    </div>
+  </main>
+</div>
+
+<script src="../assets/sp-i18n-ro.js?v=20260929153130"></script>
+<script src="../assets/sp-icons.js?v=20260929153130"></script>
+<script src="../assets/sp-app.js?v=20260929153130"></script>
+<script src="../assets/sp-db.js?v=20260929153130"></script>
+<script src="../assets/sp-login.js?v=20260929153130"></script>
+<script src="../assets/sp-effekte.js?v=20260929153130"></script>
+</body>
+</html>

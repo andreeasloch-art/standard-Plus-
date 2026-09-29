@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0a8086"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Standard Plus"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<link rel="apple-touch-icon" href="../assets/app/apple-touch-icon.png"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<!-- Hinweis: frame-ancestors, HSTS, X-Content-Type-Options und Permissions-Policy
+     wirken nur als HTTP-Kopfzeilen. Sie stehen in assets/security-headers.conf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Video interview – Standard Plus</title>
+<link rel="stylesheet" href="../assets/sp-theme.css?v=20260929153130"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a9296'/%3E%3Cpath d='M9 10l6 6-6 6M18 10l6 6-6 6' stroke='%23ffd84d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
+<link rel="alternate" hreflang="de" href="../standardplus-interview.html"/>
+<link rel="alternate" hreflang="en" href="standardplus-interview.html"/>
+<link rel="alternate" hreflang="ro" href="../ro/standardplus-interview.html"/>
+</head>
+<body>
+
+<!-- ================= ROLLENWAHL UND EINWILLIGUNG ================= -->
+<div class="chooser" id="chooser" role="main">
+  <div class="chooser-in">
+    <span class="sp-logo on-dark mb24">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Video interview</span>
+    </span>
+    <h1 class="h2 t-white">Interview with live translation</h1>
+    <div class="notice notice-info mt16 mb8">
+      <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+      <span><b>Demo conversation:</b> Freely accessible because only fictitious people and a prepared dialogue are used here. A real interview is only available after signing in and mutual approval.</span>
+    </div>
+    <p class="lede t-w70">Choose your role. Both sides speak their own language, the translation runs in real time.</p>
+
+    <div class="notice notice-warn mb20" id="dolm-hinweis">
+      <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+      <span id="dolm-hinweis-text"><b>No interpreter server configured:</b> Below you see the prepared sample conversation – fixed sentences, no real translation. As soon as your own server's address is entered in <code>assets/sp-konfig.js</code>, the live interpreter button appears here.</span>
+    </div>
+
+    <div class="cp">
+      <button class="cpc" type="button" id="rolle-ag" data-wahl="arbeitgeber">
+        <span class="ava ava-lg mx-auto mb12"><span>TB</span>
+          <span class="ava-role"><svg class="ic" aria-hidden="true"><use href="#i-briefcase"></use></svg></span></span>
+        <strong class="h3 t-white">Thomas Becker</strong> <span class="cpc-zeile small t-w60">Head of HR · Musterbau AG</span> <span class="cpc-zeile tiny t-w50 mt8"><span class="cc">DE</span> speaks German</span>
+      </button>
+      <button class="cpc" type="button" id="rolle-bw" data-wahl="bewerber">
+        <span class="ava ava-lg gold mx-auto mb12"><span>IT</span>
+          <span class="ava-role"><svg class="ic" aria-hidden="true"><use href="#i-helmet"></use></svg></span></span>
+        <strong class="h3 t-white">Ion Tudose</strong> <span class="cpc-zeile small t-w60">Foreman and site manager</span> <span class="cpc-zeile tiny t-w50 mt8"><span class="cc">RO</span> speaks Romanian</span>
+      </button>
+    </div>
+
+    <div class="card card-pad glass-2 mb20">
+      <h2 class="h3 t-white mb12">
+        <svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>
+        Consent before the conversation starts
+      </h2>
+      <label class="check t-w80" for="ok-uebersetzung">
+        <input type="checkbox" id="ok-uebersetzung"/>
+        <span>I consent to my speech being automatically translated during the conversation. Processing takes place on servers in the EU (Art. 6(1)(a) GDPR). <b>Required.</b></span>
+      </label>
+      <label class="check t-w80" for="ok-aufzeichnung">
+        <input type="checkbox" id="ok-aufzeichnung"/>
+        <span>Additionally: the conversation may be recorded. Without the consent of both sides, no recording takes place. Voluntary, can be withdrawn at any time.</span>
+      </label>
+      <label class="check t-w80 mb0" for="ok-protokoll">
+        <input type="checkbox" id="ok-protokoll"/>
+        <span>Additionally: an automatic conversation log may be created. The final decision is always made by a human (Art. 22 GDPR).</span>
+      </label>
+    </div>
+
+    <button class="btn btn-gold btn-block btn-lg" type="button" id="start" disabled>
+      Please choose a role and give consent
+    </button>
+    <p class="tiny t-w50 t-c mt16">
+      <a class="u t-w50" href="standardplus-dolmetscher.html">Interpreter only, without video</a> · <a class="u t-w50" href="standardplus-dashboard.html">Back to dashboard</a> · <a class="u t-w50" href="standardplus-datenschutz.html">Privacy policy</a>
+    </p>
+  </div>
+</div>
+
+<!-- ================= INTERVIEW ================= -->
+<div class="iv" id="app" hidden>
+
+  <div class="iv-top">
+    <div class="flex ai-c g14">
+      <a class="sp-logo on-dark" href="standardplus-dashboard.html">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+    </a>
+      <span class="small t-w60">Interview · Ion Tudose and Thomas Becker</span>
+    </div>
+    <div class="flex ai-c g10">
+      <span class="tag tag-ok" id="rec-status">Not recording</span>
+      <span class="tag tag-teal"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-lock"></use></svg>End-to-end encrypted</span>
+      <span class="tag" id="timer">00:00</span>
+      <button class="cbtn" type="button" id="btn-info" aria-label="Security information">
+        <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg></button>
+    </div>
+  </div>
+
+  <!-- ---------- SEITENLEISTE ---------- -->
+  <aside class="iv-side">
+    <div class="iv-tabs" role="tablist">
+      <button type="button" role="tab" aria-selected="true" data-tab="tab-profil">Profile</button>
+      <button type="button" role="tab" aria-selected="false" data-tab="tab-notizen">Log</button>
+      <button type="button" role="tab" aria-selected="false" data-tab="tab-bewertung">Assessment</button>
+    </div>
+
+    <div class="iv-pane" id="tab-profil">
+      <div class="iv-card">
+        <div class="flex ai-c g12 mb12">
+          <span class="ava gold"><span>IT</span>
+            <span class="ava-role"><svg class="ic" aria-hidden="true"><use href="#i-helmet"></use></svg></span></span>
+          <div>
+            <strong class="t-white">Ion Tudose</strong>
+            <p class="tiny t-w60">Foreman · 8 years of experience</p>
+            <p class="tiny t-w50 mt4"><span class="cc">RO</span> Romanian, German B1</p>
+          </div>
+        </div>
+        <div class="flex wrapf g6">
+          <span class="tag tag-teal">Structural work</span><span class="tag tag-teal">Reinforced concrete</span>
+          <span class="tag">Crane licence</span><span class="tag">IOSH</span>
+        </div>
+      </div>
+
+      <div class="iv-card">
+        <p class="tiny t-w50 mb8">Match with the position</p>
+        <p class="kpi-v t-white" id="score">&ndash;</p>
+        <div class="bar-t mt8"><div class="bar-f gold pct-0" id="score-bar"></div></div>
+        <span class="cpc-zeile tiny t-w50 mt8">Calculated from qualification, experience, region and availability. The weighting can be viewed in the profile.</span>
+      </div>
+
+      <div class="iv-card">
+        <div class="flex ai-c g12 mb12">
+          <span class="ava"><span>TB</span>
+            <span class="ava-role"><svg class="ic" aria-hidden="true"><use href="#i-briefcase"></use></svg></span></span>
+          <div>
+            <strong class="t-white">Thomas Becker</strong>
+            <p class="tiny t-w60">Head of HR · Musterbau AG</p>
+            <p class="tiny t-w50 mt4"><span class="cc">DE</span> German · Deutsch</p>
+          </div>
+        </div>
+        <span class="tag tag-ok"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-verified"></use></svg>Company verified</span>
+      </div>
+    </div>
+
+    <div class="iv-pane" id="tab-notizen" hidden>
+      <div class="iv-card">
+        <p class="tiny t-w50 mb12">Automatic log</p>
+        <div id="notizen">
+          <span class="cpc-zeile small t-w60">The log is updated during the conversation.</span>
+        </div>
+      </div>
+      <p class="tiny t-w50">The log is a draft and must be checked before use. It is deleted automatically after 90 days.</p>
+    </div>
+
+    <div class="iv-pane" id="tab-bewertung" hidden>
+      <div class="iv-card">
+        <p class="tiny t-w50 mb12">Assessment</p>
+        <dl class="stack">
+          <div class="flex jc-b"><dt class="small t-w60">Communication</dt><dd class="small t-white" id="ev-komm">&ndash;</dd></div>
+          <div class="flex jc-b"><dt class="small t-w60">Technical skills</dt><dd class="small t-white" id="ev-fach">&ndash;</dd></div>
+          <div class="flex jc-b"><dt class="small t-w60">Occupational safety</dt><dd class="small t-white" id="ev-sich">&ndash;</dd></div>
+          <div class="flex jc-b"><dt class="small t-w60">Overall impression</dt><dd class="small t-white" id="ev-ges">&ndash;</dd></div>
+        </dl>
+      </div>
+      <div class="notice notice-warn">
+        <svg class="ic" aria-hidden="true"><use href="#i-alert"></use></svg>
+        <span>This assessment is a decision aid. A rejection may not be based on it alone (Art. 22 GDPR).</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ---------- HAUPTBEREICH ---------- -->
+  <div class="iv-main">
+    <div class="iv-grid">
+      <div class="iv-feed iv-feed-a" id="feed-ag">
+        <span class="ava ava-lg"><svg class="silhouette" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-portrait"></use></svg><span>TB</span></span>
+        <span class="iv-badge"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-translate"></use></svg>Translation active</span>
+        <span class="iv-label">
+          <span>Thomas Becker</span><span class="cc">DE</span>
+          <svg class="ic ic-sm" aria-hidden="true"><use href="#i-mic"></use></svg>
+        </span>
+      </div>
+      <div class="iv-feed iv-feed-b" id="feed-bw">
+        <span class="ava ava-lg gold"><svg class="silhouette" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-portrait"></use></svg><span>IT</span></span>
+        <span class="iv-badge"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-translate"></use></svg>Translation active</span>
+        <span class="iv-label">
+          <span>Ion Tudose</span><span class="cc">RO</span>
+          <svg class="ic ic-sm" aria-hidden="true"><use href="#i-mic"></use></svg>
+        </span>
+      </div>
+    </div>
+
+    <section class="iv-trans">
+      <div class="iv-trans-h">
+        <span class="small fw7 t-white flex ai-c g8">
+          <svg class="ic ic-sm" aria-hidden="true"><use href="#i-translate"></use></svg>
+          Live translation
+        </span>
+        <span class="flex ai-c g8">
+          <span class="tag"><span class="cc">DE</span>German · Deutsch</span>
+          <svg class="ic ic-sm t-gold" aria-hidden="true"><use href="#i-chevrons"></use></svg>
+          <span class="tag"><span class="cc">RO</span>Romanian</span>
+        </span>
+        <button class="card-link" type="button" id="clear">Clear history</button>
+      </div>
+      <div class="iv-msgs" id="msgs" aria-live="polite">
+        <p class="small t-w50 t-c">The conversation starts as soon as someone speaks. Every translation is shown with the original text.</p>
+      </div>
+    </section>
+
+    <div class="iv-ctrl">
+      <div class="flex g8">
+        <button class="cbtn on" type="button" id="btn-cam" aria-pressed="true" aria-label="Camera">
+          <svg class="ic" aria-hidden="true"><use href="#i-camera"></use></svg></button>
+        <button class="cbtn on" type="button" id="btn-mic" aria-pressed="true" aria-label="Microphone">
+          <svg class="ic" aria-hidden="true"><use href="#i-mic"></use></svg></button>
+        <button class="cbtn" type="button" id="btn-screen" aria-label="Share screen">
+          <svg class="ic" aria-hidden="true"><use href="#i-monitor"></use></svg></button>
+      </div>
+      <div class="flex g8 ai-c">
+        <button class="btn btn-gold btn-sm" type="button" id="btn-demo">
+          <svg class="ic ic-sm" aria-hidden="true"><use href="#i-play"></use></svg>Sample conversation
+        </button>
+        <button class="btn btn-white btn-sm" type="button" id="btn-live" hidden>
+          <svg class="ic ic-sm" aria-hidden="true"><use href="#i-mic"></use></svg>Live interpreter
+        </button>
+        <button class="cbtn" type="button" id="btn-rec" aria-pressed="false" aria-label="Recording">
+          <svg class="ic" aria-hidden="true"><use href="#i-video"></use></svg></button>
+      </div>
+      <div class="flex g8">
+        <button class="cbtn" type="button" id="btn-users" aria-label="Participants">
+          <svg class="ic" aria-hidden="true"><use href="#i-users"></use></svg></button>
+        <button class="cbtn end" type="button" id="btn-end" aria-label="End interview">
+          <svg class="ic" aria-hidden="true"><use href="#i-phoneoff"></use></svg></button>
+      </div>
+    </div>
+
+    <p class="dolm-status" id="dolm-status" hidden>
+      <span class="dolm-punkt" aria-hidden="true"></span>
+      <span id="dolm-text">Interpreter ready.</span>
+    </p>
+
+    <form class="iv-inp" id="form-msg">
+      <label class="hp" for="msg">Message</label>
+      <input id="msg" type="text" placeholder="Write a message – it will be translated" maxlength="500" autocomplete="off"/>
+      <button class="btn btn-primary btn-sm" type="submit">
+        Send<svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowright"></use></svg>
+      </button>
+    </form>
+  </div>
+</div>
+
+<script src="../assets/sp-i18n-en.js?v=20260929153130"></script>
+<script src="../assets/sp-icons.js?v=20260929153130"></script>
+<script src="../assets/sp-konfig.js?v=20260929153130"></script>
+<script src="../assets/sp-app.js?v=20260929153130"></script>
+<script src="../assets/sp-dolmetscher.js?v=20260929153130"></script>
+<script src="../assets/sp-interview.js?v=20260929153130"></script>
+<script src="../assets/sp-effekte.js?v=20260929153130"></script>
+</body>
+</html>

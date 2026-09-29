@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0a8086"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Standard Plus"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<link rel="apple-touch-icon" href="../assets/app/apple-touch-icon.png"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<!-- Hinweis: frame-ancestors, HSTS, X-Content-Type-Options und Permissions-Policy
+     wirken nur als HTTP-Kopfzeilen. Sie stehen in assets/security-headers.conf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'"/>
+<meta name="description" content="Standard Plus - platforma europeană de recrutare. Potrivire cu minimum de date, traducere live în interviu, contracte digitale. Funcționare exclusiv în UE."/>
+<title>Standard Plus – Recrutare pentru Europa</title>
+<link rel="stylesheet" href="../assets/sp-theme.css?v=20260929153130"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a9296'/%3E%3Cpath d='M9 10l6 6-6 6M18 10l6 6-6 6' stroke='%23ffd84d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
+<link rel="alternate" hreflang="de" href="../standardplus-main.html"/>
+<link rel="alternate" hreflang="en" href="../en/standardplus-main.html"/>
+<link rel="alternate" hreflang="ro" href="standardplus-main.html"/>
+</head>
+<body>
+<a class="sp-skip" href="#main">Salt la conținut</a>
+
+<!-- ================= HEADER ================= -->
+<header class="sp-header">
+  <div class="sp-header-in">
+    <a class="sp-logo" href="standardplus-main.html" data-nav aria-label="Pagina principală Standard Plus">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Recrutare de personal</span>
+    </a>
+    <nav aria-label="Navigare principală">
+      <ul class="sp-nav">
+        <li><a href="standardplus-talente.html" data-nav>Angajați</a></li>
+        <li><a href="standardplus-unternehmen.html" data-nav>Companii</a></li>
+        <li><a href="standardplus-main.html#ablauf">Cum funcționează</a></li>
+        <li><a href="standardplus-preise.html" data-nav>Prețuri</a></li>
+      </ul>
+    </nav>
+    <div class="sp-header-act">
+      <a class="btn btn-primary btn-sm" href="standardplus-login.html" hidden data-anon>Autentificare</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-dashboard.html" hidden data-auth>Panou</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-profil.html" hidden data-auth>Profilul meu</a>
+      <button class="btn btn-outline btn-sm" type="button" data-logout hidden data-auth>
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-logout"></use></svg>Deconectare</button>
+      <button class="iconbtn sp-burger" type="button" aria-label="Deschide meniul" aria-expanded="false">
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap g-hero">
+    <div>
+      <span class="eyebrow on-dark">
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>
+        Recrutare în toată Europa
+      </span>
+      <h1 class="h1 t-white">Standard Plus<br/>Conectăm oameni.<br/><span class="t-gold">Construim succesul.</span></h1>
+      <span class="leitzeile">Specialiști calificați. De încredere. Personal. Rapid.</span>
+      <p class="lede t-w70 mt20">
+        Platforma europeană care reunește companii, agenții și talente – cu profiluri verificate, traducere live în interviu și contracte digitale. Datele cu caracter personal devin vizibile doar după aprobarea reciprocă.
+      </p>
+      <form class="suchbox suchbox-hero mt-l" action="standardplus-suche.html" method="get">
+        <label class="hp" for="hero-q">Ce căutați?</label>
+        <input class="suchfeld suchfeld-einzeilig" type="text" id="hero-q" name="q" maxlength="400"
+               placeholder="Descrieți pe cine căutați – de ex. maistru pentru München, disponibil imediat"/>
+        <button class="btn btn-primary" type="submit">
+          <svg class="ic" aria-hidden="true"><use href="#i-search"></use></svg>Sugestii</button>
+      </form>
+      <p class="tiny t-w50 mt8">Fără autentificare · fiecare sugestie este explicată · <a class="u t-w50" href="standardplus-suche.html?art=unternehmen">Căutați o companie?</a></p>
+
+      <div class="row row-wrap mt24">
+        <a class="btn btn-gold btn-lg" href="standardplus-login.html?tab=registrieren">
+          Înregistrare gratuită
+          <svg class="ic" aria-hidden="true"><use href="#i-arrowright"></use></svg>
+        </a>
+        <a class="btn btn-onDark btn-lg" href="standardplus-talente.html">Vezi profiluri</a>
+      </div>
+      <div class="flex wrapf g32 mt40">
+        <div><strong class="hero-num" data-zahl="27">27</strong><span class="small t-w50">state membre UE</span></div>
+        <div><strong class="hero-num" data-zahl="24">24</strong><span class="small t-w50">limbi în interviu</span></div>
+        <div><strong class="hero-num">0</strong><span class="small t-w50">trackere externe</span></div>
+      </div>
+    </div>
+
+    <!-- Produktvorschau statt Symbolbild -->
+    <div class="card card-pad glass">
+      <div class="flex jc-b ai-c mb16">
+        <strong class="t-white">Sugestiile dumneavoastră de azi</strong> <span class="tag tag-gold">4 noi</span>
+      </div>
+
+      <div class="lrow glass-2">
+        <span class="ava">
+          <svg class="silhouette" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-portrait"></use></svg>
+          <span>MK</span>
+          <span class="ava-role"><svg class="ic" aria-hidden="true"><use href="#i-health"></use></svg></span>
+        </span>
+        <span class="lrow-main">
+          <strong class="t-white">Maria K.</strong> <span class="t-w50">Asistentă medicală · 12 ani · germană B2</span>
+        </span>
+        <span class="lrow-end"><span class="score hi">96&nbsp;%</span></span>
+      </div>
+
+      <div class="lrow glass-2">
+        <span class="ava gold">
+          <svg class="silhouette" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-portrait"></use></svg>
+          <span>IT</span>
+          <span class="ava-role"><svg class="ic" aria-hidden="true"><use href="#i-helmet"></use></svg></span>
+        </span>
+        <span class="lrow-main">
+          <strong class="t-white">Ion T.</strong> <span class="t-w50">Maistru · 8 ani · germană B1</span>
+        </span>
+        <span class="lrow-end"><span class="score md">91&nbsp;%</span></span>
+      </div>
+
+      <div class="lrow glass-2 mb0">
+        <span class="ava slate">
+          <svg class="silhouette" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-portrait"></use></svg>
+          <span>PW</span>
+          <span class="ava-role"><svg class="ic" aria-hidden="true"><use href="#i-code"></use></svg></span>
+        </span>
+        <span class="lrow-main">
+          <strong class="t-white">Piotr W.</strong> <span class="t-w50">Dezvoltator full-stack · 10 ani</span>
+        </span>
+        <span class="lrow-end"><span class="score md">88&nbsp;%</span></span>
+      </div>
+
+      <p class="tiny t-w50 mt16 flex g8 ai-s">
+        <svg class="ic ic-sm ic-gold f0 mt4" aria-hidden="true"><use href="#i-lock"></use></svg>
+        Vizualizare pseudonimizată: numele de familie, datele de contact și documentele sunt comunicate doar după acordul reciproc (minimizarea datelor, art. 5 alin. (1) lit. (c) GDPR).
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TALENTE ================= -->
+<section class="sec sec-kachel" id="talente">
+  <div class="wrap">
+    <div class="center mb46">
+      <span class="eyebrow"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-users"></use></svg>Angajați</span>
+      <h2 class="h2">Profiluri verificate din toată Europa</h2>
+      <p class="lede">Fiecare profil este verificat pentru dovezile de calificare înainte de activare. Este vizibil doar ce este necesar pentru preselecție.</p>
+    </div>
+
+    <div class="grid g3">
+
+      <article class="card card-hover card-pad">
+        <div class="flex ai-s g14">
+          <span class="ava ava-lg">
+            <svg class="silhouette" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-portrait"></use></svg>
+            <span>MK</span>
+            <span class="ava-badge"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span>
+          </span>
+          <div>
+            <h3 class="h3">Maria K.</h3>
+            <p class="small t-teal fw6">Asistentă medicală autorizată</p>
+            <p class="tiny muted flex g6 ai-c mt4">
+              <svg class="ic ic-sm" aria-hidden="true"><use href="#i-pin"></use></svg>Cluj (RO) → Germania</p>
+          </div>
+        </div>
+        <div class="flex wrapf g6 mt16">
+          <span class="tag tag-teal">Terapie intensivă</span><span class="tag tag-teal">Urgențe</span>
+          <span class="tag">Germană B2</span><span class="tag">12 ani</span>
+        </div>
+        <div class="bar mt20">
+          <div class="bar-h"><span class="muted small">Potrivire profesională</span><b>96&nbsp;%</b></div>
+          <div class="bar-t"><div class="bar-f pct-96"></div></div>
+        </div>
+        <div class="flex g8">
+          <a class="btn btn-primary btn-sm f1" href="standardplus-login.html">Solicită contact</a>
+          <a class="btn btn-outline btn-sm f1" href="standardplus-talente.html">Vezi profilul</a>
+        </div>
+      </article>
+
+      <article class="card card-hover card-pad">
+        <div class="flex ai-s g14">
+          <span class="ava ava-lg gold">
+            <svg class="silhouette" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-portrait"></use></svg>
+            <span>IT</span>
+            <span class="ava-badge gold"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span>
+          </span>
+          <div>
+            <h3 class="h3">Ion T.</h3>
+            <p class="small t-gold-d fw6">Maistru și șef de șantier</p>
+            <p class="tiny muted flex g6 ai-c mt4">
+              <svg class="ic ic-sm" aria-hidden="true"><use href="#i-pin"></use></svg>Timișoara (RO) → Bavaria</p>
+          </div>
+        </div>
+        <div class="flex wrapf g6 mt16">
+          <span class="tag tag-gold">Structură la roșu</span><span class="tag tag-gold">Beton armat</span>
+          <span class="tag">Autorizație de macaragiu</span><span class="tag">Germană B1</span>
+        </div>
+        <div class="bar mt20">
+          <div class="bar-h"><span class="muted small">Potrivire profesională</span><b>91&nbsp;%</b></div>
+          <div class="bar-t"><div class="bar-f gold pct-91"></div></div>
+        </div>
+        <div class="flex g8">
+          <a class="btn btn-primary btn-sm f1" href="standardplus-login.html">Solicită contact</a>
+          <a class="btn btn-outline btn-sm f1" href="standardplus-talente.html">Vezi profilul</a>
+        </div>
+      </article>
+
+      <article class="card card-hover card-pad">
+        <div class="flex ai-s g14">
+          <span class="ava ava-lg deep">
+            <svg class="silhouette" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-portrait"></use></svg>
+            <span>PW</span>
+            <span class="ava-badge"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span>
+          </span>
+          <div>
+            <h3 class="h3">Piotr W.</h3>
+            <p class="small t-teal fw6">Dezvoltator full-stack</p>
+            <p class="tiny muted flex g6 ai-c mt4">
+              <svg class="ic ic-sm" aria-hidden="true"><use href="#i-pin"></use></svg>Varșovia (PL) → La distanță / UE</p>
+          </div>
+        </div>
+        <div class="flex wrapf g6 mt16">
+          <span class="tag tag-teal">React</span><span class="tag tag-teal">Node.js</span>
+          <span class="tag">AWS</span><span class="tag">Engleză C2</span>
+        </div>
+        <div class="bar mt20">
+          <div class="bar-h"><span class="muted small">Potrivire profesională</span><b>88&nbsp;%</b></div>
+          <div class="bar-t"><div class="bar-f deep pct-88"></div></div>
+        </div>
+        <div class="flex g8">
+          <a class="btn btn-primary btn-sm f1" href="standardplus-login.html">Solicită contact</a>
+          <a class="btn btn-outline btn-sm f1" href="standardplus-talente.html">Vezi profilul</a>
+        </div>
+      </article>
+
+      <article class="card card-hover card-pad">
+        <div class="flex ai-s g14">
+          <span class="ava ava-lg gold">
+            <svg class="silhouette" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-portrait"></use></svg>
+            <span>AM</span>
+            <span class="ava-badge gold"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span>
+          </span>
+          <div>
+            <h3 class="h3">Andreea M.</h3>
+            <p class="small t-gold-d fw6">Sous-chef</p>
+            <p class="tiny muted flex g6 ai-c mt4">
+              <svg class="ic ic-sm" aria-hidden="true"><use href="#i-pin"></use></svg>București (RO) → Viena</p>
+          </div>
+        </div>
+        <div class="flex wrapf g6 mt16">
+          <span class="tag tag-gold">Fine dining</span><span class="tag tag-gold">À la carte</span>
+          <span class="tag">Patiserie</span><span class="tag">Germană B2</span>
+        </div>
+        <div class="bar mt20">
+          <div class="bar-h"><span class="muted small">Potrivire profesională</span><b>85&nbsp;%</b></div>
+          <div class="bar-t"><div class="bar-f gold pct-85"></div></div>
+        </div>
+        <div class="flex g8">
+          <a class="btn btn-primary btn-sm f1" href="standardplus-login.html">Solicită contact</a>
+          <a class="btn btn-outline btn-sm f1" href="standardplus-talente.html">Vezi profilul</a>
+        </div>
+      </article>
+
+      <article class="card card-hover card-pad">
+        <div class="flex ai-s g14">
+          <span class="ava ava-lg slate">
+            <svg class="silhouette" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-portrait"></use></svg>
+            <span>LE</span>
+            <span class="ava-badge"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span>
+          </span>
+          <div>
+            <h3 class="h3">Luca E.</h3>
+            <p class="small t-teal fw6">Electrician instalator</p>
+            <p class="tiny muted flex g6 ai-c mt4">
+              <svg class="ic ic-sm" aria-hidden="true"><use href="#i-pin"></use></svg>Milano (IT) → Frankfurt</p>
+          </div>
+        </div>
+        <div class="flex wrapf g6 mt16">
+          <span class="tag tag-teal">Instalații industriale</span><span class="tag tag-teal">SPS</span>
+          <span class="tag">Fotovoltaice</span><span class="tag">Germană A2</span>
+        </div>
+        <div class="bar mt20">
+          <div class="bar-h"><span class="muted small">Potrivire profesională</span><b>82&nbsp;%</b></div>
+          <div class="bar-t"><div class="bar-f pct-82"></div></div>
+        </div>
+        <div class="flex g8">
+          <a class="btn btn-primary btn-sm f1" href="standardplus-login.html">Solicită contact</a>
+          <a class="btn btn-outline btn-sm f1" href="standardplus-talente.html">Vezi profilul</a>
+        </div>
+      </article>
+
+      <article class="card card-hover card-pad">
+        <div class="flex ai-s g14">
+          <span class="ava ava-lg">
+            <svg class="silhouette" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-portrait"></use></svg>
+            <span>SD</span>
+            <span class="ava-badge"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span>
+          </span>
+          <div>
+            <h3 class="h3">Sofia D.</h3>
+            <p class="small t-teal fw6">Asistentă geriatrică (autorizată)</p>
+            <p class="tiny muted flex g6 ai-c mt4">
+              <svg class="ic ic-sm" aria-hidden="true"><use href="#i-pin"></use></svg>Sofia (BG) → Stuttgart</p>
+          </div>
+        </div>
+        <div class="flex wrapf g6 mt16">
+          <span class="tag tag-teal">Îngrijire demență</span><span class="tag tag-teal">Paliativ</span>
+          <span class="tag">Germană B1</span><span class="tag">9 ani</span>
+        </div>
+        <div class="bar mt20">
+          <div class="bar-h"><span class="muted small">Potrivire profesională</span><b>93&nbsp;%</b></div>
+          <div class="bar-t"><div class="bar-f pct-93"></div></div>
+        </div>
+        <div class="flex g8">
+          <a class="btn btn-primary btn-sm f1" href="standardplus-login.html">Solicită contact</a>
+          <a class="btn btn-outline btn-sm f1" href="standardplus-talente.html">Vezi profilul</a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="center mt-l">
+      <a class="btn btn-primary btn-lg" href="standardplus-talente.html">
+        Caută în toate profilurile
+        <svg class="ic" aria-hidden="true"><use href="#i-arrowright"></use></svg>
+      </a>
+      <p class="small muted mt12">Căutarea, filtrele și profilurile complete sunt disponibile după autentificare.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABLAUF ================= -->
+<section class="sec sec-gruen" id="ablauf">
+  <div class="wrap">
+    <div class="center mb46">
+      <span class="eyebrow"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-list"></use></svg>Cum funcționează</span>
+      <h2 class="h2">De la profil la contract în patru pași</h2>
+      <p class="lede">Fiecare pas este documentat și transparent pentru ambele părți.</p>
+    </div>
+    <div class="grid g4">
+      <article class="card card-pad card-hover mit-nr">
+        <span class="feature-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-doc"></use></svg></span>
+        <span class="schritt-nr" aria-hidden="true">01</span>
+        <p class="tiny t-gold-d fw8 hp">Pasul 01</p>
+        <h3 class="h3 mt6 mb8">Creați profilul</h3>
+        <p class="small muted">Introduceți calificările, nivelul de limbă și preferințele. Documentele sunt stocate criptat și comunicate doar după aprobare explicită.</p>
+      </article>
+      <article class="card card-pad card-hover mit-nr">
+        <span class="feature-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-target"></use></svg></span>
+        <span class="schritt-nr" aria-hidden="true">02</span>
+        <p class="tiny t-gold-d fw8 hp">Pasul 02</p>
+        <h3 class="h3 mt6 mb8">Primiți sugestii</h3>
+        <p class="small muted">Potrivirea evaluează calificarea, experiența, regiunea și disponibilitatea. Ponderea poate fi consultată oricând.</p>
+      </article>
+      <article class="card card-pad card-hover mit-nr">
+        <span class="feature-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-handshake"></use></svg></span>
+        <span class="schritt-nr" aria-hidden="true">03</span>
+        <p class="tiny t-gold-d fw8 hp">Pasul 03</p>
+        <h3 class="h3 mt6 mb8">Aprobare reciprocă</h3>
+        <p class="small muted">Datele de contact devin vizibile doar când ambele părți sunt de acord. Fără contact nesolicitat, fără transmitere către terți.</p>
+      </article>
+      <article class="card card-pad card-hover mit-nr">
+        <span class="feature-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-verified"></use></svg></span>
+        <span class="schritt-nr" aria-hidden="true">04</span>
+        <p class="tiny t-gold-d fw8 hp">Pasul 04</p>
+        <h3 class="h3 mt6 mb8">Interviu și contract</h3>
+        <p class="small muted">Interviu video cu traducere live, apoi semnarea digitală a contractului și coordonarea călătoriei.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FUNKTIONEN ================= -->
+<section class="sec sec-kachel" id="funktionen">
+  <div class="wrap">
+    <div class="center mb46">
+      <span class="eyebrow"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-grid"></use></svg>Funcții</span>
+      <h2 class="h2">Toate modulele lucrează împreună</h2>
+      <p class="lede">De la prima sugestie până la prima zi de muncă – fără a schimba sistemul.</p>
+    </div>
+    <div class="grid g3">
+      <a class="card card-pad card-hover" href="standardplus-talente.html">
+        <span class="feature-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-target"></use></svg></span>
+        <h3 class="h3">Potrivire</h3>
+        <p class="small muted mt8">Evaluează peste 40 de criterii și explică transparent fiecare sugestie. Nicio respingere automată fără verificare umană (art. 22 GDPR).</p>
+        <span class="tag tag-teal mt12">Transparent</span>
+      </a>
+      <a class="card card-pad card-hover" href="standardplus-interview.html">
+        <span class="feature-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-translate"></use></svg></span>
+        <h3 class="h3">Traducere live</h3>
+        <p class="small muted mt8">Traducere în timp real în 24 de limbi UE, direct în interviul video. Prelucrare pe servere din UE, înregistrare doar cu acordul ambelor părți.</p>
+        <span class="tag tag-teal mt12">24 de limbi</span>
+      </a>
+      <a class="card card-pad card-hover" href="standardplus-dashboard.html">
+        <span class="feature-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-doc"></use></svg></span>
+        <h3 class="h3">Contracte digitale</h3>
+        <p class="small muted mt8">Semnătură eIDAS, arhivare sigură și termene automate de ștergere pentru fiecare tip de document.</p>
+        <span class="tag tag-teal mt12">eIDAS</span>
+      </a>
+      <a class="card card-pad card-hover" href="standardplus-dashboard.html">
+        <span class="feature-ic gold"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-bus"></use></svg></span>
+        <h3 class="h3">Transport și sosire</h3>
+        <p class="small muted mt8">Călătoria, cazarea și programările la autorități coordonate prin platformă – cu urmărirea stadiului pentru toți cei implicați.</p>
+      </a>
+      <a class="card card-pad card-hover" href="standardplus-dashboard.html">
+        <span class="feature-ic gold"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-chart"></use></svg></span>
+        <h3 class="h3">Rapoarte</h3>
+        <p class="small muted mt8">Indicatori privind duratele, motivele de abandon și ratele de succes. Export CSV sau PDF, agregat și fără date personale.</p>
+      </a>
+      <a class="card card-pad card-hover" href="standardplus-sicherheit.html">
+        <span class="feature-ic gold"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-shieldcheck"></use></svg></span>
+        <h3 class="h3">Centru de securitate</h3>
+        <p class="small muted mt8">Autentificare în doi pași, lista dispozitivelor, jurnal de acces și canal de raportare a vulnerabilităților – vizibile pentru fiecare cont.</p>
+        <span class="tag tag-gold mt12">Nou</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BRANCHEN ================= -->
+<section class="sec sec-gruen">
+  <div class="wrap">
+    <div class="center mb40">
+      <span class="eyebrow"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-briefcase"></use></svg>Domenii</span>
+      <h2 class="h2">Plasare în toate domeniile profesionale</h2>
+    </div>
+    <div class="flex wrapf g10 jc-c">
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-health"></use></svg>Sănătate și îngrijire</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-helmet"></use></svg>Construcții și meserii</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-truck"></use></svg>Logistică și transport</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-code"></use></svg>IT și tehnologie</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-utensils"></use></svg>Gastronomie și hoteluri</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-office"></use></svg>Administrație și birou</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-leaf"></use></svg>Agricultură</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-factory"></use></svg>Industrie și producție</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-cap"></use></svg>Educație și îngrijirea copiilor</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-bolt"></use></svg>Electrotehnică</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-cart"></use></svg>Comerț cu amănuntul</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-scale"></use></svg>Drept și finanțe</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-flask"></use></svg>Cercetare și laborator</span>
+      <span class="chip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-palette"></use></svg>Creativ și design</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LAENDER ================= -->
+<section class="sec">
+  <div class="wrap g-1-2">
+    <div>
+      <span class="eyebrow"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-globe"></use></svg>Regiuni</span>
+      <h2 class="h2">Toate cele 27 de state UE</h2>
+      <p class="small muted">Accent pe coridorul Germania, Austria și Europa de Sud-Est. Plasările în Elveția urmează reguli separate, deoarece aceasta nu intră sub incidența liberei circulații din UE.</p>
+    </div>
+    <div class="flex wrapf g8">
+      <span class="tag"><span class="cc">DE</span>Germania</span><span class="tag"><span class="cc">AT</span>Austria</span>
+      <span class="tag"><span class="cc">RO</span>România</span><span class="tag"><span class="cc">PL</span>Polonia</span>
+      <span class="tag"><span class="cc">CZ</span>Cehia</span><span class="tag"><span class="cc">HU</span>Ungaria</span>
+      <span class="tag"><span class="cc">BG</span>Bulgaria</span><span class="tag"><span class="cc">HR</span>Croația</span>
+      <span class="tag"><span class="cc">SK</span>Slovacia</span><span class="tag"><span class="cc">SI</span>Slovenia</span>
+      <span class="tag"><span class="cc">IT</span>Italia</span><span class="tag"><span class="cc">FR</span>Franța</span>
+      <span class="tag"><span class="cc">ES</span>Spania</span><span class="tag"><span class="cc">PT</span>Portugalia</span>
+      <span class="tag"><span class="cc">NL</span>Țările de Jos</span><span class="tag"><span class="cc">BE</span>Belgia</span>
+      <span class="tag"><span class="cc">LU</span>Luxemburg</span><span class="tag"><span class="cc">DK</span>Danemarca</span>
+      <span class="tag"><span class="cc">SE</span>Suedia</span><span class="tag"><span class="cc">FI</span>Finlanda</span>
+      <span class="tag"><span class="cc">IE</span>Irlanda</span><span class="tag"><span class="cc">GR</span>Grecia</span>
+      <span class="tag"><span class="cc">MT</span>Malta</span><span class="tag"><span class="cc">CY</span>Cipru</span>
+      <span class="tag"><span class="cc">EE</span>Estonia</span><span class="tag"><span class="cc">LV</span>Letonia</span>
+      <span class="tag"><span class="cc">LT</span>Lituania</span>
+      <span class="tag tag-gold"><span class="cc">CH</span>Elveția · reguli speciale</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta">
+  <div class="wrap">
+    <h2 class="h2 t-white">Pregătit pentru următoarea angajare?</h2>
+    <p class="lede t-w80 mx-auto mb32">
+      Creați un cont, descrieți nevoia, primiți profiluri potrivite – fără costuri în avans.</p>
+    <div class="flex wrapf g12 jc-c">
+      <a class="btn btn-gold btn-lg" href="standardplus-login.html?tab=registrieren">Înregistrare gratuită</a>
+      <a class="btn btn-onDark btn-lg" href="standardplus-sicherheit.html">Verifică securitatea</a>
+    </div>
+    <div class="aussagen">
+      <span class="aussage"><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>De încredere.</span>
+      <span class="aussage"><svg class="ic" aria-hidden="true"><use href="#i-users"></use></svg>Competent.</span>
+      <span class="aussage"><svg class="ic" aria-hidden="true"><use href="#i-chart"></use></svg>Durabil.</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="sp-foot">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <span class="sp-logo on-dark mb16">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Recrutare de personal</span>
+    </span>
+        <p>Platforma europeană de recrutare. Construită cu minimum de date, operată integral în UE.</p>
+      </div>
+      <div>
+        <h4>Platformă</h4>
+        <ul>
+          <li><a href="standardplus-talente.html">Angajați</a></li>
+          <li><a href="standardplus-dashboard.html">Panou</a></li>
+          <li><a href="standardplus-suche.html">Căutare</a></li>
+          <li><a href="standardplus-musterprofile.html">Profiluri exemplu</a></li>
+          <li><a href="standardplus-interview.html">Interviu video</a></li>
+          <li><a href="standardplus-dolmetscher.html">Interpret live</a></li>
+          <li><a href="standardplus-transport.html">Curse de autocar</a></li>
+          <li><a href="standardplus-preise.html" data-nav>Prețuri</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Companii</h4>
+        <ul>
+          <li><a href="standardplus-main.html#ablauf">Cum funcționează</a></li>
+          <li><a href="standardplus-main.html#funktionen">Funcții</a></li>
+          <li><a href="standardplus-login.html">Autentificare</a></li>
+          <li><a href="standardplus-login.html?tab=registrieren">Înregistrare</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Juridic și securitate</h4>
+        <ul>
+          <li><a href="standardplus-datenschutz.html">Politica de confidențialitate</a></li>
+          <li><a href="standardplus-datenschutz-center.html">Centrul de confidențialitate</a></li>
+          <li><a href="standardplus-impressum.html">Date de identificare</a></li>
+          <li><a href="standardplus-sicherheit.html">Protecția datelor și securitate</a></li>
+          <li><a href="standardplus-agb.html">AGB</a></li>
+          <li><a href="#" data-consent>Setări cookie-uri</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Standard Plus. Toate drepturile rezervate.</span>
+      <span class="foot-seal">
+        <span class="seal"><svg class="ic" aria-hidden="true"><use href="#i-server"></use></svg>Găzduire în UE</span>
+        <span class="seal"><svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg>TLS 1.3</span>
+        <span class="seal"><svg class="ic" aria-hidden="true"><use href="#i-fingerprint"></use></svg>2FA</span>
+        <span class="seal"><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>GDPR</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/sp-i18n-ro.js?v=20260929153130"></script>
+<script src="../assets/sp-icons.js?v=20260929153130"></script>
+<script src="../assets/sp-app.js?v=20260929153130"></script>
+<script src="../assets/sp-suche.js?v=20260929153130"></script>
+<script src="../assets/sp-vokabular.js?v=20260929153130"></script>
+<script src="../assets/sp-start.js?v=20260929153130"></script>
+<script src="../assets/sp-effekte.js?v=20260929153130"></script>
+</body>
+</html>

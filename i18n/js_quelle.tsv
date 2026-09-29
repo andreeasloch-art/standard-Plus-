@@ -1,0 +1,1572 @@
+0001	Dieses Profil wurde nicht gefunden. Möglicherweise wurde das Konto gelöscht.
+0002	{n} Bewertung
+0003	{n} Bewertungen
+0004	Ohne Berufsangabe
+0005	Noch keine Bewertung
+0006	{n} geprüfter Nachweis
+0007	{n} geprüfte Nachweise
+0008	Verfügbar {wann}
+0009	{n} Mitarbeitende
+0010	Sitz
+0011	Gegründet
+0012	Mitarbeitende
+0013	Offene Stellen
+0014	Region
+0015	Alter
+0016	{n} Jahr
+0017	{n} Jahre
+0018	Erfahrung
+0019	Wunschland
+0020	Das ist Ihr eigenes Profil. So sehen Sie es selbst; andere sehen je nach Freigabe weniger.
+0021	Vollansicht: Es besteht eine beidseitige Freigabe. Name, Kontaktdaten und Nachweise sind sichtbar.
+0022	Eingeschränkte Ansicht: Nachname, Kontaktdaten und Dokumenteninhalte werden erst nach beidseitiger Freigabe angezeigt.
+0023	Sie sind nicht angemeldet. Öffentlich sichtbar ist nur ein stark gekürzter Auszug.
+0024	Zwischen diesem Profil und Ihrem Konto besteht eine Sperre. Es werden keine Details angezeigt.
+0025	Musteransicht: So sieht dieses Profil aus, wenn eine beidseitige Freigabe besteht. Bei echten Konten ist diese Tiefe nur nach Freigabe erreichbar - der Schutz gilt uneingeschränkt.
+0026	Zum Vergleich: eingeschränkte Ansicht
+0027	Alle Musterprofile
+0028	Profil bearbeiten
+0029	Anmelden für die Vollansicht
+0030	Sperre aufheben
+0031	Sperre aufgehoben
+0032	Das Profil ist wieder sichtbar.
+0033	Anfrage senden
+0034	Anfrage gesendet
+0035	{name} entscheidet über die Freigabe.
+0036	Beidseitig freigegeben
+0037	Anfrage abgelehnt
+0038	Anfrage läuft
+0039	Anfrage liegt vor
+0040	Bewertung abgeben
+0041	Videointerview
+0042	Auf meine Sperrliste
+0043	Kurzprofil
+0044	Branche
+0045	Ort
+0046	Größe
+0047	Beruf
+0048	Werdegang, Sprachen, Nachweise und Bewertungen sind angemeldeten Konten vorbehalten.
+0049	Über mich
+0050	Eckdaten
+0051	Zur Person
+0052	Name
+0053	Nachname nach Freigabe
+0054	Jahrgang {jahr}
+0055	Staatsangehörigkeit
+0056	Wohnort
+0057	Beruf und Erfahrung
+0058	Berufserfahrung
+0059	Deutschkenntnisse
+0060	nach Referenzrahmen
+0061	Konditionen und Einsatz
+0062	Gehaltsvorstellung
+0063	netto im Monat
+0064	Verfügbar
+0065	Führerschein
+0066	keine Angabe
+0067	Umzugsbereit
+0068	ja
+0069	nein
+0070	Kontakt
+0071	E-Mail
+0072	nach beidseitiger Freigabe
+0073	Telefon
+0074	nicht hinterlegt
+0075	Kenntnisse und Nachweise im Beruf
+0076	Arbeitsproben
+0077	Über das Unternehmen
+0078	Unternehmensdaten
+0079	Das Unternehmen
+0080	Firma
+0081	Rechtsform
+0082	seit {n} Jahr am Markt
+0083	seit {n} Jahren am Markt
+0084	Standort und Bedarf
+0085	Weitere Standorte
+0086	nur der Hauptsitz
+0087	siehe unten
+0088	derzeit keine
+0089	Geprüfte Nachweise
+0090	Ansprechperson
+0091	Position
+0092	Standorte
+0093	Das bieten wir Mitarbeitenden
+0094	Derzeit keine offenen Ausschreibungen.
+0095	in {ort}
+0096	Passende Profile
+0097	Eindrücke vom Arbeitsplatz
+0098	Sprachkenntnisse
+0099	Stufen nach dem Gemeinsamen Europäischen Referenzrahmen (A1 bis C2).
+0100	Beruflicher Werdegang
+0101	Noch keine Stationen hinterlegt.
+0102	bis
+0103	Arbeitgeber wird nach Freigabe genannt
+0104	Zeugnisse, Diplome und Zertifikate
+0105	Noch keine Nachweise hinterlegt.
+0106	Nachweis
+0107	geprüft
+0108	ungeprüft
+0109	Herunterladen
+0110	Beispieldatei ohne Inhalt
+0111	Inhalt nach Freigabe
+0112	Der Vermerk „geprüft" bedeutet, dass Standard Plus das Original gesehen hat. Dateiinhalte werden erst nach beidseitiger Freigabe zugänglich.
+0113	Arbeitsprobe
+0114	Bewertungen
+0115	Noch keine Bewertungen. Bewerten kann nur, wer nachweislich zusammengearbeitet hat.
+0116	Von {name}
+0117	einem Konto
+0118	Bewertungen stammen ausschließlich von Konten mit beidseitiger Freigabe. Jedes Konto kann ein anderes nur einmal bewerten.
+0119	1 von 5 Sternen
+0120	{n} von 5 Sternen
+0121	Bewertung veröffentlicht
+0122	Sie erscheint jetzt im Profil.
+0123	Nicht möglich
+0124	Bewerten kann nur, wer eine beidseitige Freigabe hat und noch nicht bewertet hat.
+0125	Sperre gesetzt
+0126	Das Profil ist für Sie ausgeblendet.
+0127	Technisch notwendig
+0128	Anmeldung, Sitzungsschutz, CSRF-Token und Missbrauchserkennung. Ohne diese Daten funktioniert die Plattform nicht.
+0129	Funktional
+0130	Merkt sich Ansichtseinstellungen wie Filter, Sortierung und zuletzt geöffnete Module. Speicherung ausschließlich lokal in Ihrem Browser.
+0131	Statistik
+0132	Anonymisierte Reichweitenmessung auf eigenen Servern in der EU, ohne Profilbildung, ohne Weitergabe an Dritte.
+0133	Marketing
+0134	Derzeit nicht im Einsatz. Wird nur aktiviert, wenn wir künftig Kampagnen messen - und dann ausschließlich nach Ihrer Freigabe.
+0135	Datenschutz-Einstellungen
+0136	Wir speichern nur, was Sie hier freigeben. Technisch notwendige Daten sichern Anmeldung und Schutz vor Missbrauch (Art. 6 Abs. 1 lit. f DSGVO, §. 25 Abs. 2 TTDSG). Alle übrigen Kategorien setzen Ihre Einwilligung voraus und sind jederzeit widerrufbar. Diese Anwendung lädt keine externen Dienste, Schriftarten, Karten oder Tracker.
+0137	Einstellungen
+0138	Nur notwendige
+0139	Alle akzeptieren
+0140	Auswahl speichern
+0141	Datenschutzerklärung
+0142	Sicherheit
+0143	Impressum
+0144	Einstellungen gespeichert
+0145	Änderung jederzeit im Datenschutz-Center möglich.
+0146	Nur notwendige Daten
+0147	Es werden keine optionalen Daten gespeichert.
+0148	Auswahl gespeichert
+0149	Ihre Einwilligung wurde mit Zeitstempel protokolliert.
+0150	Sitzung läuft ab
+0151	Zu Ihrem Schutz wird die Sitzung nach 15 Minuten ohne Aktivität automatisch beendet. Sie werden in wenigen Sekunden abgemeldet.
+0152	Angemeldet bleiben
+0153	Jetzt abmelden
+0154	App installieren
+0155	App installiert
+0156	Standard Plus liegt jetzt bei Ihren Programmen und startet in einem eigenen Fenster.
+0157	Sprache wählen
+0158	Es liegt noch keine Auswahl vor. Bitte treffen Sie eine Entscheidung.
+0159	Zuletzt gespeichert am {datum} um {zeit} Uhr (Fassung {version}).
+0160	Widerruf gespeichert
+0161	Alle optionalen Daten wurden gelöscht. Technisch notwendige Verarbeitung bleibt bestehen.
+0162	Datenexport nach Art. 20 DSGVO. Erzeugt im Browser, ohne Serverübertragung.
+0163	keine Auswahl gespeichert
+0164	6 Monate nach Abschluss
+0165	30 Tage
+0166	90 Tage
+0167	14 Tage
+0168	10 Jahre (gesetzliche Pflicht)
+0169	Export erstellt
+0170	Die Datei wurde in Ihrem Download-Ordner abgelegt.
+0171	Auskunft angefordert
+0172	Ihre Anfrage ist eingegangen. Die Antwort erfolgt innerhalb eines Monats.
+0173	Korrektur melden
+0174	Bitte beschreiben Sie die zu korrigierende Angabe. Wir prüfen und ändern sie unverzüglich.
+0175	LOESCHEN
+0176	Konto gelöscht
+0177	Profil, Stellen und Anfragen wurden entfernt. Sie werden jetzt abgemeldet.
+0178	Gerät abgemeldet
+0179	Alle Sitzungen dieses Geräts wurden beendet.
+0180	Noch keine Einträge.
+0181	Standard Plus Sitzungsprotokoll\nErstellt: {zeit}
+0182	Protokoll gespeichert
+0183	Guten Morgen
+0184	Guten Tag
+0185	Guten Abend
+0186	Ihre Sicht als Beförderungsunternehmen
+0187	Ihre Sicht als Arbeitnehmer
+0188	Profile in der Datenbank
+0189	Beidseitige Freigaben
+0190	Offene Anfragen
+0191	Eigene offene Stellen
+0192	Eigene Linien
+0193	Gebuchte Fahrten
+0194	Vermittelbare Arbeitskräfte
+0195	Unternehmen auf der Plattform
+0196	Linien ansehen
+0197	Ihre Linien
+0198	Anfragen an Sie
+0199	Offene Stellen insgesamt
+0200	Unternehmen finden
+0201	Passende Unternehmen
+0202	Noch keine Unternehmensprofile hinterlegt.
+0203	{n} offene Stelle
+0204	{n} offene Stellen
+0205	keine offene Stelle
+0206	Ansehen
+0207	Noch keine Linie eingetragen. Unter „Mein Profil" legen Sie Strecke, Wochentage und Abfahrtszeit fest – danach erscheinen Sie in den Reisevorschlägen.
+0208	{von} nach {nach}
+0209	ab {zeit} Uhr
+0210	Keine offenen Vorschläge. Alle passenden Profile haben Sie bereits angefragt.
+0211	Anfrage an {name}
+0212	Nur für Arbeitgeber
+0213	Anfragen können nur Arbeitgeberkonten stellen.
+0214	{name} ausblenden
+0215	Vorschläge wischen
+0216	Interesse an Ihrem Unternehmen
+0217	Weitere Vorschläge
+0218	Dieses Modul ist im Prototyp als Platzhalter angelegt. Aufbau und Rechtekonzept sind vorbereitet.
+0219	Ihr Stand
+0220	{offen} offene Anfragen, {freigaben} beidseitige Freigaben, {profile} Profile in der Datenbank.
+0221	gerade eben
+0222	vor {n} Min.
+0223	vor {n} Std.
+0224	vor {n} Tag
+0225	vor {n} Tagen
+0226	Unbekannt
+0227	Beidseitige Freigabe
+0228	Anfrage gestellt
+0229	Stelle ausgeschrieben
+0230	Noch keine Vorgänge. Sobald Sie eine Anfrage stellen, erscheint sie hier.
+0231	Für Ihr Konto aktiv und verpflichtend.
+0232	Noch nicht eingerichtet – bitte nachholen.
+0233	{n} protokollierter Vorgang in dieser Sitzung, im Datenschutz-Center einsehbar.
+0234	{n} protokollierte Vorgänge in dieser Sitzung, im Datenschutz-Center einsehbar.
+0235	1 offene Anfrage
+0236	{n} offene Anfrage
+0237	{n} offene Anfragen
+0238	Warten auf die Entscheidung der Gegenseite.
+0239	Aktuell wartet keine Anfrage auf eine Entscheidung.
+0240	Anreise steht fest
+0241	Ihre Anreise ist gebucht
+0242	Beförderungsunternehmen
+0243	Abfahrt {datum}, {zeit} Uhr
+0244	über Nacht
+0245	am selben Tag
+0246	Ankunft {datum}, {zeit} Uhr
+0247	{preis} € je Platz
+0248	Rückfragen: {telefon}
+0249	{n} Plätze
+0250	Baujahr {jahr}
+0251	{name} fährt
+0252	spricht {sprachen}
+0253	Fahrzeug und Fahrer werden vom Unternehmen noch eingeteilt.
+0254	Wer fährt, steht meist erst kurz vorher fest. Sie sehen es hier, sobald es eingeteilt ist.
+0255	Das Fahrzeug wird noch eingeteilt.
+0256	Reiseplan mit allen Halten
+0257	Fahrzeug und Fahrer stehen fest
+0258	{name} fährt.
+0259	Anreise stornieren
+0260	Storniert
+0261	Sie können einen anderen Tag wählen.
+0262	Anreise gemeldet
+0263	Abfahrt {ab}, Ankunft {an} um {zeit} Uhr.
+0264	Von {von} nach {nach} – für Ihre Zusammenarbeit mit {firma}.
+0265	Auf dieser Strecke fährt derzeit keine hinterlegte Linie. Fragen Sie ein Beförderungsunternehmen direkt an – die Übersicht finden Sie unter „Alle Linien ansehen".
+0266	{n} möglicher Reisetag.
+0267	{n} mögliche Reisetage, nach Abfahrt sortiert. Der früheste ist hervorgehoben.
+0268	{tag}, Abfahrt {zeit} Uhr
+0269	{dauer} unterwegs
+0270	über {orte}
+0271	{n} Platz frei
+0272	{n} Plätze frei
+0273	Diesen Tag wählen
+0274	Anreise eingetragen
+0275	{firma} wird benachrichtigt: Abfahrt {ab}, Ankunft {an} um {zeit} Uhr.
+0276	Wie gefahren wird
+0277	Buchungen auf Ihren Linien
+0278	Noch keine Buchung. Tragen Sie unter „Mein Profil" Ihre Linien ein.
+0279	Anreise Ihrer Fachkraft
+0280	Ihre Anreise
+0281	{name} hat noch keinen Reisetag gewählt. Sobald das geschehen ist, sehen Sie hier Abfahrt und Ankunft.
+0282	Die Fachkraft
+0283	Für Reisevorschläge fehlt Ihr Wohnort im Profil.
+0284	Für Reisevorschläge fehlt der Arbeitsort des Unternehmens.
+0285	dem Unternehmen
+0286	Speichern nicht möglich
+0287	Der lokale Speicher ist voll. Bitte entfernen Sie Bilder oder Nachweise.
+0288	Arbeitszeugnis
+0289	Diplom oder Abschluss
+0290	Zertifikat
+0291	Anerkennungsbescheid
+0292	Gesundheitsnachweis
+0293	Handelsregister oder Gewerbe
+0294	Erlaubnis nach AÜG
+0295	Sonstiger Nachweis
+0296	Pflege und Gesundheit
+0297	Bau und Handwerk
+0298	IT und Technologie
+0299	Gastronomie
+0300	Logistik
+0301	Industrie und Produktion
+0302	Verwaltung und Büro
+0303	Diese E-Mail-Adresse ist bereits registriert.
+0304	Unternehmen
+0305	Profil
+0306	Grenze erreicht
+0307	Höchstens zwölf Nachweise.
+0308	Höchstens acht Bilder.
+0309	Zwischen diesen Konten besteht eine Sperre.
+0310	Reisebus
+0311	Kleinbus
+0312	Kleinbus, 9 Sitze
+0313	Van, 7 Sitze
+0314	Ausgebucht
+0315	Für diesen Tag ist kein Platz mehr frei. Bitte wählen Sie einen anderen.
+0316	Bereits gebucht
+0317	Für diese Zusammenarbeit ist schon eine Anreise eingetragen.
+0318	Teilnehmer
+0319	Es ist kein Dolmetscher-Server hinterlegt. Tragen Sie die Adresse in assets/sp-konfig.js ein.
+0320	Dieser Browser gibt kein Mikrofon frei.
+0321	Verbindung wird aufgebaut …
+0322	Mikrofon offen. Sprechen Sie einfach los.
+0323	Das Mikrofon wurde nicht freigegeben. Ohne Mikrofon kann nicht übersetzt werden.
+0324	Verbindung oder Mikrofon nicht verfügbar: {grund}
+0325	Zeitüberschreitung beim Verbinden
+0326	Der Dolmetscher-Server ist nicht erreichbar
+0327	Verbindung beendet.
+0328	Probe
+0329	Verbunden mit {namen}
+0330	Warten auf die Gegenseite. Geben Sie ihr das Kennwort „{raum}“.
+0331	Der Server meldet einen Fehler.
+0332	Übersetzung wird vorgelesen …
+0333	Sie sind dran.
+0334	Eine gesprochene Antwort war nicht abspielbar.
+0335	Mikrofon geschlossen.
+0336	Dolmetscher-Server: {adresse} — Ihre Stimme geht ausschliesslich dorthin.
+0337	Kennwort fehlt
+0338	Ohne Kennwort finden sich die beiden Seiten nicht.
+0339	Schlecht verstanden ({prozent} %)
+0340	Gegenseite ist da
+0341	{namen} ist dem Raum beigetreten.
+0342	Dolmetscher läuft
+0343	Sie können jederzeit sprechen, auch während der Ausgabe.
+0344	Sprechen Sie abwechselnd. Während vorgelesen wird, pausiert Ihr Mikrofon kurz.
+0345	Start nicht möglich
+0346	Bitte Einstellungen prüfen.
+0347	ab {stufe}
+0348	kurzfristig
+0349	ab {n} Jahr
+0350	ab {n} Jahren
+0351	bis {betrag} €
+0352	Klasse {klasse}
+0353	ab {n} Stern
+0354	ab {n} Sternen
+0355	klein
+0356	kleiner Betrieb
+0357	großes Unternehmen
+0358	Branche {name}
+0359	Beruf passt: {beruf}
+0360	Kenntnisse: {liste}
+0361	Wunschregion passt
+0362	umzugsbereit
+0363	Herkunft {land}
+0364	Deutsch {stufe}
+0365	Deutsch {stufe}, knapp darunter
+0366	ohne Angabe
+0367	ab sofort verfügbar
+0368	verfügbar: {wann}
+0369	erst: {wann}
+0370	unbekannt
+0371	{n} Jahr Erfahrung
+0372	{n} Jahre Erfahrung
+0373	nur {n} Jahr Erfahrung
+0374	nur {n} Jahre Erfahrung
+0375	Gehaltswunsch im Budget
+0376	Gehaltswunsch {betrag} €
+0377	Führerschein {klasse}
+0378	Führerschein fehlt
+0379	{wert} Sterne
+0380	offene Stelle: {titel}
+0381	sucht in diesem Bereich
+0382	derzeit keine offene Stelle
+0383	Standort {ort}
+0384	bietet: {liste}
+0385	gesuchte Leistungen nicht ausgewiesen
+0386	{groesse} Mitarbeitende
+0387	{wert} Sterne von {n} Person
+0388	{wert} Sterne von {n} Personen
+0389	unter Ihrer Mindestbewertung
+0390	noch keine Bewertungen
+0391	geprüfte Unternehmensnachweise
+0392	Interview als {name} starten
+0393	Bitte in die Übersetzung einwilligen
+0394	Bitte Rolle wählen und einwilligen
+0395	Aufzeichnung freigegeben
+0396	Kein automatisches Protokoll - Sie haben dem nicht zugestimmt.
+0397	Verbindung steht
+0398	Ende-zu-Ende verschlüsselt, Übersetzung Deutsch und Rumänisch.
+0399	Thomas Becker (Unternehmen)
+0400	Ion Tudose (Bewerber)
+0401	verschlüsselt übertragen
+0402	Zuletzt schlecht verstanden ({wert} %). Bitte wiederholen oder näher ans Mikrofon.
+0403	Mikrofon offen. Sprechen Sie einfach.
+0404	Schlecht verstanden ({wert} %): „{text}“ – bitte wiederholen.
+0405	Verstanden: „{text}“
+0406	Dolmetscher beenden
+0407	Sprechen Sie abwechselnd. Während die Übersetzung vorgelesen wird, pausiert Ihr Mikrofon kurz — sonst hörte es die eigene Ausgabe.
+0408	Live-Dolmetscher
+0409	Live-Dolmetscher eingerichtet: {adresse}. Nach dem Start können Sie frei sprechen – Ihre Sprache wird auf Ihrem eigenen Server übersetzt, ohne dass Ton die EU verlässt.
+0410	Guten Tag, Herr Tudose. Ich bin Thomas Becker von der Musterbau AG. Schön, dass wir uns heute kennenlernen.
+0411	Buna ziua, domnule Tudose. Sunt Thomas Becker de la Musterbau AG. Ma bucur ca ne cunoastem astazi.
+0412	Buna ziua, domnule Becker. Si eu ma bucur. Am auzit multe lucruri bune despre Musterbau AG.
+0413	Guten Tag, Herr Becker. Ich freue mich ebenfalls. Ich habe viel Gutes über die Musterbau AG gehört.
+0414	Sie haben acht Jahre Erfahrung als Polier. Erzählen Sie mir von einem Projekt, auf das Sie besonders stolz sind.
+0415	Aveti opt ani de experienta ca maistru. Povestiti-mi despre un proiect de care sunteti deosebit de mandru.
+0416	Cel mai mare proiect a fost un complex rezidential de 18 etaje in Cluj-Napoca. Am coordonat 45 de muncitori si am terminat cu trei saptamani mai devreme.
+0417	Mein größtes Projekt war ein 18-stöckiger Wohnkomplex in Cluj-Napoca. Ich habe 45 Mitarbeitende geführt und drei Wochen früher fertiggestellt.
+0418	Beeindruckend. Wie gehen Sie mit Arbeitssicherheit auf der Baustelle um? Das hat bei uns höchste Priorität.
+0419	Impresionant. Cum abordati siguranta pe santier? Pentru noi aceasta are prioritate absoluta.
+0420	Siguranta este pe primul loc. Am introdus protocoale stricte pe toate santierele mele: zero accidente in opt ani. Detin si certificarea IOSH.
+0421	Sicherheit steht an erster Stelle. Ich habe auf allen Baustellen strenge Vorgaben eingeführt: null Unfälle in acht Jahren. Ich habe zudem die IOSH-Zertifizierung.
+0422	Sehr gut. Abschließend: Welche Gehaltsvorstellung haben Sie für diese Position in München?
+0423	Foarte bine. In final: ce asteptari salariale aveti pentru aceasta pozitie in München?
+0424	Pe baza experientei mele si a pietei germane, ma astept la 3.200 pana la 3.500 euro net pe luna.
+0425	Auf Basis meiner Erfahrung und des deutschen Marktes erwarte ich 3.200 bis 3.500 Euro netto monatlich.
+0426	Begrüßung: sachlicher, professioneller Ton auf beiden Seiten.
+0427	Referenz bestätigt: Wohnkomplex mit 18 Geschossen, 45 Mitarbeitende, drei Wochen vor Termin.
+0428	Arbeitssicherheit: IOSH-Zertifikat, acht Jahre ohne meldepflichtigen Unfall.
+0429	Gehalt: Vorstellung 3.200 bis 3.500 Euro netto, liegt im Rahmen der Stelle.
+0430	Empfehlung: Zweitgespräch mit der Bauleitung vereinbaren.
+0431	gut
+0432	sehr gut
+0433	Empfehlung für Zweitgespräch
+0434	Gespräch beendet
+0435	Protokoll und Einschätzung stehen in der Seitenleiste.
+0436	Deutsch (Original)
+0437	Rumänisch
+0438	Rumänisch (Original)
+0439	Deutsch
+0440	[Übersetzung] {text}
+0441	Kamera aktiv
+0442	Kamera aus
+0443	Mikrofon aktiv
+0444	Mikrofon stumm
+0445	Bildschirm teilen
+0446	Freigegeben wird immer nur ein einzelnes Fenster, niemals der gesamte Bildschirm.
+0447	Zwei Teilnehmende
+0448	Weitere Personen können nur mit Zustimmung beider Seiten beitreten.
+0449	Sicherheit dieses Gesprächs
+0450	Medienströme sind Ende-zu-Ende verschlüsselt. Die Übersetzung läuft auf EU-Servern und wird nicht dauerhaft gespeichert.
+0451	Aufzeichnung nicht möglich
+0452	Beide Seiten müssen vor Beginn zustimmen. Die Zustimmung liegt nicht vor.
+0453	Aufzeichnung läuft
+0454	Aufzeichnung angehalten
+0455	Verlauf gelöscht.
+0456	Registrieren
+0457	Anmelden
+0458	Passwort verbergen
+0459	Passwort anzeigen
+0460	Arbeitgeber
+0461	Ich suche Personal
+0462	Wir brauchen nur den Firmennamen, Ihren Namen und Zugangsdaten.
+0463	Ihre Ansprechperson
+0464	Geschäftliche E-Mail-Adresse
+0465	Arbeitnehmer
+0466	Ich suche eine Stelle
+0467	Vier Angaben genügen - Ihr Profil füllen Sie danach in Ruhe aus.
+0468	Ihr Name
+0469	E-Mail-Adresse
+0470	Ich fahre die Strecke
+0471	Firmenname und Zugangsdaten genügen. Lizenz und Linien tragen Sie danach ein.
+0472	Zu viele Versuche
+0473	Aus Sicherheitsgründen ist der Zugang für 15 Minuten gesperrt.
+0474	Anmeldung fehlgeschlagen
+0475	E-Mail-Adresse oder Passwort ist falsch.
+0476	Zweiter Faktor erforderlich
+0477	Bitte Code aus der Authenticator-App eingeben.
+0478	Bitte Eingaben prüfen
+0479	Das Passwort muss alle vier Kriterien erfüllen und die Zustimmung ist erforderlich.
+0480	Konto angelegt
+0481	Richten Sie jetzt die Zwei-Faktor-Authentifizierung ein.
+0482	Registrierung nicht möglich
+0483	Privatkonto
+0484	Zurücksetzen angefordert
+0485	Produktiv wird ein einmaliger Link mit 30 Minuten Gültigkeit versendet – ohne Hinweis darauf, ob die Adresse existiert.
+0486	Wiederherstellungscode
+0487	Bei der Einrichtung erhalten Sie zehn Einmalcodes. Jeder Code ist genau einmal gültig.
+0488	Konto nicht gefunden
+0489	Bitte melden Sie sich erneut an. Der lokale Datenbestand wurde vermutlich geleert.
+0490	Arbeitgeberkonto
+0491	Arbeitnehmerkonto
+0492	in der Suche sichtbar
+0493	nicht auffindbar
+0494	Angaben unvollständig
+0495	Vorname und Beruf werden benötigt.
+0496	Gespeichert
+0497	Sie erscheinen pseudonymisiert in der Suche.
+0498	Ihr Profil ist für Unternehmen ausgeblendet.
+0499	Angaben fehlen
+0500	Arbeitgeber und Position werden benötigt.
+0501	Station gespeichert
+0502	Sie erscheint jetzt im Werdegang.
+0503	Noch keine Station hinterlegt.
+0504	Entfernen
+0505	Der Firmenname wird benötigt.
+0506	Ihre Unternehmensangaben sind aktualisiert.
+0507	Titel fehlt
+0508	Bitte geben Sie eine Stellenbezeichnung an.
+0509	Stelle veröffentlicht
+0510	Sie erscheint jetzt in Ihrem Profil.
+0511	Bilder vom Arbeitsplatz
+0512	Zeigen Sie, wie es bei Ihnen aussieht. Bitte keine Personen ohne deren Einverständnis abbilden.
+0513	Noch keine Stelle ausgeschrieben.
+0514	offen
+0515	geschlossen
+0516	Schließen
+0517	Stelle geschlossen
+0518	Noch keine Sprache hinterlegt.
+0519	Niveau {stufe}
+0520	Sprache fehlt
+0521	Bitte geben Sie eine Sprache an.
+0522	Sprache hinzugefügt
+0523	Datei konnte nicht gelesen werden.
+0524	Kein gültiges Bild.
+0525	wird geprüft
+0526	Nachweis entfernt
+0527	Bezeichnung fehlt
+0528	Bitte benennen Sie den Nachweis.
+0529	Keine Datei
+0530	Bitte wählen Sie eine Datei aus.
+0531	Nachweis hinzugefügt
+0532	Die Datei wurde lokal gespeichert.
+0533	Die Datei ist größer als 500 KB. Im Prototyp wurde nur der Eintrag angelegt.
+0534	Fehler beim Lesen
+0535	Noch keine Bilder hinterlegt.
+0536	Bild
+0537	Bild entfernen
+0538	Bild entfernt
+0539	Kein Bild
+0540	Bitte wählen Sie ein Bild aus.
+0541	Bild hinzugefügt
+0542	Es wurde verkleinert gespeichert.
+0543	Fehler
+0544	Noch keine Bewertungen erhalten.
+0545	Noch keine Anfragen. Stellen Sie eine Anfrage über die Talentübersicht.
+0546	Noch keine Anfragen. Unternehmen melden sich, sobald Ihr Profil passt.
+0547	Stelle: {titel}
+0548	wartet auf Freigabe
+0549	beidseitig freigegeben
+0550	abgelehnt
+0551	Dieses Unternehmen möchte Ihre Kontaktdaten erhalten. Prüfen Sie zuerst das Unternehmensprofil. Erst mit Ihrer Freigabe werden Name, E-Mail-Adresse und Telefonnummer übermittelt.
+0552	Freigeben
+0553	Freigabe erteilt
+0554	Die Kontaktdaten wurden ausgetauscht.
+0555	Ablehnen
+0556	Es werden keine Daten übermittelt.
+0557	Unternehmen prüfen
+0558	Ihre Anfrage liegt zur Entscheidung vor. Kontaktdaten erhalten Sie erst nach der Freigabe.
+0559	Kontaktdaten freigegeben:
+0560	Videointerview starten
+0561	Ihre Sperrliste ist leer.
+0562	Gelöschtes Konto
+0563	gesperrt am {datum}
+0564	Lizenz fehlt
+0565	Ohne Gemeinschaftslizenz ist grenzüberschreitender Personenverkehr nicht zulässig.
+0566	Kennzeichen fehlt
+0567	Ohne Kennzeichen weiß der Fahrgast nicht, in welchen Wagen er steigt.
+0568	Fahrzeug gespeichert
+0569	{kennzeichen} steht jetzt zur Einteilung bereit.
+0570	Name fehlt
+0571	Bitte tragen Sie den Namen des Fahrers ein.
+0572	Fahrer gespeichert
+0573	{name} kann jetzt für Fahrten eingeteilt werden.
+0574	{start} ab {zeit} Uhr · {n} Halte · {dauer} bis {ziel}
+0575	Fahrplan unvollständig
+0576	Mindestens zwei Zeilen nach dem Muster „Ort 17:30" werden benötigt.
+0577	Kein Tag gewählt
+0578	Ohne Wochentage kann niemand einen Reisetag vorgeschlagen bekommen.
+0579	Linie veröffentlicht
+0580	{von} nach {nach} · {dauer} Fahrt.
+0581	Noch kein Fahrzeug eingetragen. Ohne Fahrzeug sieht der Fahrgast nicht, womit er fährt.
+0582	Fahrzeug entfernt
+0583	Zuordnungen wurden gelöst.
+0584	Noch offen – wird je Fahrt eingeteilt
+0585	{n} Platz
+0586	Noch kein Fahrer eingetragen.
+0587	seit {jahr}
+0588	Fahrer entfernt
+0589	Einteilungen wurden gelöst.
+0590	Noch keine Linie eingetragen. Ohne Linie erscheinen Sie in keinem Vorschlag.
+0591	Linie entfernen
+0592	Linie entfernt
+0593	Sie erscheint in keinem Vorschlag mehr.
+0594	{dauer} Fahrt
+0595	Kein festes Fahrzeug – wird je Fahrt eingeteilt
+0596	Fahrplan ansehen
+0597	Noch keine Buchung auf Ihren Linien.
+0598	{abDatum}, {abZeit} Uhr · Ankunft {anDatum}, {anZeit} Uhr
+0599	gebucht
+0600	storniert
+0601	Fahrzeug
+0602	Noch nicht eingeteilt
+0603	Fahrer an diesem Tag
+0604	Einteilung übernehmen
+0605	Eingeteilt
+0606	Der Fahrgast sieht jetzt Fahrzeug und Fahrer für diese Fahrt.
+0607	Noch unvollständig: Fahrzeug und Fahrer fehlen.
+0608	Noch unvollständig: Fahrzeug fehlt.
+0609	Noch unvollständig: Fahrer fehlt.
+0610	{st} Std. {mi} Min.
+0611	{n} Stunde
+0612	{n} Stunden
+0613	{n} Minute
+0614	{n} Minuten
+0615	Für diese Linie liegt kein Fahrplan vor.
+0616	+{n} Tag
+0617	+{n} Tage
+0618	Sie steigen ein
+0619	Sie steigen aus
+0620	nicht Ihre Teilstrecke
+0621	{dauer} ab {ort}
+0622	Ihre Teilstrecke
+0623	Die Zwischenzeiten sind geschätzt – das Unternehmen hat für diese Linie noch keinen Fahrplan mit Uhrzeiten hinterlegt.
+0624	Ein Vorschlag verfügbar.
+0625	{n} Vorschläge verfügbar.
+0626	Polier für München, mindestens 5 Jahre Erfahrung, gutes Deutsch, sofort verfügbar
+0627	Pflegefachkraft mit Intensivpflege-Erfahrung und Deutsch B2
+0628	Berufskraftfahrer mit Klasse CE und Gefahrgut, bis 3000 Euro
+0629	Elektriker aus Italien oder Rumänien, umzugsbereit
+0630	Klinik in Berlin, die Unterkunft und Anerkennungsbegleitung bietet
+0631	Bauunternehmen in Bayern mit Deutschkurs und unbefristetem Vertrag
+0632	Gut bewertetes Unternehmen mit Fahrtkostenzuschuss
+0633	Großes Unternehmen im Bau, das einen Polier sucht
+0634	Zum Beispiel: Ich suche einen Polier für München, mindestens 5 Jahre Erfahrung, gutes Deutsch, möglichst sofort verfügbar.
+0635	Zum Beispiel: Ich bin Pflegefachkraft und suche eine Klinik in Berlin, die eine Unterkunft stellt und bei der Anerkennung hilft.
+0636	Beispiele zum Ausprobieren:
+0637	DAS HABEN WIR VERSTANDEN
+0638	Aus Ihrem Text ließ sich kein bekanntes Kriterium herauslesen. Nennen Sie zum Beispiel einen Beruf, eine Stadt, ein Sprachniveau oder eine Frist. Es werden alle Profile nach allgemeiner Eignung sortiert.
+0639	Fehlt etwas oder ist etwas falsch verstanden? Ergänzen Sie Ihren Satz und suchen Sie erneut.
+0640	verfügbar {wann}
+0641	Profil ansehen
+0642	Übereinstimmung
+0643	Bitte beschreiben Sie in einem Satz, was Sie suchen.
+0644	{n} Vorschlag, nach Übereinstimmung sortiert
+0645	{n} Vorschläge, nach Übereinstimmung sortiert
+0646	Ansicht
+0647	Wischen
+0648	Liste
+0649	Es sind noch keine Unternehmensprofile hinterlegt.
+0650	Es sind noch keine Bewerberprofile hinterlegt.
+0651	Die Prozentangabe zeigt, wie viele Ihrer Kriterien erfüllt sind – nicht die Eignung eines Menschen. Sie ist eine Sortierhilfe, keine Bewertung und keine Entscheidung.
+0652	Ohne Angabe
+0653	{n} Nachweis
+0654	{n} Nachweise
+0655	{n} Sprache
+0656	{n} Sprachen
+0657	Verfügbar: {wann}
+0658	Anmeldung erforderlich
+0659	Kontaktanfragen sind nur mit bestätigtem Konto möglich. Sie werden weitergeleitet.
+0660	Anfragen an andere Profile können nur Arbeitgeberkonten stellen.
+0661	{name} entscheidet über die Freigabe. Erst danach erhalten Sie Kontaktdaten.
+0662	{n} Profil
+0663	{n} Profile
+0664	{tag}: Abfahrt {zeit} Uhr
+0665	{tag}: keine Fahrt
+0666	Fahrzeug wird je Fahrt eingeteilt
+0667	Unternehmen ansehen
+0668	{n} Linie
+0669	{n} Linien
+0670	Halt
+0671	Aktuell keine offene Stelle
+0672	1 Unternehmen
+0673	{n} Unternehmen
+0674	Interessiert
+0675	Nein
+0676	Vorschläge zum Wischen
+0677	Nicht interessiert – ausblenden
+0678	Rückgängig
+0679	Interessiert – Anfrage senden
+0680	Interessiert – Interesse zeigen
+0681	Interessiert – vormerken
+0682	Nach rechts wischen oder Haken: Anfrage senden. Nach links oder Kreuz: ausblenden. Auf dem Computer gehen auch die Pfeiltasten.
+0683	Nach rechts wischen oder Haken: Das Unternehmen sieht Ihr Kurzprofil – Name und Kontaktdaten erst nach beidseitiger Freigabe. Nach links oder Kreuz: ausblenden.
+0684	Nach rechts wischen oder Haken: vormerken. Nach links oder Kreuz: ausblenden. Auf dem Computer gehen auch die Pfeiltasten.
+0685	Vorschlag {nr} von {gesamt}
+0686	Anfrage an {name} gesendet. {name} entscheidet über die Freigabe.
+0687	Interesse an {name} gezeigt.
+0688	{name} vorgemerkt.
+0689	{name} ausgeblendet.
+0690	{name} ist zurück.
+0691	Alle Vorschläge angesehen
+0692	Keine neuen Vorschläge für diese Suche
+0693	interessiert
+0694	ausgeblendet
+0695	Die Fachkräfte entscheiden jetzt selbst über die Freigabe. Den Stand sehen Sie im Dashboard.
+0696	Die Unternehmen sehen Ihr Interesse im Dashboard und können Ihnen eine Anfrage senden.
+0697	Melden Sie sich an, damit Ihr Interesse ankommt. Ohne Konto wird nichts gespeichert.
+0698	Vorgemerkt nur für diese Sitzung. Anfragen senden Arbeitgeber, Interesse zeigen Fachkräfte.
+0699	{n} Vorschlag haben Sie schon früher mit Haken beantwortet.
+0700	{n} Vorschläge haben Sie schon früher mit Haken beantwortet.
+0701	{n} ausgeblendeten Vorschlag wieder zeigen
+0702	{n} ausgeblendete Vorschläge wieder zeigen
+0703	Zum Dashboard
+0704	Als Liste anzeigen
+0705	Deutschland
+0706	Österreich
+0707	Schweiz
+0708	Rumänien
+0709	Polen
+0710	Bulgarien
+0711	Ungarn
+0712	Kroatien
+0713	Slowakei
+0714	Tschechien
+0715	Slowenien
+0716	Italien
+0717	Spanien
+0718	Portugal
+0719	Griechenland
+0720	Frankreich
+0721	Belgien
+0722	Niederlande
+0723	Luxemburg
+0724	Dänemark
+0725	Schweden
+0726	Finnland
+0727	Irland
+0728	Litauen
+0729	Lettland
+0730	Estland
+0731	Malta
+0732	Zypern
+0733	Serbien
+0734	Bosnien und Herzegowina
+0735	Nordmazedonien
+0736	Albanien
+0737	Montenegro
+0738	Republik Moldau
+0739	Ukraine
+0740	Türkei
+0741	Norwegen
+0742	Island
+0743	Vereinigtes Königreich
+0744	Berlin
+0745	Hamburg
+0746	München
+0747	Köln
+0748	Frankfurt am Main
+0749	Stuttgart
+0750	Düsseldorf
+0751	Leipzig
+0752	Dortmund
+0753	Essen
+0754	Bremen
+0755	Dresden
+0756	Hannover
+0757	Nürnberg
+0758	Duisburg
+0759	Bochum
+0760	Wuppertal
+0761	Bielefeld
+0762	Bonn
+0763	Münster
+0764	Karlsruhe
+0765	Mannheim
+0766	Augsburg
+0767	Wiesbaden
+0768	Mönchengladbach
+0769	Gelsenkirchen
+0770	Braunschweig
+0771	Kiel
+0772	Chemnitz
+0773	Aachen
+0774	Halle (Saale)
+0775	Magdeburg
+0776	Freiburg im Breisgau
+0777	Krefeld
+0778	Lübeck
+0779	Mainz
+0780	Erfurt
+0781	Oberhausen
+0782	Rostock
+0783	Kassel
+0784	Hagen
+0785	Saarbrücken
+0786	Potsdam
+0787	Ludwigshafen
+0788	Oldenburg
+0789	Osnabrück
+0790	Heidelberg
+0791	Solingen
+0792	Darmstadt
+0793	Regensburg
+0794	Ingolstadt
+0795	Würzburg
+0796	Ulm
+0797	Heilbronn
+0798	Pforzheim
+0799	Göttingen
+0800	Wolfsburg
+0801	Koblenz
+0802	Jena
+0803	Trier
+0804	Siegen
+0805	Cottbus
+0806	Schwerin
+0807	Flensburg
+0808	Konstanz
+0809	Passau
+0810	Bamberg
+0811	Landshut
+0812	Rosenheim
+0813	Friedrichshafen
+0814	Wien
+0815	Graz
+0816	Linz
+0817	Salzburg
+0818	Innsbruck
+0819	Klagenfurt
+0820	Villach
+0821	Wels
+0822	Sankt Pölten
+0823	Dornbirn
+0824	Wiener Neustadt
+0825	Bregenz
+0826	Zürich
+0827	Genf
+0828	Basel
+0829	Bern
+0830	Lausanne
+0831	Winterthur
+0832	Luzern
+0833	Sankt Gallen
+0834	Lugano
+0835	Biel
+0836	Zug
+0837	Chur
+0838	Bukarest
+0839	Cluj-Napoca
+0840	Timișoara
+0841	Iași
+0842	Constanța
+0843	Craiova
+0844	Brașov
+0845	Galați
+0846	Ploiești
+0847	Oradea
+0848	Brăila
+0849	Arad
+0850	Pitești
+0851	Sibiu
+0852	Bacău
+0853	Târgu Mureș
+0854	Baia Mare
+0855	Buzău
+0856	Satu Mare
+0857	Suceava
+0858	Warschau
+0859	Krakau
+0860	Breslau
+0861	Posen
+0862	Danzig
+0863	Stettin
+0864	Bydgoszcz
+0865	Lublin
+0866	Katowice
+0867	Białystok
+0868	Gdynia
+0869	Częstochowa
+0870	Radom
+0871	Sofia
+0872	Plowdiw
+0873	Warna
+0874	Burgas
+0875	Russe
+0876	Stara Sagora
+0877	Plewen
+0878	Sliwen
+0879	Budapest
+0880	Debrecen
+0881	Szeged
+0882	Miskolc
+0883	Pécs
+0884	Győr
+0885	Nyíregyháza
+0886	Kecskemét
+0887	Zagreb
+0888	Split
+0889	Rijeka
+0890	Osijek
+0891	Zadar
+0892	Slavonski Brod
+0893	Pula
+0894	Karlovac
+0895	Bratislava
+0896	Košice
+0897	Prešov
+0898	Žilina
+0899	Nitra
+0900	Banská Bystrica
+0901	Trnava
+0902	Prag
+0903	Brünn
+0904	Ostrava
+0905	Pilsen
+0906	Liberec
+0907	Olomouc
+0908	Budweis
+0909	Hradec Králové
+0910	Ljubljana
+0911	Maribor
+0912	Celje
+0913	Kranj
+0914	Koper
+0915	Rom
+0916	Mailand
+0917	Neapel
+0918	Turin
+0919	Palermo
+0920	Genua
+0921	Bologna
+0922	Florenz
+0923	Bari
+0924	Catania
+0925	Venedig
+0926	Verona
+0927	Bozen
+0928	Triest
+0929	Madrid
+0930	Barcelona
+0931	Valencia
+0932	Sevilla
+0933	Saragossa
+0934	Málaga
+0935	Murcia
+0936	Palma
+0937	Bilbao
+0938	Alicante
+0939	Córdoba
+0940	Valladolid
+0941	Lissabon
+0942	Porto
+0943	Braga
+0944	Coimbra
+0945	Faro
+0946	Funchal
+0947	Setúbal
+0948	Athen
+0949	Thessaloniki
+0950	Patras
+0951	Heraklion
+0952	Larisa
+0953	Volos
+0954	Paris
+0955	Marseille
+0956	Lyon
+0957	Toulouse
+0958	Nizza
+0959	Nantes
+0960	Straßburg
+0961	Lille
+0962	Brüssel
+0963	Antwerpen
+0964	Gent
+0965	Charleroi
+0966	Lüttich
+0967	Brügge
+0968	Amsterdam
+0969	Rotterdam
+0970	Den Haag
+0971	Utrecht
+0972	Eindhoven
+0973	Groningen
+0974	Esch-sur-Alzette
+0975	Differdingen
+0976	Vilnius
+0977	Kaunas
+0978	Klaipėda
+0979	Šiauliai
+0980	Riga
+0981	Daugavpils
+0982	Liepāja
+0983	Jelgava
+0984	Tallinn
+0985	Tartu
+0986	Narva
+0987	Pärnu
+0988	Belgrad
+0989	Novi Sad
+0990	Niš
+0991	Kragujevac
+0992	Subotica
+0993	Sarajevo
+0994	Banja Luka
+0995	Tuzla
+0996	Zenica
+0997	Mostar
+0998	Skopje
+0999	Bitola
+1000	Kumanovo
+1001	Tirana
+1002	Durrës
+1003	Vlora
+1004	Shkodra
+1005	Kyjiw
+1006	Lwiw
+1007	Charkiw
+1008	Odessa
+1009	Dnipro
+1010	Chișinău
+1011	Bălți
+1012	Tiraspol
+1013	Istanbul
+1014	Ankara
+1015	Izmir
+1016	Bursa
+1017	Antalya
+1018	Kopenhagen
+1019	Aarhus
+1020	Odense
+1021	Aalborg
+1022	Stockholm
+1023	Göteborg
+1024	Malmö
+1025	Uppsala
+1026	Oslo
+1027	Bergen
+1028	Trondheim
+1029	Stavanger
+1030	Helsinki
+1031	Espoo
+1032	Tampere
+1033	Turku
+1034	Dublin
+1035	Cork
+1036	Limerick
+1037	Galway
+1038	London
+1039	Manchester
+1040	Birmingham
+1041	Glasgow
+1042	Leeds
+1043	Liverpool
+1044	Pflegefachkraft
+1045	Gesundheits- und Krankenpfleger/in
+1046	Altenpfleger/in
+1047	Pflegehelfer/in
+1048	Intensivpflegekraft
+1049	Operationstechnische/r Assistent/in
+1050	Anästhesietechnische/r Assistent/in
+1051	Hebamme
+1052	Medizinische/r Fachangestellte/r
+1053	Physiotherapeut/in
+1054	Ergotherapeut/in
+1055	Logopäde/Logopädin
+1056	Rettungssanitäter/in
+1057	Notfallsanitäter/in
+1058	Stationsleitung
+1059	Pflegedienstleitung
+1060	Heilerziehungspfleger/in
+1061	Betreuungskraft
+1062	Zahnmedizinische/r Fachangestellte/r
+1063	Pharmazeutisch-kaufmännische/r Angestellte/r
+1064	Maurer/in
+1065	Polier/in
+1066	Bauleiter/in
+1067	Betonbauer/in
+1068	Stahlbetonbauer/in
+1069	Zimmerer/Zimmerin
+1070	Dachdecker/in
+1071	Fliesenleger/in
+1072	Trockenbaumonteur/in
+1073	Gerüstbauer/in
+1074	Elektroniker/in für Energie- und Gebäudetechnik
+1075	Anlagenmechaniker/in SHK
+1076	Installateur/in
+1077	Maler/in und Lackierer/in
+1078	Straßenbauer/in
+1079	Tiefbaufacharbeiter/in
+1080	Schweißer/in
+1081	Schlosser/in
+1082	Metallbauer/in
+1083	Kranführer/in
+1084	Baugeräteführer/in
+1085	Bauhelfer/in
+1086	Estrichleger/in
+1087	Glaser/in
+1088	Tischler/in
+1089	Schreiner/in
+1090	Softwareentwickler/in
+1091	Frontend-Entwickler/in
+1092	Backend-Entwickler/in
+1093	Fullstack-Entwickler/in
+1094	Systemadministrator/in
+1095	Netzwerkadministrator/in
+1096	DevOps Engineer
+1097	Cloud Engineer
+1098	Datenbankadministrator/in
+1099	Data Engineer
+1100	IT-Projektleiter/in
+1101	IT-Supportmitarbeiter/in
+1102	Fachinformatiker/in Systemintegration
+1103	Fachinformatiker/in Anwendungsentwicklung
+1104	IT-Sicherheitsanalyst/in
+1105	Testmanager/in
+1106	SAP-Berater/in
+1107	Webentwickler/in
+1108	Mobile-Entwickler/in
+1109	Koch/Köchin
+1110	Chefkoch/Chefköchin
+1111	Sous-Chef
+1112	Beikoch/Beiköchin
+1113	Restaurantfachkraft
+1114	Servicekraft
+1115	Kellner/in
+1116	Barkeeper/in
+1117	Hotelfachkraft
+1118	Rezeptionist/in
+1119	Housekeeping-Kraft
+1120	Zimmermädchen
+1121	Küchenhilfe
+1122	Bäcker/in
+1123	Konditor/in
+1124	Metzger/in
+1125	Fleischer/in
+1126	Patissier/Patissière
+1127	Barista
+1128	Veranstaltungsleiter/in
+1129	Berufskraftfahrer/in
+1130	LKW-Fahrer/in
+1131	Busfahrer/in
+1132	Kurierfahrer/in
+1133	Staplerfahrer/in
+1134	Lagerist/in
+1135	Lagerhelfer/in
+1136	Kommissionierer/in
+1137	Disponent/in
+1138	Speditionskaufmann/-frau
+1139	Logistikleiter/in
+1140	Fachkraft für Lagerlogistik
+1141	Zusteller/in
+1142	Umzugshelfer/in
+1143	Gefahrgutfahrer/in
+1144	Containerdisponent/in
+1145	Produktionshelfer/in
+1146	Maschinenbediener/in
+1147	Anlagenführer/in
+1148	Industriemechaniker/in
+1149	Zerspanungsmechaniker/in
+1150	CNC-Fräser/in
+1151	CNC-Dreher/in
+1152	Mechatroniker/in
+1153	Elektroniker/in für Betriebstechnik
+1154	Montagehelfer/in
+1155	Qualitätsprüfer/in
+1156	Werkzeugmechaniker/in
+1157	Schichtleiter/in
+1158	Instandhalter/in
+1159	Verfahrensmechaniker/in
+1160	Kunststofftechnologe/-technologin
+1161	Lackierer/in
+1162	Sachbearbeiter/in
+1163	Bürokaufmann/-frau
+1164	Industriekaufmann/-frau
+1165	Buchhalter/in
+1166	Lohnbuchhalter/in
+1167	Steuerfachangestellte/r
+1168	Personalsachbearbeiter/in
+1169	Personalreferent/in
+1170	Recruiter/in
+1171	Assistenz der Geschäftsführung
+1172	Teamassistenz
+1173	Empfangskraft
+1174	Controller/in
+1175	Einkäufer/in
+1176	Vertriebsmitarbeiter/in
+1177	Kundenberater/in
+1178	Callcenter-Agent/in
+1179	Projektassistenz
+1180	Marketingreferent/in
+1181	Werkstudent/in
+1182	Baden-Württemberg
+1183	Bayern
+1184	Brandenburg
+1185	Hessen
+1186	Mecklenburg-Vorpommern
+1187	Niedersachsen
+1188	Nordrhein-Westfalen
+1189	Rheinland-Pfalz
+1190	Saarland
+1191	Sachsen
+1192	Sachsen-Anhalt
+1193	Schleswig-Holstein
+1194	Thüringen
+1195	Ruhrgebiet
+1196	Rhein-Main-Gebiet
+1197	Rhein-Neckar
+1198	Bodenseeregion
+1199	Oberbayern
+1200	Franken
+1201	Schwaben
+1202	Ostwestfalen
+1203	Niederrhein
+1204	Tirol
+1205	Vorarlberg
+1206	Steiermark
+1207	Kärnten
+1208	Oberösterreich
+1209	Niederösterreich
+1210	Deutschschweiz
+1211	Romandie
+1212	Tessin
+1213	Siebenbürgen
+1214	Banat
+1215	Moldauregion
+1216	Englisch
+1217	Polnisch
+1218	Bulgarisch
+1219	Ungarisch
+1220	Kroatisch
+1221	Serbisch
+1222	Bosnisch
+1223	Slowakisch
+1224	Tschechisch
+1225	Slowenisch
+1226	Italienisch
+1227	Spanisch
+1228	Portugiesisch
+1229	Französisch
+1230	Niederländisch
+1231	Griechisch
+1232	Türkisch
+1233	Albanisch
+1234	Mazedonisch
+1235	Ukrainisch
+1236	Russisch
+1237	Litauisch
+1238	Lettisch
+1239	Estnisch
+1240	Dänisch
+1241	Schwedisch
+1242	Norwegisch
+1243	Finnisch
+1244	Arabisch
+1245	Philippinisch
+1246	Vietnamesisch
+1247	Hindi
+1248	Führerschein Klasse B
+1249	Führerschein Klasse BE
+1250	Führerschein Klasse C
+1251	Führerschein Klasse C1
+1252	Führerschein Klasse CE
+1253	Führerschein Klasse D
+1254	Fahrerkarte
+1255	Kennzahl 95
+1256	ADR-Schein Gefahrgut
+1257	Staplerschein
+1258	Kranschein
+1259	Hubarbeitsbühnenschein
+1260	Erdbaumaschinenschein
+1261	Schweißerprüfung MAG
+1262	Schweißerprüfung WIG
+1263	Schweißerprüfung E-Hand
+1264	Höhentauglichkeit G41
+1265	Arbeitsmedizinische Vorsorge G25
+1266	Erste-Hilfe-Kurs
+1267	Brandschutzhelfer
+1268	Sicherheitsunterweisung SCC
+1269	Berufsanerkennung liegt vor
+1270	Anerkennungsverfahren läuft
+1271	Beatmungspflege
+1272	Intensivpflege
+1273	Wundmanagement
+1274	Palliativpflege
+1275	Demenzbetreuung
+1276	Praxisanleitung
+1277	Medikamentengabe
+1278	Injektionen
+1279	Behandlungspflege LG1
+1280	Behandlungspflege LG2
+1281	HACCP
+1282	Hygieneschulung
+1283	Lebensmittelbelehrung
+1284	Allergenkunde
+1285	À-la-carte-Erfahrung
+1286	Bankettservice
+1287	Frühstücksservice
+1288	AutoCAD
+1289	Revit
+1290	SPS Siemens S7
+1291	CNC Heidenhain
+1292	CNC Siemens
+1293	Bauzeichnen
+1294	Aufmaß
+1295	Schalungsbau
+1296	Bewehrung
+1297	DATEV
+1298	Lexware
+1299	MS Office
+1300	Excel fortgeschritten
+1301	ERP-Systeme
+1302	Java
+1303	Python
+1304	JavaScript
+1305	TypeScript
+1306	React
+1307	Angular
+1308	Vue
+1309	Node.js
+1310	.NET
+1311	Linux
+1312	Windows Server
+1313	Docker
+1314	Kubernetes
+1315	Azure
+1316	Netzwerktechnik
+1317	IT-Sicherheit
+1318	Schichtbereitschaft
+1319	Wochenendbereitschaft
+1320	Montagebereitschaft
+1321	Reisebereitschaft
+1322	Eigener PKW
+1323	Wohnung wird benötigt
+1324	GmbH
+1325	GmbH & Co. KG
+1326	UG (haftungsbeschränkt)
+1327	GbR
+1328	eG
+1329	gGmbH
+1330	gAG
+1331	Einzelunternehmen
+1332	Anstalt des öffentlichen Rechts
+1333	Körperschaft des öffentlichen Rechts
+1334	Stiftung
+1335	GmbH (Österreich)
+1336	AG (Schweiz)
+1337	SRL (Rumänien)
+1338	deutsch
+1339	österreichisch
+1340	schweizerisch
+1341	rumänisch
+1342	polnisch
+1343	bulgarisch
+1344	ungarisch
+1345	kroatisch
+1346	serbisch
+1347	bosnisch
+1348	slowakisch
+1349	tschechisch
+1350	slowenisch
+1351	italienisch
+1352	spanisch
+1353	portugiesisch
+1354	griechisch
+1355	französisch
+1356	belgisch
+1357	niederländisch
+1358	litauisch
+1359	lettisch
+1360	estnisch
+1361	albanisch
+1362	nordmazedonisch
+1363	montenegrinisch
+1364	moldauisch
+1365	ukrainisch
+1366	türkisch
+1367	kosovarisch
+1368	philippinisch
+1369	indisch
+1370	vietnamesisch
+1371	brasilianisch
+1372	ab sofort
+1373	in 2 Wochen
+1374	in 4 Wochen
+1375	in 3 Monaten
+1376	nach Absprache
+1377	zum Monatsersten
+1378	nach Kündigungsfrist
+1379	Unterkunft wird gestellt
+1380	Zuschuss zur Wohnung
+1381	Werkswohnung verfügbar
+1382	Fahrtkostenzuschuss
+1383	Anreise wird organisiert
+1384	Deutschkurs im Betrieb
+1385	Sprachkurs wird bezahlt
+1386	Unterstützung bei der Berufsanerkennung
+1387	Begleitung bei Behördengängen
+1388	Unbefristeter Vertrag
+1389	Übernahme nach Probezeit
+1390	Tarifliche Vergütung
+1391	Übertarifliche Bezahlung
+1392	Weihnachts- und Urlaubsgeld
+1393	Schichtzulagen
+1394	30 Tage Urlaub
+1395	Betriebliche Altersvorsorge
+1396	Jobticket
+1397	Dienstwagen
+1398	Firmenhandy
+1399	Betriebskindergarten
+1400	Kantine oder Essenszuschuss
+1401	Arbeitskleidung wird gestellt
+1402	Werkzeug wird gestellt
+1403	Fort- und Weiterbildung
+1404	Aufstiegsmöglichkeiten
+1405	Feste Arbeitszeiten
+1406	Gleitzeit
+1407	Homeoffice möglich
+1408	Gesundheitsangebote
+1409	PKW bis 3,5 t
+1410	PKW mit Anhänger
+1411	LKW bis 7,5 t
+1412	LKW bis 7,5 t mit Anhänger
+1413	LKW über 3,5 t
+1414	LKW mit Anhänger
+1415	Bus
+1416	Zugmaschine
+1417	Landwirtschaft
+1418	Motorrad
+1419	Kleinkraftrad
+1420	Land
+1421	Sprache
+1422	Kenntnis
+1423	Leistung
+1424	Herkunft
+1425	Budget
+1426	Bewertung
+1427	Unterkunft
+1428	Sprachkurs
+1429	Fahrtkosten
+1430	Anerkennung
+1431	unbefristet
+1432	Kinderbetreuung
+1433	Anerkennungsbegleitung
+1434	unbefristeten Vertrag
+1435	Muttersprache
+1436	Sonntag
+1437	Montag
+1438	Dienstag
+1439	Mittwoch
+1440	Donnerstag
+1441	Freitag
+1442	Samstag
+1443	So
+1444	Mo
+1445	Di
+1446	Mi
+1447	Do
+1448	Fr
+1449	Sa
+1450	Cluj
+1451	Examinierte Pflegefachkraft
+1452	Seit zwölf Jahren in der Intensivpflege, davon vier Jahre als stellvertretende Stationsleitung. Ich suche eine Klinik mit strukturierter Einarbeitung.
+1453	Stellv. Stationsleitung Intensiv
+1454	heute
+1455	Leitung eines Teams von 14 Pflegekräften auf der Intensivstation.
+1456	Pflegefachkraft Notaufnahme
+1457	Ersteinschätzung und Versorgung in der zentralen Notaufnahme.
+1458	Diplom Krankenpflege
+1459	Anerkennungsbescheid der Bezirksregierung
+1460	Zertifikat Beatmungspflege
+1461	Polier und Bauführer
+1462	Acht Jahre Rohbau, zuletzt Hochhausprojekte. Null meldepflichtige Unfälle in meinen Kolonnen.
+1463	Polier
+1464	Wohnkomplex mit 18 Geschossen, Führung von 45 Mitarbeitenden, drei Wochen vor Termin fertiggestellt.
+1465	Vorarbeiter Stahlbeton
+1466	Schalungs- und Bewehrungsarbeiten, drei Brückenbauprojekte.
+1467	Meisterbrief Bau
+1468	IOSH Arbeitssicherheit
+1469	Kranführerschein
+1470	Remote
+1471	Full-Stack Entwickler
+1472	Zehn Jahre Webentwicklung, überwiegend im Gesundheitsbereich. Erfahren in verteilten Teams.
+1473	Senior Developer
+1474	Patientenportal mit 200.000 Nutzenden, Umstellung auf Microservices.
+1475	Master Informatik
+1476	AWS Solutions Architect
+1477	Sous Chef
+1478	Sieben Jahre gehobene Küche, zuletzt Sous Chef in einem Haus mit 90 Plätzen.
+1479	Führung der Warmen Küche, Menüentwicklung.
+1480	Abschluss Koch
+1481	Elektroinstallateur
+1482	in 6 Wochen
+1483	Schwerpunkt Industrieelektrik und Photovoltaik, VDE-zertifiziert.
+1484	Schaltanlagenbau und Inbetriebnahme.
+1485	VDE-Zertifizierung
+1486	Altenpflegerin
+1487	Neun Jahre stationäre Altenpflege mit Schwerpunkt Demenz.
+1488	Bezugspflege auf einem Demenzwohnbereich.
+1489	Abschluss Altenpflege
+1490	Zertifikat Palliative Care
+1491	Berufskraftfahrer CE
+1492	Elf Jahre Fernverkehr in Mittel- und Westeuropa, unfallfrei.
+1493	Berufskraftfahrer
+1494	Fernverkehr DE, NL, FR mit Planenauflieger.
+1495	Führerschein CE
+1496	Systemadministrator
+1497	in 8 Wochen
+1498	Sieben Jahre Systembetrieb, Schwerpunkt Linux und Netzwerksicherheit.
+1499	Betrieb von 200 Servern, Aufbau der Protokollierung.
+1500	BSc Informatik
+1501	Aktiengesellschaft
+1502	Leitung Personal Bau
+1503	Bauunternehmen mit Schwerpunkt Hoch- und Ingenieurbau. Wir besetzen laufend Positionen im Rohbau und in der Bauleitung, überwiegend in Bayern.
+1504	Handelsregisterauszug
+1505	Pflegedirektion
+1506	Krankenhaus der Schwerpunktversorgung mit 780 Betten. Wir stellen laufend examinierte Pflegekräfte ein und begleiten die Anerkennung ausländischer Abschlüsse.
+1507	Polier Rohbau (m/w/d)
+1508	3.000 bis 3.400 EUR
+1509	Führung einer Kolonne im Rohbau, Hochhausprojekte ab 20 Geschossen.
+1510	Pflegefachkraft Intensiv (m/w/d)
+1511	3.100 bis 3.600 EUR
+1512	Intensivstation mit 18 Betten, strukturierte Einarbeitung über sechs Monate.
+1513	2024 bis 2025
+1514	Rohbau Hochhausprojekt
+1515	Sehr zuverlässig, führt seine Kolonne ruhig und klar. Termine wurden eingehalten, Arbeitssicherheit vorbildlich.
+1516	2023 bis 2025
+1517	Fachlich hervorragend und im Team sehr geschätzt. Hat sich schnell auf die deutschen Dokumentationsstandards eingestellt.
+1518	Anstellung als Polier
+1519	Zusagen wurden eingehalten, die Unterkunft war ab dem ersten Tag organisiert. Der Deutschkurs hätte früher starten können.
+1520	Anstellung in der Intensivpflege
+1521	Das Anerkennungsverfahren wurde vollständig begleitet. Sehr faire und verlässliche Personalabteilung.
+1522	Geschäftsführung
+1523	RO-LC-0099142 · Gemeinschaftslizenz gültig bis 03/2029
+1524	Haftpflichtversicherung · Personenbeförderung bis 60 Plätze
+1525	6 Reisebusse, 49 bis 57 Plätze, WLAN und Steckdosen
+1526	Linienverkehr zwischen dem Banat und Süddeutschland. Seit 2009 dieselbe Strecke, feste Fahrer, Gepäck bis 2 Koffer inklusive.
+1527	Gemeinschaftslizenz
+1528	Versicherungsnachweis
+1529	Halt in Stuttgart am Busbahnhof SBB, Gleis 4.
+1530	Nachtfahrt mit zwei Pausen.
+1531	Disposition
+1532	RO-LC-0124778 · Gemeinschaftslizenz gültig bis 11/2028
+1533	Haftpflichtversicherung · Personenbeförderung bis 50 Plätze
+1534	4 Reisebusse, 50 Plätze, behindertengerechter Einstieg auf zwei Fahrzeugen
+1535	Verbindungen aus Siebenbürgen nach Bayern und Baden-Württemberg, mit Halt in mehreren rumänischen Städten.
+1536	Zustieg in Oradea nur nach Voranmeldung.
+1537	Notaufnahme
+1538	Beatmung
+1539	Rohbau
+1540	Stahlbeton
+1541	IOSH
+1542	PostgreSQL
+1543	Fine Dining
+1544	À la carte
+1545	Patisserie
+1546	Industrieanlagen
+1547	Photovoltaik
+1548	Demenzpflege
+1549	Klasse CE
+1550	Gefahrgut ADR
+1551	Modul 95
+1552	Netzwerk
+1553	Unterkunft in den ersten drei Monaten
+1554	Deutschkurs während der Arbeitszeit
+1555	Unbefristeter Vertrag nach der Probezeit
+1556	Begleitung des Anerkennungsverfahrens
+1557	Personalwohnung
+1558	Kostenfreier Fachsprachkurs bis B2
+1559	Kita-Plätze im Haus
+1560	Gepäck bis 2 Koffer inklusive
+1561	Abholung an vereinbarten Haltepunkten
+1562	Fahrer spricht Deutsch und Rumänisch
+1563	Barrierefreier Einstieg auf Anfrage
+1564	Kindersitze vorhanden
+1565	Zustieg an allen Zwischenhalten möglich
+1566	WLAN
+1567	Steckdose am Platz
+1568	Klimaanlage
+1569	Bordtoilette
+1570	Anhängerkupplung
+1571	Großer Gepäckraum
+1572	Rollstuhllift
