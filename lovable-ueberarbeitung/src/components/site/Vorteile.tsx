@@ -8,7 +8,7 @@ export function Vorteile({ liste }: { liste: Vorteil[] }) {
     <ul className="grid gap-3 sm:grid-cols-2">
       {liste.map((v) => (
         <li key={v.text} className="card-base flex items-center gap-3 p-4">
-          <Check className="h-5 w-5 shrink-0 text-success" aria-hidden />
+          <Check className="h-5 w-5 shrink-0 text-tuerkis-600 dark:text-tuerkis-300" aria-hidden />
           <span className="flex-1">{v.text}</span>
           {v.bald && <Bald />}
         </li>

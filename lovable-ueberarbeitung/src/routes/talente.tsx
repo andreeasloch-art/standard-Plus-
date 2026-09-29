@@ -65,28 +65,33 @@ function Talente() {
   const sel = "field appearance-none";
 
   return (
-    <section className="container-page mx-auto max-w-5xl py-10 sm:py-14">
-      <h1 className="text-3xl sm:text-4xl">Fachkräfte finden</h1>
+    <>
+    <section className="flaeche-tuerkis">
+      <div className="container-page mx-auto max-w-5xl py-10 sm:py-14">
+        <h1 className="text-3xl text-white sm:text-4xl">Fachkräfte finden</h1>
 
-      <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-        <SuchFeld
-          wert={qParam}
-          onAenderung={setQ}
-          onSuche={(t) => navigate({ search: { q: t || undefined }, replace: true })}
-        />
-        <Button
-          variant="outline"
-          size="lg"
-          className="h-auto shrink-0"
-          aria-expanded={filterOffen}
-          aria-controls="filter"
-          onClick={() => setFilterOffen((o) => !o)}
-        >
-          <SlidersHorizontal /> Filter{filterAktiv > 0 && ` (${filterAktiv})`}
-        </Button>
+        <div className="mt-6 flex flex-col gap-3 text-foreground sm:flex-row">
+          <SuchFeld
+            wert={qParam}
+            onAenderung={setQ}
+            onSuche={(t) => navigate({ search: { q: t || undefined }, replace: true })}
+          />
+          <Button
+            variant="outline"
+            size="lg"
+            className="h-auto shrink-0 border-white/30 bg-white/10 py-3 text-white hover:bg-white/20 hover:text-white"
+            aria-expanded={filterOffen}
+            aria-controls="filter"
+            onClick={() => setFilterOffen((o) => !o)}
+          >
+            <SlidersHorizontal /> Filter{filterAktiv > 0 && ` (${filterAktiv})`}
+          </Button>
+        </div>
       </div>
+    </section>
 
-      <div id="filter" hidden={!filterOffen} className="card-base mt-3 grid gap-3 p-4 sm:grid-cols-2 lg:grid-cols-3">
+    <section className="container-page mx-auto max-w-5xl pb-14 pt-6">
+      <div id="filter" hidden={!filterOffen} className="card-base mb-3 grid gap-3 p-4 sm:grid-cols-2 lg:grid-cols-3">
         <select className={sel} value={f.beruf} onChange={set("beruf")} aria-label="Beruf">
           <option value="">Alle Berufe</option>
           {opts.beruf.map((o) => <option key={o}>{o}</option>)}
@@ -116,7 +121,7 @@ function Talente() {
         )}
       </div>
 
-      <p className="mb-4 mt-6 text-sm text-muted-foreground" aria-live="polite">
+      <p className="mb-4 text-sm text-muted-foreground" aria-live="polite">
         {isLoading ? "Profile werden geladen …" : `${liste.length} ${liste.length === 1 ? "Profil" : "Profile"}`}
         {liste.some((p) => istBeispiel(p.id)) && " · enthält Beispielprofile (fiktiv)"}
       </p>
@@ -126,5 +131,6 @@ function Talente() {
         <EmptyState title="Keine passenden Profile">Suchbegriff oder Filter anpassen.</EmptyState>
       )}
     </section>
+    </>
   );
 }

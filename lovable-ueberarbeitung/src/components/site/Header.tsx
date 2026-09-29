@@ -64,7 +64,7 @@ export function Header() {
         <Logo className="h-6 sm:h-7" />
         <nav className="hidden items-center gap-1 md:flex" aria-label="Hauptnavigation">
           {NAV.map((n) => (
-            <Link key={n.to} to={n.to} className={linkCls} activeProps={{ className: "text-foreground bg-accent" }}>
+            <Link key={n.to} to={n.to} className={linkCls} activeProps={{ className: "bg-tint text-tint-foreground" }}>
               {n.label}
             </Link>
           ))}

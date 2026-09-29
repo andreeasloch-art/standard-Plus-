@@ -32,26 +32,27 @@ function Index() {
 
   return (
     <>
-      <section className="hero-glow">
-        <div className="container-page mx-auto max-w-3xl py-16 text-center sm:py-24">
-          <h1 className="text-4xl sm:text-6xl">
+      <section className="flaeche-tuerkis">
+        <div className="container-page mx-auto max-w-3xl pb-20 pt-16 text-center sm:pb-28 sm:pt-24">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-tuerkis-200">Personalvermittlung in Europa</p>
+          <h1 className="isolate mt-4 text-4xl text-white sm:text-6xl">
             Menschen verbinden.{" "}
             <span className="relative whitespace-nowrap">
               Erfolg gestalten.
-              <span className="absolute inset-x-0 -bottom-1 -z-10 h-3 rounded bg-primary/70" aria-hidden />
+              <span className="absolute inset-x-0 -bottom-1 -z-10 h-3 rounded bg-primary/80" aria-hidden />
             </span>
           </h1>
-          <p className="mt-5 text-lg text-muted-foreground">Qualifizierte Fachkräfte aus ganz Europa.</p>
+          <p className="mt-5 text-lg text-tuerkis-100">Qualifizierte Fachkräfte aus ganz Europa.</p>
 
-          <SuchFeld gross className="mx-auto mt-8 max-w-2xl text-left" />
+          <SuchFeld gross className="mx-auto mt-8 max-w-2xl text-left text-foreground" />
 
-          <div className="mt-4 flex flex-wrap justify-center gap-2" aria-label="Beliebte Suchen">
+          <div className="mt-5 flex flex-wrap justify-center gap-2" aria-label="Beliebte Suchen">
             {BELIEBT.map((b) => (
               <Link
                 key={b.label}
                 to="/talente"
                 search={{ q: b.q }}
-                className="rounded-full border bg-card px-3 py-1 text-sm transition hover:bg-surface"
+                className="rounded-full border border-white/25 bg-white/10 px-3.5 py-1 text-sm text-white backdrop-blur transition hover:bg-white/20"
               >
                 {b.label}
               </Link>
@@ -60,8 +61,8 @@ function Index() {
         </div>
       </section>
 
-      <section className="container-page mx-auto max-w-5xl py-16 sm:py-20">
-        <div className="mb-8 flex items-end justify-between gap-4">
+      <section className="container-page mx-auto max-w-5xl py-14 sm:py-20">
+        <div className="mb-6 flex items-end justify-between gap-4 sm:mb-8">
           <div>
             <h2 className="text-3xl sm:text-4xl">Aktuelle Profile</h2>
             {data?.some((p) => istBeispiel(p.id)) && (
@@ -79,18 +80,18 @@ function Index() {
         <ProfilListe profile={data ?? []} laedt={isLoading} />
       </section>
 
-      <section className="bg-surface py-16 sm:py-20">
+      <section className="bg-tint py-14 sm:py-20">
         <div className="container-page">
-          <h2 className="text-3xl sm:text-4xl">So funktioniert’s</h2>
+          <h2 className="text-3xl text-tint-foreground sm:text-4xl">So funktioniert’s</h2>
           <Schritte />
         </div>
       </section>
 
-      <section className="container-page py-16 sm:py-20">
-        <div className="flex flex-col items-start justify-between gap-6 rounded-3xl bg-ink p-8 text-ink-foreground sm:flex-row sm:items-center sm:p-12">
+      <section className="container-page py-14 sm:py-20">
+        <div className="flaeche-tuerkis flex flex-col items-start justify-between gap-6 rounded-3xl p-8 sm:flex-row sm:items-center sm:p-12">
           <div>
-            <h2 className="text-2xl sm:text-3xl">Bereit für Ihr nächstes Team-Mitglied?</h2>
-            <p className="mt-2 text-ink-foreground/80">Kostenlos registrieren – Zahlung nur bei Erfolg.</p>
+            <h2 className="text-2xl text-white sm:text-3xl">Bereit für Ihr nächstes Team-Mitglied?</h2>
+            <p className="mt-2 text-tuerkis-100">Kostenlos registrieren – Zahlung nur bei Erfolg.</p>
           </div>
           <Button asChild size="lg">
             <Link to="/auth" search={{ modus: "registrieren" }}>

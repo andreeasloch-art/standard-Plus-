@@ -28,6 +28,26 @@ Vorschau-Screenshots: [`vorschau/`](vorschau/)
 | `supabase/migrations/20261001120000_kuendigungen_aufbewahren.sql` | `kuendigungen.user_id` darf leer sein, Zeitpunkt der Kontolöschung wird vermerkt |
 | `src/routes/datenschutz.tsx` | Abschnitte 9 und 13 passend zur Aufbewahrung von Kündigungen |
 
+### Türkis und Profilfotos (Runde 2)
+
+| Datei | Was sich ändert |
+| --- | --- |
+| `src/styles.css` | Türkis-Palette aus dem Logo (`tuerkis-50` … `tuerkis-950`, Basis `#448C92`), Tönung `tint`, Flächen `flaeche-tuerkis` und `foto-platzhalter` |
+| `src/components/site/PageHeader.tsx` | Seitenköpfe auf Türkisfläche |
+| `src/components/site/ProfilFoto.tsx` | **neu** – Foto im Hochformat, Ausschnitt auf das Gesicht; Platzhalter ohne Foto |
+| `src/components/site/FotoUpload.tsx` | **neu** – Foto hochladen/ersetzen/löschen, eigene Einwilligung für die Anzeige |
+| `src/lib/profile-data.ts` | Foto-Pfad aus der Datenbank, signierte Links aus dem privaten Speicher |
+| `supabase/migrations/20261001130000_profilbilder.sql` | privater Bucket `profilbilder`, Zugriffsregeln, Foto-Spalten, Einwilligungsprotokoll, `oeffentliche_profile()` mit Foto |
+| `src/routes/datenschutz.tsx` | Abschnitt 8 „Profilfoto“, Speicherdauer |
+
+Profile stehen jetzt **immer zu zweit nebeneinander**, auch auf dem Handy.
+
+In Lovable noch einbauen:
+- `src/routes/_authenticated/profil-bearbeiten.tsx`: für Arbeitnehmer direkt unter der Überschrift
+  `<FotoUpload uid={uid} name={p.vorname} fotoPfad={p.foto_pfad} fotoSichtbar={p.foto_sichtbar} refresh={refresh} />`.
+- `src/routes/profil.$id.tsx`: den runden Buchstaben-Kreis durch
+  `<ProfilFoto url={p.foto_url} name={p.anzeigename} gross className="w-40 rounded-2xl sm:w-56" />` ersetzen (Foto links, Angaben rechts).
+
 ## Beim Übernehmen in Lovable zusätzlich
 
 1. Migration ausführen; danach die Supabase-Typen neu erzeugen lassen (sonst meldet

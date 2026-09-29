@@ -71,8 +71,8 @@ function Preise() {
             </Button>
           </article>
 
-          <article className="card-base relative flex flex-col p-6 ring-2 ring-primary sm:p-8">
-            <span className="absolute -top-3 left-6 rounded-full bg-primary px-3 py-0.5 text-xs font-bold text-primary-foreground">
+          <article className="card-base relative flex flex-col p-6 ring-2 ring-tuerkis-500 sm:p-8">
+            <span className="absolute -top-3 left-6 rounded-full bg-tuerkis-600 px-3 py-0.5 text-xs font-bold text-white">
               Rundum-Betreuung
             </span>
             <h2 className="text-xl">Abo</h2>

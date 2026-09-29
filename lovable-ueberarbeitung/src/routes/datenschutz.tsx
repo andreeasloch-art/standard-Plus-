@@ -51,7 +51,7 @@ function Datenschutz() {
       <p>
         Alle weiteren Profilangaben sind freiwillig (z. B. Name, Telefon, Wohnort, Beruf, Erfahrung, Deutschniveau, Sprachen, Werdegang, Skills;
         bei Unternehmen Firmendaten). Geburtsjahr dient nur der Prüfung des Mindestalters, Staatsangehörigkeit nur der Einschätzung, ob eine Arbeitserlaubnis nötig ist;
-        beides ist nie öffentlich sichtbar. Besondere Kategorien personenbezogener Daten (z. B. Gesundheit, Religion) fragen wir nicht ab; ein Foto ist nicht erforderlich.
+        beides ist nie öffentlich sichtbar. Besondere Kategorien personenbezogener Daten (z. B. Gesundheit, Religion) fragen wir nicht ab. Ein Profilfoto ist freiwillig (siehe Abschnitt 8).
       </p>
       <p>
         Arbeitnehmerprofile erscheinen in der Suche nur mit Ihrer ausdrücklichen, freiwilligen Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) und nur pseudonymisiert
@@ -72,11 +72,18 @@ function Datenschutz() {
       <h2>7. Bewertungen</h2>
       <p>Nach beidseitiger Freigabe können sich beide Seiten einmal gegenseitig bewerten (1–5 Sterne, optional Text). Sichtbar nur für die Beteiligten. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
 
-      <h2>8. Uploads</h2>
+      <h2>8. Profilfoto</h2>
       <p>
-        Derzeit bietet die Plattform keinen Datei-Upload an. Wird er eingeführt, werden Dateien in privaten Speicherbereichen abgelegt, nur über kurzlebige signierte Links abrufbar
-        und beim Löschen tatsächlich entfernt.
+        Arbeitnehmer können freiwillig ein Profilfoto hochladen. Das Bild wird bereits in Ihrem Browser verkleinert; dabei werden eingebettete Metadaten
+        (z. B. Aufnahmeort, Kameradaten) entfernt. Es liegt in einem privaten Speicherbereich und ist nur über kurzlebige signierte Links abrufbar.
       </p>
+      <p>
+        Unternehmen und Besucher sehen das Foto nur, wenn Sie der Anzeige gesondert zugestimmt haben und Ihr Profil in der Suche sichtbar ist
+        (Art. 6 Abs. 1 lit. a DSGVO). Bitte beachten Sie: Auf einem Foto sind Sie erkennbar – die Pseudonymisierung durch Vorname und Initial
+        gilt für das Foto daher nicht. Sie können die Einwilligung jederzeit im Profil widerrufen oder das Foto löschen; gelöschte oder ersetzte Fotos
+        werden sofort aus dem Speicher entfernt. Aus dem Foto werden keine Merkmale automatisch ausgewertet.
+      </p>
+      <p>Andere Datei-Uploads bietet die Plattform derzeit nicht an.</p>
 
       <h2>9. Kündigungen</h2>
       <p>
@@ -106,6 +113,7 @@ function Datenschutz() {
       <ul>
         <li>Konto- und Profildaten: bis zur Löschung des Kontos (jederzeit selbst im Profil möglich).</li>
         <li>Anfragen und Bewertungen: bis zur Löschung eines beteiligten Kontos.</li>
+        <li>Profilfoto: bis Sie es löschen oder ersetzen, spätestens bis zur Löschung des Kontos.</li>
         <li>Einwilligungsnachweise: bis zur Löschung des Kontos.</li>
         <li>Kündigungen: <Ph>z. B. 3 Jahre nach Ende des Jahres, in dem die Kündigung eingegangen ist</Ph>, auch wenn das Konto vorher gelöscht wurde; danach werden sie gelöscht.</li>
         <li>Rechnungsrelevante Unterlagen: gesetzliche Aufbewahrung (bis zu 10 Jahre, § 147 AO, § 257 HGB).</li>
