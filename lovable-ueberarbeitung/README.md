@@ -73,6 +73,28 @@ Noch zu tun in Lovable:
 - Echten Dolmetscher anbinden: Server aus `dolmetscher-server/` (Whisper, NLLB, Piper) auf einem EU-Server
   betreiben und den Client aus `assets/sp-dolmetscher.js` in React übernehmen. Bis dahin bleibt „in Vorbereitung“ stehen.
 
+### App-Version (Runde 4)
+
+Installierbare Web-App (PWA) für iPhone und Android – ohne App-Store, jede Website-Änderung ist sofort in der App.
+
+| Datei | Was sich ändert |
+| --- | --- |
+| `public/manifest.webmanifest` | App-Name, Symbole, Vollbild, Farbe, Schnellzugriffe (Wischen, Favoriten, Dashboard) |
+| `public/sw.js` | Service Worker: speichert nur Dateien (JS, CSS, Schriften, Symbole), **keine Seiten und keine Daten**; fremde Adressen (Datenbank, Fotos) laufen unberührt durch |
+| `public/offline.html` | Offline-Seite |
+| `public/app/*.png` | App-Symbole (aus dem Original übernommen) |
+| `src/lib/pwa.ts` | **neu** – Registrierung (nur auf der veröffentlichten Seite, nicht in der Lovable-Vorschau), Installationsknopf |
+| `src/components/site/AppNavigation.tsx` | **neu** – untere Leiste auf dem Handy: Start · Wischen · Favoriten · Konto |
+| `src/components/site/AppInstallieren.tsx` | **neu** – „App installieren“ (Android/Chrome) bzw. Anleitung fürs iPhone |
+| `src/routes/__root.tsx` | Manifest, App-Symbole und Meta-Angaben im Seitenkopf; App-Leiste; Abstand unten |
+
+Getestet: Chrome meldet die Seite als installierbar (keine Manifest-Fehler), Service Worker aktiv, Offline-Seite
+erscheint ohne Netz, Zwischenspeicher enthält nur Dateien, App-Leiste nur auf dem Handy, Wisch-Knöpfe über der Leiste,
+iPhone zeigt die Anleitung.
+
+Später möglich: echte Store-Apps (App Store / Google Play) mit Capacitor aus demselben Code. Dafür braucht es ein
+Apple-Entwicklerkonto (99 $/Jahr), ein Google-Play-Konto (einmalig 25 $) und zum Bauen für iOS einen Mac.
+
 ## Beim Übernehmen in Lovable zusätzlich
 
 1. Migration ausführen; danach die Supabase-Typen neu erzeugen lassen (sonst meldet

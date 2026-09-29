@@ -8,6 +8,7 @@ import { SuchFeld } from "@/components/site/SuchFeld";
 import { Schritte } from "@/components/site/Schritte";
 import { DolmetscherDemo } from "@/components/site/DolmetscherDemo";
 import { Bald } from "@/components/site/Vorteile";
+import { AppInstallieren } from "@/components/site/AppInstallieren";
 import { istBeispiel, oeffentlicheProfileQuery } from "@/lib/profile-data";
 
 export const Route = createFileRoute("/")({
@@ -109,6 +110,8 @@ function Index() {
         </div>
         <DolmetscherDemo />
       </section>
+
+      <AppInstallieren />
 
       <section className="container-page pb-14 sm:pb-20">
         <div className="flex flex-col items-start justify-between gap-6 rounded-3xl bg-ink p-8 text-ink-foreground sm:flex-row sm:items-center sm:p-12">

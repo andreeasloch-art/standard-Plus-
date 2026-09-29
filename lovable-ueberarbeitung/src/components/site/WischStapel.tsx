@@ -126,7 +126,7 @@ export function WischStapel({ profile, onEinladen }: { profile: OeffentlichesPro
         {[2, 1].map((n) => profile[pos + n] && (
           <div key={profile[pos + n].id} aria-hidden className="card-base absolute inset-0 overflow-hidden"
             style={{ transform: `translateY(${n * 10}px) scale(${1 - n * 0.04})`, opacity: 1 - n * 0.25 }}>
-            <ProfilFoto url={profile[pos + n].foto_url} name={profile[pos + n].anzeigename} className="max-h-[27vh] sm:max-h-[44vh]" />
+            <ProfilFoto url={profile[pos + n].foto_url} name={profile[pos + n].anzeigename} className="max-h-[20vh] sm:max-h-[44vh]" />
           </div>
         ))}
 
@@ -143,7 +143,7 @@ export function WischStapel({ profile, onEinladen }: { profile: OeffentlichesPro
           }}
         >
           <div className="relative">
-            <ProfilFoto url={aktuell.foto_url} name={name} gross className="max-h-[27vh] sm:max-h-[44vh]" />
+            <ProfilFoto url={aktuell.foto_url} name={name} gross className="max-h-[20vh] sm:max-h-[44vh]" />
             {beispiel && (
               <span className="absolute left-3 top-3 rounded-full bg-white/95 px-2.5 py-0.5 text-xs font-bold text-tuerkis-800 shadow-soft">
                 {matchProzent(aktuell.id)} % · Beispiel
@@ -179,7 +179,7 @@ export function WischStapel({ profile, onEinladen }: { profile: OeffentlichesPro
         </div>
       </div>
 
-      <div className="sticky bottom-[calc(env(safe-area-inset-bottom,0px)+0.75rem)] z-10 mx-auto mt-5 flex w-fit items-center justify-center gap-3 rounded-full bg-background/80 p-1.5 backdrop-blur sm:static sm:bg-transparent sm:backdrop-blur-none">
+      <div className="sticky bottom-[calc(env(safe-area-inset-bottom,0px)+4.75rem)] z-10 mx-auto mt-5 flex w-fit items-center justify-center gap-3 rounded-full bg-background/80 p-1.5 backdrop-blur sm:static sm:bg-transparent sm:backdrop-blur-none">
         <button type="button" onClick={rueckgaengig} disabled={!verlauf.length} aria-label="Letzte Entscheidung zurücknehmen"
           className="flex h-11 w-11 items-center justify-center rounded-full border bg-card text-muted-foreground shadow-soft transition hover:bg-accent disabled:opacity-40">
           <RotateCcw className="h-5 w-5" />
