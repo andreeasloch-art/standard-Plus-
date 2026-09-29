@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0a8086"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Standard Plus"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<link rel="apple-touch-icon" href="assets/app/apple-touch-icon.png"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<!-- Hinweis: frame-ancestors, HSTS, X-Content-Type-Options und Permissions-Policy
+     wirken nur als HTTP-Kopfzeilen. Sie stehen in assets/security-headers.conf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Mein Profil &ndash; Standard Plus</title>
+<link rel="stylesheet" href="assets/sp-theme.css?v=20260929153130"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a9296'/%3E%3Cpath d='M9 10l6 6-6 6M18 10l6 6-6 6' stroke='%23ffd84d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
+<link rel="alternate" hreflang="de" href="standardplus-profil.html"/>
+<link rel="alternate" hreflang="en" href="en/standardplus-profil.html"/>
+<link rel="alternate" hreflang="ro" href="ro/standardplus-profil.html"/>
+</head>
+<body data-protected>
+<a class="sp-skip" href="#main">Zum Inhalt springen</a>
+
+<header class="sp-header">
+  <div class="sp-header-in">
+    <a class="sp-logo" href="standardplus-main.html">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Personalvermittlung</span>
+    </a>
+    <nav aria-label="Hauptnavigation">
+      <ul class="sp-nav">
+        <li><a href="standardplus-talente.html" data-nav>Arbeitnehmer</a></li>
+        <li><a href="standardplus-unternehmen.html" data-nav>Unternehmen</a></li>
+        <li><a href="standardplus-main.html#ablauf">Ablauf</a></li>
+        <li><a href="standardplus-preise.html" data-nav>Preise</a></li>
+      </ul>
+    </nav>
+    <div class="sp-header-act">
+      <a class="btn btn-primary btn-sm" href="standardplus-login.html" hidden data-anon>Anmelden</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-dashboard.html" hidden data-auth>Dashboard</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-profil.html" hidden data-auth>Mein Profil</a>
+      <button class="btn btn-outline btn-sm" type="button" data-logout hidden data-auth>
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-logout"></use></svg>Abmelden</button>
+      <button class="iconbtn sp-burger" type="button" aria-label="Men&uuml; &ouml;ffnen" aria-expanded="false">
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  
+  </div>
+</header>
+
+<main class="legal" id="main">
+
+  <div class="notice notice-ok mb24 hidden" id="willkommen">
+    <svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>
+    <span><b>Konto angelegt.</b> Je vollst&auml;ndiger Ihr Profil, desto besser die Vorschl&auml;ge.
+      Nachweise und Werdegang machen den gr&ouml;&szlig;ten Unterschied.</span>
+  </div>
+
+  <h1>Mein Profil</h1>
+  <p class="lede mb24">Alles, was die Gegenseite &uuml;ber Sie erf&auml;hrt, steht hier.
+    Wie viel davon jemand sieht, h&auml;ngt von der Freigabe ab.</p>
+
+  <!-- ---------- Kopfkarte ---------- -->
+  <div class="card card-pad mb20">
+    <div class="flex ai-c g14 wrapf mb16">
+      <span class="ava ava-lg" id="ava"><span data-initials>SP</span></span>
+      <div class="grow">
+        <h2 class="h3" id="anzeigename">Profil</h2>
+        <p class="small muted"><span id="rollentext">Konto</span> &middot;
+          angelegt <span id="angelegt">heute</span></p>
+        <div class="flex wrapf g8 mt8" id="kopf-marken"></div>
+      </div>
+      <div class="t-r">
+        <p class="tiny muted mb4">Profil vollst&auml;ndig</p>
+        <p class="kpi-v" id="quote">0&nbsp;%</p>
+      </div>
+    </div>
+    <div class="bar-t mb16"><div class="bar-f pct-0" id="quote-bar"></div></div>
+    <div class="flex wrapf g10">
+      <a class="btn btn-primary btn-sm" href="standardplus-dashboard.html">
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-grid"></use></svg>
+        Zum Dashboard</a>
+      <a class="btn btn-outline btn-sm" id="oeffentlich" href="standardplus-profil-ansicht.html">
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-eye"></use></svg>
+        So sehen andere mein Profil</a>
+    </div>
+  </div>
+
+  <!-- ================= ARBEITNEHMER ================= -->
+  <section data-rolle="arbeitnehmer" hidden>
+    <h2>Person und Qualifikation</h2>
+    <form class="card card-pad mb32" id="form-an" novalidate>
+      <div class="grid g2 g12">
+        <div class="field"><label for="an-vorname">Vorname</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-user"></use></svg>
+            <input class="inp" id="an-vorname" maxlength="60" autocomplete="given-name"/></div></div>
+        <div class="field"><label for="an-nachname">Nachname</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-user"></use></svg>
+            <input class="inp" id="an-nachname" maxlength="60" autocomplete="family-name"/></div>
+          <p class="hint"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-lock"></use></svg>
+            Vor der Freigabe sehen andere nur den ersten Buchstaben.</p></div>
+      </div>
+
+      <div class="grid g3 g12">
+        <div class="field"><label for="an-geburtsjahr">Geburtsjahr</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-calendar"></use></svg>
+            <input class="inp" id="an-geburtsjahr" type="number" min="1945" max="2010" inputmode="numeric"/></div>
+          <p class="hint"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>
+            Wir speichern nur das Jahr, nicht das genaue Datum.</p></div>
+        <div class="field"><label for="an-staat">Staatsangeh&ouml;rigkeit</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-globe"></use></svg>
+            <input class="inp" id="an-staat" maxlength="40" placeholder="z. B. rum&auml;nisch"/></div></div>
+        <div class="field"><label for="an-ort">Wohnort</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-pin"></use></svg>
+            <input class="inp" id="an-ort" maxlength="80"/></div></div>
+      </div>
+
+      <div class="grid g2 g12">
+        <div class="field"><label for="an-beruf">Beruf oder Ausbildung</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-briefcase"></use></svg>
+            <input class="inp" id="an-beruf" maxlength="80" placeholder="z. B. Examinierte Pflegefachkraft"/></div></div>
+        <div class="field"><label for="an-branche">Branche</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-grid"></use></svg>
+            <select class="inp" id="an-branche">
+              <option value="">Bitte w&auml;hlen</option>
+              <option value="pflege">Pflege und Gesundheit</option>
+              <option value="bau">Bau und Handwerk</option>
+              <option value="it">IT und Technologie</option>
+              <option value="gastro">Gastronomie</option>
+              <option value="logistik">Logistik</option>
+              <option value="produktion">Industrie und Produktion</option>
+              <option value="buero">Verwaltung und B&uuml;ro</option>
+            </select></div></div>
+      </div>
+
+      <div class="grid g3 g12">
+        <div class="field"><label for="an-land">Herkunftsland</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-globe"></use></svg>
+            <select class="inp" id="an-land">
+              <option value="">Bitte w&auml;hlen</option>
+              <option value="RO">Rum&auml;nien</option><option value="PL">Polen</option>
+              <option value="BG">Bulgarien</option><option value="HU">Ungarn</option>
+              <option value="IT">Italien</option><option value="CZ">Tschechien</option>
+              <option value="HR">Kroatien</option><option value="SK">Slowakei</option>
+              <option value="DE">Deutschland</option>
+            </select></div></div>
+        <div class="field"><label for="an-zielland">Wunschland</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-pin"></use></svg>
+            <select class="inp" id="an-zielland">
+              <option value="DE">Deutschland</option><option value="AT">&Ouml;sterreich</option>
+              <option value="NL">Niederlande</option><option value="Remote">Remote</option>
+            </select></div></div>
+        <div class="field"><label for="an-erfahrung">Berufserfahrung in Jahren</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-clock"></use></svg>
+            <input class="inp" id="an-erfahrung" type="number" min="0" max="60" inputmode="numeric"/></div></div>
+      </div>
+
+      <div class="grid g3 g12">
+        <div class="field"><label for="an-deutsch">Deutschkenntnisse</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-translate"></use></svg>
+            <select class="inp" id="an-deutsch">
+              <option value="">Bitte w&auml;hlen</option>
+              <option value="A1">A1</option><option value="A2">A2</option>
+              <option value="B1">B1</option><option value="B2">B2</option>
+              <option value="C1">C1</option><option value="C2">C2</option>
+            </select></div></div>
+        <div class="field"><label for="an-gehalt">Gehaltsvorstellung netto im Monat</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-euro"></use></svg>
+            <input class="inp" id="an-gehalt" type="number" min="0" step="50" inputmode="numeric"/></div></div>
+        <div class="field"><label for="an-verfuegbar">Verf&uuml;gbar</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-calendar"></use></svg>
+            <select class="inp" id="an-verfuegbar">
+              <option value="">Bitte w&auml;hlen</option>
+              <option value="ab sofort">ab sofort</option>
+              <option value="in 2 Wochen">in 2 Wochen</option>
+              <option value="in 4 Wochen">in 4 Wochen</option>
+              <option value="in 3 Monaten">in 3 Monaten</option>
+            </select></div></div>
+      </div>
+
+      <div class="grid g2 g12">
+        <div class="field"><label for="an-fuehrerschein">F&uuml;hrerscheinklassen</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-truck"></use></svg>
+            <input class="inp" id="an-fuehrerschein" maxlength="40" placeholder="z. B. B, C, CE"/></div></div>
+        <div class="field"><label for="an-telefon">Telefonnummer</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-chat"></use></svg>
+            <input class="inp" id="an-telefon" maxlength="40" autocomplete="tel"/></div>
+          <p class="hint"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>
+            Wird erst nach Ihrer Freigabe &uuml;bermittelt.</p></div>
+      </div>
+
+      <div class="field"><label for="an-faehigkeiten">Fachliche Kenntnisse</label>
+        <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>
+          <input class="inp" id="an-faehigkeiten" maxlength="200" placeholder="Mit Komma trennen, z. B. Intensivpflege, Notaufnahme"/></div></div>
+
+      <div class="field"><label for="an-uebermich">&Uuml;ber mich</label>
+        <textarea class="inp plain" id="an-uebermich" rows="4" maxlength="800"
+          placeholder="Was sollte ein Unternehmen &uuml;ber Sie wissen? Schwerpunkte, Erfolge, W&uuml;nsche."></textarea></div>
+
+      <label class="check" for="an-umzug">
+        <input type="checkbox" id="an-umzug" checked/>
+        <span>Ich bin bereit umzuziehen.</span></label>
+      <label class="check" for="an-sichtbar">
+        <input type="checkbox" id="an-sichtbar" checked/>
+        <span>Mein Profil darf Unternehmen pseudonymisiert angezeigt werden.
+          Ohne Haken sind Sie f&uuml;r niemanden auffindbar.</span></label>
+
+      <button class="btn btn-primary btn-lg" type="submit">
+        <svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>Angaben speichern</button>
+    </form>
+
+    <!-- Werdegang -->
+    <h2>Beruflicher Werdegang</h2>
+    <p>Wo haben Sie bisher gearbeitet? Diese Angaben sind f&uuml;r Unternehmen am aussagekr&auml;ftigsten.</p>
+    <div id="stationen-liste" class="mt16 mb16"></div>
+    <details class="card card-pad mb32">
+      <summary class="fw7 t-teal">Station hinzuf&uuml;gen</summary>
+      <form id="form-station" class="mt16" novalidate>
+        <div class="grid g2 g12">
+          <div class="field"><label for="st-arbeitgeber">Arbeitgeber</label>
+            <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-building"></use></svg>
+              <input class="inp" id="st-arbeitgeber" maxlength="100"/></div></div>
+          <div class="field"><label for="st-position">Position</label>
+            <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-briefcase"></use></svg>
+              <input class="inp" id="st-position" maxlength="100"/></div></div>
+        </div>
+        <div class="grid g4 g12">
+          <div class="field"><label for="st-ort">Ort</label>
+            <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-pin"></use></svg>
+              <input class="inp" id="st-ort" maxlength="80"/></div></div>
+          <div class="field"><label for="st-land">Land</label>
+            <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-globe"></use></svg>
+              <input class="inp" id="st-land" maxlength="40" placeholder="z. B. RO"/></div></div>
+          <div class="field"><label for="st-von">Von (Jahr)</label>
+            <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-calendar"></use></svg>
+              <input class="inp" id="st-von" type="number" min="1960" max="2030" inputmode="numeric"/></div></div>
+          <div class="field"><label for="st-bis">Bis</label>
+            <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-calendar"></use></svg>
+              <input class="inp" id="st-bis" maxlength="20" placeholder="Jahr oder heute"/></div></div>
+        </div>
+        <div class="field"><label for="st-taetigkeit">T&auml;tigkeit</label>
+          <textarea class="inp plain" id="st-taetigkeit" rows="2" maxlength="500"
+            placeholder="Aufgaben, Verantwortung, Gr&ouml;&szlig;e des Teams, besondere Projekte"></textarea></div>
+        <button class="btn btn-gold" type="submit">
+          <svg class="ic" aria-hidden="true"><use href="#i-plus"></use></svg>Station speichern</button>
+      </form>
+    </details>
+  </section>
+
+  <!-- ================= ARBEITGEBER ================= -->
+  <section data-rolle="arbeitgeber" hidden>
+    <h2>Unternehmensangaben</h2>
+    <form class="card card-pad mb32" id="form-ag" novalidate>
+      <div class="grid g2 g12">
+        <div class="field"><label for="ag-firma">Firmenname</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-building"></use></svg>
+            <input class="inp" id="ag-firma" maxlength="120" autocomplete="organization"/></div></div>
+        <div class="field"><label for="ag-rechtsform">Rechtsform</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-scale"></use></svg>
+            <input class="inp" id="ag-rechtsform" maxlength="60" placeholder="z. B. GmbH"/></div></div>
+      </div>
+      <div class="grid g3 g12">
+        <div class="field"><label for="ag-branche">Branche</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-grid"></use></svg>
+            <select class="inp" id="ag-branche">
+              <option value="">Bitte w&auml;hlen</option>
+              <option value="pflege">Pflege und Gesundheit</option>
+              <option value="bau">Bau und Handwerk</option>
+              <option value="it">IT und Technologie</option>
+              <option value="gastro">Gastronomie</option>
+              <option value="logistik">Logistik</option>
+              <option value="produktion">Industrie und Produktion</option>
+              <option value="buero">Verwaltung und B&uuml;ro</option>
+            </select></div></div>
+        <div class="field"><label for="ag-ort">Sitz</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-pin"></use></svg>
+            <input class="inp" id="ag-ort" maxlength="80"/></div></div>
+        <div class="field"><label for="ag-gegruendet">Gegr&uuml;ndet</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-calendar"></use></svg>
+            <input class="inp" id="ag-gegruendet" type="number" min="1800" max="2030" inputmode="numeric"/></div></div>
+      </div>
+      <div class="grid g3 g12">
+        <div class="field"><label for="ag-groesse">Mitarbeitende</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-users"></use></svg>
+            <select class="inp" id="ag-groesse">
+              <option value="">Bitte w&auml;hlen</option>
+              <option value="1-9">1 bis 9</option><option value="10-49">10 bis 49</option>
+              <option value="50-249">50 bis 249</option><option value="250-999">250 bis 999</option>
+              <option value="1000+">1000 und mehr</option>
+            </select></div></div>
+        <div class="field"><label for="ag-ansprech">Ansprechperson</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-user"></use></svg>
+            <input class="inp" id="ag-ansprech" maxlength="80"/></div></div>
+        <div class="field"><label for="ag-position">Position</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-briefcase"></use></svg>
+            <input class="inp" id="ag-position" maxlength="80" placeholder="z. B. Personalleitung"/></div></div>
+      </div>
+      <div class="field"><label for="ag-telefon">Telefonnummer</label>
+        <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-chat"></use></svg>
+          <input class="inp" id="ag-telefon" maxlength="40" autocomplete="tel"/></div></div>
+      <div class="field"><label for="ag-beschreibung">&Uuml;ber das Unternehmen</label>
+        <textarea class="inp plain" id="ag-beschreibung" rows="4" maxlength="800"
+          placeholder="Was machen Sie, wen suchen Sie, wie arbeiten Sie?"></textarea></div>
+      <div class="field"><label for="ag-leistungen">Das bieten wir Mitarbeitenden</label>
+        <textarea class="inp plain" id="ag-leistungen" rows="4" maxlength="600"
+          placeholder="Eine Leistung pro Zeile, z. B.&#10;Unterkunft in den ersten drei Monaten&#10;Deutschkurs w&auml;hrend der Arbeitszeit"></textarea>
+        <p class="hint"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-info"></use></svg>
+          Gerade bei Vermittlungen aus dem Ausland ist das oft das Entscheidende.</p></div>
+      <div class="field"><label for="ag-standorte">Standorte</label>
+        <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-globe"></use></svg>
+          <input class="inp" id="ag-standorte" maxlength="200" placeholder="Mit Komma trennen, z. B. M&uuml;nchen, N&uuml;rnberg"/></div></div>
+      <button class="btn btn-primary btn-lg" type="submit">
+        <svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>Angaben speichern</button>
+    </form>
+
+    <h2>Meine Stellenausschreibungen</h2>
+    <div id="stellen-liste" class="mb16"></div>
+    <details class="card card-pad mb32">
+      <summary class="fw7 t-teal">Neue Stelle ausschreiben</summary>
+      <form id="form-stelle" class="mt16" novalidate>
+        <div class="grid g2 g12">
+          <div class="field"><label for="stx-titel">Stellenbezeichnung</label>
+            <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-briefcase"></use></svg>
+              <input class="inp" id="stx-titel" maxlength="120" placeholder="z. B. Pflegefachkraft (m/w/d)"/></div></div>
+          <div class="field"><label for="stx-branche">Branche</label>
+            <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-grid"></use></svg>
+              <select class="inp" id="stx-branche">
+                <option value="pflege">Pflege und Gesundheit</option>
+                <option value="bau">Bau und Handwerk</option>
+                <option value="it">IT und Technologie</option>
+                <option value="gastro">Gastronomie</option>
+                <option value="logistik">Logistik</option>
+                <option value="produktion">Industrie und Produktion</option>
+                <option value="buero">Verwaltung und B&uuml;ro</option>
+              </select></div></div>
+        </div>
+        <div class="grid g2 g12">
+          <div class="field"><label for="stx-ort">Einsatzort</label>
+            <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-pin"></use></svg>
+              <input class="inp" id="stx-ort" maxlength="80"/></div></div>
+          <div class="field"><label for="stx-verguetung">Verg&uuml;tung</label>
+            <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-euro"></use></svg>
+              <input class="inp" id="stx-verguetung" maxlength="40" placeholder="z. B. 3.000 bis 3.400 EUR"/></div></div>
+        </div>
+        <div class="field"><label for="stx-text">Beschreibung</label>
+          <textarea class="inp plain" id="stx-text" rows="3" maxlength="1000"></textarea></div>
+        <button class="btn btn-gold" type="submit">
+          <svg class="ic" aria-hidden="true"><use href="#i-plus"></use></svg>Stelle ver&ouml;ffentlichen</button>
+      </form>
+    </details>
+  </section>
+
+  <!-- ================= BEFOERDERUNGSUNTERNEHMEN ================= -->
+  <section data-rolle="transport" hidden>
+    <h2>Unternehmensdaten</h2>
+    <form class="card card-pad mb32" id="form-tr" novalidate>
+      <div class="grid g2 g12">
+        <div class="field"><label for="tr-firma">Firmenname</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-building"></use></svg>
+            <input class="inp" id="tr-firma" maxlength="120" autocomplete="organization"/></div></div>
+        <div class="field"><label for="tr-rechtsform">Rechtsform</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-doc"></use></svg>
+            <input class="inp" id="tr-rechtsform" maxlength="60" placeholder="z. B. SRL, GmbH"/></div></div>
+      </div>
+      <div class="grid g2 g12">
+        <div class="field"><label for="tr-ort">Sitz</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-pin"></use></svg>
+            <input class="inp" id="tr-ort" maxlength="80"/></div></div>
+        <div class="field"><label for="tr-gegruendet">Gegr&uuml;ndet</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-calendar"></use></svg>
+            <input class="inp" id="tr-gegruendet" type="number" min="1900" max="2030" inputmode="numeric"/></div></div>
+      </div>
+
+      <div class="notice notice-warn mb16">
+        <svg class="ic" aria-hidden="true"><use href="#i-alert"></use></svg>
+        <span><b>Ohne g&uuml;ltige Lizenz keine Freischaltung.</b> Grenz&uuml;berschreitender
+          Personenverkehr setzt eine Gemeinschaftslizenz nach VO&nbsp;(EG)&nbsp;1073/2009
+          voraus. Ihre Angaben werden vor der Freischaltung gepr&uuml;ft.</span>
+      </div>
+
+      <div class="grid g2 g12">
+        <div class="field"><label for="tr-lizenz">Gemeinschaftslizenz</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>
+            <input class="inp" id="tr-lizenz" maxlength="120" placeholder="Nummer und G&uuml;ltigkeit"/></div></div>
+        <div class="field"><label for="tr-versicherung">Versicherung</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-shield"></use></svg>
+            <input class="inp" id="tr-versicherung" maxlength="120" placeholder="Gesellschaft und Deckung"/></div></div>
+      </div>
+      <div class="grid g2 g12">
+        <div class="field"><label for="tr-ansprech">Ansprechperson</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-user"></use></svg>
+            <input class="inp" id="tr-ansprech" maxlength="80"/></div></div>
+        <div class="field"><label for="tr-telefon">Telefon</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-phoneoff"></use></svg>
+            <input class="inp" id="tr-telefon" maxlength="40" autocomplete="tel"/></div></div>
+      </div>
+      <div class="field"><label for="tr-flotte">Fahrzeuge</label>
+        <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-bus"></use></svg>
+          <input class="inp" id="tr-flotte" maxlength="200" placeholder="z. B. 6 Reisebusse, 49 bis 57 Pl&auml;tze"/></div></div>
+      <div class="field"><label for="tr-beschreibung">&Uuml;ber das Unternehmen</label>
+        <textarea class="inp plain" id="tr-beschreibung" rows="4" maxlength="800"></textarea></div>
+      <div class="field"><label for="tr-leistungen">Was Sie bieten &ndash; eine Zeile je Punkt</label>
+        <textarea class="inp plain" id="tr-leistungen" rows="4" maxlength="600"
+          placeholder="Gep&auml;ck bis 2 Koffer inklusive&#10;Fahrer spricht Deutsch und Rum&auml;nisch"></textarea></div>
+      <button class="btn btn-primary btn-lg" type="submit">
+        <svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>Angaben speichern</button>
+    </form>
+
+    <h2>Meine Fahrzeuge</h2>
+    <p>Jedes Fahrzeug mit Kennzeichen. Reisende sehen nach der Buchung, mit welchem
+      Wagen sie fahren &ndash; vom Siebensitzer bis zum Reisebus.</p>
+    <div id="fahrzeuge-liste" class="mt16 mb16"></div>
+
+    <details class="card card-pad mb32">
+      <summary class="fw7 t-teal">Fahrzeug eintragen</summary>
+      <form id="form-fahrzeug" class="mt16" novalidate>
+        <div class="grid g2 g12">
+          <div class="field"><label for="fz-kennzeichen">Kennzeichen</label>
+            <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-bus"></use></svg>
+              <input class="inp dolm-kennwort" id="fz-kennzeichen" maxlength="20"
+                     autocomplete="off" placeholder="TM 14 VTR"/></div></div>
+          <div class="field"><label for="fz-art">Fahrzeugart</label>
+            <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-grid"></use></svg>
+              <select class="inp" id="fz-art">
+                <option value="reisebus">Reisebus</option>
+                <option value="kleinbus">Kleinbus</option>
+                <option value="van9">Kleinbus, 9 Sitze</option>
+                <option value="van7">Van, 7 Sitze</option>
+                <option value="pkw">PKW</option>
+              </select></div></div>
+        </div>
+        <div class="grid g3 g12">
+          <div class="field"><label for="fz-marke">Marke und Typ</label>
+            <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-doc"></use></svg>
+              <input class="inp" id="fz-marke" maxlength="60" placeholder="z. B. Setra S 516 HD"/></div></div>
+          <div class="field"><label for="fz-plaetze">Sitzpl&auml;tze</label>
+            <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-users"></use></svg>
+              <input class="inp" id="fz-plaetze" type="number" min="1" max="99" value="50" inputmode="numeric"/></div></div>
+          <div class="field"><label for="fz-baujahr">Baujahr</label>
+            <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-calendar"></use></svg>
+              <input class="inp" id="fz-baujahr" type="number" min="1980" max="2030" inputmode="numeric"/></div></div>
+        </div>
+        <div class="field"><label for="fz-ausstattung">Ausstattung &ndash; mit Komma trennen</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>
+            <input class="inp" id="fz-ausstattung" maxlength="200"
+                   placeholder="WLAN, Klimaanlage, Bordtoilette, Steckdose am Platz"/></div></div>
+        <button class="btn btn-gold" type="submit">
+          <svg class="ic" aria-hidden="true"><use href="#i-plus"></use></svg>Fahrzeug speichern</button>
+      </form>
+    </details>
+
+    <h2>Meine Fahrer</h2>
+    <div class="notice notice-info mb16">
+      <svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>
+      <span><b>Nicht &ouml;ffentlich.</b> Name und Telefonnummer Ihrer Fahrer sind
+        personenbezogene Daten. Sie werden nur den Fahrg&auml;sten der jeweiligen Fahrt
+        angezeigt &ndash; nicht im &ouml;ffentlichen Verzeichnis (Art.&nbsp;5 Abs.&nbsp;1
+        lit.&nbsp;c DSGVO). Holen Sie vorher die Einwilligung Ihrer Fahrer ein.</span>
+    </div>
+    <div id="fahrer-liste" class="mt16 mb16"></div>
+
+    <details class="card card-pad mb32">
+      <summary class="fw7 t-teal">Fahrer eintragen</summary>
+      <form id="form-fahrer" class="mt16" novalidate>
+        <div class="grid g3 g12">
+          <div class="field"><label for="fr-name">Name</label>
+            <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-user"></use></svg>
+              <input class="inp" id="fr-name" maxlength="80"/></div></div>
+          <div class="field"><label for="fr-telefon">Telefon</label>
+            <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-phoneoff"></use></svg>
+              <input class="inp" id="fr-telefon" maxlength="40"/></div></div>
+          <div class="field"><label for="fr-seit">Im Unternehmen seit</label>
+            <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-calendar"></use></svg>
+              <input class="inp" id="fr-seit" type="number" min="1970" max="2030" inputmode="numeric"/></div></div>
+        </div>
+        <div class="field"><label for="fr-sprachen">Sprachen &ndash; mit Komma trennen</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-translate"></use></svg>
+            <input class="inp" id="fr-sprachen" maxlength="200" placeholder="Rum&auml;nisch, Deutsch, Ungarisch"/></div></div>
+        <button class="btn btn-gold" type="submit">
+          <svg class="ic" aria-hidden="true"><use href="#i-plus"></use></svg>Fahrer speichern</button>
+      </form>
+    </details>
+
+    <h2>Meine Linien</h2>
+    <p>Eine Linie ist eine wiederkehrende Fahrt: dieselbe Strecke, dieselben Wochentage,
+      dieselbe Abfahrtszeit. Vermittelte Arbeitskr&auml;fte bekommen daraus automatisch
+      die passenden Reisetage vorgeschlagen.</p>
+    <div id="linien-liste" class="mt16 mb16"></div>
+
+    <details class="card card-pad mb32">
+      <summary class="fw7 t-teal">Neue Linie eintragen</summary>
+      <form id="form-linie" class="mt16" novalidate>
+
+        <div class="field"><label for="li-plan">Fahrplan &ndash; eine Zeile je Halt</label>
+          <textarea class="inp plain fahrplan-feld" id="li-plan" rows="8" maxlength="900"
+placeholder="Timi&#537;oara 17:30
+Arad 19:00
+Budapest 23:30
+Wien 04:15
+M&uuml;nchen 11:00
+Stuttgart 14:30"></textarea>
+          <p class="hint"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-info"></use></svg>
+            Ort und Uhrzeit, in der Reihenfolge der Fahrt. Wird eine Uhrzeit kleiner als
+            die vorherige, z&auml;hlt das als n&auml;chster Tag. Jeder Halt wird zum Ein- und
+            Ausstieg buchbar &ndash; auch Teilstrecken, mit der jeweils richtigen Fahrtzeit.</p>
+        </div>
+
+        <div class="fahrplan-summe" id="li-summe" hidden>
+          <span class="was">Ergibt</span>
+          <span class="wert" id="li-summe-text"></span>
+        </div>
+
+        <div class="field">
+          <span class="lbl">An welchen Tagen f&auml;hrt die Linie?</span>
+          <div class="tagewahl" id="li-tage">
+            <label class="tag-knopf"><input type="checkbox" value="1"/><span>Mo</span></label>
+            <label class="tag-knopf"><input type="checkbox" value="2"/><span>Di</span></label>
+            <label class="tag-knopf"><input type="checkbox" value="3"/><span>Mi</span></label>
+            <label class="tag-knopf"><input type="checkbox" value="4"/><span>Do</span></label>
+            <label class="tag-knopf"><input type="checkbox" value="5"/><span>Fr</span></label>
+            <label class="tag-knopf"><input type="checkbox" value="6"/><span>Sa</span></label>
+            <label class="tag-knopf"><input type="checkbox" value="0"/><span>So</span></label>
+          </div>
+        </div>
+
+        <div class="grid g2 g12">
+          <div class="field"><label for="li-preis">Preis je Platz</label>
+            <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-euro"></use></svg>
+              <input class="inp" id="li-preis" type="number" min="0" max="2000" value="95" inputmode="numeric"/></div></div>
+          <div class="field"><label for="li-plaetze">Pl&auml;tze im Bus</label>
+            <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-users"></use></svg>
+              <input class="inp" id="li-plaetze" type="number" min="1" max="99" value="50" inputmode="numeric"/></div></div>
+        </div>
+
+        <div class="field"><label for="li-fahrzeug">Fahrzeug f&uuml;r diese Linie</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-bus"></use></svg>
+            <select class="inp" id="li-fahrzeug">
+              <option value="">Noch offen &ndash; wird je Fahrt eingeteilt</option>
+            </select></div>
+          <p class="hint"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-info"></use></svg>
+            Reisende sehen dieses Fahrzeug sofort nach der Buchung. Sie k&ouml;nnen es
+            f&uuml;r einzelne Fahrten sp&auml;ter noch &auml;ndern.</p>
+        </div>
+
+        <div class="field"><label for="li-hinweis">Hinweis f&uuml;r Reisende</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+            <input class="inp" id="li-hinweis" maxlength="300"
+              placeholder="z. B. Halt in Stuttgart am Busbahnhof SBB, Gleis 4"/></div></div>
+
+        <button class="btn btn-gold" type="submit">
+          <svg class="ic" aria-hidden="true"><use href="#i-plus"></use></svg>Linie ver&ouml;ffentlichen</button>
+      </form>
+    </details>
+
+    <h2>Gebuchte Fahrten</h2>
+    <div id="buchungen-liste" class="mt16 mb32"></div>
+  </section>
+
+  <!-- ================= SPRACHEN ================= -->
+  <h2>Sprachkenntnisse</h2>
+  <p>Stufen nach dem Gemeinsamen Europ&auml;ischen Referenzrahmen.</p>
+  <div id="sprachen-liste" class="mt16 mb16"></div>
+  <form class="card card-pad mb32" id="form-sprache" novalidate>
+    <div class="grid g3 g12">
+      <div class="field mb0"><label for="spr-name">Sprache</label>
+        <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-translate"></use></svg>
+          <input class="inp" id="spr-name" maxlength="40" placeholder="z. B. Deutsch"/></div></div>
+      <div class="field mb0"><label for="spr-niveau">Niveau</label>
+        <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-chart"></use></svg>
+          <select class="inp" id="spr-niveau">
+            <option value="A1">A1</option><option value="A2">A2</option><option value="B1">B1</option>
+            <option value="B2">B2</option><option value="C1">C1</option><option value="C2">C2</option>
+            <option value="Muttersprache">Muttersprache</option>
+          </select></div></div>
+      <div class="field mb0"><span class="lbl">&nbsp;</span>
+        <button class="btn btn-gold btn-block" type="submit">
+          <svg class="ic" aria-hidden="true"><use href="#i-plus"></use></svg>Sprache hinzuf&uuml;gen</button></div>
+    </div>
+  </form>
+
+  <!-- ================= NACHWEISE ================= -->
+  <h2>Zeugnisse, Diplome und Zertifikate</h2>
+  <p>Laden Sie Nachweise hoch. Der Inhalt wird erst nach beidseitiger Freigabe zug&auml;nglich &ndash;
+    vorher sehen Unternehmen nur, <em>dass</em> ein Nachweis vorliegt.</p>
+  <div id="nachweise-liste" class="mt16 mb16"></div>
+  <form class="card card-pad mb32" id="form-nachweis" novalidate>
+    <div class="grid g2 g12">
+      <div class="field"><label for="nw-titel">Bezeichnung</label>
+        <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-doc"></use></svg>
+          <input class="inp" id="nw-titel" maxlength="120" placeholder="z. B. Diplom Krankenpflege"/></div></div>
+      <div class="field"><label for="nw-art">Art des Nachweises</label>
+        <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-grid"></use></svg>
+          <select class="inp" id="nw-art">
+            <option value="zeugnis">Arbeitszeugnis</option>
+            <option value="diplom">Diplom oder Abschluss</option>
+            <option value="zertifikat">Zertifikat</option>
+            <option value="anerkennung">Anerkennungsbescheid</option>
+            <option value="fuehrerschein">F&uuml;hrerschein</option>
+            <option value="gesundheit">Gesundheitsnachweis</option>
+            <option value="gewerbe">Handelsregister oder Gewerbe</option>
+            <option value="aueg">Erlaubnis nach A&Uuml;G</option>
+            <option value="sonstiges">Sonstiger Nachweis</option>
+          </select></div></div>
+    </div>
+    <div class="upload" id="nw-drop">
+      <svg class="ic ic-xl ic-teal" aria-hidden="true"><use href="#i-upload"></use></svg>
+      <p class="small fw6 mt8">Datei ausw&auml;hlen</p>
+      <p class="tiny muted">PDF, JPG oder PNG &middot; bis 500&nbsp;KB werden im Prototyp mitgespeichert</p>
+      <label class="hp" for="nw-datei">Datei</label>
+      <input type="file" id="nw-datei" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/*"/>
+    </div>
+    <button class="btn btn-primary mt16" type="submit">
+      <svg class="ic" aria-hidden="true"><use href="#i-plus"></use></svg>Nachweis hinzuf&uuml;gen</button>
+  </form>
+
+  <!-- ================= BILDER ================= -->
+  <h2 id="bilder-titel">Bilder von fr&uuml;heren Arbeiten</h2>
+  <p id="bilder-text">Fotos von abgeschlossenen Projekten sagen oft mehr als jede Beschreibung.
+    Achten Sie darauf, keine Personen ohne deren Einverst&auml;ndnis und keine
+    Betriebsgeheimnisse abzubilden.</p>
+  <div id="bilder-liste" class="mt16 mb16"></div>
+  <form class="card card-pad mb32" id="form-bild" novalidate>
+    <div class="field"><label for="bi-titel">Bildunterschrift</label>
+      <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-palette"></use></svg>
+        <input class="inp" id="bi-titel" maxlength="120" placeholder="z. B. Rohbau Wohnkomplex Cluj 2024"/></div></div>
+    <div class="upload" id="bi-drop">
+      <svg class="ic ic-xl ic-teal" aria-hidden="true"><use href="#i-camera"></use></svg>
+      <p class="small fw6 mt8">Bild ausw&auml;hlen</p>
+      <p class="tiny muted">Wird automatisch auf 900&nbsp;Pixel verkleinert</p>
+      <label class="hp" for="bi-datei">Bild</label>
+      <input type="file" id="bi-datei" accept="image/*"/>
+    </div>
+    <button class="btn btn-primary mt16" type="submit">
+      <svg class="ic" aria-hidden="true"><use href="#i-plus"></use></svg>Bild hinzuf&uuml;gen</button>
+  </form>
+
+  <!-- ================= BEWERTUNGEN ================= -->
+  <h2>Meine Bewertungen</h2>
+  <p>Bewertungen erhalten Sie von Konten, mit denen eine beidseitige Freigabe bestand.</p>
+  <div id="bewertungen-liste" class="mt16 mb32"></div>
+
+  <!-- ================= ANFRAGEN ================= -->
+  <h2>Anfragen und Freigaben</h2>
+  <p>Kontaktdaten werden erst ausgetauscht, wenn <b>beide Seiten</b> zugestimmt haben.
+    Jede Entscheidung wird protokolliert.</p>
+  <div id="anfragen" class="mt16 mb32"></div>
+
+  <!-- ================= SPERRLISTE ================= -->
+  <h2>Meine Sperrliste</h2>
+  <p>Hier stehen Konten, die Sie ausgeblendet haben. Die Sperre gilt <b>nur f&uuml;r Sie</b>.</p>
+  <div class="notice notice-info mt16 mb16">
+    <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+    <span>Eine gemeinsame, unternehmens&uuml;bergreifende schwarze Liste gibt es bewusst nicht.
+      Sie w&auml;re nach DSGVO und Allgemeinem Gleichbehandlungsgesetz unzul&auml;ssig und k&ouml;nnte
+      zu Schadenersatzforderungen f&uuml;hren.</span>
+  </div>
+  <div id="sperrliste" class="mb32"></div>
+
+  <div class="notice notice-warn">
+    <svg class="ic" aria-hidden="true"><use href="#i-alert"></use></svg>
+    <span><b>Prototyp-Hinweis:</b> Konten, Profile, Nachweise und Bilder liegen ausschlie&szlig;lich
+      in diesem Browser. Nichts wird an einen Server &uuml;bertragen. F&uuml;r den Echtbetrieb
+      geh&ouml;ren Dateien in einen Objektspeicher mit Virenpr&uuml;fung und signierten Links.</span>
+  </div>
+</main>
+
+<footer class="sp-foot">
+  <div class="wrap">
+    <div class="foot-bot">
+      <span>&copy; 2026 Standard Plus. Alle Rechte vorbehalten.</span>
+      <span class="foot-seal">
+        <a class="seal" href="standardplus-datenschutz.html"><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>Datenschutz</a>
+        <a class="seal" href="standardplus-sicherheit.html"><svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg>Sicherheit</a>
+        <a class="seal" href="standardplus-impressum.html"><svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>Impressum</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/sp-icons.js?v=20260929153130"></script>
+<script src="assets/sp-app.js?v=20260929153130"></script>
+<script src="assets/sp-db.js?v=20260929153130"></script>
+<script src="assets/sp-reiseplan.js?v=20260929153130"></script>
+<script src="assets/sp-suche.js?v=20260929153130"></script>
+<script src="assets/sp-vokabular.js?v=20260929153130"></script>
+<script src="assets/sp-profil.js?v=20260929153130"></script>
+<script src="assets/sp-effekte.js?v=20260929153130"></script>
+</body>
+</html>

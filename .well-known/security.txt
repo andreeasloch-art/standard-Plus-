@@ -1,0 +1,11 @@
+# Standard Plus - Meldeweg fuer Sicherheitsluecken (RFC 9116)
+# Vor dem Produktivbetrieb: Platzhalter ersetzen und Datei unter
+# https://IHRE-DOMAIN/.well-known/security.txt ausliefern (Content-Type: text/plain).
+
+Contact: mailto:security@ihre-domain.de
+Contact: https://ihre-domain.de/standardplus-sicherheit.html
+Expires: 2027-09-01T00:00:00.000Z
+Preferred-Languages: de, en
+Canonical: https://ihre-domain.de/.well-known/security.txt
+Policy: https://ihre-domain.de/standardplus-sicherheit.html
+Encryption: https://ihre-domain.de/.well-known/pgp-key.txt

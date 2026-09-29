@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0a8086"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Standard Plus"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<link rel="apple-touch-icon" href="assets/app/apple-touch-icon.png"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<!-- Hinweis: frame-ancestors, HSTS, X-Content-Type-Options und Permissions-Policy
+     wirken nur als HTTP-Kopfzeilen. Sie stehen in assets/security-headers.conf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'"/>
+<meta name="description" content="Preise von Standard Plus: Einmalzahlung je erfolgreicher Vermittlung oder Abo mit Rundum-Betreuung. Alle Preise zzgl. Umsatzsteuer."/>
+<title>Preise &ndash; Standard Plus</title>
+<link rel="stylesheet" href="assets/sp-theme.css?v=20260929153130"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a9296'/%3E%3Cpath d='M9 10l6 6-6 6M18 10l6 6-6 6' stroke='%23ffd84d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
+<link rel="alternate" hreflang="de" href="standardplus-preise.html"/>
+<link rel="alternate" hreflang="en" href="en/standardplus-preise.html"/>
+<link rel="alternate" hreflang="ro" href="ro/standardplus-preise.html"/>
+</head>
+<body>
+<a class="sp-skip" href="#main">Zum Inhalt springen</a>
+
+<!-- ================= HEADER ================= -->
+<header class="sp-header">
+  <div class="sp-header-in">
+    <a class="sp-logo" href="standardplus-main.html" data-nav aria-label="Standard Plus Startseite">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Personalvermittlung</span>
+    </a>
+    <nav aria-label="Hauptnavigation">
+      <ul class="sp-nav">
+        <li><a href="standardplus-talente.html" data-nav>Arbeitnehmer</a></li>
+        <li><a href="standardplus-unternehmen.html" data-nav>Unternehmen</a></li>
+        <li><a href="standardplus-main.html#ablauf">Ablauf</a></li>
+        <li><a href="standardplus-preise.html" data-nav>Preise</a></li>
+      </ul>
+    </nav>
+    <div class="sp-header-act">
+      <a class="btn btn-primary btn-sm" href="standardplus-login.html" hidden data-anon>Anmelden</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-dashboard.html" hidden data-auth>Dashboard</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-profil.html" hidden data-auth>Mein Profil</a>
+      <button class="btn btn-outline btn-sm" type="button" data-logout hidden data-auth>
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-logout"></use></svg>Abmelden</button>
+      <button class="iconbtn sp-burger" type="button" aria-label="Men&uuml; &ouml;ffnen" aria-expanded="false">
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  
+  </div>
+</header>
+
+<main id="main">
+<section class="sec-tight seitenkopf">
+  <div class="wrap">
+    <span class="eyebrow gold"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-euro"></use></svg>Preise</span>
+    <h1 class="h2">Zwei Wege &ndash; Sie w&auml;hlen</h1>
+    <p class="lede mb24">Entweder Sie zahlen <b>pro erfolgreicher Vermittlung</b> oder Sie buchen das
+      <b>Abo mit Rundum-Betreuung</b>. Beides ohne versteckte Kosten.
+      Alle Preise zuz&uuml;glich gesetzlicher Umsatzsteuer.</p>
+  </div>
+</section>
+
+<!-- ================= PREISE ================= -->
+<section class="sec-tight" id="preise">
+  <div class="wrap">
+    <!-- Kurzfassung: was kostet was, bevor es ins Detail geht -->
+    <div class="preis-blick">
+      <div class="blick">
+        <span class="fuer"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-target"></use></svg>Modell A &middot; Einmalzahlung</span>
+        <h3>Wenn Sie nur die Vermittlung brauchen</h3>
+        <span class="zahl">399 &ndash; 1.999&nbsp;&euro;</span>
+        <p>je erfolgreicher Vermittlung, f&auml;llig erst nach Vertragsunterschrift.
+          Keine Grundgeb&uuml;hr, keine Laufzeit.</p>
+      </div>
+      <div class="blick gold">
+        <span class="fuer"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-refresh"></use></svg>Modell B &middot; Abo</span>
+        <h3>Wenn Sie Rundum-Betreuung w&uuml;nschen</h3>
+        <span class="zahl">399&nbsp;&euro; + 119&nbsp;&euro;/Monat</span>
+        <p>einmalige Startgeb&uuml;hr, danach monatlich &ndash; <b>unbegrenzt viele</b>
+          Vermittlungen und Betreuung von der Suche bis nach dem Arbeitsantritt.</p>
+      </div>
+    </div>
+
+    <p class="tiny muted t-c mb32">Faustregel: Wer Einarbeitung, Anreise und Formalit&auml;ten selbst
+      &uuml;bernimmt, f&auml;hrt mit der Einmalzahlung gut. Wer alles aus einer Hand m&ouml;chte, w&auml;hlt das Abo.</p>
+
+    <div class="preis-split">
+
+      <!-- ---------- A: Einmalzahlung ---------- -->
+      <article class="card preis-karte">
+        <div class="preis-kopf">
+          <span class="tag tag-teal mb12">Modell A</span>
+          <h3 class="h2">Einmalzahlung</h3>
+          <p class="small muted mt8">Sie zahlen <b>nur bei Erfolg</b> &ndash; f&auml;llig erst,
+            wenn der Arbeitsvertrag unterschrieben ist. Keine Grundgeb&uuml;hr, keine Laufzeit,
+            keine K&uuml;ndigung n&ouml;tig.</p>
+        </div>
+
+        <p class="tiny fw7 t-teal mb8">PREIS JE VERMITTLUNG</p>
+        <div class="preis-zeile">
+          <span>Basis<small>Hilfs- und Facharbeitskr&auml;fte</small></span><b>399&nbsp;&euro;</b>
+        </div>
+        <div class="preis-zeile">
+          <span>Professional<small>Fachkr&auml;fte mit abgeschlossener Ausbildung</small></span><b>899&nbsp;&euro;</b>
+        </div>
+        <div class="preis-zeile">
+          <span>Spezialisten<small>Ingenieurwesen, Medizin, IT</small></span><b>1.299&nbsp;&euro;</b>
+        </div>
+        <div class="preis-zeile">
+          <span>Executive<small>F&uuml;hrungskr&auml;fte</small></span><b>1.999&nbsp;&euro;</b>
+        </div>
+
+        <p class="tiny fw7 t-teal mt24 mb8">IMMER ENTHALTEN</p>
+        <ul class="list-check">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Suche, Vorauswahl und gepr&uuml;fte Nachweise</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Videointerview mit Live-&Uuml;bersetzung</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Digitaler Vertrag nach eIDAS</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Ersatz ohne Aufpreis, wenn jemand in den ersten drei Monaten abspringt</li>
+        </ul>
+
+        <div class="preis-summe">
+          <span>Eine Fachkraft (Professional)<small>einmalig, danach f&auml;llt nichts mehr an</small></span>
+          <b>899&nbsp;&euro;</b>
+        </div>
+
+        <a class="btn btn-outline btn-block btn-lg mt20" href="standardplus-login.html?tab=registrieren">
+          Einzelvermittlung anfragen</a>
+        <p class="tiny muted t-c mt12">Rechnung nach Vertragsunterzeichnung, zahlbar in 14&nbsp;Tagen.</p>
+      </article>
+
+      <!-- ---------- B: Abo ---------- -->
+      <article class="card preis-karte card-dark">
+        <div class="preis-kopf">
+          <span class="tag tag-gold mb12">Modell B</span>
+          <h3 class="h2 t-white">Abo</h3>
+          <p class="small t-w60 mt8">F&uuml;r Kunden, die eine <b class="t-white">Rundum-Betreuung</b>
+            w&uuml;nschen: Wir k&uuml;mmern uns nicht nur um passende Fachkr&auml;fte, sondern auch um alles,
+            was danach kommt. Sie zahlen einmalig eine Startgeb&uuml;hr und danach monatlich.</p>
+        </div>
+
+        <p class="tiny fw7 t-gold mb8">DAS KOMMT AUF SIE ZU</p>
+        <div class="preis-zeile">
+          <span>Startgeb&uuml;hr<small>einmalig bei Vertragsbeginn</small></span><b>399&nbsp;&euro;</b>
+        </div>
+        <div class="preis-zeile">
+          <span>Monatsbeitrag<small>ab dem ersten Monat</small></span><b>119&nbsp;&euro;</b>
+        </div>
+        <div class="preis-zeile">
+          <span>Mindestlaufzeit<small>danach monatlich k&uuml;ndbar, ein Monat Frist</small></span><b>6&nbsp;Monate</b>
+        </div>
+        <div class="preis-zeile">
+          <span>Kosten nach 6&nbsp;Monaten<small>399&nbsp;&euro; + 6 &times; 119&nbsp;&euro;</small></span><b>1.113&nbsp;&euro;</b>
+        </div>
+        <div class="preis-zeile">
+          <span>Kosten nach 12&nbsp;Monaten<small>399&nbsp;&euro; + 12 &times; 119&nbsp;&euro;</small></span><b>1.827&nbsp;&euro;</b>
+        </div>
+
+        <p class="tiny fw7 t-gold mt24 mb8">RUNDUM-BETREUUNG &ndash; ZUS&Auml;TZLICH ZU MODELL A</p>
+        <ul class="list-check on-dark">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Feste Ansprechperson f&uuml;r alle Fragen &ndash; auch nach dem Arbeitsantritt</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Begleitung bei Unterlagen, Berufsanerkennung und Beh&ouml;rdeng&auml;ngen</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Anreise wird organisiert &ndash; &uuml;ber gepr&uuml;fte Busunternehmen</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Live-Dolmetscher f&uuml;r Gespr&auml;che mit Ihren neuen Mitarbeitenden</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Ersatz innerhalb von 84&nbsp;Stunden bei l&auml;ngeren Ausf&auml;llen</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Unbegrenzt viele Vermittlungen ohne weitere Kosten</li>
+        </ul>
+
+        <div class="preis-summe">
+          <span>Im ersten Jahr insgesamt<small>unabh&auml;ngig davon, wie viele Stellen Sie besetzen</small></span>
+          <b>1.827&nbsp;&euro;</b>
+        </div>
+
+        <a class="btn btn-gold btn-block btn-lg mt20" href="standardplus-login.html?tab=registrieren">
+          Abo starten</a>
+        <p class="tiny t-w50 t-c mt12">Keine automatische Verl&auml;ngerung um lange Zeitr&auml;ume &ndash;
+          nach sechs Monaten l&auml;uft es monatlich weiter.</p>
+      </article>
+    </div>
+
+    <!-- ---------- Kurz zusammengefasst - wie auf dem Abo-Paket-Blatt ---------- -->
+    <div class="kurzfassung mt32">
+      <span class="feature-ic"><svg class="ic" aria-hidden="true"><use href="#i-bulb"></use></svg></span>
+      <span class="teiler" aria-hidden="true"></span>
+      <div>
+        <h3>Kurz<span class="punkt">.</span> zusammengefasst</h3>
+        <p>Einmalzahlung, wenn Sie nur die Vermittlung brauchen. Abo, wenn Sie Rundum-Betreuung w&uuml;nschen &ndash;
+          mit fester Ansprechperson, Begleitung bis nach dem Arbeitsantritt und Ersatz innerhalb von 84&nbsp;Stunden bei l&auml;ngeren Ausf&auml;llen.</p>
+      </div>
+    </div>
+
+    <!-- ---------- Fuer wen lohnt sich das Abo ---------- -->
+    <div class="card card-pad mt24">
+      <h3 class="h3 mb12 flex ai-c g8">
+        <svg class="ic ic-lg ic-teal" aria-hidden="true"><use href="#i-handshake"></use></svg>
+        F&uuml;r wen lohnt sich das Abo?
+      </h3>
+      <p class="small muted mb16">Das Abo lohnt sich nicht erst ab einer bestimmten Zahl von Einstellungen,
+        sondern f&uuml;r alle Kunden, die eine <b>Rundum-Betreuung</b> w&uuml;nschen &ndash; also nicht nur
+        passende Fachkr&auml;fte, sondern jemanden, der sich auch um alles danach k&uuml;mmert.</p>
+
+      <div class="passt-zu">
+        <div class="passt abo">
+          <p class="tiny fw7 t-teal mb8">DAS ABO PASST ZU IHNEN, WENN SIE &hellip;</p>
+          <ul class="list-check">
+            <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>sich nicht selbst um Unterlagen, Anerkennung und Beh&ouml;rden k&uuml;mmern m&ouml;chten</li>
+            <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>die Anreise Ihrer neuen Mitarbeitenden organisiert haben wollen</li>
+            <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>eine feste Ansprechperson statt wechselnder Kontakte w&uuml;nschen</li>
+            <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>bei Ausf&auml;llen schnell Ersatz brauchen</li>
+            <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>zum ersten Mal Fachkr&auml;fte aus dem Ausland einstellen</li>
+          </ul>
+        </div>
+        <div class="passt einmal">
+          <p class="tiny fw7 t-teal mb8">DIE EINMALZAHLUNG PASST, WENN SIE &hellip;</p>
+          <ul class="list-check">
+            <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>nur gelegentlich eine Stelle besetzen</li>
+            <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Einarbeitung, Anreise und Formalit&auml;ten selbst &uuml;bernehmen</li>
+            <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>bereits Erfahrung mit Fachkr&auml;ften aus dem Ausland haben</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tbl-wrap mt24">
+        <table class="tbl leistungen">
+          <thead>
+            <tr>
+              <th>Leistung</th>
+              <th>Einmalzahlung</th>
+              <th>Abo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Suche, Vorauswahl und gepr&uuml;fte Nachweise</td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">enthalten</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">enthalten</span></td></tr>
+            <tr><td>Videointerview mit Live-&Uuml;bersetzung</td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">enthalten</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">enthalten</span></td></tr>
+            <tr><td>Digitaler Vertrag nach eIDAS</td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">enthalten</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">enthalten</span></td></tr>
+            <tr><td>Ersatz ohne Aufpreis, wenn jemand in den ersten drei Monaten abspringt</td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">enthalten</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">enthalten</span></td></tr>
+            <tr><td>Feste Ansprechperson</td><td><span class="leer" aria-hidden="true">&ndash;</span><span class="hp">nicht enthalten</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">enthalten</span></td></tr>
+            <tr><td>Begleitung bei Berufsanerkennung und Beh&ouml;rdeng&auml;ngen</td><td><span class="leer" aria-hidden="true">&ndash;</span><span class="hp">nicht enthalten</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">enthalten</span></td></tr>
+            <tr><td>Organisation der Anreise</td><td><span class="leer" aria-hidden="true">&ndash;</span><span class="hp">nicht enthalten</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">enthalten</span></td></tr>
+            <tr><td>Betreuung nach dem Arbeitsantritt</td><td><span class="leer" aria-hidden="true">&ndash;</span><span class="hp">nicht enthalten</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">enthalten</span></td></tr>
+            <tr><td>Ersatz innerhalb von 84&nbsp;Stunden bei l&auml;ngeren Ausf&auml;llen</td><td><span class="leer" aria-hidden="true">&ndash;</span><span class="hp">nicht enthalten</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">enthalten</span></td></tr>
+            <tr><td>Unbegrenzt viele Vermittlungen</td><td><span class="leer" aria-hidden="true">&ndash;</span><span class="hp">nicht enthalten</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">enthalten</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tiny muted mt12">Vermitteln wir &uuml;ber Partner, betr&auml;gt die Provision 20&nbsp;%.
+        Ma&szlig;geblich sind die <a class="t-teal u" href="standardplus-agb.html">AGB</a>.
+        Von Arbeitsuchenden wird keine Verg&uuml;tung erhoben.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="sp-foot">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <span class="sp-logo on-dark mb16">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Personalvermittlung</span>
+    </span>
+        <p>Die europ&auml;ische Plattform f&uuml;r Personalvermittlung. Datensparsam aufgebaut,
+          vollst&auml;ndig in der EU betrieben.</p>
+      </div>
+      <div>
+        <h4>Plattform</h4>
+        <ul>
+          <li><a href="standardplus-talente.html">Arbeitnehmer</a></li>
+          <li><a href="standardplus-dashboard.html">Dashboard</a></li>
+          <li><a href="standardplus-suche.html">Suche</a></li>
+          <li><a href="standardplus-musterprofile.html">Musterprofile</a></li>
+          <li><a href="standardplus-interview.html">Videointerview</a></li>
+          <li><a href="standardplus-dolmetscher.html">Live-Dolmetscher</a></li>
+          <li><a href="standardplus-transport.html">Busverbindungen</a></li>
+          <li><a href="standardplus-preise.html" data-nav>Preise</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Unternehmen</h4>
+        <ul>
+          <li><a href="standardplus-main.html#ablauf">So funktioniert es</a></li>
+          <li><a href="standardplus-main.html#funktionen">Funktionen</a></li>
+          <li><a href="standardplus-login.html">Anmelden</a></li>
+          <li><a href="standardplus-login.html?tab=registrieren">Registrieren</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Recht und Sicherheit</h4>
+        <ul>
+          <li><a href="standardplus-datenschutz.html">Datenschutzerkl&auml;rung</a></li>
+          <li><a href="standardplus-datenschutz-center.html">Datenschutz-Center</a></li>
+          <li><a href="standardplus-impressum.html">Impressum</a></li>
+          <li><a href="standardplus-sicherheit.html">Datenschutz und Sicherheit</a></li>
+          <li><a href="standardplus-agb.html">AGB</a></li>
+          <li><a href="#" data-consent>Cookie-Einstellungen</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>&copy; 2026 Standard Plus. Alle Rechte vorbehalten.</span>
+      <span class="foot-seal">
+        <span class="seal"><svg class="ic" aria-hidden="true"><use href="#i-server"></use></svg>EU-Hosting</span>
+        <span class="seal"><svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg>TLS 1.3</span>
+        <span class="seal"><svg class="ic" aria-hidden="true"><use href="#i-fingerprint"></use></svg>2FA</span>
+        <span class="seal"><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>DSGVO</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/sp-icons.js?v=20260929153130"></script>
+<script src="assets/sp-app.js?v=20260929153130"></script>
+<script src="assets/sp-effekte.js?v=20260929153130"></script>
+</body>
+</html>

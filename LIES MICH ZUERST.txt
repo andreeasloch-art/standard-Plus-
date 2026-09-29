@@ -1,0 +1,52 @@
+STANDARD PLUS - SO STARTEN SIE DIE APP
+======================================
+
+MAC
+  Doppelklick auf  "App starten.command"
+  -> oeffnet Standard Plus in einem eigenen Fenster.
+
+  Beim ersten Mal meldet der Mac eventuell, die Datei stamme aus dem
+  Internet. Dann: Rechtsklick auf die Datei -> "Oeffnen" -> "Oeffnen".
+
+  Dauerhaft installieren: In Chrome oder Edge oben rechts in der
+  Adresszeile auf das Installations-Symbol klicken, oder auf der Seite
+  auf den gelben Knopf "App installieren".
+
+WINDOWS
+  Doppelklick auf  "Website starten (Windows).bat"
+  Voraussetzung: Python 3 (kostenlos, www.python.org).
+  Danach in Chrome oder Edge "App installieren" waehlen.
+
+IPHONE UND ANDROID
+  Geht erst, wenn die Seite im Internet steht (mit https).
+  Vom eigenen Rechner aus kann ein Handy die App nicht erreichen.
+  Dann:  iPhone -> Safari -> Teilen -> "Zum Home-Bildschirm"
+         Android -> Chrome -> Menue -> "App installieren"
+
+DEMO-ZUGAENGE (Passwort jeweils: Demo!2026, danach 6 beliebige Ziffern)
+  Arbeitgeber      demo@unternehmen.invalid
+  Arbeitnehmer     demo1@beispiel.invalid
+  Busunternehmen   bus@timisoara.invalid
+
+VEROEFFENTLICHEN (SEITE INS INTERNET STELLEN)
+  1. FIRMENDATEN.txt oeffnen und alle Pflichtangaben eintragen
+     (Firmenname, Anschrift, Telefon, E-Mails, Domain, Aufsichtsbehoerde ...).
+  2. Doppelklick auf "Upload-Paket erstellen.command".
+     Fehlt noch etwas, steht dort genau, was.
+  3. StandardPlus-Upload.zip vom Schreibtisch entpacken und der
+     ANLEITUNG-UPLOAD.txt darin folgen.
+  Das Paket enthaelt nur die oeffentlichen Dateien, Ihre Firmendaten in
+  allen drei Sprachen und die Sicherheitseinstellungen fuer den Server.
+
+SPRACHEN
+  Deutsch, Englisch und Rumaenisch: oben rechts DE / EN / RO.
+  Englisch direkt:   en/standardplus-main.html
+  Rumaenisch direkt: ro/standardplus-main.html
+
+WICHTIG
+  Das ist ein Prototyp. Alle Daten liegen nur im Browser des jeweiligen
+  Geraets, es gibt noch keinen Server. Profile, Buchungen und Anfragen
+  sind deshalb auf jedem Geraet getrennt.
+
+  Technische Einzelheiten: LIESMICH-SICHERHEIT.md
+  Dolmetscher-Server:      dolmetscher-server/LIESMICH.md

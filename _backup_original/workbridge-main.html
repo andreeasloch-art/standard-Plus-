@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>WorkBridge – Europas Jobplattform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0d0f14;
+  --ink-soft:#2a2d35;
+  --blue:#1a4bff;
+  --blue-dark:#0e31cc;
+  --blue-light:#e8eeff;
+  --blue-mid:#c3cffe;
+  --green:#00b96b;
+  --green-dark:#008f50;
+  --green-light:#e3faf0;
+  --white:#ffffff;
+  --off:#f7f8fc;
+  --border:#e4e7ef;
+  --muted:#717789;
+  --card-shadow:0 2px 20px rgba(26,75,255,0.08);
+  --ff-head:'Fraunces',Georgia,serif;
+  --ff-body:'Outfit',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--ff-body);background:var(--white);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--off)}
+::-webkit-scrollbar-thumb{background:var(--blue-mid);border-radius:3px}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 6%;height:70px;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--ff-head);font-weight:900;font-size:1.5rem;color:var(--ink);letter-spacing:-0.5px;text-decoration:none}
+.logo-mark{width:36px;height:36px;background:var(--blue);border-radius:9px;display:flex;align-items:center;justify-content:center}
+.logo-mark svg{width:20px;height:20px;fill:white}
+.logo span{color:var(--blue)}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:0.9rem;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-right{display:flex;gap:10px;align-items:center}
+.btn-nav-ghost{padding:9px 20px;border-radius:8px;font-weight:600;font-size:0.875rem;color:var(--ink);text-decoration:none;transition:all .2s;border:1.5px solid var(--border)}
+.btn-nav-ghost:hover{border-color:var(--blue);color:var(--blue)}
+.btn-nav-fill{padding:9px 20px;border-radius:8px;font-weight:600;font-size:0.875rem;background:var(--blue);color:white;text-decoration:none;transition:all .2s;box-shadow:0 2px 10px rgba(26,75,255,0.25)}
+.btn-nav-fill:hover{background:var(--blue-dark);transform:translateY(-1px)}
+
+/* ─── HERO ─── */
+.hero{
+  min-height:100vh;padding:130px 6% 80px;
+  background:var(--ink);
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;
+}
+/* Mesh background */
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 900px 600px at 20% 50%,rgba(26,75,255,0.35) 0%,transparent 70%),
+    radial-gradient(ellipse 600px 400px at 80% 80%,rgba(0,185,107,0.2) 0%,transparent 60%),
+    radial-gradient(ellipse 400px 400px at 70% 10%,rgba(26,75,255,0.15) 0%,transparent 60%);
+}
+.hero-grid-lines{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);
+  background-size:60px 60px;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
+  backdrop-filter:blur(8px);
+  color:rgba(255,255,255,0.85);padding:7px 18px;border-radius:100px;
+  font-size:0.8rem;font-weight:500;margin-bottom:32px;
+  position:relative;z-index:1;
+  animation:fadeUp .6s ease both;
+}
+.hero-badge .dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:blink 1.5s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUpDelay{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+.hero-title{
+  font-family:var(--ff-head);font-weight:900;
+  font-size:clamp(3rem,7vw,5.5rem);
+  color:white;text-align:center;line-height:1.0;letter-spacing:-2px;
+  max-width:900px;position:relative;z-index:1;
+  animation:fadeUp .7s .1s ease both;
+}
+.hero-title em{font-style:italic;color:transparent;
+  background:linear-gradient(135deg,#60a5fa,#34d399);
+  -webkit-background-clip:text;background-clip:text;}
+.hero-sub{
+  font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,0.6);
+  text-align:center;max-width:580px;line-height:1.8;margin-top:24px;
+  position:relative;z-index:1;animation:fadeUp .7s .2s ease both;
+}
+.hero-ctas{
+  display:flex;gap:14px;margin-top:40px;flex-wrap:wrap;justify-content:center;
+  position:relative;z-index:1;animation:fadeUp .7s .3s ease both;
+}
+.btn-hero-main{
+  padding:17px 38px;border-radius:12px;font-weight:700;font-size:1rem;
+  background:var(--blue);color:white;text-decoration:none;
+  box-shadow:0 4px 24px rgba(26,75,255,0.45);transition:all .2s;
+  font-family:var(--ff-body);
+}
+.btn-hero-main:hover{transform:translateY(-2px);box-shadow:0 8px 36px rgba(26,75,255,0.5)}
+.btn-hero-sec{
+  padding:17px 38px;border-radius:12px;font-weight:600;font-size:1rem;
+  background:rgba(255,255,255,0.08);color:white;
+  border:1px solid rgba(255,255,255,0.2);text-decoration:none;transition:all .2s;
+}
+.btn-hero-sec:hover{background:rgba(255,255,255,0.15)}
+
+.hero-stats{
+  display:flex;gap:0;margin-top:64px;position:relative;z-index:1;
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);
+  border-radius:20px;backdrop-filter:blur(12px);overflow:hidden;
+  animation:fadeUp .7s .4s ease both;
+}
+.hero-stat{padding:24px 40px;text-align:center}
+.hero-stat+.hero-stat{border-left:1px solid rgba(255,255,255,0.08)}
+.hero-stat strong{display:block;font-family:var(--ff-head);font-size:2rem;font-weight:900;color:white;line-height:1}
+.hero-stat span{font-size:0.78rem;color:rgba(255,255,255,0.45);margin-top:5px;display:block}
+
+/* ─── PROFILES SECTION ─── */
+.profiles-section{background:var(--off);padding:100px 6%}
+.profiles-header{text-align:center;margin-bottom:60px}
+.tag{display:inline-block;background:var(--blue-light);color:var(--blue);
+  padding:5px 16px;border-radius:100px;font-size:0.78rem;font-weight:700;
+  letter-spacing:0.4px;text-transform:uppercase;margin-bottom:18px;font-family:var(--ff-body)}
+.tag.green{background:var(--green-light);color:var(--green-dark)}
+.section-h{font-family:var(--ff-head);font-size:clamp(2rem,4vw,3rem);font-weight:900;
+  color:var(--ink);letter-spacing:-1.5px;line-height:1.1;margin-bottom:14px}
+.section-p{font-size:1.05rem;color:var(--muted);line-height:1.8;max-width:520px;margin:0 auto}
+
+/* PROFILES GRID */
+.profiles-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+/* Wide card spans 2 */
+.profile-card{
+  background:white;border-radius:24px;
+  border:1.5px solid var(--border);overflow:hidden;
+  transition:all .3s cubic-bezier(0.34,1.56,0.64,1);
+  cursor:pointer;position:relative;
+}
+.profile-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(26,75,255,0.13);border-color:var(--blue-mid)}
+
+/* Top colored bar */
+.profile-card-bar{height:6px;width:100%}
+.bar-blue{background:linear-gradient(90deg,var(--blue),#60a5fa)}
+.bar-green{background:linear-gradient(90deg,var(--green),#34d399)}
+.bar-amber{background:linear-gradient(90deg,#f59e0b,#fcd34d)}
+.bar-rose{background:linear-gradient(90deg,#f43f5e,#fb923c)}
+.bar-purple{background:linear-gradient(90deg,#8b5cf6,#a78bfa)}
+.bar-teal{background:linear-gradient(90deg,#0d9488,#2dd4bf)}
+
+.profile-card-body{padding:24px}
+.profile-top{display:flex;align-items:flex-start;gap:16px;margin-bottom:18px}
+.profile-avatar{
+  width:62px;height:62px;border-radius:16px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:2rem;
+  position:relative;
+}
+.profile-avatar.bg-blue{background:linear-gradient(135deg,#dbeafe,#bfdbfe)}
+.profile-avatar.bg-green{background:linear-gradient(135deg,#dcfce7,#bbf7d0)}
+.profile-avatar.bg-amber{background:linear-gradient(135deg,#fef3c7,#fde68a)}
+.profile-avatar.bg-rose{background:linear(135deg,#ffe4e6,#fecdd3)}
+.profile-avatar.bg-rose{background:linear-gradient(135deg,#ffe4e6,#fecdd3)}
+.profile-avatar.bg-purple{background:linear-gradient(135deg,#ede9fe,#ddd6fe)}
+.profile-avatar.bg-teal{background:linear-gradient(135deg,#ccfbf1,#99f6e4)}
+
+.verified-badge{
+  position:absolute;bottom:-4px;right:-4px;
+  width:20px;height:20px;background:var(--blue);border-radius:50%;
+  border:2px solid white;display:flex;align-items:center;justify-content:center;
+  font-size:0.6rem;color:white;
+}
+.verified-badge.green{background:var(--green)}
+
+.profile-info{}
+.profile-name{font-family:var(--ff-head);font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:2px}
+.profile-role{font-size:0.82rem;font-weight:600;color:var(--blue);margin-bottom:4px}
+.profile-role.green{color:var(--green-dark)}
+.profile-role.amber{color:#b45309}
+.profile-role.rose{color:#be123c}
+.profile-role.purple{color:#7c3aed}
+.profile-role.teal{color:#0f766e}
+.profile-loc{font-size:0.78rem;color:var(--muted);display:flex;align-items:center;gap:4px}
+
+.profile-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.ptag{
+  padding:4px 12px;border-radius:100px;font-size:0.72rem;font-weight:600;
+  background:var(--off);color:var(--ink-soft);border:1px solid var(--border);
+}
+.ptag.highlight{background:var(--blue-light);color:var(--blue);border-color:transparent}
+.ptag.highlight.green{background:var(--green-light);color:var(--green-dark)}
+
+.profile-stats{display:flex;gap:0;border-top:1px solid var(--border);padding-top:16px;margin-top:4px}
+.pstat{flex:1;text-align:center}
+.pstat+.pstat{border-left:1px solid var(--border)}
+.pstat strong{display:block;font-family:var(--ff-head);font-size:1.1rem;font-weight:700;color:var(--ink)}
+.pstat span{font-size:0.7rem;color:var(--muted)}
+
+/* Score bar */
+.match-score-bar{margin-bottom:16px}
+.msb-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.msb-label{font-size:0.75rem;color:var(--muted);font-weight:500}
+.msb-val{font-size:0.82rem;font-weight:700;color:var(--blue)}
+.msb-val.green{color:var(--green)}
+.msb-track{height:6px;background:var(--off);border-radius:100px;overflow:hidden}
+.msb-fill{height:100%;border-radius:100px}
+.fill-blue{background:linear-gradient(90deg,var(--blue),#60a5fa)}
+.fill-green{background:linear-gradient(90deg,var(--green),#34d399)}
+.fill-amber{background:linear-gradient(90deg,#f59e0b,#fcd34d)}
+.fill-purple{background:linear-gradient(90deg,#8b5cf6,#a78bfa)}
+.fill-rose{background:linear-gradient(90deg,#f43f5e,#fb923c)}
+.fill-teal{background:linear-gradient(90deg,#0d9488,#2dd4bf)}
+
+.profile-actions{display:flex;gap:8px;margin-top:16px}
+.pa-btn{flex:1;padding:10px;border-radius:10px;font-size:0.82rem;font-weight:600;
+  cursor:pointer;transition:all .2s;font-family:var(--ff-body);border:none}
+.pa-btn.primary{background:var(--blue);color:white}
+.pa-btn.primary:hover{background:var(--blue-dark)}
+.pa-btn.primary.green{background:var(--green)}
+.pa-btn.primary.green:hover{background:var(--green-dark)}
+.pa-btn.outline{background:var(--off);color:var(--ink);border:1.5px solid var(--border)}
+.pa-btn.outline:hover{border-color:var(--blue);color:var(--blue)}
+
+/* ─── LIVE TICKER ─── */
+.ticker-wrap{background:var(--blue);padding:14px 0;overflow:hidden;position:relative}
+.ticker-track{
+  display:flex;gap:0;white-space:nowrap;
+  animation:ticker 30s linear infinite;
+}
+.ticker-track:hover{animation-play-state:paused}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{display:inline-flex;align-items:center;gap:8px;padding:0 32px;
+  font-size:0.82rem;font-weight:500;color:rgba(255,255,255,0.85)}
+.ticker-dot{width:5px;height:5px;background:rgba(255,255,255,0.4);border-radius:50%;flex-shrink:0}
+.ticker-new{background:rgba(255,255,255,0.15);color:white;padding:2px 8px;border-radius:100px;font-size:0.68rem;font-weight:700;margin-left:4px}
+
+/* ─── HOW IT WORKS ─── */
+.how{background:white;padding:100px 6%}
+.how-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:60px}
+.how-steps{display:flex;flex-direction:column;gap:0}
+.step{display:flex;gap:20px;padding:28px 0;border-bottom:1px solid var(--border);cursor:pointer;
+  transition:all .2s;position:relative}
+.step:last-child{border-bottom:none}
+.step:hover{padding-left:8px}
+.step-num{
+  font-family:var(--ff-head);font-size:2.5rem;font-weight:900;
+  color:var(--border);line-height:1;flex-shrink:0;width:56px;text-align:center;
+  transition:color .2s;
+}
+.step:hover .step-num{color:var(--blue)}
+.step-text h3{font-family:var(--ff-head);font-size:1.2rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+.step-text p{font-size:0.875rem;color:var(--muted);line-height:1.7}
+.step-icon-big{font-size:1.5rem;margin-bottom:8px}
+
+.how-visual{background:var(--ink);border-radius:28px;padding:32px;
+  box-shadow:0 24px 64px rgba(0,0,0,0.25)}
+.how-vis-title{font-family:var(--ff-head);font-size:0.875rem;font-weight:700;color:rgba(255,255,255,0.4);
+  text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}
+.match-preview{display:flex;flex-direction:column;gap:12px}
+.mp-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px;padding:16px;display:flex;align-items:center;gap:14px;
+  transition:all .3s;cursor:pointer}
+.mp-card:hover{background:rgba(255,255,255,0.09);border-color:rgba(26,75,255,0.4)}
+.mp-card.active{background:rgba(26,75,255,0.15);border-color:rgba(26,75,255,0.5)}
+.mp-ava{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.mp-name{font-family:var(--ff-head);font-weight:700;color:white;font-size:0.9rem}
+.mp-sub{font-size:0.72rem;color:rgba(255,255,255,0.4);margin-top:2px}
+.mp-pct{margin-left:auto;font-family:var(--ff-head);font-weight:900;color:white;font-size:1rem}
+.mp-pct span{font-size:0.65rem;color:rgba(255,255,255,0.4);font-family:var(--ff-body)}
+.swipe-row{display:flex;justify-content:center;gap:16px;margin-top:20px}
+.sw-btn{width:54px;height:54px;border-radius:50%;border:none;cursor:pointer;
+  font-size:1.3rem;display:flex;align-items:center;justify-content:center;
+  transition:all .25s}
+.sw-btn.no{background:rgba(244,63,94,0.15);border:1.5px solid rgba(244,63,94,0.3)}
+.sw-btn.no:hover{background:#f43f5e;transform:scale(1.1)}
+.sw-btn.later{background:rgba(245,158,11,0.12);border:1.5px solid rgba(245,158,11,0.25)}
+.sw-btn.yes{background:rgba(0,185,107,0.15);border:1.5px solid rgba(0,185,107,0.3)}
+.sw-btn.yes:hover{background:var(--green);transform:scale(1.1)}
+
+/* ─── FEATURES ─── */
+.features{background:var(--off);padding:100px 6%}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.feat-card{background:white;border-radius:20px;padding:32px;border:1.5px solid var(--border);transition:all .25s}
+.feat-card:hover{transform:translateY(-4px);box-shadow:var(--card-shadow);border-color:var(--blue-mid)}
+.feat-card.dark{background:var(--ink);border-color:transparent;grid-column:span 2}
+.feat-card.dark:hover{box-shadow:0 16px 48px rgba(0,0,0,0.3)}
+.feat-emoji{font-size:2.2rem;margin-bottom:20px;display:block}
+.feat-card h3{font-family:var(--ff-head);font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:10px}
+.feat-card.dark h3{color:white}
+.feat-card p{font-size:0.875rem;color:var(--muted);line-height:1.75}
+.feat-card.dark p{color:rgba(255,255,255,0.55)}
+.feat-pill{display:inline-block;background:var(--blue-light);color:var(--blue);
+  padding:3px 10px;border-radius:100px;font-size:0.7rem;font-weight:700;margin-top:14px}
+.feat-card.dark .feat-pill{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8)}
+
+/* ─── PRICING ─── */
+.pricing{background:white;padding:100px 6%}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:56px}
+.pc{background:var(--off);border:2px solid var(--border);border-radius:22px;padding:34px;
+  position:relative;transition:all .25s}
+.pc:hover:not(.pc-featured){transform:translateY(-4px);border-color:var(--blue-mid)}
+.pc-featured{background:var(--ink);border-color:transparent;
+  box-shadow:0 8px 48px rgba(0,0,0,0.25)}
+.pc-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:var(--blue);color:white;padding:4px 18px;border-radius:100px;
+  font-size:0.72rem;font-weight:700;white-space:nowrap;font-family:var(--ff-body)}
+.pc h3{font-family:var(--ff-head);font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+.pc-featured h3{color:white}
+.pc-price{font-family:var(--ff-head);font-size:2.8rem;font-weight:900;color:var(--ink);
+  letter-spacing:-1.5px;margin:16px 0 4px;line-height:1}
+.pc-featured .pc-price{color:white}
+.pc-sub{font-size:0.78rem;color:var(--muted);margin-bottom:22px}
+.pc-featured .pc-sub{color:rgba(255,255,255,0.45)}
+.pc-list{list-style:none;margin-bottom:26px}
+.pc-list li{display:flex;gap:10px;padding:8px 0;font-size:0.85rem;color:var(--ink-soft);
+  border-bottom:1px solid var(--border)}
+.pc-featured .pc-list li{color:rgba(255,255,255,0.8);border-color:rgba(255,255,255,0.08)}
+.pc-list li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0}
+.btn-pc{width:100%;padding:13px;border-radius:11px;font-weight:700;font-size:0.875rem;
+  border:none;cursor:pointer;transition:all .2s;font-family:var(--ff-body)}
+.btn-pc-out{background:white;color:var(--ink);border:2px solid var(--border)}
+.btn-pc-out:hover{border-color:var(--blue);color:var(--blue)}
+.btn-pc-fill{background:white;color:var(--ink);box-shadow:0 2px 12px rgba(0,0,0,0.15)}
+.btn-pc-fill:hover{transform:translateY(-1px)}
+.provision-note{text-align:center;margin-top:24px;font-size:0.8rem;color:var(--muted)}
+
+/* ─── COUNTRIES ─── */
+.countries{background:var(--off);padding:80px 6%}
+.countries-inner{display:flex;gap:80px;align-items:center;flex-wrap:wrap}
+.countries-left{flex:1;min-width:280px}
+.countries-pills{flex:2;min-width:300px;display:flex;flex-wrap:wrap;gap:10px}
+.cpill{background:white;border:1.5px solid var(--border);padding:10px 18px;border-radius:100px;
+  font-size:0.85rem;font-weight:500;color:var(--ink-soft);transition:all .2s;cursor:pointer}
+.cpill:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-light);transform:translateY(-2px)}
+
+/* ─── INDUSTRIES ─── */
+.industries{background:var(--ink);padding:80px 6%}
+.industries .tag{background:rgba(26,75,255,0.15);color:#93c5fd;border:1px solid rgba(26,75,255,0.2)}
+.industries .section-h{color:white}
+.industries .section-p{color:rgba(255,255,255,0.5)}
+.ind-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:48px}
+.ind-chip{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.75);
+  padding:12px 20px;border-radius:12px;font-size:0.875rem;font-weight:500;
+  border:1px solid rgba(255,255,255,0.08);transition:all .2s;cursor:pointer}
+.ind-chip:hover{background:rgba(26,75,255,0.2);border-color:rgba(26,75,255,0.4);color:white;transform:translateY(-2px)}
+
+/* ─── CTA ─── */
+.cta-sec{
+  background:linear-gradient(135deg,var(--blue-dark) 0%,var(--blue) 60%,#3b82f6 100%);
+  padding:100px 6%;text-align:center;position:relative;overflow:hidden;
+}
+.cta-sec::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='1' fill='%23ffffff' fill-opacity='0.05'/%3E%3C/svg%3E");
+}
+.cta-sec h2{font-family:var(--ff-head);font-size:clamp(2rem,5vw,3.5rem);font-weight:900;
+  color:white;letter-spacing:-1.5px;margin-bottom:16px;position:relative;z-index:1}
+.cta-sec p{color:rgba(255,255,255,0.75);font-size:1.1rem;margin-bottom:40px;position:relative;z-index:1}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.btn-cta-w{background:white;color:var(--blue);padding:17px 40px;border-radius:12px;
+  font-weight:700;font-size:1rem;text-decoration:none;transition:all .2s;
+  font-family:var(--ff-body);box-shadow:0 4px 20px rgba(0,0,0,0.2)}
+.btn-cta-w:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.25)}
+.btn-cta-o{background:rgba(255,255,255,0.1);color:white;padding:17px 40px;border-radius:12px;
+  font-weight:600;font-size:1rem;text-decoration:none;border:1px solid rgba(255,255,255,0.25);transition:all .2s}
+.btn-cta-o:hover{background:rgba(255,255,255,0.2)}
+
+/* ─── FOOTER ─── */
+footer{background:#07090f;padding:60px 6% 32px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
+.footer-brand .logo{color:white;display:inline-flex;margin-bottom:16px}
+.footer-brand .logo span{color:#93c5fd}
+.footer-brand p{font-size:0.85rem;color:rgba(255,255,255,0.35);line-height:1.8;max-width:280px}
+.footer-col h4{font-family:var(--ff-head);font-weight:700;color:white;font-size:0.9rem;margin-bottom:16px}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:10px}
+.footer-col a{color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.85rem;transition:color .2s}
+.footer-col a:hover{color:white}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.07);padding-top:24px;
+  display:flex;justify-content:space-between;font-size:0.78rem;color:rgba(255,255,255,0.3)}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:1024px){
+  .profiles-grid{grid-template-columns:repeat(2,1fr)}
+  .feat-grid{grid-template-columns:repeat(2,1fr)}
+  .feat-card.dark{grid-column:span 1}
+  .how-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links,.nav-right .btn-nav-ghost{display:none}
+  .profiles-grid{grid-template-columns:1fr}
+  .feat-grid{grid-template-columns:1fr}
+  .countries-inner{flex-direction:column}
+  .hero-stats{flex-direction:column}
+  .hero-stat+.hero-stat{border-left:none;border-top:1px solid rgba(255,255,255,0.08)}
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+    Work<span>Bridge</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#profiles">Talente</a></li>
+    <li><a href="#wie">So funktioniert's</a></li>
+    <li><a href="#features">Funktionen</a></li>
+    <li><a href="#preise">Preise</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="workbridge-login.html" class="btn-nav-ghost">Anmelden</a>
+    <a href="workbridge-login.html" class="btn-nav-fill">Kostenlos starten</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-lines"></div>
+  <div class="hero-badge"><span class="dot"></span>Jetzt live in 27 EU-Ländern · KI-gestützt</div>
+  <h1 class="hero-title">Europas <em>smarteste</em><br/>Personalvermittlung</h1>
+  <p class="hero-sub">Der offene Marktplatz für Arbeitskräfte und Personaldienstleistungen. Unternehmen, Vermittler und Talente – auf einer Plattform vereint.</p>
+  <div class="hero-ctas">
+    <a href="#profiles" class="btn-hero-main">Talente entdecken</a>
+    <a href="#wie" class="btn-hero-sec">Wie es funktioniert →</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><strong>27+</strong><span>EU-Länder</span></div>
+    <div class="hero-stat"><strong>50+</strong><span>Branchen</span></div>
+    <div class="hero-stat"><strong>95%</strong><span>KI-Treffsicherheit</span></div>
+    <div class="hero-stat"><strong>24/7</strong><span>Live-Support</span></div>
+    <div class="hero-stat"><strong>€0</strong><span>Registrierung</span></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="ticker-item">✅ Maria K. – Krankenschwester aus Rumänien wurde in Berlin vermittelt <span class="ticker-new">NEU</span></span><span class="ticker-dot"></span>
+    <span class="ticker-item">✅ Ion T. – Bauführer aus Cluj startet bei Hochtief AG in München</span><span class="ticker-dot"></span>
+    <span class="ticker-item">✅ Piotr W. – Senior Developer aus Warschau arbeitet jetzt remote für SAP</span><span class="ticker-dot"></span>
+    <span class="ticker-item">✅ Andreea M. – Köchin aus Bukarest eröffnet mit Restaurant-Kette in Wien <span class="ticker-new">NEU</span></span><span class="ticker-dot"></span>
+    <span class="ticker-item">✅ Jana N. – Buchhalterin aus Prag startet bei Steuerberatungskanzlei Hamburg</span><span class="ticker-dot"></span>
+    <span class="ticker-item">✅ Luca E. – Elektriker aus Mailand arbeitet jetzt in Frankfurt am Main</span><span class="ticker-dot"></span>
+    <span class="ticker-item">✅ Sofia B. – Pflegerin aus Sofia wurde in Stuttgarter Klinikum eingestellt <span class="ticker-new">NEU</span></span><span class="ticker-dot"></span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item">✅ Maria K. – Krankenschwester aus Rumänien wurde in Berlin vermittelt</span><span class="ticker-dot"></span>
+    <span class="ticker-item">✅ Ion T. – Bauführer aus Cluj startet bei Hochtief AG in München</span><span class="ticker-dot"></span>
+    <span class="ticker-item">✅ Piotr W. – Senior Developer aus Warschau arbeitet jetzt remote für SAP</span><span class="ticker-dot"></span>
+    <span class="ticker-item">✅ Andreea M. – Köchin aus Bukarest eröffnet mit Restaurant-Kette in Wien</span><span class="ticker-dot"></span>
+    <span class="ticker-item">✅ Jana N. – Buchhalterin aus Prag startet bei Steuerberatungskanzlei Hamburg</span><span class="ticker-dot"></span>
+    <span class="ticker-item">✅ Luca E. – Elektriker aus Mailand arbeitet jetzt in Frankfurt am Main</span><span class="ticker-dot"></span>
+    <span class="ticker-item">✅ Sofia B. – Pflegerin aus Sofia wurde in Stuttgarter Klinikum eingestellt</span><span class="ticker-dot"></span>
+  </div>
+</div>
+
+<!-- PROFILES SECTION -->
+<section class="profiles-section" id="profiles">
+  <div class="profiles-header">
+    <div class="tag">Talente auf WorkBridge</div>
+    <h2 class="section-h">Echte Menschen. Echte Berufe.</h2>
+    <p class="section-p">Von Pflege bis IT – entdecke tausende verifizierte Profile aus ganz Europa, bereit für den nächsten Schritt.</p>
+  </div>
+
+  <div class="profiles-grid">
+
+    <!-- 1 - Krankenschwester -->
+    <div class="profile-card">
+      <div class="profile-card-bar bar-blue"></div>
+      <div class="profile-card-body">
+        <div class="profile-top">
+          <div class="profile-avatar bg-blue">
+            👩‍⚕️
+            <div class="verified-badge green">✓</div>
+          </div>
+          <div class="profile-info">
+            <div class="profile-name">Maria Kovács</div>
+            <div class="profile-role">Examinierte Krankenschwester</div>
+            <div class="profile-loc">📍 Klausenburg, Rumänien → 🇩🇪 Deutschland</div>
+          </div>
+        </div>
+        <div class="profile-tags">
+          <span class="ptag highlight">Intensivpflege</span>
+          <span class="ptag highlight">Notaufnahme</span>
+          <span class="ptag">B2 Deutsch</span>
+          <span class="ptag">12 J. Erfahrung</span>
+        </div>
+        <div class="match-score-bar">
+          <div class="msb-header"><span class="msb-label">KI-Match-Score</span><span class="msb-val">96%</span></div>
+          <div class="msb-track"><div class="msb-fill fill-blue" style="width:96%"></div></div>
+        </div>
+        <div class="profile-stats">
+          <div class="pstat"><strong>12</strong><span>Jahre Erfahrung</span></div>
+          <div class="pstat"><strong>3</strong><span>Bewerbungen</span></div>
+          <div class="pstat"><strong>€2.800</strong><span>Gehaltswunsch</span></div>
+        </div>
+        <div class="profile-actions">
+          <button class="pa-btn primary">Kontakt aufnehmen</button>
+          <button class="pa-btn outline">Profil ansehen</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 - Bauführer -->
+    <div class="profile-card">
+      <div class="profile-card-bar bar-amber"></div>
+      <div class="profile-card-body">
+        <div class="profile-top">
+          <div class="profile-avatar bg-amber">
+            👷‍♂️
+            <div class="verified-badge">✓</div>
+          </div>
+          <div class="profile-info">
+            <div class="profile-name">Ion Tudose</div>
+            <div class="profile-role amber">Polier & Bauführer</div>
+            <div class="profile-loc">📍 Timișoara, Rumänien → 🇩🇪 Bayern</div>
+          </div>
+        </div>
+        <div class="profile-tags">
+          <span class="ptag highlight green">Rohbau</span>
+          <span class="ptag highlight green">Stahlbeton</span>
+          <span class="ptag">Kranführerschein</span>
+          <span class="ptag">B1 Deutsch</span>
+        </div>
+        <div class="match-score-bar">
+          <div class="msb-header"><span class="msb-label">KI-Match-Score</span><span class="msb-val green">91%</span></div>
+          <div class="msb-track"><div class="msb-fill fill-amber" style="width:91%"></div></div>
+        </div>
+        <div class="profile-stats">
+          <div class="pstat"><strong>8</strong><span>Jahre Erfahrung</span></div>
+          <div class="pstat"><strong>5</strong><span>Projekte</span></div>
+          <div class="pstat"><strong>€3.200</strong><span>Gehaltswunsch</span></div>
+        </div>
+        <div class="profile-actions">
+          <button class="pa-btn primary green">Kontakt aufnehmen</button>
+          <button class="pa-btn outline">Profil ansehen</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 - Developer -->
+    <div class="profile-card">
+      <div class="profile-card-bar bar-purple"></div>
+      <div class="profile-card-body">
+        <div class="profile-top">
+          <div class="profile-avatar bg-purple">
+            💻
+            <div class="verified-badge">✓</div>
+          </div>
+          <div class="profile-info">
+            <div class="profile-name">Piotr Wiśniewski</div>
+            <div class="profile-role purple">Senior Full-Stack Developer</div>
+            <div class="profile-loc">📍 Warschau, Polen → 🌍 Remote / EU</div>
+          </div>
+        </div>
+        <div class="profile-tags">
+          <span class="ptag highlight">React</span>
+          <span class="ptag highlight">Node.js</span>
+          <span class="ptag highlight">AWS</span>
+          <span class="ptag">C2 Englisch</span>
+          <span class="ptag">10 J. Erfahrung</span>
+        </div>
+        <div class="match-score-bar">
+          <div class="msb-header"><span class="msb-label">KI-Match-Score</span><span class="msb-val">88%</span></div>
+          <div class="msb-track"><div class="msb-fill fill-purple" style="width:88%"></div></div>
+        </div>
+        <div class="profile-stats">
+          <div class="pstat"><strong>10</strong><span>Jahre Erfahrung</span></div>
+          <div class="pstat"><strong>Remote</strong><span>bevorzugt</span></div>
+          <div class="pstat"><strong>€5.500</strong><span>Gehaltswunsch</span></div>
+        </div>
+        <div class="profile-actions">
+          <button class="pa-btn primary" style="background:#8b5cf6">Kontakt aufnehmen</button>
+          <button class="pa-btn outline">Profil ansehen</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 - Köchin -->
+    <div class="profile-card">
+      <div class="profile-card-bar bar-rose"></div>
+      <div class="profile-card-body">
+        <div class="profile-top">
+          <div class="profile-avatar bg-rose">
+            👩‍🍳
+            <div class="verified-badge">✓</div>
+          </div>
+          <div class="profile-info">
+            <div class="profile-name">Andreea Marin</div>
+            <div class="profile-role rose">Küchenchefin (Sous Chef)</div>
+            <div class="profile-loc">📍 Bukarest, Rumänien → 🇦🇹 Wien</div>
+          </div>
+        </div>
+        <div class="profile-tags">
+          <span class="ptag highlight">Fine Dining</span>
+          <span class="ptag highlight">À la carte</span>
+          <span class="ptag">Patisserie</span>
+          <span class="ptag">B2 Deutsch</span>
+        </div>
+        <div class="match-score-bar">
+          <div class="msb-header"><span class="msb-label">KI-Match-Score</span><span class="msb-val">85%</span></div>
+          <div class="msb-track"><div class="msb-fill fill-rose" style="width:85%"></div></div>
+        </div>
+        <div class="profile-stats">
+          <div class="pstat"><strong>7</strong><span>Jahre Erfahrung</span></div>
+          <div class="pstat"><strong>3★</strong><span>Referenzen</span></div>
+          <div class="pstat"><strong>€2.600</strong><span>Gehaltswunsch</span></div>
+        </div>
+        <div class="profile-actions">
+          <button class="pa-btn primary" style="background:#f43f5e">Kontakt aufnehmen</button>
+          <button class="pa-btn outline">Profil ansehen</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 - Elektriker -->
+    <div class="profile-card">
+      <div class="profile-card-bar bar-teal"></div>
+      <div class="profile-card-body">
+        <div class="profile-top">
+          <div class="profile-avatar bg-teal">
+            ⚡
+            <div class="verified-badge">✓</div>
+          </div>
+          <div class="profile-info">
+            <div class="profile-name">Luca Esposito</div>
+            <div class="profile-role teal">Elektroinstallateur</div>
+            <div class="profile-loc">📍 Mailand, Italien → 🇩🇪 Frankfurt</div>
+          </div>
+        </div>
+        <div class="profile-tags">
+          <span class="ptag highlight">Industrieanlagen</span>
+          <span class="ptag highlight">SPS-Steuerung</span>
+          <span class="ptag">Photovoltaik</span>
+          <span class="ptag">A2 Deutsch</span>
+        </span>
+        </div>
+        <div class="match-score-bar">
+          <div class="msb-header"><span class="msb-label">KI-Match-Score</span><span class="msb-val" style="color:#0d9488">82%</span></div>
+          <div class="msb-track"><div class="msb-fill fill-teal" style="width:82%"></div></div>
+        </div>
+        <div class="profile-stats">
+          <div class="pstat"><strong>6</strong><span>Jahre Erfahrung</span></div>
+          <div class="pstat"><strong>VDE</strong><span>Zertifiziert</span></div>
+          <div class="pstat"><strong>€3.000</strong><span>Gehaltswunsch</span></div>
+        </div>
+        <div class="profile-actions">
+          <button class="pa-btn primary" style="background:#0d9488">Kontakt aufnehmen</button>
+          <button class="pa-btn outline">Profil ansehen</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6 - Pflegerin -->
+    <div class="profile-card">
+      <div class="profile-card-bar bar-green"></div>
+      <div class="profile-card-body">
+        <div class="profile-top">
+          <div class="profile-avatar bg-green">
+            🧑‍⚕️
+            <div class="verified-badge green">✓</div>
+          </div>
+          <div class="profile-info">
+            <div class="profile-name">Sofia Dimitrova</div>
+            <div class="profile-role green">Altenpflegerin (examiniert)</div>
+            <div class="profile-loc">📍 Sofia, Bulgarien → 🇩🇪 Stuttgart</div>
+          </div>
+        </div>
+        <div class="profile-tags">
+          <span class="ptag highlight green">Demenzpflege</span>
+          <span class="ptag highlight green">Palliativpflege</span>
+          <span class="ptag">B1 Deutsch</span>
+          <span class="ptag">9 J. Erfahrung</span>
+        </div>
+        <div class="match-score-bar">
+          <div class="msb-header"><span class="msb-label">KI-Match-Score</span><span class="msb-val green">93%</span></div>
+          <div class="msb-track"><div class="msb-fill fill-green" style="width:93%"></div></div>
+        </div>
+        <div class="profile-stats">
+          <div class="pstat"><strong>9</strong><span>Jahre Erfahrung</span></div>
+          <div class="pstat"><strong>Sofort</strong><span>verfügbar</span></div>
+          <div class="pstat"><strong>€2.500</strong><span>Gehaltswunsch</span></div>
+        </div>
+        <div class="profile-actions">
+          <button class="pa-btn primary green">Kontakt aufnehmen</button>
+          <button class="pa-btn outline">Profil ansehen</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /grid -->
+
+  <div style="text-align:center;margin-top:48px">
+    <a href="workbridge-login.html" class="btn-hero-main" style="display:inline-block;background:var(--blue);color:white;padding:16px 40px;border-radius:12px;font-weight:700;font-size:1rem;text-decoration:none">
+      Alle Profile ansehen →
+    </a>
+    <p style="margin-top:14px;font-size:0.82rem;color:var(--muted)">Über 12.000 verifizierte Talente in ganz Europa warten auf Sie</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="wie">
+  <div>
+    <div class="tag">So funktioniert WorkBridge</div>
+    <h2 class="section-h">Von Profil zu Vertrag –<br/>in wenigen Tagen</h2>
+  </div>
+  <div class="how-grid">
+    <div class="how-steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-text">
+          <div class="step-icon-big">📋</div>
+          <h3>Profil erstellen</h3>
+          <p>Unternehmen und Bewerber legen ein detailliertes Profil an. Die KI analysiert Qualifikationen, Erfahrungen und Präferenzen automatisch und schlägt Verbesserungen vor.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-text">
+          <div class="step-icon-big">🤖</div>
+          <h3>KI findet Matches</h3>
+          <p>Der Algorithmus vergleicht über 40 Parameter in Echtzeit und liefert die passendsten Kandidaten oder Stellen – europaweit, in Sekunden.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-text">
+          <div class="step-icon-big">🎯</div>
+          <h3>Swipe & Verbinden</h3>
+          <p>Beide Seiten zeigen Interesse. Erst wenn beide matchen, startet die Kommunikation – kein unerwünschter Kontakt, kein Spam.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-text">
+          <div class="step-icon-big">✍️</div>
+          <h3>Interview, Vertrag & Start</h3>
+          <p>Video-Interview mit Live-Übersetzung, digitaler Vertragsabschluss und Transportkoordination – alles auf einer Plattform.</p>
+        </div>
+      </div>
+    </div>
+    <div class="how-visual">
+      <div class="how-vis-title">Aktuelle Matches</div>
+      <div class="match-preview">
+        <div class="mp-card active">
+          <div class="mp-ava" style="background:linear-gradient(135deg,#3b82f6,#93c5fd)">👩‍⚕️</div>
+          <div><div class="mp-name">Maria K.</div><div class="mp-sub">Krankenschwester · Rumänien</div></div>
+          <div class="mp-pct">96<span>%</span></div>
+        </div>
+        <div class="mp-card">
+          <div class="mp-ava" style="background:linear-gradient(135deg,#f59e0b,#fcd34d)">👷‍♂️</div>
+          <div><div class="mp-name">Ion T.</div><div class="mp-sub">Bauführer · Rumänien</div></div>
+          <div class="mp-pct">91<span>%</span></div>
+        </div>
+        <div class="mp-card">
+          <div class="mp-ava" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa)">💻</div>
+          <div><div class="mp-name">Piotr W.</div><div class="mp-sub">Senior Dev · Polen</div></div>
+          <div class="mp-pct">88<span>%</span></div>
+        </div>
+        <div class="mp-card">
+          <div class="mp-ava" style="background:linear-gradient(135deg,#0d9488,#2dd4bf)">⚡</div>
+          <div><div class="mp-name">Luca E.</div><div class="mp-sub">Elektriker · Italien</div></div>
+          <div class="mp-pct">82<span>%</span></div>
+        </div>
+      </div>
+      <div class="swipe-row">
+        <button class="sw-btn no">✕</button>
+        <button class="sw-btn later">⏸</button>
+        <button class="sw-btn yes">♥</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="centered">
+    <div class="tag">Plattform-Funktionen</div>
+    <h2 class="section-h">Alles, was moderne<br/>Personalvermittlung braucht</h2>
+  </div>
+  <div class="feat-grid">
+    <div class="feat-card dark">
+      <span class="feat-emoji">🧠</span>
+      <h3>KI-Matching Engine — 95 % Treffsicherheit</h3>
+      <p>Unser proprietärer Algorithmus analysiert 40+ Parameter: Qualifikation, Erfahrung, Gehalt, Standort, Soft Skills und Kulturfit. Ergebnis: perfekte Matches in Sekunden – europaweit und mehrsprachig.</p>
+      <span class="feat-pill">Proprietäre KI</span>
+    </div>
+    <div class="feat-card">
+      <span class="feat-emoji">💬</span>
+      <h3>Live-Übersetzung bei Interviews</h3>
+      <p>Echtzeit-Übersetzung in 24 EU-Sprachen direkt im Videointerview. Keine Sprachbarrieren mehr zwischen Arbeitgeber und Bewerber.</p>
+      <span class="feat-pill">24 Sprachen</span>
+    </div>
+    <div class="feat-card">
+      <span class="feat-emoji">📄</span>
+      <h3>Digitale Verträge & Verwaltung</h3>
+      <p>Rechtskonformes Vertragsmanagement für alle EU-Länder. DSGVO-konform, sicher und revisionssicher archiviert.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-emoji">🚌</span>
+      <h3>Transportlogistik</h3>
+      <p>Eigene Busflotte und Koordination für die Anreise von Arbeitskräften quer durch Europa – buchbar direkt auf der Plattform.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-emoji">📊</span>
+      <h3>Analytics & Reporting</h3>
+      <p>Umfassende Auswertungen, KPI-Tracking und Echtzeit-Statistiken für Vermittler und Unternehmen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="preise">
+  <div class="centered">
+    <div class="tag">Preise</div>
+    <h2 class="section-h">Transparent. Fair. Flexibel.</h2>
+    <p class="section-p" style="margin:0 auto">Alle Modelle ohne versteckte Kosten – von der Einzelvermittlung bis zum Abo.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="pc">
+      <h3>Basis</h3>
+      <div class="pc-price">399 €</div>
+      <p class="pc-sub">Einmalig · pro Vermittlung</p>
+      <ul class="pc-list">
+        <li>Facharbeiter & Hilfskräfte</li>
+        <li>KI-Matching inklusive</li>
+        <li>Digitaler Vertrag</li>
+        <li>E-Mail-Support</li>
+      </ul>
+      <button class="btn-pc btn-pc-out">Jetzt buchen</button>
+    </div>
+    <div class="pc">
+      <h3>Professional</h3>
+      <div class="pc-price">899 €</div>
+      <p class="pc-sub">Einmalig · pro Vermittlung</p>
+      <ul class="pc-list">
+        <li>Fachkräfte mit Berufsausbildung</li>
+        <li>Live-Übersetzung inklusive</li>
+        <li>Vertrags-Archiv</li>
+        <li>Priority-Support</li>
+      </ul>
+      <button class="btn-pc btn-pc-out">Jetzt buchen</button>
+    </div>
+    <div class="pc pc-featured">
+      <div class="pc-badge">⭐ Beliebtestes Modell</div>
+      <h3>Abo-Modell</h3>
+      <div class="pc-price">399 €</div>
+      <p class="pc-sub">Startgebühr + 119 €/Monat · min. 6 Monate</p>
+      <ul class="pc-list">
+        <li>Unbegrenzte Vermittlungen</li>
+        <li>Kostenloser Ersatz bei Ausfall</li>
+        <li>Alle Premium-Features</li>
+        <li>Dedicated Account Manager</li>
+        <li>Auto-Verlängerung (3 Monate)</li>
+      </ul>
+      <button class="btn-pc btn-pc-fill">Abo starten</button>
+    </div>
+    <div class="pc">
+      <h3>Spezialisten</h3>
+      <div class="pc-price">1.299 €</div>
+      <p class="pc-sub">Einmalig · pro Vermittlung</p>
+      <ul class="pc-list">
+        <li>Ingenieure, Ärzte, IT</li>
+        <li>Headhunting-Service</li>
+        <li>Rechtsberatung inklusive</li>
+        <li>24/7-Support</li>
+      </ul>
+      <button class="btn-pc btn-pc-out">Jetzt buchen</button>
+    </div>
+    <div class="pc">
+      <h3>Executive</h3>
+      <div class="pc-price">1.999 €</div>
+      <p class="pc-sub">Einmalig · pro Vermittlung</p>
+      <ul class="pc-list">
+        <li>Führungskräfte & C-Level</li>
+        <li>Exklusives Executive-Netzwerk</li>
+        <li>Persönliche Begleitung</li>
+        <li>White-Glove Service</li>
+      </ul>
+      <button class="btn-pc btn-pc-out">Jetzt buchen</button>
+    </div>
+  </div>
+  <p class="provision-note">ℹ Provision bei Fremdvermittlungen: 20 % von beiden Seiten · Alle Preise zzgl. gesetzl. MwSt.</p>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="industries">
+  <div class="centered">
+    <div class="tag">Branchen</div>
+    <h2 class="section-h">Offen für alle Berufsfelder</h2>
+    <p class="section-p">Von Pflege bis IT – WorkBridge vermittelt in allen Branchen europaweit.</p>
+  </div>
+  <div class="ind-grid">
+    <div class="ind-chip">🏥 Pflege & Gesundheit</div>
+    <div class="ind-chip">🏗️ Bau & Handwerk</div>
+    <div class="ind-chip">🚛 Logistik & Transport</div>
+    <div class="ind-chip">💻 IT & Technologie</div>
+    <div class="ind-chip">🍽️ Gastronomie & Hotel</div>
+    <div class="ind-chip">🏢 Verwaltung & Büro</div>
+    <div class="ind-chip">⚕️ Medizin & Pharma</div>
+    <div class="ind-chip">🌾 Landwirtschaft</div>
+    <div class="ind-chip">🏭 Industrie & Produktion</div>
+    <div class="ind-chip">🎓 Bildung & Erziehung</div>
+    <div class="ind-chip">🔧 Elektrotechnik</div>
+    <div class="ind-chip">🛒 Einzelhandel</div>
+    <div class="ind-chip">🚀 Start-ups & Scale-ups</div>
+    <div class="ind-chip">⚖️ Recht & Finanzen</div>
+    <div class="ind-chip">🎨 Kreativ & Design</div>
+    <div class="ind-chip">🔬 Forschung & Wissenschaft</div>
+  </div>
+</section>
+
+<!-- COUNTRIES -->
+<section class="countries">
+  <div class="countries-inner">
+    <div class="countries-left">
+      <div class="tag">Länder</div>
+      <h2 class="section-h">Alle 27<br/>EU-Mitgliedsstaaten</h2>
+      <p class="section-p" style="max-width:none">Vermittlungen europaweit – mit besonderer Stärke im Korridor Deutschland ↔ Osteuropa.</p>
+    </div>
+    <div class="countries-pills">
+      <div class="cpill">🇩🇪 Deutschland</div><div class="cpill">🇦🇹 Österreich</div>
+      <div class="cpill">🇨🇭 Schweiz</div><div class="cpill">🇷🇴 Rumänien</div>
+      <div class="cpill">🇵🇱 Polen</div><div class="cpill">🇨🇿 Tschechien</div>
+      <div class="cpill">🇭🇺 Ungarn</div><div class="cpill">🇧🇬 Bulgarien</div>
+      <div class="cpill">🇭🇷 Kroatien</div><div class="cpill">🇸🇰 Slowakei</div>
+      <div class="cpill">🇮🇹 Italien</div><div class="cpill">🇫🇷 Frankreich</div>
+      <div class="cpill">🇪🇸 Spanien</div><div class="cpill">🇵🇹 Portugal</div>
+      <div class="cpill">🇳🇱 Niederlande</div><div class="cpill">🇧🇪 Belgien</div>
+      <div class="cpill">🇩🇰 Dänemark</div><div class="cpill">🇸🇪 Schweden</div>
+      <div class="cpill">🇫🇮 Finnland</div><div class="cpill">🇮🇪 Irland</div>
+      <div class="cpill">🇬🇷 Griechenland</div><div class="cpill">🇲🇹 Malta</div>
+      <div class="cpill">🇱🇻 Lettland</div><div class="cpill">🇱🇹 Litauen</div>
+      <div class="cpill">🇪🇪 Estland</div><div class="cpill">🇸🇮 Slowenien</div>
+      <div class="cpill">🇨🇾 Zypern</div><div class="cpill">🇱🇺 Luxemburg</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec">
+  <h2>Bereit für die Zukunft<br/>der Personalvermittlung?</h2>
+  <p>Kostenlos registrieren und sofort mit dem Matching starten.</p>
+  <div class="cta-btns">
+    <a href="workbridge-login.html" class="btn-cta-w">Jetzt kostenlos starten</a>
+    <a href="#" class="btn-cta-o">Beratungsgespräch buchen</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="logo">
+        <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+        Work<span>Bridge</span>
+      </a>
+      <p>Die europäische Plattform für intelligente Personalvermittlung. Schnell, skalierbar, transparent – von Mallorca aus für ganz Europa.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Plattform</h4>
+      <ul>
+        <li><a href="#">Für Unternehmen</a></li>
+        <li><a href="#">Für Vermittler</a></li>
+        <li><a href="#">Für Bewerber</a></li>
+        <li><a href="#">Preise</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Unternehmen</h4>
+      <ul>
+        <li><a href="#">Über WorkBridge</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Karriere</a></li>
+        <li><a href="#">Presse</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Rechtliches</h4>
+      <ul>
+        <li><a href="#">Datenschutz</a></li>
+        <li><a href="#">Impressum</a></li>
+        <li><a href="#">AGB</a></li>
+        <li><a href="#">Cookies</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 WorkBridge. Alle Rechte vorbehalten.</span>
+    <span>🇪🇺 Made in Europe · DSGVO-konform</span>
+  </div>
+</footer>
+
+</body>
+</html>

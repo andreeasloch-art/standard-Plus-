@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0a8086"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Standard Plus"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<link rel="apple-touch-icon" href="../assets/app/apple-touch-icon.png"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<!-- Hinweis: frame-ancestors, HSTS, X-Content-Type-Options und Permissions-Policy
+     wirken nur als HTTP-Kopfzeilen. Sie stehen in assets/security-headers.conf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'"/>
+<meta name="description" content="Prețurile Standard Plus: plată unică pentru fiecare plasare reușită sau abonament cu asistență completă. Toate prețurile plus TVA."/>
+<title>Prețuri – Standard Plus</title>
+<link rel="stylesheet" href="../assets/sp-theme.css?v=20260929153130"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a9296'/%3E%3Cpath d='M9 10l6 6-6 6M18 10l6 6-6 6' stroke='%23ffd84d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
+<link rel="alternate" hreflang="de" href="../standardplus-preise.html"/>
+<link rel="alternate" hreflang="en" href="../en/standardplus-preise.html"/>
+<link rel="alternate" hreflang="ro" href="standardplus-preise.html"/>
+</head>
+<body>
+<a class="sp-skip" href="#main">Salt la conținut</a>
+
+<!-- ================= HEADER ================= -->
+<header class="sp-header">
+  <div class="sp-header-in">
+    <a class="sp-logo" href="standardplus-main.html" data-nav aria-label="Pagina principală Standard Plus">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Recrutare de personal</span>
+    </a>
+    <nav aria-label="Navigare principală">
+      <ul class="sp-nav">
+        <li><a href="standardplus-talente.html" data-nav>Angajați</a></li>
+        <li><a href="standardplus-unternehmen.html" data-nav>Companii</a></li>
+        <li><a href="standardplus-main.html#ablauf">Cum funcționează</a></li>
+        <li><a href="standardplus-preise.html" data-nav>Prețuri</a></li>
+      </ul>
+    </nav>
+    <div class="sp-header-act">
+      <a class="btn btn-primary btn-sm" href="standardplus-login.html" hidden data-anon>Autentificare</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-dashboard.html" hidden data-auth>Panou</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-profil.html" hidden data-auth>Profilul meu</a>
+      <button class="btn btn-outline btn-sm" type="button" data-logout hidden data-auth>
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-logout"></use></svg>Deconectare</button>
+      <button class="iconbtn sp-burger" type="button" aria-label="Deschide meniul" aria-expanded="false">
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  
+  </div>
+</header>
+
+<main id="main">
+<section class="sec-tight seitenkopf">
+  <div class="wrap">
+    <span class="eyebrow gold"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-euro"></use></svg>Prețuri</span>
+    <h1 class="h2">Două variante – dumneavoastră alegeți</h1>
+    <p class="lede mb24">Fie plătiți <b>pentru fiecare plasare reușită</b>, fie rezervați <b>abonamentul cu asistență completă</b>. Ambele fără costuri ascunse. Toate prețurile plus TVA legal.</p>
+  </div>
+</section>
+
+<!-- ================= PREISE ================= -->
+<section class="sec-tight" id="preise">
+  <div class="wrap">
+    <!-- Kurzfassung: was kostet was, bevor es ins Detail geht -->
+    <div class="preis-blick">
+      <div class="blick">
+        <span class="fuer"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-target"></use></svg>Modelul A · Plată unică</span>
+        <h3>Dacă aveți nevoie doar de plasare</h3>
+        <span class="zahl">399 &ndash; 1.999&nbsp;&euro;</span>
+        <p>pentru fiecare plasare reușită, scadentă doar după semnarea contractului. Fără taxă de bază, fără durată minimă.</p>
+      </div>
+      <div class="blick gold">
+        <span class="fuer"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-refresh"></use></svg>Modelul B · Abonament</span>
+        <h3>Dacă doriți asistență completă</h3>
+        <span class="zahl">399 € + 119 €/lună</span>
+        <p>taxă unică de pornire, apoi lunar – plasări <b>nelimitate</b> și asistență de la căutare până după prima zi de muncă.</p>
+      </div>
+    </div>
+
+    <p class="tiny muted t-c mb32">Regulă generală: dacă vă ocupați singur de integrare, călătorie și formalități, plata unică vi se potrivește. Dacă doriți totul dintr-o singură sursă, alegeți abonamentul.</p>
+
+    <div class="preis-split">
+
+      <!-- ---------- A: Einmalzahlung ---------- -->
+      <article class="card preis-karte">
+        <div class="preis-kopf">
+          <span class="tag tag-teal mb12">Modelul A</span>
+          <h3 class="h2">Plată unică</h3>
+          <p class="small muted mt8">Plătiți <b>doar în caz de succes</b> – scadent doar după semnarea contractului de muncă. Fără taxă de bază, fără durată minimă, fără reziliere necesară.</p>
+        </div>
+
+        <p class="tiny fw7 t-teal mb8">PREȚ PE PLASARE</p>
+        <div class="preis-zeile">
+          <span>Bază<small>Muncitori necalificați și semicalificați</small></span><b>399&nbsp;&euro;</b>
+        </div>
+        <div class="preis-zeile">
+          <span>Professional<small>Specialiști cu formare profesională finalizată</small></span><b>899&nbsp;&euro;</b>
+        </div>
+        <div class="preis-zeile">
+          <span>Specialiști<small>Inginerie, medicină, IT</small></span><b>1.299&nbsp;&euro;</b>
+        </div>
+        <div class="preis-zeile">
+          <span>Executive<small>Personal de conducere</small></span><b>1.999&nbsp;&euro;</b>
+        </div>
+
+        <p class="tiny fw7 t-teal mt24 mb8">ÎNTOTDEAUNA INCLUS</p>
+        <ul class="list-check">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Căutare, preselecție și documente verificate</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Interviu video cu traducere live</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Contract digital eIDAS</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Înlocuire fără cost suplimentar dacă cineva pleacă în primele trei luni</li>
+        </ul>
+
+        <div class="preis-summe">
+          <span>Un specialist (Professional)<small>o singură dată, după aceea nu mai plătiți nimic</small></span>
+          <b>899&nbsp;&euro;</b>
+        </div>
+
+        <a class="btn btn-outline btn-block btn-lg mt20" href="standardplus-login.html?tab=registrieren">
+          Solicită o plasare individuală</a>
+        <p class="tiny muted t-c mt12">Factură după semnarea contractului, plătibilă în 14 zile.</p>
+      </article>
+
+      <!-- ---------- B: Abo ---------- -->
+      <article class="card preis-karte card-dark">
+        <div class="preis-kopf">
+          <span class="tag tag-gold mb12">Modelul B</span>
+          <h3 class="h2 t-white">Abonament</h3>
+          <p class="small t-w60 mt8">Pentru clienții care doresc <b class="t-white">asistență completă</b>: ne ocupăm nu doar de specialiști potriviți, ci și de tot ce urmează. Plătiți o taxă unică de pornire și apoi lunar.</p>
+        </div>
+
+        <p class="tiny fw7 t-gold mb8">CE PLĂTIȚI</p>
+        <div class="preis-zeile">
+          <span>Taxă de pornire<small>o singură dată, la începutul contractului</small></span><b>399&nbsp;&euro;</b>
+        </div>
+        <div class="preis-zeile">
+          <span>Abonament lunar<small>din prima lună</small></span><b>119&nbsp;&euro;</b>
+        </div>
+        <div class="preis-zeile">
+          <span>Durată minimă<small>apoi reziliabil lunar, cu preaviz de o lună</small></span><b>6 luni</b>
+        </div>
+        <div class="preis-zeile">
+          <span>Cost după 6 luni<small>399 € + 6 × 119 €</small></span><b>1.113&nbsp;&euro;</b>
+        </div>
+        <div class="preis-zeile">
+          <span>Cost după 12 luni<small>399 € + 12 × 119 €</small></span><b>1.827&nbsp;&euro;</b>
+        </div>
+
+        <p class="tiny fw7 t-gold mt24 mb8">ASISTENȚĂ COMPLETĂ – ÎN PLUS FAȚĂ DE MODELUL A</p>
+        <ul class="list-check on-dark">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Persoană de contact dedicată pentru toate întrebările – și după prima zi de muncă</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Sprijin cu documentele, recunoașterea profesională și demersurile la autorități</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Călătoria este organizată – prin firme de transport verificate</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Interpret live pentru discuțiile cu noii dumneavoastră angajați</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Înlocuire în 84 de ore în cazul absențelor mai lungi</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Plasări nelimitate fără costuri suplimentare</li>
+        </ul>
+
+        <div class="preis-summe">
+          <span>Total în primul an<small>indiferent câte posturi ocupați</small></span>
+          <b>1.827&nbsp;&euro;</b>
+        </div>
+
+        <a class="btn btn-gold btn-block btn-lg mt20" href="standardplus-login.html?tab=registrieren">
+          Pornește abonamentul</a>
+        <p class="tiny t-w50 t-c mt12">Fără prelungire automată pe perioade lungi – după șase luni continuă lunar.</p>
+      </article>
+    </div>
+
+    <!-- ---------- Kurz zusammengefasst - wie auf dem Abo-Paket-Blatt ---------- -->
+    <div class="kurzfassung mt32">
+      <span class="feature-ic"><svg class="ic" aria-hidden="true"><use href="#i-bulb"></use></svg></span>
+      <span class="teiler" aria-hidden="true"></span>
+      <div>
+        <h3>Pe scurt<span class="punkt">.</span></h3>
+        <p>Plată unică, dacă aveți nevoie doar de plasare. Abonament, dacă doriți asistență completă – cu persoană de contact dedicată, sprijin până după prima zi de muncă și înlocuire în 84 de ore în cazul absențelor mai lungi.</p>
+      </div>
+    </div>
+
+    <!-- ---------- Fuer wen lohnt sich das Abo ---------- -->
+    <div class="card card-pad mt24">
+      <h3 class="h3 mb12 flex ai-c g8">
+        <svg class="ic ic-lg ic-teal" aria-hidden="true"><use href="#i-handshake"></use></svg>
+        Pentru cine merită abonamentul?
+      </h3>
+      <p class="small muted mb16">Abonamentul nu merită doar de la un anumit număr de angajări, ci pentru toți clienții care doresc <b>asistență completă</b> – adică nu doar specialiști potriviți, ci și pe cineva care se ocupă de tot ce urmează.</p>
+
+      <div class="passt-zu">
+        <div class="passt abo">
+          <p class="tiny fw7 t-teal mb8">ABONAMENTUL VI SE POTRIVEȘTE DACĂ …</p>
+          <ul class="list-check">
+            <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>nu doriți să vă ocupați singur de documente, recunoaștere și autorități</li>
+            <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>doriți ca venirea noilor angajați să fie organizată pentru dumneavoastră</li>
+            <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>doriți o persoană de contact dedicată în locul unor contacte care se schimbă</li>
+            <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>aveți nevoie rapid de înlocuire în caz de absență</li>
+            <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>angajați pentru prima dată specialiști din străinătate</li>
+          </ul>
+        </div>
+        <div class="passt einmal">
+          <p class="tiny fw7 t-teal mb8">PLATA UNICĂ VI SE POTRIVEȘTE DACĂ …</p>
+          <ul class="list-check">
+            <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>ocupați doar ocazional un post</li>
+            <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>vă ocupați singur de integrare, călătorie și formalități</li>
+            <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>aveți deja experiență cu specialiști din străinătate</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tbl-wrap mt24">
+        <table class="tbl leistungen">
+          <thead>
+            <tr>
+              <th>Serviciu</th>
+              <th>Plată unică</th>
+              <th>Abonament</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Căutare, preselecție și documente verificate</td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">inclus</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">inclus</span></td></tr>
+            <tr><td>Interviu video cu traducere live</td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">inclus</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">inclus</span></td></tr>
+            <tr><td>Contract digital eIDAS</td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">inclus</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">inclus</span></td></tr>
+            <tr><td>Înlocuire fără cost suplimentar dacă cineva pleacă în primele trei luni</td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">inclus</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">inclus</span></td></tr>
+            <tr><td>Persoană de contact dedicată</td><td><span class="leer" aria-hidden="true">&ndash;</span><span class="hp">neinclus</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">inclus</span></td></tr>
+            <tr><td>Sprijin pentru recunoașterea profesională și autorități</td><td><span class="leer" aria-hidden="true">&ndash;</span><span class="hp">neinclus</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">inclus</span></td></tr>
+            <tr><td>Organizarea călătoriei</td><td><span class="leer" aria-hidden="true">&ndash;</span><span class="hp">neinclus</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">inclus</span></td></tr>
+            <tr><td>Asistență după prima zi de muncă</td><td><span class="leer" aria-hidden="true">&ndash;</span><span class="hp">neinclus</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">inclus</span></td></tr>
+            <tr><td>Înlocuire în 84 de ore în cazul absențelor mai lungi</td><td><span class="leer" aria-hidden="true">&ndash;</span><span class="hp">neinclus</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">inclus</span></td></tr>
+            <tr><td>Plasări nelimitate</td><td><span class="leer" aria-hidden="true">&ndash;</span><span class="hp">neinclus</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">inclus</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tiny muted mt12">Dacă facem plasări prin parteneri, comisionul este de 20 %. Se aplică <a class="t-teal u" href="standardplus-agb.html">termenii și condițiile</a>. Persoanelor în căutarea unui loc de muncă nu li se percepe nicio taxă.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="sp-foot">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <span class="sp-logo on-dark mb16">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Recrutare de personal</span>
+    </span>
+        <p>Platforma europeană de recrutare. Construită cu minimum de date, operată integral în UE.</p>
+      </div>
+      <div>
+        <h4>Platformă</h4>
+        <ul>
+          <li><a href="standardplus-talente.html">Angajați</a></li>
+          <li><a href="standardplus-dashboard.html">Panou</a></li>
+          <li><a href="standardplus-suche.html">Căutare</a></li>
+          <li><a href="standardplus-musterprofile.html">Profiluri exemplu</a></li>
+          <li><a href="standardplus-interview.html">Interviu video</a></li>
+          <li><a href="standardplus-dolmetscher.html">Interpret live</a></li>
+          <li><a href="standardplus-transport.html">Curse de autocar</a></li>
+          <li><a href="standardplus-preise.html" data-nav>Prețuri</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Companii</h4>
+        <ul>
+          <li><a href="standardplus-main.html#ablauf">Cum funcționează</a></li>
+          <li><a href="standardplus-main.html#funktionen">Funcții</a></li>
+          <li><a href="standardplus-login.html">Autentificare</a></li>
+          <li><a href="standardplus-login.html?tab=registrieren">Înregistrare</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Juridic și securitate</h4>
+        <ul>
+          <li><a href="standardplus-datenschutz.html">Politica de confidențialitate</a></li>
+          <li><a href="standardplus-datenschutz-center.html">Centrul de confidențialitate</a></li>
+          <li><a href="standardplus-impressum.html">Date de identificare</a></li>
+          <li><a href="standardplus-sicherheit.html">Protecția datelor și securitate</a></li>
+          <li><a href="standardplus-agb.html">AGB</a></li>
+          <li><a href="#" data-consent>Setări cookie-uri</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Standard Plus. Toate drepturile rezervate.</span>
+      <span class="foot-seal">
+        <span class="seal"><svg class="ic" aria-hidden="true"><use href="#i-server"></use></svg>Găzduire în UE</span>
+        <span class="seal"><svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg>TLS 1.3</span>
+        <span class="seal"><svg class="ic" aria-hidden="true"><use href="#i-fingerprint"></use></svg>2FA</span>
+        <span class="seal"><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>GDPR</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/sp-i18n-ro.js?v=20260929153130"></script>
+<script src="../assets/sp-icons.js?v=20260929153130"></script>
+<script src="../assets/sp-app.js?v=20260929153130"></script>
+<script src="../assets/sp-effekte.js?v=20260929153130"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+{
+  "name": "Standard Plus Recruitment",
+  "short_name": "Standard Plus",
+  "description": "Find vetted skilled workers across the EU, hold interviews with live translation and organise the journey.",
+  "lang": "en",
+  "dir": "ltr",
+  "id": "./en/",
+  "start_url": "./standardplus-main.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "orientation": "any",
+  "background_color": "#076d71",
+  "theme_color": "#0a8086",
+  "categories": [
+    "business",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "../assets/app/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "../assets/app/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "../assets/app/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "url": "./standardplus-dashboard.html",
+      "icons": [
+        {
+          "src": "../assets/app/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Find workers",
+      "url": "./standardplus-suche.html",
+      "icons": [
+        {
+          "src": "../assets/app/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Interpreter",
+      "url": "./standardplus-dolmetscher.html",
+      "icons": [
+        {
+          "src": "../assets/app/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Bus connections",
+      "url": "./standardplus-transport.html",
+      "icons": [
+        {
+          "src": "../assets/app/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}

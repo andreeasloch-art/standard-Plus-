@@ -1,0 +1,84 @@
+{
+  "name": "Standard Plus Recrutare",
+  "short_name": "Standard Plus",
+  "description": "Găsiți specialiști verificați din UE, purtați interviuri cu traducere live și organizați călătoria.",
+  "lang": "ro",
+  "dir": "ltr",
+  "id": "./ro/",
+  "start_url": "./standardplus-main.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "orientation": "any",
+  "background_color": "#076d71",
+  "theme_color": "#0a8086",
+  "categories": [
+    "business",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "../assets/app/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "../assets/app/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "../assets/app/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Panou",
+      "url": "./standardplus-dashboard.html",
+      "icons": [
+        {
+          "src": "../assets/app/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Caută specialiști",
+      "url": "./standardplus-suche.html",
+      "icons": [
+        {
+          "src": "../assets/app/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Interpret",
+      "url": "./standardplus-dolmetscher.html",
+      "icons": [
+        {
+          "src": "../assets/app/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Curse de autocar",
+      "url": "./standardplus-transport.html",
+      "icons": [
+        {
+          "src": "../assets/app/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}

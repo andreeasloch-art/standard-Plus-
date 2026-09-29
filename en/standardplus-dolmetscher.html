@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0a8086"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Standard Plus"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<link rel="apple-touch-icon" href="../assets/app/apple-touch-icon.png"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<!-- Hinweis: frame-ancestors, HSTS, X-Content-Type-Options und Permissions-Policy
+     wirken nur als HTTP-Kopfzeilen. Sie stehen in assets/security-headers.conf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Interpreter – Standard Plus</title>
+<link rel="stylesheet" href="../assets/sp-theme.css?v=20260929153130"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a9296'/%3E%3Cpath d='M9 10l6 6-6 6M18 10l6 6-6 6' stroke='%23ffd84d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
+<link rel="alternate" hreflang="de" href="../standardplus-dolmetscher.html"/>
+<link rel="alternate" hreflang="en" href="standardplus-dolmetscher.html"/>
+<link rel="alternate" hreflang="ro" href="../ro/standardplus-dolmetscher.html"/>
+</head>
+<body>
+<a class="sp-skip" href="#main">Skip to content</a>
+
+<header class="sp-header">
+  <div class="sp-header-in">
+    <a class="sp-logo" href="standardplus-main.html">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Recruitment</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="sp-nav">
+        <li><a href="standardplus-talente.html" data-nav>Workers</a></li>
+        <li><a href="standardplus-unternehmen.html" data-nav>Companies</a></li>
+        <li><a href="standardplus-main.html#ablauf">How it works</a></li>
+        <li><a href="standardplus-preise.html" data-nav>Pricing</a></li>
+      </ul>
+    </nav>
+    <div class="sp-header-act">
+      <a class="btn btn-primary btn-sm" href="standardplus-login.html" hidden data-anon>Sign in</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-dashboard.html" hidden data-auth>Dashboard</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-profil.html" hidden data-auth>My profile</a>
+      <button class="btn btn-outline btn-sm" type="button" data-logout hidden data-auth>
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-logout"></use></svg>Sign out</button>
+      <button class="iconbtn sp-burger" type="button" aria-label="Open menu" aria-expanded="false">
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= EINRICHTEN ================= -->
+<section class="sec-tight sec-gruen" id="einrichten">
+  <div class="wrap">
+    <div class="center mb46">
+      <span class="eyebrow"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-translate"></use></svg>Interpreter</span>
+      <h1 class="h2">Everyone speaks their own language</h1>
+      <p class="lede">You speak English, the other person hears Romanian – and vice versa. Two devices, one code. A microphone and speaker are enough, no headphones needed.</p>
+    </div>
+
+    <div class="dolm-karten">
+
+      <!-- Schritt 1: Sprache -->
+      <div class="card card-pad">
+        <p class="tiny fw7 t-teal mb12">1 · YOUR LANGUAGE</p>
+        <div class="field mb0">
+          <label for="d-sprache">What language do you speak?</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-globe"></use></svg>
+            <select class="inp" id="d-sprache">
+              <option value="de" selected>German · Deutsch</option>
+              <option value="ro">Romanian · Română</option>
+              <option value="pl">Polish · Polski</option>
+              <option value="bg">Bulgarian · Български</option>
+              <option value="hu">Hungarian · Magyar</option>
+              <option value="hr">Croatian · Hrvatski</option>
+              <option value="sk">Slovak · Slovenčina</option>
+              <option value="cs">Czech · Čeština</option>
+              <option value="it">Italian · Italiano</option>
+              <option value="es">Spanish · Español</option>
+              <option value="pt">Portuguese · Português</option>
+              <option value="tr">Turkish · Türkçe</option>
+              <option value="uk">Ukrainian · Українська</option>
+              <option value="en">English</option>
+            </select></div>
+          <p class="hint"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-info"></use></svg>
+            Nobody sets the target language – it follows from what the other side has chosen.</p>
+        </div>
+      </div>
+
+      <!-- Schritt 2: Kennwort -->
+      <div class="card card-pad">
+        <p class="tiny fw7 t-teal mb12">2 · CODE</p>
+        <div class="field">
+          <label for="d-raum">Both sides enter the same one</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-key"></use></svg>
+            <input class="inp dolm-kennwort" id="d-raum" maxlength="12" autocomplete="off"
+                   spellcheck="false" placeholder="ABC-123"/></div>
+        </div>
+        <button class="btn btn-outline btn-sm btn-block" type="button" id="d-neu">
+          <svg class="ic ic-sm" aria-hidden="true"><use href="#i-refresh"></use></svg>
+          Generate new code</button>
+        <p class="hint mt12"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-info"></use></svg>
+          Read it out to the other side on the phone or send it by message.</p>
+      </div>
+
+      <!-- Schritt 3: Name -->
+      <div class="card card-pad">
+        <p class="tiny fw7 t-teal mb12">3 &middot; IHR NAME</p>
+        <div class="field mb0">
+          <label for="d-name">How should you be shown?</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-user"></use></svg>
+            <input class="inp" id="d-name" maxlength="60" autocomplete="off" placeholder="First name is enough"/></div>
+          <p class="hint"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>
+            Only shown to the other person. Not stored.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wie gesprochen wird: Lautsprecher genuegt -->
+    <div class="card card-pad mt24" id="d-kopfhoerer">
+      <p class="tiny fw7 t-teal mb12">4 · HOW YOU SPEAK</p>
+      <div class="dolm-modus">
+        <div>
+          <h3 class="h3 mb8">
+            <svg class="ic ic-lg ic-teal" aria-hidden="true"><use href="#i-mic"></use></svg>
+            Via microphone and speaker
+          </h3>
+          <p class="small muted">You need nothing but your device. While the translation is read out, the microphone pauses briefly – otherwise it would hear its own output and translate it again. So you take turns speaking, just as with an interpreter.</p>
+        </div>
+        <label class="check mb0" for="d-kopfhoerer-an">
+          <input type="checkbox" id="d-kopfhoerer-an"/>
+          <span><b>I'm using headphones.</b> Then the pause is skipped and you can also speak while the translation is playing. In noisy surroundings – a building site, a factory floor – this is the better choice, but it isn't required.</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="notice notice-info mt16" id="d-hinweis">
+      <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+      <span id="d-hinweis-text">No interpreter server configured. Enter the address in <code>assets/sp-konfig.js</code>, then you can speak here.</span>
+    </div>
+
+    <div class="flex g10 wrapf jc-c mt24">
+      <button class="btn btn-white btn-lg" type="button" id="d-start">
+        <svg class="ic" aria-hidden="true"><use href="#i-mic"></use></svg>
+        Start interpreter</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GESPRAECH ================= -->
+<section class="sec-tight" id="gespraech" hidden>
+  <div class="wrap">
+
+    <div class="dolm-leiste">
+      <span class="dolm-status an" id="d-status">
+        <span class="dolm-punkt" aria-hidden="true"></span>
+        <span id="d-status-text">Connected.</span>
+      </span>
+      <button class="btn btn-danger btn-sm" type="button" id="d-stop">
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-phoneoff"></use></svg>
+        End</button>
+    </div>
+
+    <div class="dolm-spuren">
+      <div>
+        <p class="tiny fw7 t-teal mb8">YOU SAY</p>
+        <div class="dolm-spur" id="d-eigen" aria-live="polite">
+          <p class="leerhinweis">Start speaking. What the server understood appears here.</p>
+        </div>
+      </div>
+      <div>
+        <p class="tiny fw7 t-gold-d mb8">YOU HEAR</p>
+        <div class="dolm-spur" id="d-gegen" aria-live="polite">
+          <p class="leerhinweis">As soon as the other side speaks, it appears here – and you hear it in your language.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="notice notice-info mt24">
+      <svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>
+      <span><b>Where your voice goes:</b> only to the server whose address is configured in this application. No second recipient, no recording, no storage. The audio is discarded after each sentence. Original and translation always appear side by side so that misunderstandings are noticed.</span>
+    </div>
+
+    <div class="notice notice-warn mt16">
+      <svg class="ic" aria-hidden="true"><use href="#i-alert"></use></svg>
+      <span><b>Not a binding translation.</b> For salary, working hours and safety commitments, a human should be involved, or a written confirmation in both languages.</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="sp-foot">
+  <div class="wrap">
+    <div class="foot-bot">
+      <span>© 2026 Standard Plus. All rights reserved.</span>
+      <span class="foot-seal">
+        <a class="seal" href="standardplus-datenschutz.html"><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>Privacy</a>
+        <a class="seal" href="standardplus-sicherheit.html"><svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg>Security</a>
+        <a class="seal" href="standardplus-impressum.html"><svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>Legal notice</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/sp-i18n-en.js?v=20260929153130"></script>
+<script src="../assets/sp-konfig.js?v=20260929153130"></script>
+<script src="../assets/sp-icons.js?v=20260929153130"></script>
+<script src="../assets/sp-app.js?v=20260929153130"></script>
+<script src="../assets/sp-dolmetscher.js?v=20260929153130"></script>
+<script src="../assets/sp-dolmetscherseite.js?v=20260929153130"></script>
+<script src="../assets/sp-effekte.js?v=20260929153130"></script>
+</body>
+</html>

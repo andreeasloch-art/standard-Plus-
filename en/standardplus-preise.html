@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0a8086"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Standard Plus"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<link rel="apple-touch-icon" href="../assets/app/apple-touch-icon.png"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<!-- Hinweis: frame-ancestors, HSTS, X-Content-Type-Options und Permissions-Policy
+     wirken nur als HTTP-Kopfzeilen. Sie stehen in assets/security-headers.conf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'"/>
+<meta name="description" content="Standard Plus pricing: one-off payment per successful placement or a subscription with all-round support. All prices plus VAT."/>
+<title>Pricing – Standard Plus</title>
+<link rel="stylesheet" href="../assets/sp-theme.css?v=20260929153130"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a9296'/%3E%3Cpath d='M9 10l6 6-6 6M18 10l6 6-6 6' stroke='%23ffd84d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
+<link rel="alternate" hreflang="de" href="../standardplus-preise.html"/>
+<link rel="alternate" hreflang="en" href="standardplus-preise.html"/>
+<link rel="alternate" hreflang="ro" href="../ro/standardplus-preise.html"/>
+</head>
+<body>
+<a class="sp-skip" href="#main">Skip to content</a>
+
+<!-- ================= HEADER ================= -->
+<header class="sp-header">
+  <div class="sp-header-in">
+    <a class="sp-logo" href="standardplus-main.html" data-nav aria-label="Standard Plus home page">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Recruitment</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="sp-nav">
+        <li><a href="standardplus-talente.html" data-nav>Workers</a></li>
+        <li><a href="standardplus-unternehmen.html" data-nav>Companies</a></li>
+        <li><a href="standardplus-main.html#ablauf">How it works</a></li>
+        <li><a href="standardplus-preise.html" data-nav>Pricing</a></li>
+      </ul>
+    </nav>
+    <div class="sp-header-act">
+      <a class="btn btn-primary btn-sm" href="standardplus-login.html" hidden data-anon>Sign in</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-dashboard.html" hidden data-auth>Dashboard</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-profil.html" hidden data-auth>My profile</a>
+      <button class="btn btn-outline btn-sm" type="button" data-logout hidden data-auth>
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-logout"></use></svg>Sign out</button>
+      <button class="iconbtn sp-burger" type="button" aria-label="Open menu" aria-expanded="false">
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  
+  </div>
+</header>
+
+<main id="main">
+<section class="sec-tight seitenkopf">
+  <div class="wrap">
+    <span class="eyebrow gold"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-euro"></use></svg>Pricing</span>
+    <h1 class="h2">Two options – you choose</h1>
+    <p class="lede mb24">Either you pay <b>per successful placement</b> or you book the <b>subscription with all-round support</b>. Both without hidden costs. All prices plus statutory VAT.</p>
+  </div>
+</section>
+
+<!-- ================= PREISE ================= -->
+<section class="sec-tight" id="preise">
+  <div class="wrap">
+    <!-- Kurzfassung: was kostet was, bevor es ins Detail geht -->
+    <div class="preis-blick">
+      <div class="blick">
+        <span class="fuer"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-target"></use></svg>Model A · One-time payment</span>
+        <h3>If you only need the placement</h3>
+        <span class="zahl">399 &ndash; 1.999&nbsp;&euro;</span>
+        <p>per successful placement, due only after the contract is signed. No base fee, no minimum term.</p>
+      </div>
+      <div class="blick gold">
+        <span class="fuer"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-refresh"></use></svg>Model B · Subscription</span>
+        <h3>If you want all-round support</h3>
+        <span class="zahl">€399 + €119/month</span>
+        <p>one-off start-up fee, then monthly – <b>unlimited</b> placements and support from the search until after the first day at work.</p>
+      </div>
+    </div>
+
+    <p class="tiny muted t-c mb32">Rule of thumb: if you handle induction, travel and paperwork yourself, the one-off payment suits you well. If you want everything from a single source, choose the subscription.</p>
+
+    <div class="preis-split">
+
+      <!-- ---------- A: Einmalzahlung ---------- -->
+      <article class="card preis-karte">
+        <div class="preis-kopf">
+          <span class="tag tag-teal mb12">Model A</span>
+          <h3 class="h2">One-time payment</h3>
+          <p class="small muted mt8">You pay <b>only on success</b> – due only once the employment contract is signed. No base fee, no minimum term, no cancellation needed.</p>
+        </div>
+
+        <p class="tiny fw7 t-teal mb8">PRICE PER PLACEMENT</p>
+        <div class="preis-zeile">
+          <span>Basic<small>Unskilled and semi-skilled workers</small></span><b>399&nbsp;&euro;</b>
+        </div>
+        <div class="preis-zeile">
+          <span>Professional<small>Skilled workers with completed training</small></span><b>899&nbsp;&euro;</b>
+        </div>
+        <div class="preis-zeile">
+          <span>Specialists<small>Engineering, medicine, IT</small></span><b>1.299&nbsp;&euro;</b>
+        </div>
+        <div class="preis-zeile">
+          <span>Executive<small>Managers</small></span><b>1.999&nbsp;&euro;</b>
+        </div>
+
+        <p class="tiny fw7 t-teal mt24 mb8">ALWAYS INCLUDED</p>
+        <ul class="list-check">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Search, pre-selection and verified credentials</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Video interview with live translation</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>eIDAS digital contract</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Free replacement if someone leaves within the first three months</li>
+        </ul>
+
+        <div class="preis-summe">
+          <span>One skilled worker (Professional)<small>one-time, nothing more to pay afterwards</small></span>
+          <b>899&nbsp;&euro;</b>
+        </div>
+
+        <a class="btn btn-outline btn-block btn-lg mt20" href="standardplus-login.html?tab=registrieren">
+          Request an individual placement</a>
+        <p class="tiny muted t-c mt12">Invoice after the contract is signed, payable within 14 days.</p>
+      </article>
+
+      <!-- ---------- B: Abo ---------- -->
+      <article class="card preis-karte card-dark">
+        <div class="preis-kopf">
+          <span class="tag tag-gold mb12">Model B</span>
+          <h3 class="h2 t-white">Subscription</h3>
+          <p class="small t-w60 mt8">For customers who want <b class="t-white">all-round support</b>: we take care not only of finding suitable workers but also of everything that comes afterwards. You pay a one-off start-up fee and then monthly.</p>
+        </div>
+
+        <p class="tiny fw7 t-gold mb8">WHAT YOU PAY</p>
+        <div class="preis-zeile">
+          <span>Setup fee<small>one-time, at the start of the contract</small></span><b>399&nbsp;&euro;</b>
+        </div>
+        <div class="preis-zeile">
+          <span>Monthly fee<small>from the first month</small></span><b>119&nbsp;&euro;</b>
+        </div>
+        <div class="preis-zeile">
+          <span>Minimum term<small>then cancellable monthly, one month's notice</small></span><b>6 months</b>
+        </div>
+        <div class="preis-zeile">
+          <span>Cost after 6 months<small>€399 + 6 × €119</small></span><b>1.113&nbsp;&euro;</b>
+        </div>
+        <div class="preis-zeile">
+          <span>Cost after 12 months<small>€399 + 12 × €119</small></span><b>1.827&nbsp;&euro;</b>
+        </div>
+
+        <p class="tiny fw7 t-gold mt24 mb8">ALL-ROUND SUPPORT – IN ADDITION TO MODEL A</p>
+        <ul class="list-check on-dark">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>A dedicated contact person for all questions – even after the first day at work</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Support with documents, professional recognition and dealing with authorities</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Travel is organised – via verified coach companies</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Live interpreter for conversations with your new employees</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Replacement within 84 hours in case of longer absences</li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>Unlimited placements at no extra cost</li>
+        </ul>
+
+        <div class="preis-summe">
+          <span>Total in the first year<small>regardless of how many positions you fill</small></span>
+          <b>1.827&nbsp;&euro;</b>
+        </div>
+
+        <a class="btn btn-gold btn-block btn-lg mt20" href="standardplus-login.html?tab=registrieren">
+          Start subscription</a>
+        <p class="tiny t-w50 t-c mt12">No automatic renewal for long periods – after six months it continues monthly.</p>
+      </article>
+    </div>
+
+    <!-- ---------- Kurz zusammengefasst - wie auf dem Abo-Paket-Blatt ---------- -->
+    <div class="kurzfassung mt32">
+      <span class="feature-ic"><svg class="ic" aria-hidden="true"><use href="#i-bulb"></use></svg></span>
+      <span class="teiler" aria-hidden="true"></span>
+      <div>
+        <h3>In short<span class="punkt">.</span></h3>
+        <p>One-off payment if you only need the placement. Subscription if you want all-round support – with a dedicated contact person, support until after the first day at work and replacement within 84 hours in case of longer absences.</p>
+      </div>
+    </div>
+
+    <!-- ---------- Fuer wen lohnt sich das Abo ---------- -->
+    <div class="card card-pad mt24">
+      <h3 class="h3 mb12 flex ai-c g8">
+        <svg class="ic ic-lg ic-teal" aria-hidden="true"><use href="#i-handshake"></use></svg>
+        Who is the subscription for?
+      </h3>
+      <p class="small muted mb16">The subscription is not only worthwhile from a certain number of hires – it is for all customers who want <b>all-round support</b>: not just suitable workers, but someone who also takes care of everything afterwards.</p>
+
+      <div class="passt-zu">
+        <div class="passt abo">
+          <p class="tiny fw7 t-teal mb8">THE SUBSCRIPTION SUITS YOU IF YOU …</p>
+          <ul class="list-check">
+            <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>do not want to deal with documents, recognition and authorities yourself</li>
+            <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>want the journey of your new employees to be organised for you</li>
+            <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>want a dedicated contact person instead of changing contacts</li>
+            <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>need a replacement quickly when someone is absent</li>
+            <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>are hiring workers from abroad for the first time</li>
+          </ul>
+        </div>
+        <div class="passt einmal">
+          <p class="tiny fw7 t-teal mb8">THE ONE-OFF PAYMENT SUITS YOU IF YOU …</p>
+          <ul class="list-check">
+            <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>only fill a position occasionally</li>
+            <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>handle induction, travel and paperwork yourself</li>
+            <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"></use></svg>already have experience with workers from abroad</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tbl-wrap mt24">
+        <table class="tbl leistungen">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>One-time payment</th>
+              <th>Subscription</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Search, pre-selection and verified credentials</td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">included</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">included</span></td></tr>
+            <tr><td>Video interview with live translation</td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">included</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">included</span></td></tr>
+            <tr><td>eIDAS digital contract</td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">included</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">included</span></td></tr>
+            <tr><td>Free replacement if someone leaves within the first three months</td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">included</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">included</span></td></tr>
+            <tr><td>Dedicated contact person</td><td><span class="leer" aria-hidden="true">&ndash;</span><span class="hp">not included</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">included</span></td></tr>
+            <tr><td>Support with professional recognition and authorities</td><td><span class="leer" aria-hidden="true">&ndash;</span><span class="hp">not included</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">included</span></td></tr>
+            <tr><td>Organisation of the journey</td><td><span class="leer" aria-hidden="true">&ndash;</span><span class="hp">not included</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">included</span></td></tr>
+            <tr><td>Support after the first day at work</td><td><span class="leer" aria-hidden="true">&ndash;</span><span class="hp">not included</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">included</span></td></tr>
+            <tr><td>Replacement within 84 hours in case of longer absences</td><td><span class="leer" aria-hidden="true">&ndash;</span><span class="hp">not included</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">included</span></td></tr>
+            <tr><td>Unlimited placements</td><td><span class="leer" aria-hidden="true">&ndash;</span><span class="hp">not included</span></td><td><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-check"></use></svg><span class="hp">included</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tiny muted mt12">If we place through partners, the commission is 20%. The <a class="t-teal u" href="standardplus-agb.html">terms</a> apply. No fee is charged to jobseekers.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="sp-foot">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <span class="sp-logo on-dark mb16">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Recruitment</span>
+    </span>
+        <p>The European recruitment platform. Built to minimise data, operated entirely in the EU.</p>
+      </div>
+      <div>
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="standardplus-talente.html">Workers</a></li>
+          <li><a href="standardplus-dashboard.html">Dashboard</a></li>
+          <li><a href="standardplus-suche.html">Search</a></li>
+          <li><a href="standardplus-musterprofile.html">Sample profiles</a></li>
+          <li><a href="standardplus-interview.html">Video interview</a></li>
+          <li><a href="standardplus-dolmetscher.html">Live interpreter</a></li>
+          <li><a href="standardplus-transport.html">Bus connections</a></li>
+          <li><a href="standardplus-preise.html" data-nav>Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Companies</h4>
+        <ul>
+          <li><a href="standardplus-main.html#ablauf">How it works</a></li>
+          <li><a href="standardplus-main.html#funktionen">Features</a></li>
+          <li><a href="standardplus-login.html">Sign in</a></li>
+          <li><a href="standardplus-login.html?tab=registrieren">Register</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal and security</h4>
+        <ul>
+          <li><a href="standardplus-datenschutz.html">Privacy policy</a></li>
+          <li><a href="standardplus-datenschutz-center.html">Privacy centre</a></li>
+          <li><a href="standardplus-impressum.html">Legal notice</a></li>
+          <li><a href="standardplus-sicherheit.html">Data protection and security</a></li>
+          <li><a href="standardplus-agb.html">AGB</a></li>
+          <li><a href="#" data-consent>Cookie settings</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Standard Plus. All rights reserved.</span>
+      <span class="foot-seal">
+        <span class="seal"><svg class="ic" aria-hidden="true"><use href="#i-server"></use></svg>EU hosting</span>
+        <span class="seal"><svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg>TLS 1.3</span>
+        <span class="seal"><svg class="ic" aria-hidden="true"><use href="#i-fingerprint"></use></svg>2FA</span>
+        <span class="seal"><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>GDPR</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/sp-i18n-en.js?v=20260929153130"></script>
+<script src="../assets/sp-icons.js?v=20260929153130"></script>
+<script src="../assets/sp-app.js?v=20260929153130"></script>
+<script src="../assets/sp-effekte.js?v=20260929153130"></script>
+</body>
+</html>

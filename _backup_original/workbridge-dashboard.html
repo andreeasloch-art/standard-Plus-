@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>WorkBridge – Dashboard</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --b900:#0a1f44;--b800:#0d2d6b;--b700:#1a3f8f;--b600:#1e56b0;
+  --b500:#2563eb;--b400:#3b82f6;--b300:#93c5fd;--b100:#dbeafe;--b50:#eff6ff;
+  --g600:#16a34a;--g500:#22c55e;--g400:#4ade80;--g100:#dcfce7;--g50:#f0fdf4;
+  --amber:#f59e0b;--rose:#f43f5e;--purple:#8b5cf6;
+  --white:#fff;--gray-50:#f8fafc;--gray-100:#f1f5f9;--gray-200:#e2e8f0;
+  --gray-400:#94a3b8;--gray-500:#64748b;--gray-700:#334155;--gray-900:#0f172a;
+  --sidebar:260px;
+}
+html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--gray-50);color:var(--gray-700)}
+a{text-decoration:none;color:inherit}
+
+/* LAYOUT */
+.app{display:flex;min-height:100vh}
+
+/* SIDEBAR */
+.sidebar{
+  width:var(--sidebar);flex-shrink:0;
+  background:var(--b900);
+  display:flex;flex-direction:column;
+  padding:0;position:fixed;left:0;top:0;bottom:0;z-index:50;
+}
+.sidebar-logo{
+  display:flex;align-items:center;gap:10px;padding:24px 20px;
+  border-bottom:1px solid rgba(255,255,255,0.07);
+}
+.s-logo-icon{width:36px;height:36px;background:rgba(255,255,255,0.1);border-radius:10px;
+  display:flex;align-items:center;justify-content:center}
+.s-logo-icon svg{width:20px;height:20px;fill:white}
+.s-logo-text{font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:white}
+.s-logo-text em{font-style:normal;color:var(--b300)}
+
+.sidebar-nav{flex:1;padding:20px 12px;overflow-y:auto}
+.nav-section-title{font-size:0.68rem;font-weight:600;color:rgba(255,255,255,0.3);
+  text-transform:uppercase;letter-spacing:1px;padding:0 8px;margin:20px 0 8px}
+.nav-section-title:first-child{margin-top:0}
+.nav-item{
+  display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:10px;
+  color:rgba(255,255,255,0.6);font-size:0.875rem;font-weight:500;cursor:pointer;
+  transition:all .2s;margin-bottom:2px;
+}
+.nav-item:hover{background:rgba(255,255,255,0.07);color:white}
+.nav-item.active{background:rgba(37,99,235,0.25);color:white;border:1px solid rgba(37,99,235,0.3)}
+.nav-icon{font-size:1.1rem;width:24px;text-align:center;flex-shrink:0}
+.nav-badge{margin-left:auto;background:var(--b500);color:white;padding:2px 8px;
+  border-radius:100px;font-size:0.7rem;font-weight:700}
+.nav-badge.green{background:var(--g600)}
+
+.sidebar-user{padding:16px 12px;border-top:1px solid rgba(255,255,255,0.07)}
+.s-user{display:flex;align-items:center;gap:12px;padding:10px;border-radius:10px;
+  cursor:pointer;transition:background .2s}
+.s-user:hover{background:rgba(255,255,255,0.07)}
+.s-avatar{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--b500),var(--b300));
+  display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.s-user-info strong{display:block;color:white;font-size:0.85rem;font-weight:600}
+.s-user-info span{color:rgba(255,255,255,0.45);font-size:0.75rem}
+.s-user-arrow{margin-left:auto;color:rgba(255,255,255,0.3);font-size:0.9rem}
+
+/* MAIN */
+.main{margin-left:var(--sidebar);flex:1;display:flex;flex-direction:column}
+
+/* TOPBAR */
+.topbar{
+  background:white;border-bottom:1px solid var(--gray-200);
+  padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:40;
+}
+.topbar-left{display:flex;flex-direction:column}
+.topbar-left h1{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:800;color:var(--gray-900);
+  letter-spacing:-0.3px}
+.topbar-left p{font-size:0.8rem;color:var(--gray-400)}
+.topbar-right{display:flex;align-items:center;gap:12px}
+.topbar-search{
+  display:flex;align-items:center;gap:8px;background:var(--gray-50);
+  border:1.5px solid var(--gray-200);border-radius:10px;padding:8px 14px;
+}
+.topbar-search input{border:none;background:transparent;outline:none;font-size:0.875rem;
+  color:var(--gray-700);width:200px;font-family:'DM Sans',sans-serif}
+.topbar-search input::placeholder{color:var(--gray-400)}
+.icon-btn{width:40px;height:40px;border-radius:10px;border:1.5px solid var(--gray-200);
+  background:white;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .2s;position:relative;font-size:1rem}
+.icon-btn:hover{border-color:var(--b400);background:var(--b50)}
+.notif-dot{position:absolute;top:7px;right:7px;width:8px;height:8px;background:var(--rose);
+  border-radius:50%;border:2px solid white}
+
+/* PAGE CONTENT */
+.page{padding:28px 32px}
+
+/* STAT CARDS */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:28px}
+.stat-card{background:white;border-radius:16px;padding:24px;border:1px solid var(--gray-200);
+  transition:all .2s;cursor:pointer}
+.stat-card:hover{transform:translateY(-2px);box-shadow:0 4px 20px rgba(0,0,0,0.08);border-color:var(--b200)}
+.stat-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
+.stat-icon-wrap{width:44px;height:44px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+.stat-icon-wrap.blue{background:var(--b50)}
+.stat-icon-wrap.green{background:var(--g50)}
+.stat-icon-wrap.amber{background:#fffbeb}
+.stat-icon-wrap.purple{background:#f5f3ff}
+.stat-change{font-size:0.75rem;font-weight:600;padding:3px 8px;border-radius:100px}
+.stat-change.up{background:var(--g50);color:var(--g600)}
+.stat-change.down{background:#fff1f2;color:var(--rose)}
+.stat-value{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--gray-900);
+  letter-spacing:-1px;line-height:1;margin-bottom:4px}
+.stat-label{font-size:0.8rem;color:var(--gray-500)}
+
+/* GRID 2 COL */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+.grid-3-1{display:grid;grid-template-columns:2fr 1fr;gap:20px;margin-bottom:20px}
+
+/* CARD */
+.card{background:white;border-radius:16px;border:1px solid var(--gray-200);overflow:hidden}
+.card-header{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;
+  border-bottom:1px solid var(--gray-100)}
+.card-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--gray-900)}
+.card-action{font-size:0.8rem;color:var(--b500);font-weight:600;cursor:pointer}
+.card-action:hover{text-decoration:underline}
+.card-body{padding:20px 24px}
+
+/* MATCH CARDS */
+.match-list{display:flex;flex-direction:column;gap:12px}
+.match-item{display:flex;align-items:center;gap:14px;padding:14px;border-radius:12px;
+  border:1.5px solid var(--gray-100);transition:all .2s;cursor:pointer}
+.match-item:hover{border-color:var(--b200);background:var(--b50)}
+.m-avatar{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--b500),var(--b300));
+  display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.m-avatar.green{background:linear-gradient(135deg,var(--g600),var(--g400))}
+.m-avatar.purple{background:linear-gradient(135deg,var(--purple),#a78bfa)}
+.m-name{font-weight:600;font-size:0.9rem;color:var(--gray-900)}
+.m-sub{font-size:0.78rem;color:var(--gray-500);margin-top:2px}
+.m-score{margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.score-badge{padding:4px 10px;border-radius:8px;font-size:0.8rem;font-weight:700}
+.score-badge.high{background:var(--g50);color:var(--g600)}
+.score-badge.med{background:var(--b50);color:var(--b600)}
+.m-btns{display:flex;gap:6px;margin-left:8px}
+.m-btn{width:34px;height:34px;border-radius:8px;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-size:0.9rem;transition:all .2s}
+.m-btn.like{background:var(--g50);color:var(--g600)}
+.m-btn.like:hover{background:var(--g500);color:white}
+.m-btn.skip{background:#fff1f2;color:var(--rose)}
+.m-btn.skip:hover{background:var(--rose);color:white}
+
+/* ACTIVITY FEED */
+.activity-list{display:flex;flex-direction:column}
+.activity-item{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--gray-100)}
+.activity-item:last-child{border-bottom:none}
+.a-dot{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;
+  justify-content:center;font-size:1rem;flex-shrink:0}
+.a-dot.match{background:var(--g50)}
+.a-dot.view{background:var(--b50)}
+.a-dot.msg{background:#fdf4ff}
+.a-dot.contract{background:#fff7ed}
+.a-text{flex:1}
+.a-text strong{display:block;font-size:0.875rem;color:var(--gray-900);font-weight:600}
+.a-text span{font-size:0.78rem;color:var(--gray-500)}
+.a-time{font-size:0.72rem;color:var(--gray-400);flex-shrink:0;margin-top:2px}
+
+/* STATS BARS */
+.bar-list{display:flex;flex-direction:column;gap:16px}
+.bar-item{}
+.bar-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.bar-label{font-size:0.82rem;font-weight:500;color:var(--gray-700)}
+.bar-value{font-size:0.82rem;font-weight:700;color:var(--gray-900)}
+.bar-track{height:8px;background:var(--gray-100);border-radius:100px;overflow:hidden}
+.bar-fill{height:100%;border-radius:100px;transition:width .6s ease}
+.bar-fill.blue{background:linear-gradient(90deg,var(--b500),var(--b300))}
+.bar-fill.green{background:linear-gradient(90deg,var(--g600),var(--g400))}
+.bar-fill.purple{background:linear-gradient(90deg,var(--purple),#a78bfa)}
+.bar-fill.amber{background:linear-gradient(90deg,var(--amber),#fcd34d)}
+
+/* QUICK ACTIONS */
+.quick-actions{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.qa-btn{display:flex;align-items:center;gap:12px;padding:14px;border-radius:12px;
+  border:1.5px solid var(--gray-200);background:white;cursor:pointer;transition:all .2s;
+  font-family:'DM Sans',sans-serif;text-align:left}
+.qa-btn:hover{border-color:var(--b400);background:var(--b50);transform:translateY(-1px)}
+.qa-icon{font-size:1.4rem;flex-shrink:0}
+.qa-text strong{display:block;font-size:0.85rem;font-weight:600;color:var(--gray-900)}
+.qa-text span{font-size:0.75rem;color:var(--gray-500)}
+
+/* PIPELINE */
+.pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.pipe-col{}
+.pipe-header{padding:10px 12px;border-radius:10px;margin-bottom:10px;display:flex;
+  justify-content:space-between;align-items:center}
+.pipe-header.new{background:var(--b50)}
+.pipe-header.review{background:#fff7ed}
+.pipe-header.interview{background:#fdf4ff}
+.pipe-header.offer{background:var(--g50)}
+.pipe-title{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px}
+.pipe-count{width:22px;height:22px;border-radius:6px;background:rgba(0,0,0,0.08);
+  display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700}
+.pipe-card{background:white;border:1px solid var(--gray-200);border-radius:10px;
+  padding:12px;margin-bottom:8px;cursor:pointer;transition:all .2s}
+.pipe-card:hover{border-color:var(--b300);box-shadow:0 2px 8px rgba(37,99,235,0.1)}
+.pipe-card-name{font-size:0.82rem;font-weight:600;color:var(--gray-900);margin-bottom:4px}
+.pipe-card-role{font-size:0.72rem;color:var(--gray-500);margin-bottom:8px}
+.pipe-card-bottom{display:flex;justify-content:space-between;align-items:center}
+.pipe-tag{font-size:0.68rem;font-weight:600;padding:2px 8px;border-radius:100px}
+.pipe-tag.de{background:var(--b50);color:var(--b600)}
+.pipe-tag.ro{background:var(--g50);color:var(--g600)}
+.pipe-tag.pl{background:#fff7ed;color:#92400e}
+.pipe-date{font-size:0.68rem;color:var(--gray-400)}
+
+/* CHART MINI */
+.mini-chart{display:flex;align-items:flex-end;gap:4px;height:60px;margin-top:16px}
+.chart-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}
+.chart-bar{width:100%;border-radius:4px;transition:height .5s ease;cursor:pointer}
+.chart-bar:hover{opacity:0.8}
+.chart-label{font-size:0.65rem;color:var(--gray-400)}
+
+@media(max-width:1200px){
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .grid-2,.grid-3-1{grid-template-columns:1fr}
+  .pipeline{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .sidebar{display:none}
+  .main{margin-left:0}
+  .page{padding:20px 16px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .topbar{padding:0 16px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="s-logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+    <span class="s-logo-text">Work<em>Bridge</em></span>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section-title">Hauptmenü</div>
+    <div class="nav-item active"><span class="nav-icon">📊</span>Dashboard</div>
+    <div class="nav-item"><span class="nav-icon">🎯</span>Matches<span class="nav-badge">12</span></div>
+    <div class="nav-item"><span class="nav-icon">👥</span>Kandidaten</div>
+    <div class="nav-item"><span class="nav-icon">🔍</span>Stellensuche</div>
+    <div class="nav-section-title">Verwaltung</div>
+    <div class="nav-item"><span class="nav-icon">📋</span>Pipeline</div>
+    <div class="nav-item"><span class="nav-icon">📄</span>Verträge<span class="nav-badge green">3</span></div>
+    <div class="nav-item"><span class="nav-icon">💬</span>Nachrichten<span class="nav-badge">5</span></div>
+    <div class="nav-item"><span class="nav-icon">🎥</span>Interviews</div>
+    <div class="nav-section-title">Tools</div>
+    <div class="nav-item"><span class="nav-icon">🌍</span>Übersetzung</div>
+    <div class="nav-item"><span class="nav-icon">🚌</span>Transport</div>
+    <div class="nav-item"><span class="nav-icon">📊</span>Analytics</div>
+    <div class="nav-item"><span class="nav-icon">⚙️</span>Einstellungen</div>
+  </nav>
+  <div class="sidebar-user">
+    <div class="s-user">
+      <div class="s-avatar">👔</div>
+      <div class="s-user-info">
+        <strong>Musterfirma GmbH</strong>
+        <span>Pro-Account</span>
+      </div>
+      <span class="s-user-arrow">⌄</span>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <h1>Guten Morgen, Andreas 👋</h1>
+      <p>Montag, 15. Februar 2026 · 12 neue Aktivitäten</p>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-search">
+        <span>🔍</span>
+        <input type="text" placeholder="Kandidaten, Stellen suchen..."/>
+      </div>
+      <div class="icon-btn"><span>🌍</span></div>
+      <div class="icon-btn"><span>🔔</span><div class="notif-dot"></div></div>
+      <div class="icon-btn"><span>👔</span></div>
+    </div>
+  </div>
+
+  <!-- PAGE -->
+  <div class="page">
+
+    <!-- STAT CARDS -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-header">
+          <div class="stat-icon-wrap blue">🎯</div>
+          <span class="stat-change up">↑ +23%</span>
+        </div>
+        <div class="stat-value">147</div>
+        <div class="stat-label">Aktive Matches</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-header">
+          <div class="stat-icon-wrap green">✅</div>
+          <span class="stat-change up">↑ +8%</span>
+        </div>
+        <div class="stat-value">34</div>
+        <div class="stat-label">Vermittlungen diesen Monat</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-header">
+          <div class="stat-icon-wrap amber">🎥</div>
+          <span class="stat-change up">↑ +12%</span>
+        </div>
+        <div class="stat-value">8</div>
+        <div class="stat-label">Interviews diese Woche</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-header">
+          <div class="stat-icon-wrap purple">📄</div>
+          <span class="stat-change down">↓ -2%</span>
+        </div>
+        <div class="stat-value">€ 42.800</div>
+        <div class="stat-label">Umsatz diesen Monat</div>
+      </div>
+    </div>
+
+    <!-- TOP MATCHES + ACTIVITY -->
+    <div class="grid-3-1">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">🎯 Top Matches heute</span>
+          <span class="card-action">Alle ansehen →</span>
+        </div>
+        <div class="card-body">
+          <div class="match-list">
+            <div class="match-item">
+              <div class="m-avatar">👩‍⚕️</div>
+              <div><div class="m-name">Maria K.</div><div class="m-sub">Krankenschwester · München · 5J Erfahrung</div></div>
+              <div class="m-score"><span class="score-badge high">96%</span></div>
+              <div class="m-btns"><button class="m-btn like">♥</button><button class="m-btn skip">✕</button></div>
+            </div>
+            <div class="match-item">
+              <div class="m-avatar green">👷‍♂️</div>
+              <div><div class="m-name">Ion Tudose</div><div class="m-sub">Bauführer · Rumänien → DE · 8J</div></div>
+              <div class="m-score"><span class="score-badge high">91%</span></div>
+              <div class="m-btns"><button class="m-btn like">♥</button><button class="m-btn skip">✕</button></div>
+            </div>
+            <div class="match-item">
+              <div class="m-avatar purple">💻</div>
+              <div><div class="m-name">Piotr Wiśniewski</div><div class="m-sub">Senior Developer · Polen · Remote</div></div>
+              <div class="m-score"><span class="score-badge med">88%</span></div>
+              <div class="m-btns"><button class="m-btn like">♥</button><button class="m-btn skip">✕</button></div>
+            </div>
+            <div class="match-item">
+              <div class="m-avatar" style="background:linear-gradient(135deg,#f59e0b,#fcd34d)">🍽️</div>
+              <div><div class="m-name">Andreea M.</div><div class="m-sub">Köchin · Bukarest → Berlin · 6J</div></div>
+              <div class="m-score"><span class="score-badge med">85%</span></div>
+              <div class="m-btns"><button class="m-btn like">♥</button><button class="m-btn skip">✕</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">⚡ Aktivitäten</span>
+          <span class="card-action">Alle →</span>
+        </div>
+        <div class="card-body" style="padding:8px 16px">
+          <div class="activity-list">
+            <div class="activity-item">
+              <div class="a-dot match">✅</div>
+              <div class="a-text"><strong>Neues Match!</strong><span>Maria K. & Krankenhaus Berlin</span></div>
+              <div class="a-time">vor 5 Min</div>
+            </div>
+            <div class="activity-item">
+              <div class="a-dot view">👁</div>
+              <div class="a-text"><strong>Profil aufgerufen</strong><span>BMW AG hat Ion T. angesehen</span></div>
+              <div class="a-time">vor 18 Min</div>
+            </div>
+            <div class="activity-item">
+              <div class="a-dot msg">💬</div>
+              <div class="a-text"><strong>Neue Nachricht</strong><span>Interview-Anfrage von Siemens</span></div>
+              <div class="a-time">vor 1 Std</div>
+            </div>
+            <div class="activity-item">
+              <div class="a-dot contract">📄</div>
+              <div class="a-text"><strong>Vertrag unterzeichnet</strong><span>Piotr W. & TechCorp GmbH</span></div>
+              <div class="a-time">vor 2 Std</div>
+            </div>
+            <div class="activity-item">
+              <div class="a-dot match">🎥</div>
+              <div class="a-text"><strong>Interview geplant</strong><span>Andreea M. – morgen 10:00</span></div>
+              <div class="a-time">vor 3 Std</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PIPELINE -->
+    <div class="card" style="margin-bottom:20px">
+      <div class="card-header">
+        <span class="card-title">📋 Recruiting Pipeline</span>
+        <span class="card-action">Verwalten →</span>
+      </div>
+      <div class="card-body">
+        <div class="pipeline">
+          <div class="pipe-col">
+            <div class="pipe-header new">
+              <span class="pipe-title" style="color:var(--b600)">Neu</span>
+              <span class="pipe-count" style="color:var(--b600)">8</span>
+            </div>
+            <div class="pipe-card"><div class="pipe-card-name">Maria Kovács</div><div class="pipe-card-role">Pflegekraft · Ungarn</div><div class="pipe-card-bottom"><span class="pipe-tag de">→ DE</span><span class="pipe-date">heute</span></div></div>
+            <div class="pipe-card"><div class="pipe-card-name">Stefan Ionescu</div><div class="pipe-card-role">Elektriker · Rumänien</div><div class="pipe-card-bottom"><span class="pipe-tag ro">→ AT</span><span class="pipe-date">heute</span></div></div>
+          </div>
+          <div class="pipe-col">
+            <div class="pipe-header review">
+              <span class="pipe-title" style="color:#92400e">Prüfung</span>
+              <span class="pipe-count" style="color:#92400e">5</span>
+            </div>
+            <div class="pipe-card"><div class="pipe-card-name">Jana Novák</div><div class="pipe-card-role">Buchhalterin · CZ</div><div class="pipe-card-bottom"><span class="pipe-tag pl">→ DE</span><span class="pipe-date">Mo.</span></div></div>
+            <div class="pipe-card"><div class="pipe-card-name">Luca Esposito</div><div class="pipe-card-role">Koch · Italien</div><div class="pipe-card-bottom"><span class="pipe-tag de">→ CH</span><span class="pipe-date">Di.</span></div></div>
+          </div>
+          <div class="pipe-col">
+            <div class="pipe-header interview">
+              <span class="pipe-title" style="color:#6d28d9">Interview</span>
+              <span class="pipe-count" style="color:#6d28d9">4</span>
+            </div>
+            <div class="pipe-card"><div class="pipe-card-name">Andreea Marin</div><div class="pipe-card-role">Köchin · RO</div><div class="pipe-card-bottom"><span class="pipe-tag de">→ BE</span><span class="pipe-date">morgen</span></div></div>
+            <div class="pipe-card"><div class="pipe-card-name">Piotr W.</div><div class="pipe-card-role">Senior Dev · PL</div><div class="pipe-card-bottom"><span class="pipe-tag de">Remote</span><span class="pipe-date">Mi.</span></div></div>
+          </div>
+          <div class="pipe-col">
+            <div class="pipe-header offer">
+              <span class="pipe-title" style="color:var(--g600)">Angebot</span>
+              <span class="pipe-count" style="color:var(--g600)">3</span>
+            </div>
+            <div class="pipe-card"><div class="pipe-card-name">Ion Tudose</div><div class="pipe-card-role">Bauführer · RO</div><div class="pipe-card-bottom"><span class="pipe-tag ro">→ DE</span><span class="pipe-date">Do.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM ROW -->
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">📊 Top Branchen</span>
+          <span class="card-action">Report →</span>
+        </div>
+        <div class="card-body">
+          <div class="bar-list">
+            <div class="bar-item">
+              <div class="bar-header"><span class="bar-label">🏥 Pflege & Gesundheit</span><span class="bar-value">38%</span></div>
+              <div class="bar-track"><div class="bar-fill blue" style="width:38%"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-header"><span class="bar-label">🏗️ Bau & Handwerk</span><span class="bar-value">24%</span></div>
+              <div class="bar-track"><div class="bar-fill green" style="width:24%"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-header"><span class="bar-label">💻 IT & Technologie</span><span class="bar-value">19%</span></div>
+              <div class="bar-track"><div class="bar-fill purple" style="width:19%"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-header"><span class="bar-label">🚛 Logistik</span><span class="bar-value">12%</span></div>
+              <div class="bar-track"><div class="bar-fill amber" style="width:12%"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-header"><span class="bar-label">🍽️ Gastronomie</span><span class="bar-value">7%</span></div>
+              <div class="bar-track"><div class="bar-fill blue" style="width:7%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">⚡ Schnellaktionen</span>
+        </div>
+        <div class="card-body">
+          <div class="quick-actions">
+            <button class="qa-btn">
+              <span class="qa-icon">➕</span>
+              <div class="qa-text"><strong>Stelle ausschreiben</strong><span>Neue Vakanz erstellen</span></div>
+            </button>
+            <button class="qa-btn">
+              <span class="qa-icon">🔍</span>
+              <div class="qa-text"><strong>Kandidaten suchen</strong><span>KI-Suche starten</span></div>
+            </button>
+            <button class="qa-btn">
+              <span class="qa-icon">🎥</span>
+              <div class="qa-text"><strong>Interview buchen</strong><span>Mit Übersetzung</span></div>
+            </button>
+            <button class="qa-btn">
+              <span class="qa-icon">📄</span>
+              <div class="qa-text"><strong>Vertrag erstellen</strong><span>Digital & rechtssicher</span></div>
+            </button>
+            <button class="qa-btn">
+              <span class="qa-icon">🚌</span>
+              <div class="qa-text"><strong>Transport buchen</strong><span>Busflotte koordinieren</span></div>
+            </button>
+            <button class="qa-btn">
+              <span class="qa-icon">📊</span>
+              <div class="qa-text"><strong>Report erstellen</strong><span>Analytics exportieren</span></div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /page -->
+</main>
+</div>
+</body>
+</html>

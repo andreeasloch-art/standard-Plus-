@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0a8086"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Standard Plus"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<link rel="apple-touch-icon" href="../assets/app/apple-touch-icon.png"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Curse de autocar – Standard Plus</title>
+<link rel="stylesheet" href="../assets/sp-theme.css?v=20260929153130"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a9296'/%3E%3Cpath d='M9 10l6 6-6 6M18 10l6 6-6 6' stroke='%23ffd84d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
+<link rel="alternate" hreflang="de" href="../standardplus-transport.html"/>
+<link rel="alternate" hreflang="en" href="../en/standardplus-transport.html"/>
+<link rel="alternate" hreflang="ro" href="standardplus-transport.html"/>
+</head>
+<body>
+<a class="sp-skip" href="#main">Salt la conținut</a>
+
+<header class="sp-header">
+  <div class="sp-header-in">
+    <a class="sp-logo" href="standardplus-main.html">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Recrutare de personal</span>
+    </a>
+    <nav aria-label="Navigare principală">
+      <ul class="sp-nav">
+        <li><a href="standardplus-talente.html" data-nav>Angajați</a></li>
+        <li><a href="standardplus-unternehmen.html" data-nav>Companii</a></li>
+        <li><a href="standardplus-main.html#ablauf">Cum funcționează</a></li>
+        <li><a href="standardplus-preise.html" data-nav>Prețuri</a></li>
+      </ul>
+    </nav>
+    <div class="sp-header-act">
+      <a class="btn btn-primary btn-sm" href="standardplus-login.html" hidden data-anon>Autentificare</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-dashboard.html" hidden data-auth>Panou</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-profil.html" hidden data-auth>Profilul meu</a>
+      <button class="btn btn-outline btn-sm" type="button" data-logout hidden data-auth>
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-logout"></use></svg>Deconectare</button>
+      <button class="iconbtn sp-burger" type="button" aria-label="Deschide meniul" aria-expanded="false">
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="sec-tight seitenkopf">
+  <div class="wrap">
+    <span class="eyebrow"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-bus"></use></svg>Călătorie</span>
+    <h1 class="h2">Curse de autocar spre Germania</h1>
+    <p class="lede mb24">Companii de transport verificate, cu curse regulate. Căutați traseul dumneavoastră – și segmentele de traseu pot fi rezervate, dacă ambele localități sunt pe drum.</p>
+
+    <form class="card card-pad" id="filter" novalidate>
+      <div class="grid g3 g12">
+        <div class="field mb0"><label for="f-von">De la</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-pin"></use></svg>
+            <input class="inp" type="search" id="f-von" maxlength="80" placeholder="de ex. Timișoara"/></div></div>
+        <div class="field mb0"><label for="f-nach">Spre</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-pin"></use></svg>
+            <input class="inp" type="search" id="f-nach" maxlength="80" placeholder="de ex. Stuttgart"/></div></div>
+        <div class="field mb0"><label for="f-tag">Ziua săptămânii</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-calendar"></use></svg>
+            <select class="inp" id="f-tag">
+              <option value="">Toate zilele</option>
+              <option value="1">Luni</option>
+              <option value="2">Marți</option>
+              <option value="3">Miercuri</option>
+              <option value="4">Joi</option>
+              <option value="5">Vineri</option>
+              <option value="6">Sâmbătă</option>
+              <option value="0">Duminică</option>
+            </select></div></div>
+      </div>
+      <div class="flex jc-b ai-c wrapf g12 mt16">
+        <p class="small muted mb0" id="count">0 curse</p>
+        <button class="btn btn-outline btn-sm" type="button" id="reset">Resetează filtrele</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="sec-tight">
+  <div class="wrap">
+    <div id="ergebnisse" class="grid g2"></div>
+    <div class="notice notice-warn hidden mt16" id="leer">
+      <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+      <span>Pe acest traseu nu circulă nicio cursă înregistrată. Vă rugăm să verificați ortografia sau să alegeți o localitate mai mare din apropiere.</span>
+    </div>
+
+    <div class="notice notice-info mt24">
+      <svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>
+      <span><b>Ce se verifică:</b> licența comunitară conform Regulamentului (CE) nr. 1073/2009, dovada asigurării și înscrierea în registrul comerțului. Nicio companie nu este activată fără aceste trei documente. Pentru călătorii de peste 250 km se aplică drepturile pasagerilor conform Regulamentului (UE) nr. 181/2011.</span>
+    </div>
+
+    <div class="notice notice-warn mt16">
+      <svg class="ic" aria-hidden="true"><use href="#i-alert"></use></svg>
+      <span><b>Prototip:</b> Companiile și cursele afișate aici sunt fictive. Prețurile, orele de plecare și locurile au doar rol ilustrativ.</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="sp-foot">
+  <div class="wrap">
+    <div class="foot-bot">
+      <span>© 2026 Standard Plus. Toate drepturile rezervate.</span>
+      <span class="foot-seal">
+        <a class="seal" href="standardplus-datenschutz.html"><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>Confidențialitate</a>
+        <a class="seal" href="standardplus-sicherheit.html"><svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg>Securitate</a>
+        <a class="seal" href="standardplus-impressum.html"><svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>Date de identificare</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/sp-i18n-ro.js?v=20260929153130"></script>
+<script src="../assets/sp-icons.js?v=20260929153130"></script>
+<script src="../assets/sp-app.js?v=20260929153130"></script>
+<script src="../assets/sp-db.js?v=20260929153130"></script>
+<script src="../assets/sp-reiseplan.js?v=20260929153130"></script>
+<script src="../assets/sp-suche.js?v=20260929153130"></script>
+<script src="../assets/sp-vokabular.js?v=20260929153130"></script>
+<script src="../assets/sp-transport.js?v=20260929153130"></script>
+<script src="../assets/sp-effekte.js?v=20260929153130"></script>
+</body>
+</html>

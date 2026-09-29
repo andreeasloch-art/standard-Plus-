@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0a8086"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Standard Plus"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<link rel="apple-touch-icon" href="../assets/app/apple-touch-icon.png"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<!-- Hinweis: frame-ancestors, HSTS, X-Content-Type-Options und Permissions-Policy
+     wirken nur als HTTP-Kopfzeilen. Sie stehen in assets/security-headers.conf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Privacy centre – Standard Plus</title>
+<link rel="stylesheet" href="../assets/sp-theme.css?v=20260929153130"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a9296'/%3E%3Cpath d='M9 10l6 6-6 6M18 10l6 6-6 6' stroke='%23ffd84d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
+<link rel="alternate" hreflang="de" href="../standardplus-datenschutz-center.html"/>
+<link rel="alternate" hreflang="en" href="standardplus-datenschutz-center.html"/>
+<link rel="alternate" hreflang="ro" href="../ro/standardplus-datenschutz-center.html"/>
+</head>
+<body data-protected>
+<a class="sp-skip" href="#main">Skip to content</a>
+
+<header class="sp-header">
+  <div class="sp-header-in">
+    <a class="sp-logo" href="standardplus-dashboard.html">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Privacy centre</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="sp-nav">
+        <li><a href="standardplus-talente.html" data-nav>Workers</a></li>
+        <li><a href="standardplus-unternehmen.html" data-nav>Companies</a></li>
+        <li><a href="standardplus-main.html#ablauf">How it works</a></li>
+        <li><a href="standardplus-preise.html" data-nav>Pricing</a></li>
+      </ul>
+    </nav>
+    <div class="sp-header-act">
+      <a class="btn btn-primary btn-sm" href="standardplus-login.html" hidden data-anon>Sign in</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-dashboard.html" hidden data-auth>Dashboard</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-profil.html" hidden data-auth>My profile</a>
+      <button class="btn btn-outline btn-sm" type="button" data-logout hidden data-auth>
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-logout"></use></svg>Sign out</button>
+      <button class="iconbtn sp-burger" type="button" aria-label="Open menu" aria-expanded="false">
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  
+  </div>
+</header>
+
+<main class="legal" id="main">
+  <h1>Privacy centre</h1>
+  <p class="lede mb24">Here you can see which data is held about your account, who has accessed it, and exercise your rights – without going through support.</p>
+
+  <div class="card card-pad mb32">
+    <div class="flex ai-c g14 wrapf">
+      <span class="ava ava-lg gold"><span data-initials>SP</span></span>
+      <div class="grow">
+        <h2 class="h3" data-user>Signed-in account</h2>
+        <p class="small muted" data-org>Companies</p>
+      </div>
+      <span class="tag tag-ok"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-fingerprint"></use></svg>Two-factor active</span>
+      <span class="tag tag-teal"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-clock"></use></svg>Locks after 15 min.</span>
+    </div>
+  </div>
+
+  <!-- ---------- EINWILLIGUNGEN ---------- -->
+  <h2>Consents</h2>
+  <p>Your current selection. Changes take effect immediately and are logged with a timestamp (Art. 7(1) GDPR).</p>
+  <div id="consent-status" class="mb16"></div>
+  <div class="flex wrapf g10 mb32">
+    <button class="btn btn-primary btn-sm" type="button" data-consent>
+      <svg class="ic ic-sm" aria-hidden="true"><use href="#i-sliders"></use></svg>Change settings</button>
+    <button class="btn btn-outline btn-sm" type="button" id="btn-widerruf">
+      <svg class="ic ic-sm" aria-hidden="true"><use href="#i-x"></use></svg>Withdraw all consents</button>
+  </div>
+
+  <!-- ---------- IHRE RECHTE ---------- -->
+  <h2>Exercise your rights</h2>
+
+  <div class="dsg-row">
+    <svg class="ic ic-lg" aria-hidden="true"><use href="#i-eye"></use></svg>
+    <div class="grow">
+      <h3>Access under Art. 15 GDPR</h3>
+      <p class="small muted">Overview of all data stored about you, purposes, recipients and retention periods. Processed within one month.</p>
+    </div>
+    <button class="btn btn-outline btn-sm" type="button" id="btn-auskunft">Request</button>
+  </div>
+
+  <div class="dsg-row">
+    <svg class="ic ic-lg" aria-hidden="true"><use href="#i-download"></use></svg>
+    <div class="grow">
+      <h3>Data portability under Art. 20 GDPR</h3>
+      <p class="small muted">Export in machine-readable JSON format for transfer to another provider. Generated directly in your browser.</p>
+    </div>
+    <button class="btn btn-primary btn-sm" type="button" id="btn-export">Create export</button>
+  </div>
+
+  <div class="dsg-row">
+    <svg class="ic ic-lg" aria-hidden="true"><use href="#i-refresh"></use></svg>
+    <div class="grow">
+      <h3>Rectification under Art. 16 GDPR</h3>
+      <p class="small muted">Have incorrect information in your profile, qualifications or contact details corrected.</p>
+    </div>
+    <button class="btn btn-outline btn-sm" type="button" id="btn-berichtigung">Report a correction</button>
+  </div>
+
+  <div class="dsg-row">
+    <svg class="ic ic-lg ic-err" aria-hidden="true"><use href="#i-trash"></use></svg>
+    <div class="grow">
+      <h3>Erasure under Art. 17 GDPR</h3>
+      <p class="small muted">Permanently remove your account and profile data. Invoice data remains stored for up to ten years due to statutory retention obligations and is blocked during that time.</p>
+    </div>
+    <button class="btn btn-outline btn-sm" type="button" id="btn-loeschen">Delete account</button>
+  </div>
+
+  <!-- ---------- ZUGRIFFE ---------- -->
+  <h2>Who has accessed your profile?</h2>
+  <p>Every access to personal data is recorded. Companies only see profiles for which there is an approval or an open request.</p>
+  <div class="tbl-wrap mb32">
+    <table class="tbl">
+      <thead><tr><th>Time</th><th>Accessing party</th><th>Reason</th><th>Scope</th></tr></thead>
+      <tbody>
+        <tr><td>today, 09:41</td><td>Musterklinikum Berlin</td><td>open position intensive care</td><td><span class="tag tag-teal">pseudonymised</span></td></tr>
+        <tr><td>yesterday, 16:02</td><td>Musterbau AG</td><td>Interview preparation</td><td><span class="tag tag-gold">after approval</span></td></tr>
+        <tr><td>yesterday, 11:18</td><td>Standard Plus Support</td><td>Ticket 4821, at your request</td><td><span class="tag">Master data</span></td></tr>
+        <tr><td>3 days ago, 08:55</td><td>TechCorp GmbH</td><td>Search hit</td><td><span class="tag tag-teal">pseudonymised</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ---------- GERAETE ---------- -->
+  <h2>Signed-in devices</h2>
+  <div class="tbl-wrap mb16">
+    <table class="tbl">
+      <thead><tr><th>Device</th><th>Location</th><th>Last activity</th><th></th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="flex ai-c g8"><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-monitor"></use></svg>This device</span></td>
+          <td>Germany</td><td>now</td>
+          <td><span class="tag tag-ok">active</span></td>
+        </tr>
+        <tr>
+          <td><span class="flex ai-c g8"><svg class="ic ic-sm ic-muted" aria-hidden="true"><use href="#i-monitor"></use></svg>Office computer</span></td>
+          <td>Germany</td><td>2 days ago</td>
+          <td><button class="btn btn-outline btn-sm" type="button" data-abmelden="B&uuml;ro-Rechner">Sign out</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted mb32">Don't recognise a device? Sign it out, change your password and inform [security@ihre-domain.de].</p>
+
+  <!-- ---------- PROTOKOLL ---------- -->
+  <h2>Log of this session</h2>
+  <p>All actions carried out in this session. The record stays exclusively in your browser and is deleted when you close it.</p>
+  <div class="log mb16" id="protokoll">No entries yet.</div>
+  <div class="flex wrapf g10 mb32">
+    <button class="btn btn-outline btn-sm" type="button" id="btn-log-neu">
+      <svg class="ic ic-sm" aria-hidden="true"><use href="#i-refresh"></use></svg>Refresh</button>
+    <button class="btn btn-outline btn-sm" type="button" id="btn-log-export">
+      <svg class="ic ic-sm" aria-hidden="true"><use href="#i-download"></use></svg>Download log</button>
+  </div>
+
+  <div class="notice notice-info">
+    <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+    <span>If you have any questions, you can reach our data protection officer at [datenschutz@ihre-domain.de]. Your right to lodge a complaint with the supervisory authority remains unaffected.</span>
+  </div>
+</main>
+
+<!-- ---------- BESTAETIGUNG LOESCHUNG ---------- -->
+<div class="modal" id="modal-loeschen" role="alertdialog" aria-labelledby="ml-h" aria-modal="true">
+  <div class="modal-box">
+    <h2 id="ml-h"><svg class="ic ic-lg ic-err" aria-hidden="true"><use href="#i-alert"></use></svg>Really delete your account?</h2>
+    <p>Your profile, your messages and all approvals will be permanently removed. Ongoing placements will be cancelled. Invoice data remains stored and blocked until the statutory retention period expires.</p>
+    <div class="field mt20">
+      <label for="bestaetigung">To confirm, type <b>DELETE</b></label>
+      <div class="inp-wrap">
+        <svg class="ic" aria-hidden="true"><use href="#i-key"></use></svg>
+        <input class="inp" type="text" id="bestaetigung" autocomplete="off" maxlength="20"/>
+      </div>
+    </div>
+    <div class="flex g10 mt20">
+      <button class="btn btn-danger f1" type="button" id="loeschen-ok" disabled>Delete permanently</button>
+      <button class="btn btn-outline f1" type="button" id="loeschen-ab">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<footer class="sp-foot">
+  <div class="wrap">
+    <div class="foot-bot">
+      <span>© 2026 Standard Plus. All rights reserved.</span>
+      <span class="foot-seal">
+        <a class="seal" href="standardplus-dashboard.html"><svg class="ic" aria-hidden="true"><use href="#i-grid"></use></svg>Dashboard</a>
+        <a class="seal" href="standardplus-datenschutz.html"><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>Privacy</a>
+        <a class="seal" href="standardplus-sicherheit.html"><svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg>Security</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/sp-i18n-en.js?v=20260929153130"></script>
+<script src="../assets/sp-icons.js?v=20260929153130"></script>
+<script src="../assets/sp-app.js?v=20260929153130"></script>
+<script src="../assets/sp-db.js?v=20260929153130"></script>
+<script src="../assets/sp-center.js?v=20260929153130"></script>
+<script src="../assets/sp-effekte.js?v=20260929153130"></script>
+</body>
+</html>
