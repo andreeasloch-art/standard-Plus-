@@ -111,3 +111,17 @@ Apple-Entwicklerkonto (99 $/Jahr), ein Google-Play-Konto (einmalig 25 $) und zum
 - 2 Spalten am Computer, 1 Spalte am Handy; 6 Profile, beim Scrollen alle 14
 - Keine horizontale Scrollleiste am Handy, mobiles Menü mit Escape schließbar
 - Keine Konsolenfehler, keine Anfragen an fremde Server
+
+## Stand in Lovable (01.10.2026)
+
+Die drei Migrationen (`kuendigungen_aufbewahren`, `profilbilder`, `favoriten_interview`) sind in Lovable ausgeführt,
+Typen neu erzeugt, Build fehlerfrei, Sicherheitsscan ohne neue Befunde. Abweichungen gegenüber den Dateien hier:
+
+- Speicherbereich `profilbilder` wurde über Lovables Werkzeug angelegt (privat, 5 MB). Dateitypen werden über die
+  Zugriffsregel auf die Endung `.jpg/.jpeg/.png/.webp` begrenzt (prüft nur die Endung).
+- `foto_freigegeben` liegt im nicht öffentlichen Schema `intern` statt in `public`.
+- `anfragen_guard` sperrt für die Fachkraft zusätzlich `stelle_id`.
+- Konto löschen (Kündigungen behalten, Dateien rekursiv löschen) und Datenexport mit Favoriten sind in Lovable umgesetzt.
+
+Noch offen: die Oberfläche aus diesem Ordner (Wischen, Favoriten, Einladen, Fotos, App-Version, Türkis-Design) und
+7 ältere Hinweise des Sicherheitsscans zu öffentlich aufrufbaren Prüffunktionen (`has_role`, `hat_beidseitig` …).
