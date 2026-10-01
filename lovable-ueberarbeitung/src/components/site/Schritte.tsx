@@ -3,7 +3,7 @@ import { CalendarCheck, Languages, Search, Hand } from "lucide-react";
 const SCHRITTE = [
   { icon: Search, t: "Suchen", d: "Beruf eingeben – passende Profile werden vorgeschlagen." },
   { icon: Hand, t: "Wischen", d: "Nach rechts = Favorit, nach links = weiter." },
-  { icon: CalendarCheck, t: "Zum Interview einladen", d: "Per Video oder Telefon – die Fachkraft sagt zu oder ab." },
+  { icon: CalendarCheck, t: "Einladen & Match", d: "Sagt die Fachkraft zu, ist es ein Match – erst dann gibt es Kontaktdaten." },
   { icon: Languages, t: "Mit Dolmetscher sprechen", d: "Jeder spricht seine Sprache, die Übersetzung läuft live mit." },
 ];
 

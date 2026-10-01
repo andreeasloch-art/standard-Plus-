@@ -56,7 +56,7 @@ function Favoriten() {
                   <p className="truncate text-sm text-tuerkis-700 dark:text-tuerkis-300">{p.beruf}</p>
                   <div className="mt-auto grid gap-2 pt-2">
                     {eingeladen ? (
-                      <p className="rounded-lg bg-tint px-3 py-2 text-center text-xs font-semibold text-tint-foreground">Eingeladen – wartet auf Zusage</p>
+                      <p className="rounded-lg bg-tint px-3 py-2 text-center text-xs font-semibold text-tint-foreground">Eingeladen – wartet auf Match</p>
                     ) : (
                       <Button size="sm" onClick={() => setEinladen(p)}><CalendarCheck />Einladen</Button>
                     )}

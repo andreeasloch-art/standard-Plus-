@@ -15,7 +15,7 @@ export const Route = createFileRoute("/ablauf")({
   component: () => (
     <>
       <PageHeader eyebrow="Ablauf" title="In vier Schritten zum Vertrag">
-        Kontaktdaten erst nach beidseitiger Freigabe.
+        Kontaktdaten erst beim Match.
       </PageHeader>
       <section className="container-page py-12">
         <Schritte />

@@ -9,13 +9,13 @@ export const Route = createFileRoute("/unternehmen")({
       { title: "Für Unternehmen – Standard Plus" },
       { name: "description", content: "Fachkräfte aus der EU finden und anfragen – Zahlung nur bei Erfolg." },
       { property: "og:title", content: "Für Unternehmen – Standard Plus" },
-      { property: "og:description", content: "Fachkräfte aus ganz Europa – pseudonymisiert bis zur beidseitigen Freigabe." },
+      { property: "og:description", content: "Fachkräfte aus ganz Europa – Kontaktdaten erst beim Match." },
     ],
   }),
   component: () => (
     <>
       <PageHeader eyebrow="Für Unternehmen" title="Fachkräfte, die passen">
-        Profile anfragen – nach beidseitiger Freigabe direkt ins Gespräch.
+        Profile ansehen, einladen – beim Match direkt ins Gespräch.
       </PageHeader>
       <section className="container-page mx-auto max-w-5xl py-12">
         <Vorteile

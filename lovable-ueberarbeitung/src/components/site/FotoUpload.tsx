@@ -41,6 +41,7 @@ export function FotoUpload({
   const id = useId();
   const [url, setUrl] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [zustimmung, setZustimmung] = useState(false);
 
   useEffect(() => {
     let aktiv = true;
@@ -57,6 +58,7 @@ export function FotoUpload({
     const datei = e.target.files?.[0];
     e.target.value = "";
     if (!datei) return;
+    if (!zustimmung && !fotoSichtbar) return toast.error("Bitte bestätigen Sie zuerst, dass Ihr Foto für alle sichtbar ist.");
     if (!ERLAUBT.includes(datei.type)) return toast.error("Bitte ein JPG-, PNG- oder WebP-Bild wählen.");
     if (datei.size > MAX_EINGABE) return toast.error("Das Bild ist zu groß (max. 15 MB).");
     setBusy(true);
@@ -65,7 +67,8 @@ export function FotoUpload({
       const pfad = `${uid}/profilbild-${Date.now()}.jpg`;
       const up = await supabase.storage.from(FOTO_BUCKET).upload(pfad, blob, { contentType: "image/jpeg", upsert: false });
       if (up.error) throw up.error;
-      const { error } = await supabase.from("profiles").update({ foto_pfad: pfad }).eq("id", uid);
+      // Hochladen mit Zustimmung = Foto ist für alle sichtbar (Widerruf: Foto löschen)
+      const { error } = await supabase.from("profiles").update({ foto_pfad: pfad, foto_sichtbar: true }).eq("id", uid);
       if (error) {
         await supabase.storage.from(FOTO_BUCKET).remove([pfad]);
         throw error;
@@ -92,25 +95,28 @@ export function FotoUpload({
     fertig();
   };
 
-  const sichtbarkeit = async (an: boolean) => {
-    const { error } = await supabase.from("profiles").update({ foto_sichtbar: an }).eq("id", uid);
-    if (error) return toast.error("Einstellung konnte nicht gespeichert werden.");
-    toast.success(an ? "Foto wird in der Suche gezeigt." : "Foto wird nicht mehr in der Suche gezeigt.");
-    fertig();
-  };
-
   return (
     <section className="card-base mt-6 grid gap-5 p-6 sm:grid-cols-[9rem_1fr]" aria-labelledby={`${id}-titel`}>
       <ProfilFoto url={url} name={name || "Ich"} className="rounded-xl" />
       <div>
         <h2 id={`${id}-titel`} className="text-xl">Profilfoto</h2>
         <p className="mt-1 text-sm text-muted-foreground">Freiwillig. Am besten frontal, gut ausgeleuchtet, Gesicht gut erkennbar.</p>
+        <p className="mt-2 rounded-xl bg-tint p-3 text-sm text-tint-foreground">
+          Ihr Foto ist für <strong>alle</strong> sichtbar – auch für Besucher ohne Anmeldung. Name und Kontaktdaten gibt es weiterhin erst beim Match.
+        </p>
+        {!fotoPfad && (
+          <label className="mt-3 flex items-start gap-3 text-sm">
+            <input type="checkbox" checked={zustimmung} onChange={(e) => setZustimmung(e.target.checked)}
+              className="mt-0.5 h-5 w-5 shrink-0 accent-[var(--color-info)]" />
+            <span>Ich bin einverstanden, dass mein Foto für alle sichtbar ist. Ich kann es jederzeit löschen.</span>
+          </label>
+        )}
 
         <div className="mt-4 flex flex-wrap gap-2">
-          <label className={`inline-flex h-11 cursor-pointer items-center gap-2 rounded-xl bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-soft focus-within:ring-2 focus-within:ring-ring ${busy ? "pointer-events-none opacity-50" : ""}`}>
+          <label className={`inline-flex h-11 cursor-pointer items-center gap-2 rounded-xl bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-soft focus-within:ring-2 focus-within:ring-ring ${busy || (!fotoPfad && !zustimmung) ? "pointer-events-none opacity-50" : ""}`}>
             <Camera className="h-4 w-4" aria-hidden />
             {fotoPfad ? "Foto ersetzen" : "Foto hochladen"}
-            <input type="file" accept={ERLAUBT.join(",")} className="sr-only" onChange={hochladen} disabled={busy} />
+            <input type="file" accept={ERLAUBT.join(",")} className="sr-only" onChange={hochladen} disabled={busy || (!fotoPfad && !zustimmung)} />
           </label>
           {fotoPfad && (
             <Button type="button" variant="outline" onClick={entfernen} disabled={busy}>
@@ -119,21 +125,6 @@ export function FotoUpload({
           )}
         </div>
 
-        {fotoPfad && (
-          <div className="mt-4 rounded-xl bg-tint p-4 text-tint-foreground">
-            <label className="flex items-start gap-3">
-              <input
-                type="checkbox"
-                checked={fotoSichtbar}
-                onChange={(e) => sichtbarkeit(e.target.checked)}
-                className="mt-0.5 h-5 w-5 shrink-0 accent-[var(--color-info)]"
-                aria-describedby={`${id}-hint`}
-              />
-              <span className="text-sm font-medium">Einwilligung: Mein Foto darf Unternehmen in der Suche und im Profil angezeigt werden.</span>
-            </label>
-            <p id={`${id}-hint`} className="mt-2 pl-8 text-xs">Jederzeit widerrufbar. Ohne Häkchen sehen nur Sie das Foto.</p>
-          </div>
-        )}
       </div>
     </section>
   );

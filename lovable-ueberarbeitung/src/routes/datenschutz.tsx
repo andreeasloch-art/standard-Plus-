@@ -66,7 +66,7 @@ function Datenschutz() {
       <h2>6. Anfragen und beidseitige Freigabe</h2>
       <p>
         Fragt ein Unternehmen ein Profil an, sieht die Fachkraft den Firmennamen und die Firmenangaben. Nachname, Telefon und E-Mail der Fachkraft werden dem Unternehmen erst angezeigt,
-        wenn beide Seiten die Anfrage freigegeben haben. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. lit. a (Freigabe).
+        wenn beide Seiten die Anfrage freigegeben haben („Match“). Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. lit. a (Freigabe).
       </p>
 
       <h2>7. Bewertungen</h2>
@@ -78,9 +78,9 @@ function Datenschutz() {
         (z. B. Aufnahmeort, Kameradaten) entfernt. Es liegt in einem privaten Speicherbereich und ist nur über kurzlebige signierte Links abrufbar.
       </p>
       <p>
-        Unternehmen und Besucher sehen das Foto nur, wenn Sie der Anzeige gesondert zugestimmt haben und Ihr Profil in der Suche sichtbar ist
-        (Art. 6 Abs. 1 lit. a DSGVO). Bitte beachten Sie: Auf einem Foto sind Sie erkennbar – die Pseudonymisierung durch Vorname und Initial
-        gilt für das Foto daher nicht. Sie können die Einwilligung jederzeit im Profil widerrufen oder das Foto löschen; gelöschte oder ersetzte Fotos
+        Mit dem Hochladen stimmen Sie ausdrücklich zu, dass Ihr Foto für alle sichtbar ist – für Unternehmen und für Besucher ohne Anmeldung –,
+        solange Ihr Profil in der Suche sichtbar ist (Art. 6 Abs. 1 lit. a DSGVO). Zeitpunkt der Zustimmung und des Widerrufs werden gespeichert. Bitte beachten Sie: Auf einem Foto sind Sie erkennbar – die Pseudonymisierung durch Vorname und Initial
+        gilt für das Foto daher nicht. Sie widerrufen die Einwilligung jederzeit, indem Sie das Foto im Profil löschen; gelöschte oder ersetzte Fotos
         werden sofort aus dem Speicher entfernt. Aus dem Foto werden keine Merkmale automatisch ausgewertet.
       </p>
       <p>Andere Datei-Uploads bietet die Plattform derzeit nicht an.</p>
