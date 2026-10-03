@@ -120,7 +120,7 @@ export function Header() {
                   <Button variant="ghost" onClick={signOut}>Abmelden</Button>
                 </>
               ) : (
-                <Button asChild><Link to="/auth" onClick={() => setOpen(false)}>Anmelden</Link></Button>
+                <Button asChild variant="outline"><Link to="/auth" onClick={() => setOpen(false)}>Anmelden</Link></Button>
               )}
             </div>
           </div>

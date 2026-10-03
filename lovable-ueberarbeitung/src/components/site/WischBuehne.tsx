@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, MapPin, Pause, Play, Star, X } from "lucide-react";
+import { ArrowRight, Check, MapPin, Pause, Play, X } from "lucide-react";
 import { ProfilFoto } from "@/components/site/ProfilFoto";
 import { KlappText } from "@/components/site/KlappText";
 import { useFavoriten } from "@/lib/favoriten";
@@ -104,7 +104,7 @@ export function WischBuehne({
     if (vonHand) {
       setSelbst(true);
       if (r === "rechts") fav.setzen(oben.id, true);
-      setAnsage(r === "rechts" ? `${oben.anzeigename} als Favorit gemerkt` : `${oben.anzeigename} übersprungen`);
+      setAnsage(r === "rechts" ? `${oben.anzeigename} gefällt Ihnen – als Favorit gemerkt` : `${oben.anzeigename} übersprungen`);
     }
     setFlug(r);
     window.setTimeout(() => {
@@ -197,8 +197,8 @@ export function WischBuehne({
             onPointerCancel={() => { start.current = null; setDx(0); }}
           >
             <Karte p={oben} />
-            <span aria-hidden className="absolute left-4 top-14 -rotate-12 rounded-lg border-4 border-tuerkis-500 bg-white/90 px-3 py-1 font-display text-2xl font-extrabold text-tuerkis-600" style={{ opacity: Math.max(0, anteil) }}>FAVORIT</span>
-            <span aria-hidden className="absolute right-4 top-14 rotate-12 rounded-lg border-4 border-ink/50 bg-white/90 px-3 py-1 font-display text-2xl font-extrabold text-ink/70" style={{ opacity: Math.max(0, -anteil) }}>WEITER</span>
+            <span aria-hidden className="absolute left-4 top-14 -rotate-12 rounded-lg border-4 border-success bg-white/90 px-3 py-1 font-display text-2xl font-bold text-success" style={{ opacity: Math.max(0, anteil) }}>GEFÄLLT MIR</span>
+            <span aria-hidden className="absolute right-4 top-14 rotate-12 rounded-lg border-4 border-ink/50 bg-white/90 px-3 py-1 font-display text-2xl font-bold text-ink/70" style={{ opacity: Math.max(0, -anteil) }}>WEITER</span>
           </div>
         )}
       </div>
@@ -209,9 +209,9 @@ export function WischBuehne({
             className="glas-knopf flex h-14 w-14 items-center justify-center rounded-full text-ink transition hover:scale-105 hover:bg-[var(--glas-stark)] dark:text-foreground">
             <X className="h-6 w-6" aria-hidden />
           </button>
-          <button type="button" onClick={() => wischen("rechts", true)} aria-label={`${oben.anzeigename} als Favorit merken`}
-            className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-b from-tuerkis-500 to-tuerkis-700 text-white shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_10px_24px_-10px_var(--color-tuerkis-700)] transition hover:scale-105">
-            <Star className="h-6 w-6" fill="currentColor" aria-hidden />
+          <button type="button" onClick={() => wischen("rechts", true)} aria-label={`${oben.anzeigename} gefällt mir – als Favorit merken`}
+            className="flex h-14 w-14 items-center justify-center rounded-full bg-success text-success-foreground shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_10px_24px_-8px_var(--color-success)] transition hover:scale-105 hover:brightness-110">
+            <Check className="h-7 w-7" strokeWidth={3} aria-hidden />
           </button>
           <Link to="/talente" search={{ q: suche.trim() || undefined }} className="ml-1 inline-flex items-center gap-1 text-sm font-semibold text-info hover:underline">
             Alle wischen <ArrowRight className="h-4 w-4" aria-hidden />
