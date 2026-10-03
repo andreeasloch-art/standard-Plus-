@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { EmptyState, ErrorState } from "@/components/site/PageHeader";
 import { ProfilListe } from "@/components/site/ProfilListe";
 import { KlappText } from "@/components/site/KlappText";
+import { passtZurSuche } from "@/lib/suche";
 import { SuchFeld } from "@/components/site/SuchFeld";
 import { WischStapel } from "@/components/site/WischStapel";
 import { EinladenDialog } from "@/components/site/EinladenDialog";
@@ -64,8 +65,7 @@ function Talente() {
       if (f.niveau && (!p.deutschniveau || NIVEAUS.indexOf(p.deutschniveau as never) < NIVEAUS.indexOf(f.niveau as never))) return false;
       if (f.verfuegbar && p.verfuegbar_ab && new Date(p.verfuegbar_ab) > grenze) return false;
       if (s) {
-        const felder = [p.anzeigename, p.beruf, p.branche, p.land, p.wohnort, p.zielort, ...p.skills];
-        if (!felder.some((x) => x?.toLowerCase().includes(s))) return false;
+        if (!passtZurSuche(p, s)) return false;
       }
       return true;
     });

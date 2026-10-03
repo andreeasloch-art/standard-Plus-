@@ -240,10 +240,10 @@
 }
 /* Platzhalter, solange kein Foto hochgeladen ist */
 @utility foto-platzhalter {
+  /* warm: Gold oben, helles Türkis unten – kein kühles Punktraster */
   background-image:
-    radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--color-tuerkis-500) 16%, transparent) 1px, transparent 0),
-    linear-gradient(160deg, var(--color-tuerkis-50), var(--color-tuerkis-200));
-  background-size: 14px 14px, auto;
+    radial-gradient(70% 60% at 30% 20%, color-mix(in oklab, var(--color-primary) 38%, transparent), transparent 70%),
+    linear-gradient(160deg, #fdf7e6, var(--color-tuerkis-100));
 }
 
 /* ---------- Glas-Design (Oktober 2026) ----------

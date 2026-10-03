@@ -8,10 +8,13 @@ import { cn } from "@/lib/utils";
 type Art = "Beruf" | "Skill" | "Ort" | "Branche";
 
 /** Tippt Beispielsuchen Buchstabe für Buchstabe in den Platzhalter (nur wenn das Feld leer und nicht aktiv ist). */
-function useTippBeispiel(beispiele: string[] | undefined, an: boolean) {
+function useTippBeispiel(beispiele: string[] | undefined, an: boolean, fertig?: (text: string | null) => void) {
   const [text, setText] = useState("");
   useEffect(() => {
-    if (!beispiele?.length || !an) return;
+    if (!beispiele?.length || !an) {
+      fertig?.(null);
+      return;
+    }
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setText(beispiele[0]);
       return;
@@ -23,9 +26,16 @@ function useTippBeispiel(beispiele: string[] | undefined, an: boolean) {
       if (!loeschen) {
         pos++;
         setText(ziel.slice(0, pos));
-        if (pos >= ziel.length) { loeschen = true; t = window.setTimeout(schritt, 1600); return; }
+        if (pos >= ziel.length) {
+          // fertig getippt: der Kartenstapel darf jetzt nach diesem Beispiel mischen
+          fertig?.(ziel);
+          loeschen = true;
+          t = window.setTimeout(schritt, 2600);
+          return;
+        }
         t = window.setTimeout(schritt, 70 + Math.random() * 60);
       } else {
+        if (pos === ziel.length) fertig?.(null);
         pos--;
         setText(ziel.slice(0, pos));
         if (pos <= 0) { loeschen = false; nr++; t = window.setTimeout(schritt, 350); return; }
@@ -34,6 +44,7 @@ function useTippBeispiel(beispiele: string[] | undefined, an: boolean) {
     };
     t = window.setTimeout(schritt, 600);
     return () => window.clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [beispiele, an]);
   return text;
 }
@@ -49,10 +60,16 @@ export function SuchFeld({
   onAenderung,
   gross = false,
   beispiele,
+  onTippBeispiel,
+  bewegung = true,
   className,
 }: {
   /** Beispielsuchen, die sich im leeren Feld von selbst eintippen */
   beispiele?: string[];
+  /** meldet das fertig getippte Beispiel (oder null, sobald es wieder gelöscht wird) */
+  onTippBeispiel?: (text: string | null) => void;
+  /** false hält die Tipp-Animation an (Pause-Knopf) */
+  bewegung?: boolean;
   wert?: string;
   onSuche?: (q: string) => void;
   onAenderung?: (q: string) => void;
@@ -65,7 +82,7 @@ export function SuchFeld({
   const [offen, setOffen] = useState(false);
   const [aktiv, setAktiv] = useState(-1);
   const [fokus, setFokus] = useState(false);
-  const tipp = useTippBeispiel(beispiele, !fokus && q === "");
+  const tipp = useTippBeispiel(beispiele, bewegung && !fokus && q === "", onTippBeispiel);
   const basisId = useId();
   const inputId = `${basisId}-eingabe`;
   const listId = `${basisId}-liste`;
@@ -160,7 +177,7 @@ export function SuchFeld({
           aria-activedescendant={zeige && aktiv >= 0 ? `${listId}-${aktiv}` : undefined}
           autoComplete="off"
           maxLength={100}
-          placeholder={beispiele && !fokus ? (tipp ? `z. B. ${tipp}` : "") : "Beruf, Skill oder Ort"}
+          placeholder={beispiele && bewegung && !fokus ? `z. B. ${tipp}` : "Beruf, Skill oder Ort"}
           value={q}
           onChange={(e) => {
             setQ(e.target.value);
@@ -179,7 +196,7 @@ export function SuchFeld({
         <button
           type="submit"
           className={cn(
-            "knopf-gold shrink-0 rounded-lg font-semibold transition hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+            "shrink-0 rounded-lg bg-ink font-semibold text-ink-foreground transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
             gross ? "h-11 px-6" : "h-9 px-4 text-sm",
           )}
         >

@@ -28,10 +28,17 @@ export function ProfilFoto({
         />
       ) : (
         <div className="foto-platzhalter flex h-full w-full flex-col items-center justify-center gap-2" role="img" aria-label={`Noch kein Foto von ${name}`}>
-          <span className={cn("font-display font-extrabold leading-none text-tuerkis-700", gross ? "text-8xl" : "text-5xl sm:text-6xl")} aria-hidden>
+          {/* Avatar-Kreis statt riesigem Buchstaben – wirkt persönlicher */}
+          <span
+            className={cn(
+              "flex items-center justify-center rounded-full bg-white/80 font-display font-bold text-tuerkis-700 shadow-soft ring-4 ring-white/50",
+              gross ? "h-24 w-24 text-4xl" : "h-14 w-14 text-2xl sm:h-16 sm:w-16 sm:text-3xl",
+            )}
+            aria-hidden
+          >
             {name.charAt(0)}
           </span>
-          <span className="flex items-center gap-1 text-[11px] font-medium text-tuerkis-700/70" aria-hidden>
+          <span className="flex items-center gap-1 text-[11px] font-medium text-tuerkis-800/70" aria-hidden>
             <UserRound className="h-3.5 w-3.5" /> kein Foto
           </span>
         </div>

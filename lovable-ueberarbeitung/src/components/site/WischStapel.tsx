@@ -151,7 +151,7 @@ export function WischStapel({ profile, onEinladen }: { profile: OeffentlichesPro
             )}
             {(istFav || eingeladen) && (
               <span className="absolute right-3 top-3 rounded-full bg-primary px-2.5 py-0.5 text-xs font-bold text-primary-foreground shadow-soft">
-                {eingeladen ? "Eingeladen" : "★ Favorit"}
+                {eingeladen ? "Eingeladen" : <span className="inline-flex items-center gap-1"><Star className="h-3 w-3" fill="currentColor" aria-hidden />Favorit</span>}
               </span>
             )}
             {/* Stempel beim Ziehen */}

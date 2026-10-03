@@ -1,0 +1,624 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-03T12:00:00+00:00",
+  "title": "Design System: Standard Plus",
+  "extensions": {
+    "colorMeta": {
+      "gold": {
+        "role": "primary",
+        "displayName": "Abfahrtsgold",
+        "canonical": "oklch(0.89 0.16 93)",
+        "approxHex": "#ffd747",
+        "tonalRamp": [
+          "#1c0300",
+          "#381e00",
+          "#563b00",
+          "#755a00",
+          "#997d0c",
+          "#bea241",
+          "#e5c969",
+          "#ffed8d"
+        ]
+      },
+      "gold-deep": {
+        "role": "primary",
+        "displayName": "Abfahrtsgold tief",
+        "canonical": "oklch(0.83 0.16 90)",
+        "approxHex": "#f0c12a",
+        "tonalRamp": [
+          "#1e0200",
+          "#3a1c00",
+          "#583a00",
+          "#785900",
+          "#9c7c0b",
+          "#c2a140",
+          "#e9c769",
+          "#ffeb8d"
+        ]
+      },
+      "tuerkis-50": {
+        "role": "secondary",
+        "displayName": "Wegeleit-Türkis 50",
+        "tonalRamp": [
+          "#082a2d",
+          "#164d52",
+          "#1f6166",
+          "#2f767c",
+          "#448c92",
+          "#84c2c5",
+          "#d9eeef",
+          "#eef7f7"
+        ]
+      },
+      "tuerkis-100": {
+        "role": "secondary",
+        "displayName": "Wegeleit-Türkis 100",
+        "tonalRamp": [
+          "#082a2d",
+          "#164d52",
+          "#1f6166",
+          "#2f767c",
+          "#448c92",
+          "#84c2c5",
+          "#d9eeef",
+          "#eef7f7"
+        ]
+      },
+      "tuerkis-200": {
+        "role": "secondary",
+        "displayName": "Wegeleit-Türkis 200",
+        "tonalRamp": [
+          "#082a2d",
+          "#164d52",
+          "#1f6166",
+          "#2f767c",
+          "#448c92",
+          "#84c2c5",
+          "#d9eeef",
+          "#eef7f7"
+        ]
+      },
+      "tuerkis-300": {
+        "role": "secondary",
+        "displayName": "Wegeleit-Türkis 300",
+        "tonalRamp": [
+          "#082a2d",
+          "#164d52",
+          "#1f6166",
+          "#2f767c",
+          "#448c92",
+          "#84c2c5",
+          "#d9eeef",
+          "#eef7f7"
+        ]
+      },
+      "tuerkis-500": {
+        "role": "secondary",
+        "displayName": "Wegeleit-Türkis (Logo #448C92)",
+        "tonalRamp": [
+          "#082a2d",
+          "#164d52",
+          "#1f6166",
+          "#2f767c",
+          "#448c92",
+          "#84c2c5",
+          "#d9eeef",
+          "#eef7f7"
+        ]
+      },
+      "tuerkis-600": {
+        "role": "secondary",
+        "displayName": "Wegeleit-Türkis 600",
+        "tonalRamp": [
+          "#082a2d",
+          "#164d52",
+          "#1f6166",
+          "#2f767c",
+          "#448c92",
+          "#84c2c5",
+          "#d9eeef",
+          "#eef7f7"
+        ]
+      },
+      "tuerkis-700": {
+        "role": "secondary",
+        "displayName": "Wegeleit-Türkis 700",
+        "tonalRamp": [
+          "#082a2d",
+          "#164d52",
+          "#1f6166",
+          "#2f767c",
+          "#448c92",
+          "#84c2c5",
+          "#d9eeef",
+          "#eef7f7"
+        ]
+      },
+      "tuerkis-800": {
+        "role": "secondary",
+        "displayName": "Wegeleit-Türkis 800",
+        "tonalRamp": [
+          "#082a2d",
+          "#164d52",
+          "#1f6166",
+          "#2f767c",
+          "#448c92",
+          "#84c2c5",
+          "#d9eeef",
+          "#eef7f7"
+        ]
+      },
+      "tint": {
+        "role": "secondary",
+        "displayName": "Türkis-Hauch",
+        "tonalRamp": [
+          "#082a2d",
+          "#164d52",
+          "#1f6166",
+          "#2f767c",
+          "#448c92",
+          "#84c2c5",
+          "#d9eeef",
+          "#eef7f7"
+        ]
+      },
+      "tint-foreground": {
+        "role": "secondary",
+        "displayName": "Türkis-Hauch Schrift",
+        "tonalRamp": [
+          "#082a2d",
+          "#164d52",
+          "#1f6166",
+          "#2f767c",
+          "#448c92",
+          "#84c2c5",
+          "#d9eeef",
+          "#eef7f7"
+        ]
+      },
+      "hallenweiss": {
+        "role": "neutral",
+        "displayName": "Hallenweiß",
+        "tonalRamp": [
+          "#070c0d",
+          "#1f2626",
+          "#3a4142",
+          "#575f60",
+          "#7a8282",
+          "#9ea7a7",
+          "#c3cdcd",
+          "#e7f1f1"
+        ]
+      },
+      "bahnsteig": {
+        "role": "neutral",
+        "displayName": "Bahnsteig",
+        "canonical": "oklch(0.96 0.008 197)",
+        "approxHex": "#ecf4f4",
+        "tonalRamp": [
+          "#070c0c",
+          "#202525",
+          "#3b4141",
+          "#595f5f",
+          "#7b8282",
+          "#9fa6a6",
+          "#c5cccc",
+          "#e9f0f0"
+        ]
+      },
+      "karte": {
+        "role": "neutral",
+        "displayName": "Karte",
+        "canonical": "oklch(1 0 0)",
+        "approxHex": "#ffffff",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#808080",
+          "#a4a4a4",
+          "#cacaca",
+          "#eeeeee"
+        ]
+      },
+      "graphit-ink": {
+        "role": "neutral",
+        "displayName": "Graphit",
+        "canonical": "oklch(0.25 0.012 210)",
+        "approxHex": "#1b2325",
+        "tonalRamp": [
+          "#060d0e",
+          "#1d2627",
+          "#394243",
+          "#566061",
+          "#788284",
+          "#9ca7a9",
+          "#c2cdcf",
+          "#e6f1f3"
+        ]
+      },
+      "leise-schrift": {
+        "role": "neutral",
+        "displayName": "Leise Schrift",
+        "canonical": "oklch(0.43 0.014 205)",
+        "approxHex": "#475253",
+        "tonalRamp": [
+          "#050d0e",
+          "#1c2627",
+          "#374243",
+          "#556061",
+          "#778384",
+          "#9ba7a9",
+          "#c1cdcf",
+          "#e4f1f3"
+        ]
+      },
+      "linie": {
+        "role": "neutral",
+        "displayName": "Linie",
+        "canonical": "oklch(0.9 0.012 205)",
+        "approxHex": "#d5e0e2",
+        "tonalRamp": [
+          "#060d0e",
+          "#1d2627",
+          "#394243",
+          "#566061",
+          "#788284",
+          "#9ca7a8",
+          "#c2cdce",
+          "#e6f1f2"
+        ]
+      },
+      "feldrand": {
+        "role": "neutral",
+        "displayName": "Feldrand",
+        "canonical": "oklch(0.6 0.014 205)",
+        "approxHex": "#778384",
+        "tonalRamp": [
+          "#050d0e",
+          "#1c2627",
+          "#374243",
+          "#556061",
+          "#778384",
+          "#9ba7a9",
+          "#c1cdcf",
+          "#e4f1f3"
+        ]
+      },
+      "tafel": {
+        "role": "neutral",
+        "displayName": "Tafel-Graphit",
+        "tonalRamp": [
+          "#070c0d",
+          "#1f2526",
+          "#3a4142",
+          "#575f60",
+          "#7a8283",
+          "#9ea6a7",
+          "#c3cccd",
+          "#e7f1f2"
+        ]
+      },
+      "tafel-zeile": {
+        "role": "neutral",
+        "displayName": "Tafel-Zeile",
+        "tonalRamp": [
+          "#070c0d",
+          "#1f2526",
+          "#3a4142",
+          "#575f60",
+          "#7a8283",
+          "#9ea6a7",
+          "#c3cccd",
+          "#e7f1f2"
+        ]
+      },
+      "tafel-text": {
+        "role": "neutral",
+        "displayName": "Tafel-Schrift",
+        "tonalRamp": [
+          "#090c0c",
+          "#222525",
+          "#3d4040",
+          "#5b5e5e",
+          "#7e8181",
+          "#a2a5a5",
+          "#c8cbcb",
+          "#ebefef"
+        ]
+      },
+      "tafel-leise": {
+        "role": "neutral",
+        "displayName": "Tafel leise",
+        "tonalRamp": [
+          "#060d0e",
+          "#1d2627",
+          "#394243",
+          "#566061",
+          "#788284",
+          "#9ca7a8",
+          "#c2cdce",
+          "#e6f1f2"
+        ]
+      },
+      "glas": {
+        "role": "neutral",
+        "displayName": "Glas",
+        "canonical": "rgb(255 255 255 / 0.62)"
+      },
+      "glas-stark": {
+        "role": "neutral",
+        "displayName": "Glas dicht",
+        "canonical": "rgb(255 255 255 / 0.86)"
+      },
+      "glas-rand": {
+        "role": "neutral",
+        "displayName": "Glaskante",
+        "canonical": "rgb(255 255 255 / 0.75)"
+      },
+      "destructive": {
+        "role": "error",
+        "displayName": "Fehlerrot",
+        "canonical": "oklch(0.52 0.16 25)",
+        "approxHex": "#b33736",
+        "tonalRamp": [
+          "#300000",
+          "#520000",
+          "#761619",
+          "#9a3936",
+          "#c25d58",
+          "#eb827b",
+          "#ffa89f",
+          "#ffccc2"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Nur die H1 der Startseite."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Abschnittstitel; Seitenköpfe bis 3.75rem."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Haltenamen und Namen auf Karten."
+      },
+      "body": {
+        "displayName": "Fließtext",
+        "purpose": "Fließtext, max. 70ch."
+      },
+      "body-lead": {
+        "displayName": "Lead",
+        "purpose": "Ein Einleitungssatz unter Überschriften."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Knöpfe, Tabs, Chips."
+      },
+      "tafel": {
+        "displayName": "Tafelschrift",
+        "purpose": "Verbindungen, Gleisschilder, Halte, Zähler (tabular-nums)."
+      }
+    },
+    "shadows": [
+      {
+        "name": "soft",
+        "value": "0 0 0 1px oklch(0.25 0.012 210 / 0.05), 0 1px 2px oklch(0.25 0.012 210 / 0.04), 0 12px 32px -16px oklch(0.3 0.04 200 / 0.22)",
+        "purpose": "Karten in Ruhe, Chips, aktive Tabs."
+      },
+      {
+        "name": "lift",
+        "value": "0 0 0 1px oklch(0.25 0.012 210 / 0.06), 0 2px 6px oklch(0.25 0.012 210 / 0.05), 0 28px 56px -24px oklch(0.3 0.05 200 / 0.35)",
+        "purpose": "Glasleisten, Vorschlagslisten, Dialoge, Karten-Hover, Schlussaufruf."
+      },
+      {
+        "name": "goldglanz",
+        "value": "inset 0 1px 0 rgb(255 255 255 / 0.7), inset 0 -1px 0 rgb(0 0 0 / 0.06), 0 1px 2px rgb(120 90 0 / 0.18), 0 8px 20px -10px rgb(180 140 0 / 0.55)",
+        "purpose": "Nur goldene Knöpfe."
+      },
+      {
+        "name": "glas-leiste",
+        "value": "inset 0 1px 0 rgb(255 255 255 / 0.9), var(--shadow-lift); backdrop-filter: blur(24px) saturate(180%)",
+        "purpose": "Kopfzeile, App-Dock, Suchfeld, Wisch-Knopfleiste."
+      },
+      {
+        "name": "glas-knopf",
+        "value": "inset 0 1px 0 rgb(255 255 255 / 0.9), var(--shadow-soft); backdrop-filter: blur(14px) saturate(160%)",
+        "purpose": "Chips, Glasknöpfe, Umschalter."
+      }
+    ],
+    "motion": [
+      {
+        "name": "klappen",
+        "value": "520ms cubic-bezier(0.16, 1, 0.3, 1), 22ms Versatz je Zeichen",
+        "purpose": "Klappziffern am Trefferzähler."
+      },
+      {
+        "name": "karte-rein",
+        "value": "520ms cubic-bezier(0.16, 1, 0.3, 1), 90ms Versatz je Karte",
+        "purpose": "Stapel mischt sich bei neuer Suche ein."
+      },
+      {
+        "name": "wisch-flug",
+        "value": "380ms cubic-bezier(.2,.7,.2,1) (Startseite), 260ms (/talente)",
+        "purpose": "Karte fliegt nach Entscheidung aus dem Bild."
+      },
+      {
+        "name": "selbst-wischen",
+        "value": "alle 2600ms",
+        "purpose": "Vorspiel des Stapels auf der Startseite, bis jemand selbst wischt."
+      },
+      {
+        "name": "fade-up",
+        "value": "600ms cubic-bezier(.2,.7,.2,1)",
+        "purpose": "Seitenkopf-Überschriften."
+      },
+      {
+        "name": "zustand",
+        "value": "200ms",
+        "purpose": "Hover/Active von Knöpfen; Felder 150ms."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "alle Animationen 0.01ms",
+        "purpose": "Bei prefers-reduced-motion steht alles still."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Goldknopf (Hauptaktion)",
+      "kind": "button",
+      "refersTo": "button-primary-lg",
+      "description": "Die eine Hauptaktion eines Bereichs, z. B. „Kostenlos Profil anlegen“.",
+      "html": "<button class=\"ds-btn-gold\">Kostenlos Profil anlegen <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
+      "css": ":host{--glas:rgb(255 255 255/.62);--glas-stark:rgb(255 255 255/.86);--glas-rand:rgb(255 255 255/.75);--glas-licht:rgb(255 255 255/.9);--gold:oklch(.89 .16 93);--ink:oklch(.25 .012 210);--ring:#2f767c;--shadow-soft:0 0 0 1px oklch(.25 .012 210/.05),0 1px 2px oklch(.25 .012 210/.04),0 12px 32px -16px oklch(.3 .04 200/.22);--shadow-lift:0 0 0 1px oklch(.25 .012 210/.06),0 2px 6px oklch(.25 .012 210/.05),0 28px 56px -24px oklch(.3 .05 200/.35);} .ds-btn-gold{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 28px;border:0;border-radius:10px;font:600 16px Inter,sans-serif;color:var(--ink);background-color:var(--gold);background-image:linear-gradient(180deg,color-mix(in oklab,var(--gold) 70%,white),var(--gold) 55%);box-shadow:inset 0 1px 0 rgb(255 255 255/.7),inset 0 -1px 0 rgb(0 0 0/.06),0 1px 2px rgb(120 90 0/.18),0 8px 20px -10px rgb(180 140 0/.55);cursor:pointer;transition:all .2s}.ds-btn-gold:hover{filter:brightness(1.03);transform:translateY(-1px)}.ds-btn-gold:active{transform:translateY(1px)}.ds-btn-gold:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px var(--ring)}"
+    },
+    {
+      "name": "Glasknopf",
+      "kind": "button",
+      "refersTo": "button-glass",
+      "description": "Zweitaktionen wie „Fachkräfte wischen“.",
+      "html": "<button class=\"ds-btn-glas\">Fachkräfte wischen</button>",
+      "css": ":host{--glas:rgb(255 255 255/.62);--glas-stark:rgb(255 255 255/.86);--glas-rand:rgb(255 255 255/.75);--glas-licht:rgb(255 255 255/.9);--gold:oklch(.89 .16 93);--ink:oklch(.25 .012 210);--ring:#2f767c;--shadow-soft:0 0 0 1px oklch(.25 .012 210/.05),0 1px 2px oklch(.25 .012 210/.04),0 12px 32px -16px oklch(.3 .04 200/.22);--shadow-lift:0 0 0 1px oklch(.25 .012 210/.06),0 2px 6px oklch(.25 .012 210/.05),0 28px 56px -24px oklch(.3 .05 200/.35);} .ds-btn-glas{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 28px;border:1px solid var(--glas-rand);border-radius:10px;font:600 16px Inter,sans-serif;color:var(--ink);background:var(--glas);box-shadow:inset 0 1px 0 var(--glas-licht),var(--shadow-soft);backdrop-filter:blur(14px) saturate(160%);cursor:pointer;transition:all .2s}.ds-btn-glas:hover{background:var(--glas-stark);transform:translateY(-1px)}.ds-btn-glas:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px var(--ring)}"
+    },
+    {
+      "name": "Suchfeld mit Goldknopf",
+      "kind": "input",
+      "refersTo": "search-field",
+      "description": "Gläsernes Suchfeld der Startseite mit eingebettetem Suchknopf.",
+      "html": "<form class=\"ds-suche\" onsubmit=\"return false\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.3-4.3\"/></svg><input placeholder=\"z. B. Pflegekraft in Wien\" aria-label=\"Suche\"><button class=\"ds-btn-gold ds-klein\">Suchen</button></form>",
+      "css": ":host{--glas:rgb(255 255 255/.62);--glas-stark:rgb(255 255 255/.86);--glas-rand:rgb(255 255 255/.75);--glas-licht:rgb(255 255 255/.9);--gold:oklch(.89 .16 93);--ink:oklch(.25 .012 210);--ring:#2f767c;--shadow-soft:0 0 0 1px oklch(.25 .012 210/.05),0 1px 2px oklch(.25 .012 210/.04),0 12px 32px -16px oklch(.3 .04 200/.22);--shadow-lift:0 0 0 1px oklch(.25 .012 210/.06),0 2px 6px oklch(.25 .012 210/.05),0 28px 56px -24px oklch(.3 .05 200/.35);} .ds-btn-gold{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 28px;border:0;border-radius:10px;font:600 16px Inter,sans-serif;color:var(--ink);background-color:var(--gold);background-image:linear-gradient(180deg,color-mix(in oklab,var(--gold) 70%,white),var(--gold) 55%);box-shadow:inset 0 1px 0 rgb(255 255 255/.7),inset 0 -1px 0 rgb(0 0 0/.06),0 1px 2px rgb(120 90 0/.18),0 8px 20px -10px rgb(180 140 0/.55);cursor:pointer;transition:all .2s}.ds-btn-gold:hover{filter:brightness(1.03);transform:translateY(-1px)}.ds-btn-gold:active{transform:translateY(1px)}.ds-btn-gold:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px var(--ring)}.ds-klein{height:44px;padding:0 24px}.ds-suche{display:flex;align-items:center;gap:8px;max-width:36rem;padding:8px 8px 8px 20px;border-radius:14px;color:oklch(.43 .014 205);background:var(--glas-stark);border:1px solid var(--glas-rand);box-shadow:inset 0 1px 0 var(--glas-licht),var(--shadow-lift);backdrop-filter:blur(24px) saturate(180%)}.ds-suche:focus-within{box-shadow:0 0 0 2px var(--ring),var(--shadow-lift)}.ds-suche input{flex:1;min-width:0;height:44px;border:0;background:transparent;outline:none;font:400 18px Inter,sans-serif;color:var(--ink)}"
+    },
+    {
+      "name": "Branchen-Chip",
+      "kind": "chip",
+      "refersTo": "chip-branche",
+      "description": "Schnellsuche unter dem Suchfeld; aktiv mit Türkis-Hauch.",
+      "html": "<div class=\"ds-chips\"><button class=\"ds-chip\">Pflege</button><button class=\"ds-chip\" aria-pressed=\"true\">Bau &amp; Handwerk</button></div>",
+      "css": ":host{--glas:rgb(255 255 255/.62);--glas-stark:rgb(255 255 255/.86);--glas-rand:rgb(255 255 255/.75);--glas-licht:rgb(255 255 255/.9);--gold:oklch(.89 .16 93);--ink:oklch(.25 .012 210);--ring:#2f767c;--shadow-soft:0 0 0 1px oklch(.25 .012 210/.05),0 1px 2px oklch(.25 .012 210/.04),0 12px 32px -16px oklch(.3 .04 200/.22);--shadow-lift:0 0 0 1px oklch(.25 .012 210/.06),0 2px 6px oklch(.25 .012 210/.05),0 28px 56px -24px oklch(.3 .05 200/.35);} .ds-chips{display:flex;gap:8px;flex-wrap:wrap}.ds-chip{padding:4px 12px;border-radius:8px;font:400 14px Inter,sans-serif;color:#164d52;background:var(--glas);border:1px solid var(--glas-rand);box-shadow:inset 0 1px 0 var(--glas-licht),var(--shadow-soft);cursor:pointer;transition:all .15s}.ds-chip:hover{background:var(--glas-stark)}.ds-chip[aria-pressed=true]{background:#eef7f7;border-color:#84c2c5;box-shadow:none}.ds-chip:focus-visible{outline:2px solid var(--ring);outline-offset:2px}"
+    },
+    {
+      "name": "Gleisschild",
+      "kind": "chip",
+      "refersTo": "gleisschild",
+      "description": "Deutschniveau als türkises Schild in Tafelschrift.",
+      "html": "<span class=\"ds-niveau\">Deutsch <span class=\"ds-gleis\">B2</span></span>",
+      "css": ".ds-niveau{display:inline-flex;align-items:center;gap:6px;font:400 12px Inter,sans-serif;color:oklch(.43 .014 205)}.ds-gleis{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 6px;border-radius:6px;background:#1f6166;color:#fff;font:700 15px 'Barlow Condensed',Barlow,sans-serif;line-height:1;font-variant-numeric:tabular-nums}"
+    },
+    {
+      "name": "Profilkarte",
+      "kind": "card",
+      "refersTo": "card-profil",
+      "description": "Feste weiße Karte mit Foto, Beruf, Verbindung Von → Nach und Gleisschild.",
+      "html": "<a class=\"ds-karte\" href=\"#\"><div class=\"ds-foto\"><span>M</span><em>Beispiel</em></div><div class=\"ds-inhalt\"><h3>Maria K.</h3><p class=\"ds-beruf\">Pflegefachkraft</p><p class=\"ds-verb\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z\"/><circle cx=\"12\" cy=\"10\" r=\"3\"/></svg><span>Cluj-Napoca</span><i></i><b>Deutschland</b></p><div class=\"ds-fuss\"><span>Deutsch <span class=\"ds-gleis\">B2</span></span><span>12 J.</span></div></div></a>",
+      "css": ".ds-karte{display:grid;grid-template-columns:11rem 1fr;max-width:30rem;overflow:hidden;text-decoration:none;color:oklch(.25 .012 210);background:#fff;border:1px solid oklch(.9 .012 205);border-radius:14px;box-shadow:0 0 0 1px oklch(.25 .012 210/.05),0 12px 32px -16px oklch(.3 .04 200/.22);transition:all .2s}.ds-karte:hover{transform:translateY(-2px);border-color:#84c2c5;box-shadow:0 0 0 1px oklch(.25 .012 210/.06),0 28px 56px -24px oklch(.3 .05 200/.35)}.ds-karte:focus-visible{outline:2px solid #2f767c;outline-offset:2px}.ds-foto{position:relative;display:flex;align-items:center;justify-content:center;min-height:13.75rem;background:radial-gradient(circle at 1px 1px,rgb(68 140 146/.16) 1px,transparent 0) 0 0/14px 14px,linear-gradient(160deg,#eef7f7,#b3dcde)}.ds-foto span{font:800 60px Barlow,sans-serif;color:#1f6166}.ds-foto em{position:absolute;left:8px;top:8px;font:700 11px Inter,sans-serif;font-style:normal;color:#164d52;background:rgb(255 255 255/.7);padding:2px 8px;border-radius:999px}.ds-inhalt{display:flex;flex-direction:column;gap:12px;padding:20px}.ds-inhalt h3{margin:0;font:700 20px/1.2 Barlow,sans-serif;letter-spacing:-.015em}.ds-beruf{margin:-10px 0 0;font:400 14px Inter,sans-serif;color:#1f6166}.ds-verb{display:flex;align-items:center;gap:6px;margin:0;font:600 16px 'Barlow Condensed',sans-serif}.ds-verb svg{color:oklch(.43 .014 205)}.ds-verb i{width:20px;height:2px;background:#448c92}.ds-verb b{color:#1f6166;font-weight:600}.ds-fuss{display:flex;justify-content:space-between;padding-top:12px;border-top:1px solid oklch(.25 .012 210/.08);font:400 14px Inter,sans-serif;color:oklch(.43 .014 205)}.ds-gleis{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 6px;border-radius:6px;background:#1f6166;color:#fff;font:700 14px 'Barlow Condensed',sans-serif}"
+    },
+    {
+      "name": "Kopfzeile (Glasleiste)",
+      "kind": "nav",
+      "refersTo": "nav-leiste",
+      "description": "Schwebende Glasleiste mit Navigation und Gold-Anmelden.",
+      "html": "<header class=\"ds-leiste\"><strong class=\"ds-logo\">STANDARD PLUS</strong><nav><a href=\"#\" aria-current=\"page\">Talente finden</a><a href=\"#\">Unternehmen</a><a href=\"#\">Preise</a></nav><button class=\"ds-btn-gold ds-sm\">Anmelden</button></header>",
+      "css": ":host{--glas:rgb(255 255 255/.62);--glas-stark:rgb(255 255 255/.86);--glas-rand:rgb(255 255 255/.75);--glas-licht:rgb(255 255 255/.9);--gold:oklch(.89 .16 93);--ink:oklch(.25 .012 210);--ring:#2f767c;--shadow-soft:0 0 0 1px oklch(.25 .012 210/.05),0 1px 2px oklch(.25 .012 210/.04),0 12px 32px -16px oklch(.3 .04 200/.22);--shadow-lift:0 0 0 1px oklch(.25 .012 210/.06),0 2px 6px oklch(.25 .012 210/.05),0 28px 56px -24px oklch(.3 .05 200/.35);} .ds-btn-gold{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 28px;border:0;border-radius:10px;font:600 16px Inter,sans-serif;color:var(--ink);background-color:var(--gold);background-image:linear-gradient(180deg,color-mix(in oklab,var(--gold) 70%,white),var(--gold) 55%);box-shadow:inset 0 1px 0 rgb(255 255 255/.7),inset 0 -1px 0 rgb(0 0 0/.06),0 1px 2px rgb(120 90 0/.18),0 8px 20px -10px rgb(180 140 0/.55);cursor:pointer;transition:all .2s}.ds-btn-gold:hover{filter:brightness(1.03);transform:translateY(-1px)}.ds-btn-gold:active{transform:translateY(1px)}.ds-btn-gold:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px var(--ring)}.ds-sm{height:36px;padding:0 12px;font-size:12px}.ds-leiste{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px;padding:0 8px 0 24px;border-radius:14px;background:var(--glas-stark);border:1px solid var(--glas-rand);box-shadow:inset 0 1px 0 var(--glas-licht),var(--shadow-lift);backdrop-filter:blur(24px) saturate(180%)}.ds-logo{font:700 18px Barlow,sans-serif;color:#448c92}.ds-leiste nav{display:flex;gap:4px}.ds-leiste a{padding:6px 14px;border-radius:8px;font:500 14px Inter,sans-serif;color:oklch(.43 .014 205);text-decoration:none;transition:background .15s,color .15s}.ds-leiste a:hover{background:var(--glas);color:var(--ink)}.ds-leiste a[aria-current]{background:var(--glas-stark);color:#164d52;box-shadow:var(--shadow-soft)}.ds-leiste a:focus-visible{outline:2px solid var(--ring);outline-offset:2px}"
+    },
+    {
+      "name": "Wisch-Knöpfe",
+      "kind": "custom",
+      "description": "Glasknopf ✕ (weiter) und runder Türkis-Favoritknopf unter dem Kartenstapel.",
+      "html": "<div class=\"ds-wisch\"><button class=\"ds-weiter\" aria-label=\"Weiter\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M18 6 6 18\"/><path d=\"m6 6 12 12\"/></svg></button><button class=\"ds-fav\" aria-label=\"Favorit\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\"><path d=\"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z\"/></svg></button></div>",
+      "css": ":host{--glas:rgb(255 255 255/.62);--glas-stark:rgb(255 255 255/.86);--glas-rand:rgb(255 255 255/.75);--glas-licht:rgb(255 255 255/.9);--gold:oklch(.89 .16 93);--ink:oklch(.25 .012 210);--ring:#2f767c;--shadow-soft:0 0 0 1px oklch(.25 .012 210/.05),0 1px 2px oklch(.25 .012 210/.04),0 12px 32px -16px oklch(.3 .04 200/.22);--shadow-lift:0 0 0 1px oklch(.25 .012 210/.06),0 2px 6px oklch(.25 .012 210/.05),0 28px 56px -24px oklch(.3 .05 200/.35);} .ds-wisch{display:flex;gap:12px;align-items:center}.ds-wisch button{display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:999px;cursor:pointer;transition:transform .2s,background .2s}.ds-wisch button:hover{transform:scale(1.05)}.ds-wisch button:focus-visible{outline:2px solid var(--ring);outline-offset:2px}.ds-weiter{color:var(--ink);background:var(--glas);border:1px solid var(--glas-rand);box-shadow:inset 0 1px 0 var(--glas-licht),var(--shadow-soft);backdrop-filter:blur(14px)}.ds-weiter:hover{background:var(--glas-stark)}.ds-fav{border:0;color:#fff;background:linear-gradient(180deg,#448c92,#1f6166);box-shadow:inset 0 1px 0 rgb(255 255 255/.35),0 10px 24px -10px #1f6166}"
+    },
+    {
+      "name": "Linienplan",
+      "kind": "custom",
+      "description": "Ablauf als Linie mit nummerierten Halten; das Ziel in Gold.",
+      "html": "<ol class=\"ds-linie\"><li><span>1</span>Profil anlegen</li><li><span>2</span>Gefunden werden</li><li><span>3</span>Einladung &amp; Match</li><li class=\"ziel\"><span>4</span>Interview</li></ol>",
+      "css": ".ds-linie{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:0;padding:0;list-style:none;font:700 18px Barlow,sans-serif;color:oklch(.25 .012 210)}.ds-linie::before{content:'';position:absolute;left:12px;right:12px;top:13px;height:4px;border-radius:999px;background:#2f767c}.ds-linie li{position:relative;display:grid;gap:16px}.ds-linie span{display:flex;align-items:center;justify-content:center;width:30px;height:30px;box-sizing:border-box;border-radius:999px;border:3px solid #2f767c;background:#f3f7f7;color:#1f6166;font:700 16px 'Barlow Condensed',sans-serif}.ds-linie .ziel span{border-color:oklch(.89 .16 93);background:oklch(.89 .16 93);color:oklch(.25 .012 210)}"
+    },
+    {
+      "name": "Schlussaufruf (Tafel)",
+      "kind": "card",
+      "refersTo": "tafel-aufruf",
+      "description": "Einzige dunkle Fläche: neutrale Graphit-Tafel am Seitenende.",
+      "html": "<section class=\"ds-tafel\"><div><h2>Ihr nächster Job wartet – überall.</h2><p>Kostenlos für Fachkräfte. Unternehmen zahlen nur bei Erfolg.</p></div><button class=\"ds-btn-gold\">Profil anlegen</button></section>",
+      "css": ":host{--glas:rgb(255 255 255/.62);--glas-stark:rgb(255 255 255/.86);--glas-rand:rgb(255 255 255/.75);--glas-licht:rgb(255 255 255/.9);--gold:oklch(.89 .16 93);--ink:oklch(.25 .012 210);--ring:#2f767c;--shadow-soft:0 0 0 1px oklch(.25 .012 210/.05),0 1px 2px oklch(.25 .012 210/.04),0 12px 32px -16px oklch(.3 .04 200/.22);--shadow-lift:0 0 0 1px oklch(.25 .012 210/.06),0 2px 6px oklch(.25 .012 210/.05),0 28px 56px -24px oklch(.3 .05 200/.35);} .ds-btn-gold{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 28px;border:0;border-radius:10px;font:600 16px Inter,sans-serif;color:var(--ink);background-color:var(--gold);background-image:linear-gradient(180deg,color-mix(in oklab,var(--gold) 70%,white),var(--gold) 55%);box-shadow:inset 0 1px 0 rgb(255 255 255/.7),inset 0 -1px 0 rgb(0 0 0/.06),0 1px 2px rgb(120 90 0/.18),0 8px 20px -10px rgb(180 140 0/.55);cursor:pointer;transition:all .2s}.ds-btn-gold:hover{filter:brightness(1.03);transform:translateY(-1px)}.ds-btn-gold:active{transform:translateY(1px)}.ds-btn-gold:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px var(--ring)}.ds-tafel{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:48px;border-radius:18px;background:#1d2426;color:#f4f6f6;box-shadow:var(--shadow-lift)}.ds-tafel::before{content:'';position:absolute;right:-96px;top:-128px;width:320px;height:320px;border-radius:999px;background:rgb(68 140 146/.15);filter:blur(64px)}.ds-tafel h2{position:relative;margin:0;font:700 36px/1.2 Barlow,sans-serif;letter-spacing:-.015em}.ds-tafel p{position:relative;margin:8px 0 0;color:#b4c0c1;font:400 16px Inter,sans-serif}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Die helle Bahnhofshalle",
+    "overview": "Standard Plus sieht aus wie eine lichte Bahnhofshalle unter einem Glasdach: kühles, fast weißes Licht, gläserne Leisten und Knöpfe, die über einem ruhigen Farbschimmer schweben, und eine Wegeleitung, die einem sagt, wohin die Reise geht. Jede Fachkraft ist eine Verbindung „Von ──→ Nach“, ihr Deutschniveau ein türkises Gleisschild, der Ablauf ein Linienplan mit nummerierten Halten. Gold ist der gelbe Abfahrtsplan: Es markiert die eine Handlung, die zählt.\n\nDie Dichte ist luftig, aber nicht leer. Große Barlow-Überschriften tragen die Seite, kurze Inter-Sätze erklären, und der Kartenstapel ist das lebendige Zentrum: Er wischt sich selbst vor, mischt sich bei jeder Sucheingabe neu ein und zählt seine Treffer mit Klappziffern wie eine Abfahrtstafel. Bei reduzierter Bewegung steht alles still und bleibt vollständig lesbar.\n\nAbgelehnt sind dunkle Farbflächen im oberen Bereich und große grüne oder türkise Flächen. Die einzige dunkle Fläche ist der Schlussaufruf, und sie ist neutral graphit, nicht grün.",
+    "keyCharacteristics": [
+      "Heller Modus als Standard, Dunkelmodus zuschaltbar.",
+      "Glas nur für Bedienelemente und schwebende Leisten; Inhalte liegen auf festen weißen Karten.",
+      "Gold = Hauptaktion, Türkis = Wegeleitung (Text, Linien, Schilder), nie Fläche.",
+      "Barlow Condensed mit gleich breiten Ziffern für alles, was nach Fahrplan aussieht.",
+      "Bewegung mit Bedeutung: Klappen, Einmischen, Wischen."
+    ],
+    "rules": [
+      {
+        "name": "The Gold-ist-Abfahrt Rule",
+        "body": "Gold trägt pro Bereich genau eine Hauptaktion, dazu Zähler und Ziele. Erlaubte Begleiter sind nur der ins Suchfeld eingebettete Knopf „Suchen“ und „Anmelden“ in der Kopfzeile.",
+        "section": "colors"
+      },
+      {
+        "name": "The Türkis-ist-Wegweiser Rule",
+        "body": "Türkis erscheint als Schrift, Linie, Schild oder kleiner Knopf, nie als große Fläche oder Sektionshintergrund.",
+        "section": "colors"
+      },
+      {
+        "name": "The Eine-dunkle-Tafel Rule",
+        "body": "Die einzige dunkle Fläche im hellen Modus ist der Schlussaufruf in neutralem Graphit (`tafel`). Keine dunklen Flächen oberhalb der Falz.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tafelschrift Rule",
+        "body": "Alles, was Ort, Ziel, Niveau oder Zahl ist, steht in Barlow Condensed mit gleich breiten Ziffern. Fließtext nie.",
+        "section": "typography"
+      },
+      {
+        "name": "The Ein-Satz Rule",
+        "body": "Unter jeder Überschrift höchstens ein Satz in Lead-Größe; mehr Text gehört in Listen.",
+        "section": "typography"
+      },
+      {
+        "name": "The Glas-nur-zum-Bedienen Rule",
+        "body": "Glas bekommen Leisten, Knöpfe, Chips und das Suchfeld. Inhalte, die gelesen werden (Profile, Dialoge), liegen auf fester weißer Karte.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** eine Hauptaktion pro Bereich in Gold mit Glanzkante setzen und alles Weitere als Glasknopf.",
+      "**Do** Orte, Ziele, Sprachniveaus und Zähler in Barlow Condensed mit gleich breiten Ziffern setzen: Verbindung als „Von ──→ Nach“, Niveau als türkises Gleisschild.",
+      "**Do** Inhalte auf feste weiße Karten (14px, Soft-Schatten) legen und Glas nur für Leisten, Knöpfe, Chips und Suchfeld verwenden.",
+      "**Do** fiktive Profile sichtbar als „Beispiel“ kennzeichnen.",
+      "**Do** jede Bewegung bei `prefers-reduced-motion` abschalten (Stapel steht, Suchfeld zeigt das erste Beispiel statisch).",
+      "**Do** Fotos im 4:5-Hochformat mit Ausschnitt im oberen Drittel zeigen."
+    ],
+    "donts": [
+      "**Don't** Türkis als große Fläche oder Sektionshintergrund einsetzen; keine dunkelgrünen oder dunkeltürkisen Flächen.",
+      "**Don't** dunkle Flächen oberhalb der Falz oder im Seitenkopf verwenden; die einzige dunkle Fläche ist der graphitfarbene Schlussaufruf.",
+      "**Don't** Gold für Dekoration oder Flächen verwenden oder zwei goldene Hauptknöpfe in denselben Bereich setzen.",
+      "**Don't** Profil- oder Wischkarten in Glas setzen; dort scheint nichts durch.",
+      "**Don't** Kennzahlen, Bewertungen oder Logos erfinden."
+    ]
+  }
+}

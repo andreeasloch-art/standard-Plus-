@@ -25,7 +25,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const BEISPIELE = ["Pflegekraft in Wien", "Koch in Paris", "Elektriker in Zürich", "Entwickler in London", "Erntehelfer in Spanien", "Fahrer in New York"];
+const BEISPIELE = ["Koch in Paris", "Pflege in Wien", "Elektriker in Zürich", "Entwickler in London", "Fliesenleger in Madrid", "Fahrer in New York"];
 
 const BELIEBT = [
   { label: "Pflege", q: "Pflege" },
@@ -38,6 +38,8 @@ function Index() {
   const { data, isLoading, isError } = useQuery(oeffentlicheProfileQuery);
   const [rolle, setRolle] = useState<Rolle>("arbeit");
   const [suche, setSuche] = useState("");
+  const [beispiel, setBeispiel] = useState<string | null>(null);
+  const [bewegung, setBewegung] = useState(true);
   const tab = (r: Rolle) =>
     `rounded-md px-3.5 py-2 text-sm font-semibold transition ${rolle === r ? "bg-white text-tuerkis-800 shadow-soft dark:bg-card dark:text-tuerkis-200" : "text-muted-foreground hover:text-foreground"}`;
 
@@ -53,7 +55,7 @@ function Index() {
             Fachkräfte und Unternehmen finden sich per Wisch – von Wien bis Paris, von London bis New York.
           </p>
 
-          <SuchFeld gross wert={suche} beispiele={BEISPIELE} onAenderung={setSuche} className="mt-6 max-w-xl sm:mt-8" />
+          <SuchFeld gross wert={suche} beispiele={BEISPIELE} onTippBeispiel={setBeispiel} bewegung={bewegung} onAenderung={setSuche} className="mt-6 max-w-xl sm:mt-8" />
           <div className="mt-3 flex flex-wrap gap-2" aria-label="Beliebte Suchen">
             {BELIEBT.map((b) => (
               <button
@@ -69,11 +71,6 @@ function Index() {
           </div>
         </div>
 
-        {/* Auf dem Handy direkt unter der Suche, ab Desktop rechts daneben */}
-        <div className="min-w-0 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-center">
-          <WischBuehne profile={data ?? []} suche={suche} />
-        </div>
-
         <div className="min-w-0 lg:self-start">
           <div className="flex flex-wrap items-center gap-3">
             <Button asChild size="lg">
@@ -81,14 +78,20 @@ function Index() {
                 Kostenlos Profil anlegen <ArrowRight />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline">
+            <Button asChild size="lg" variant="outline" className="hidden sm:inline-flex">
               <Link to="/talente" search={{ q: suche.trim() || undefined }}>
                 <Hand /> Fachkräfte wischen
               </Link>
             </Button>
           </div>
-          <p className="mt-3 text-sm text-muted-foreground">Kontaktdaten gibt es erst beim Match.</p>
+          <p className="mt-3 hidden text-sm text-muted-foreground sm:block">Kontaktdaten gibt es erst beim Match.</p>
         </div>
+
+        {/* Handy: unter den Knöpfen; Desktop: rechts über beide Zeilen */}
+        <div className="min-w-0 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-center">
+          <WischBuehne profile={data ?? []} suche={suche} beispiel={beispiel} bewegung={bewegung} onBewegung={setBewegung} />
+        </div>
+
       </section>
 
       <section className="container-page pb-16 sm:pb-24" aria-labelledby="ablauf-titel">

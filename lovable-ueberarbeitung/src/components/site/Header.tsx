@@ -96,7 +96,7 @@ export function Header() {
                 <Button variant="ghost" size="sm" onClick={signOut}><LogOut />Abmelden</Button>
               </>
             ) : (
-              <Button asChild size="sm"><Link to="/auth">Anmelden</Link></Button>
+              <Button asChild size="sm" variant="outline"><Link to="/auth">Anmelden</Link></Button>
             )}
           </div>
           <Button ref={menuBtn} variant="ghost" size="icon" className="md:hidden" aria-controls="mobile-nav" aria-label={open ? "Menü schließen" : "Menü öffnen"} aria-expanded={open} onClick={() => setOpen((o) => !o)}>
