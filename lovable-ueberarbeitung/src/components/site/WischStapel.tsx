@@ -126,7 +126,7 @@ export function WischStapel({ profile, onEinladen }: { profile: OeffentlichesPro
         {[2, 1].map((n) => profile[pos + n] && (
           <div key={profile[pos + n].id} aria-hidden className="card-base karte-fest absolute inset-0 overflow-hidden"
             style={{ transform: `translateY(${n * 10}px) scale(${1 - n * 0.04})`, opacity: 1 - n * 0.25 }}>
-            <ProfilFoto url={profile[pos + n].foto_url} name={profile[pos + n].anzeigename} className="max-h-[20vh] sm:max-h-[44vh]" />
+            <ProfilFoto url={profile[pos + n].foto_url} name={profile[pos + n].anzeigename} className="max-h-[14vh] sm:max-h-[44vh]" />
           </div>
         ))}
 
@@ -143,7 +143,7 @@ export function WischStapel({ profile, onEinladen }: { profile: OeffentlichesPro
           }}
         >
           <div className="relative">
-            <ProfilFoto url={aktuell.foto_url} name={name} gross className="max-h-[20vh] sm:max-h-[44vh]" />
+            <ProfilFoto url={aktuell.foto_url} name={name} gross className="max-h-[14vh] sm:max-h-[44vh]" />
             {beispiel && (
               <span className="absolute left-3 top-3 rounded-full bg-white/70 ring-1 ring-white/70 backdrop-blur-md px-2.5 py-0.5 text-xs font-bold text-tuerkis-800 shadow-soft">
                 {matchProzent(aktuell.id)} % · Beispiel
@@ -160,17 +160,22 @@ export function WischStapel({ profile, onEinladen }: { profile: OeffentlichesPro
             <span aria-hidden className="absolute right-4 top-12 rotate-12 rounded-xl border-4 border-ink/60 bg-white/90 px-3 py-1 font-display text-2xl font-extrabold text-ink/70"
               style={{ opacity: Math.max(0, -anteil) }}>WEITER</span>
           </div>
-          <div className="p-4 sm:p-5">
-            <h3 className="text-xl sm:text-2xl">{name}</h3>
+          <div className="p-4 pb-24 sm:p-5">
+            <h3 className="text-2xl sm:text-3xl">{name}</h3>
             <p className="text-tuerkis-700 dark:text-tuerkis-300">{aktuell.beruf ?? "–"}</p>
-            <p className="mt-2 flex items-center gap-1.5 text-sm text-muted-foreground">
-              <MapPin className="h-4 w-4 shrink-0" aria-hidden />
-              {aktuell.wohnort ?? aktuell.land} → {aktuell.zielort ?? "flexibel"}
+            <p className="schrift-tafel mt-2 flex items-center gap-1.5 text-base font-semibold">
+              <MapPin className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden />
+              <span>{aktuell.wohnort ?? aktuell.land}</span>
+              <span className="flex items-center" aria-label="nach">
+                <span className="h-0.5 w-5 bg-tuerkis-500" aria-hidden />
+                <ArrowRight className="-ml-1 h-4 w-4 text-tuerkis-600" aria-hidden />
+              </span>
+              <span className="text-tuerkis-700 dark:text-tuerkis-300">{aktuell.zielort ?? "flexibel"}</span>
             </p>
             <div className="mt-3 flex flex-wrap gap-1.5">
-              <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-semibold">Deutsch {aktuell.deutschniveau ?? "–"}</span>
-              {aktuell.erfahrung_jahre != null && <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-semibold">{aktuell.erfahrung_jahre} J. Erfahrung</span>}
-              {aktuell.skills.slice(0, 3).map((s) => <span key={s} className="rounded-full bg-tint px-2.5 py-0.5 text-xs text-tint-foreground">{s}</span>)}
+              <span className="inline-flex items-center gap-1.5 text-xs font-semibold">Deutsch <span className="gleis h-6 min-w-6 text-sm">{aktuell.deutschniveau ?? "–"}</span></span>
+              {aktuell.erfahrung_jahre != null && <span className="rounded-md bg-muted px-2 py-0.5 text-xs font-semibold">{aktuell.erfahrung_jahre} J. Erfahrung</span>}
+              {aktuell.skills.slice(0, 3).map((s) => <span key={s} className="rounded-md bg-tint px-2 py-0.5 text-xs text-tint-foreground">{s}</span>)}
             </div>
             <Link to="/profil/$id" params={{ id: aktuell.id }} className="mt-3 inline-block text-sm font-semibold text-info underline-offset-4 hover:underline">
               Ganzes Profil ansehen
@@ -179,7 +184,7 @@ export function WischStapel({ profile, onEinladen }: { profile: OeffentlichesPro
         </div>
       </div>
 
-      <div className="glas-leiste sticky bottom-[calc(env(safe-area-inset-bottom,0px)+5.25rem)] z-10 mx-auto mt-5 flex w-fit items-center justify-center gap-2.5 rounded-full p-2 sm:static sm:gap-3">
+      <div className="glas-leiste sticky bottom-[calc(env(safe-area-inset-bottom,0px)+5.25rem)] z-10 mx-auto mt-5 flex w-fit items-center justify-center gap-2.5 rounded-2xl p-2 sm:static sm:gap-3">
         <button type="button" onClick={rueckgaengig} disabled={!verlauf.length} aria-label="Letzte Entscheidung zurücknehmen"
           className="glas-knopf flex h-11 w-11 items-center justify-center rounded-full text-muted-foreground transition hover:bg-[var(--glas-stark)] disabled:opacity-40">
           <RotateCcw className="h-5 w-5" />
@@ -193,7 +198,7 @@ export function WischStapel({ profile, onEinladen }: { profile: OeffentlichesPro
           <Star className="h-7 w-7" fill="currentColor" />
         </button>
         <button type="button" onClick={() => onEinladen(aktuell)} aria-label={`${name} zum Interview einladen`}
-          className="knopf-gold flex h-11 items-center gap-1.5 rounded-full px-4 text-sm font-semibold transition hover:brightness-[1.03]">
+          className="knopf-gold flex h-11 items-center gap-1.5 rounded-lg px-4 text-sm font-semibold transition hover:brightness-[1.03]">
           <CalendarCheck className="h-4 w-4" aria-hidden /> Einladen
         </button>
       </div>

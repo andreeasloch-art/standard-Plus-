@@ -1,31 +1,44 @@
-import { CalendarCheck, Languages, Search, Hand } from "lucide-react";
+export type Rolle = "arbeit" | "personal";
 
-const SCHRITTE = [
-  { icon: Search, t: "Suchen", d: "Beruf eingeben – passende Profile werden vorgeschlagen." },
-  { icon: Hand, t: "Wischen", d: "Nach rechts = Favorit, nach links = weiter." },
-  { icon: CalendarCheck, t: "Einladen & Match", d: "Sagt die Fachkraft zu, ist es ein Match – erst dann gibt es Kontaktdaten." },
-  { icon: Languages, t: "Mit Dolmetscher sprechen", d: "Jeder spricht seine Sprache, die Übersetzung läuft live mit." },
-];
+const HALTE: Record<Rolle, { t: string; d: string }[]> = {
+  arbeit: [
+    { t: "Profil anlegen", d: "Kostenlos, in wenigen Minuten – mit Foto." },
+    { t: "Gefunden werden", d: "Unternehmen sehen Beruf, Erfahrung und Deutschniveau." },
+    { t: "Einladung & Match", d: "Sie sagen zu – erst dann gibt es Kontaktdaten." },
+    { t: "Interview", d: "Per Telefon oder Video, mit Dolmetscher." },
+  ],
+  personal: [
+    { t: "Suchen", d: "Beruf eingeben – passende Profile werden vorgeschlagen." },
+    { t: "Wischen", d: "Nach rechts = Favorit, nach links = weiter." },
+    { t: "Einladen & Match", d: "Sagt die Fachkraft zu, ist es ein Match." },
+    { t: "Interview", d: "Jeder spricht seine Sprache, übersetzt wird live." },
+  ],
+};
 
-/** Vier Schritte als Kette – die Linie zeigt die Reihenfolge. */
-export function Schritte() {
+/** Ablauf als Linienplan: vier Halte auf einer Linie, das Ziel in Gold. */
+export function Schritte({ rolle = "arbeit" }: { rolle?: Rolle }) {
+  const halte = HALTE[rolle];
   return (
-    <ol className="relative mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
-      <span className="absolute left-7 right-7 top-7 hidden h-px bg-gradient-to-r from-tuerkis-300/0 via-tuerkis-300 to-tuerkis-300/0 lg:block dark:via-tuerkis-700" aria-hidden />
-      {SCHRITTE.map(({ icon: I, t, d }, i) => (
-        <li key={t} className="relative flex gap-4 lg:flex-col lg:gap-3">
-          <span className="relative flex h-14 w-14 shrink-0 items-center justify-center glas-knopf rounded-2xl text-tuerkis-600 dark:text-tuerkis-300">
-            <I className="h-6 w-6" aria-hidden />
-            <span className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[11px] font-bold text-primary-foreground">
+    <ol className="relative mt-8 grid gap-7 lg:grid-cols-4 lg:gap-6">
+      {/* Linie: senkrecht auf dem Handy, waagerecht ab Desktop */}
+      <span aria-hidden className="absolute bottom-3 left-[0.8125rem] top-3 w-1 rounded-full bg-tuerkis-600 lg:bottom-auto lg:left-3 lg:right-3 lg:top-[0.8125rem] lg:h-1 lg:w-auto" />
+      {halte.map((h, i) => {
+        const ziel = i === halte.length - 1;
+        return (
+          <li key={h.t} className="relative grid grid-cols-[1.875rem_1fr] gap-4 lg:grid-cols-1 lg:gap-4">
+            <span
+              aria-hidden
+              className={`schrift-tafel relative z-10 flex h-[1.875rem] w-[1.875rem] items-center justify-center rounded-full border-[3px] text-base font-bold ${ziel ? "border-primary bg-primary text-ink" : "border-tuerkis-600 bg-background text-tuerkis-700 dark:text-tuerkis-300"}`}
+            >
               {i + 1}
             </span>
-          </span>
-          <div>
-            <h3 className="text-lg">{t}</h3>
-            <p className="mt-0.5 text-sm text-muted-foreground">{d}</p>
-          </div>
-        </li>
-      ))}
+            <div>
+              <h3 className="text-xl"><span className="sr-only">Schritt {i + 1}: </span>{h.t}</h3>
+              <p className="mt-1 text-[0.95rem] text-muted-foreground">{h.d}</p>
+            </div>
+          </li>
+        );
+      })}
     </ol>
   );
 }

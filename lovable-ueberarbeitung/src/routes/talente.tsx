@@ -5,6 +5,7 @@ import { Hand, LayoutGrid, SlidersHorizontal, Star, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { EmptyState, ErrorState } from "@/components/site/PageHeader";
 import { ProfilListe } from "@/components/site/ProfilListe";
+import { KlappText } from "@/components/site/Abfahrtstafel";
 import { SuchFeld } from "@/components/site/SuchFeld";
 import { WischStapel } from "@/components/site/WischStapel";
 import { EinladenDialog } from "@/components/site/EinladenDialog";
@@ -73,13 +74,13 @@ function Talente() {
   const filterAktiv = Object.values(f).filter(Boolean).length;
   const sel = "field appearance-none";
   const umschalter = (aktiv: boolean) =>
-    `inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold transition ${aktiv ? "bg-[var(--glas-stark)] text-tint-foreground shadow-soft" : "text-muted-foreground hover:text-foreground"}`;
+    `inline-flex items-center gap-1.5 rounded-md px-4 py-2 text-sm font-semibold transition ${aktiv ? "bg-tuerkis-700 text-white shadow-soft" : "text-muted-foreground hover:text-foreground"}`;
 
   return (
     <>
       <section className="flaeche-hell">
-        <div className="container-page mx-auto max-w-5xl py-6 sm:py-12">
-          <h1 className="text-2xl sm:text-4xl">Fachkräfte finden</h1>
+        <div className="container-page mx-auto max-w-5xl pb-2 pt-6 sm:pb-4 sm:pt-12">
+          <h1 className="text-3xl sm:text-5xl">Fachkräfte finden</h1>
           <p className="mt-1 hidden text-muted-foreground sm:block">Suchen, nach rechts wischen für Favoriten, dann zum Interview einladen.</p>
 
           <div className="mt-4 flex gap-2 sm:mt-6 sm:gap-3">
@@ -123,7 +124,7 @@ function Talente() {
 
       <section className="container-page mx-auto max-w-5xl pb-14 pt-4 sm:pt-6">
         <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
-          <div className="glas-knopf inline-flex rounded-full p-1" role="group" aria-label="Ansicht">
+          <div className="glas-knopf inline-flex rounded-lg p-1" role="group" aria-label="Ansicht">
             <button type="button" aria-pressed={!liste_} className={umschalter(!liste_)} onClick={() => navigate({ search: (s) => ({ ...s, ansicht: undefined }), replace: true })}>
               <Hand className="h-4 w-4" aria-hidden /> Wischen
             </button>
@@ -131,13 +132,13 @@ function Talente() {
               <LayoutGrid className="h-4 w-4" aria-hidden /> Liste
             </button>
           </div>
-          <Link to="/favoriten" className="inline-flex items-center gap-1.5 rounded-xl border px-3.5 py-2 text-sm font-semibold hover:bg-accent">
-            <Star className="h-4 w-4 text-primary" fill="currentColor" aria-hidden /> Favoriten ({fav.ids.length})
+          <Link to="/favoriten" className="glas-knopf inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-sm font-semibold hover:bg-[var(--glas-stark)]">
+            <Star className="h-4 w-4 text-primary" fill="currentColor" aria-hidden /> <span className="sr-only sm:not-sr-only">Favoriten </span>({fav.ids.length})
           </Link>
         </div>
 
         <p className="mb-3 text-sm text-muted-foreground" aria-live="polite">
-          {isLoading ? "Profile werden geladen …" : `${liste.length} ${liste.length === 1 ? "Vorschlag" : "Vorschläge"}`}
+          {isLoading ? "Profile werden geladen …" : <><KlappText text={String(liste.length)} className="schrift-tafel font-bold text-foreground" /> {liste.length === 1 ? "Vorschlag" : "Vorschläge"}</>}
           {qParam && !isLoading && ` für „${qParam}“`}
           {liste.some((p) => istBeispiel(p.id)) && " · enthält Beispielprofile (fiktiv)"}
         </p>

@@ -7,7 +7,7 @@ import { useFavoriten } from "@/lib/favoriten";
 export function AppNavigation() {
   const { session } = useAuth();
   const { ids } = useFavoriten();
-  const punkt = "flex flex-1 flex-col items-center gap-0.5 rounded-[1.25rem] py-1.5 text-[11px] font-semibold text-muted-foreground transition-colors";
+  const punkt = "flex flex-1 flex-col items-center gap-0.5 rounded-lg py-1.5 text-[11px] font-semibold text-muted-foreground transition-colors";
   const aktiv = { className: "bg-[var(--glas-stark)] text-tuerkis-700 shadow-soft dark:text-tuerkis-300" };
 
   return (
@@ -16,7 +16,7 @@ export function AppNavigation() {
       className="fixed inset-x-3 bottom-[calc(env(safe-area-inset-bottom,0px)+0.5rem)] z-40 md:hidden"
     >
       {/* Schwebendes Glas-Dock wie in iOS */}
-      <div className="glas-leiste mx-auto flex max-w-md gap-1 rounded-[1.75rem] p-1.5">
+      <div className="glas-leiste mx-auto flex max-w-md gap-1 rounded-xl p-1.5">
         <Link to="/" className={punkt} activeProps={aktiv} activeOptions={{ exact: true }}>
           <Home className="h-6 w-6" aria-hidden /> Start
         </Link>

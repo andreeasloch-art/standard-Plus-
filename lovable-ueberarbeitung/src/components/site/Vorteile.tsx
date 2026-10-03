@@ -19,7 +19,7 @@ export function Vorteile({ liste }: { liste: Vorteil[] }) {
 
 export function Bald() {
   return (
-    <span className="shrink-0 rounded-full border border-dashed px-2 py-0.5 text-xs font-medium text-muted-foreground">
+    <span className="shrink-0 rounded-md border border-dashed border-current/40 px-2 py-0.5 font-sans text-xs font-medium tracking-normal text-muted-foreground">
       in Vorbereitung
     </span>
   );

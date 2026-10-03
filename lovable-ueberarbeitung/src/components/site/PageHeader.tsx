@@ -1,12 +1,12 @@
 import type { ReactNode } from "react";
 
 /** Heller Seitenkopf mit leichtem Türkis- und Goldschimmer. */
-export function PageHeader({ eyebrow, title, children }: { eyebrow?: string; title: string; children?: ReactNode }) {
+/** `eyebrow` wird bewusst nicht mehr angezeigt – die Überschrift trägt allein. */
+export function PageHeader({ title, children }: { eyebrow?: string; title: string; children?: ReactNode }) {
   return (
     <section className="flaeche-hell">
       <div className="container-page py-12 sm:py-16">
-        {eyebrow && <p className="text-sm font-semibold uppercase tracking-[0.18em] text-info">{eyebrow}</p>}
-        <h1 className="fade-up mt-2 text-3xl sm:text-5xl">{title}</h1>
+        <h1 className="fade-up text-4xl sm:text-6xl">{title}</h1>
         {children && <div className="prose-measure mt-3 text-lg text-muted-foreground">{children}</div>}
       </div>
     </section>

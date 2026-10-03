@@ -17,12 +17,12 @@ export function DolmetscherDemo() {
 
   useEffect(() => {
     const ruhig = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-    if (!ruhig) { setSchritt(1); setLaeuft(true); }
+    if (!ruhig) { setSchritt(2); setLaeuft(true); }
   }, []);
 
   useEffect(() => {
     if (!laeuft) return;
-    const t = window.setTimeout(() => setSchritt((s) => (s >= GESPRAECH.length ? 1 : s + 1)), schritt >= GESPRAECH.length ? 4000 : 2600);
+    const t = window.setTimeout(() => setSchritt((s) => (s >= GESPRAECH.length ? 2 : s + 1)), schritt >= GESPRAECH.length ? 4000 : 2600);
     return () => window.clearTimeout(t);
   }, [laeuft, schritt]);
 
@@ -48,7 +48,7 @@ export function DolmetscherDemo() {
         <p className="border-l p-3"><strong className="block text-sm">Maria K.</strong>spricht Rumänisch</p>
       </div>
 
-      <ol className="min-h-[19rem] space-y-3 p-4" aria-live="polite">
+      <ol className="min-h-[16rem] space-y-3 p-4" aria-live="polite">
         {GESPRAECH.slice(0, schritt).map((z, i) => {
           const sie = z.wer === "sie";
           return (
