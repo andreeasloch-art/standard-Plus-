@@ -5,7 +5,7 @@ import { Hand, LayoutGrid, SlidersHorizontal, Star, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { EmptyState, ErrorState } from "@/components/site/PageHeader";
 import { ProfilListe } from "@/components/site/ProfilListe";
-import { KlappText } from "@/components/site/Abfahrtstafel";
+import { KlappText } from "@/components/site/KlappText";
 import { SuchFeld } from "@/components/site/SuchFeld";
 import { WischStapel } from "@/components/site/WischStapel";
 import { EinladenDialog } from "@/components/site/EinladenDialog";
@@ -74,7 +74,7 @@ function Talente() {
   const filterAktiv = Object.values(f).filter(Boolean).length;
   const sel = "field appearance-none";
   const umschalter = (aktiv: boolean) =>
-    `inline-flex items-center gap-1.5 rounded-md px-4 py-2 text-sm font-semibold transition ${aktiv ? "bg-tuerkis-700 text-white shadow-soft" : "text-muted-foreground hover:text-foreground"}`;
+    `inline-flex items-center gap-1.5 rounded-md px-4 py-2 text-sm font-semibold transition ${aktiv ? "bg-white text-tuerkis-800 shadow-soft dark:bg-card dark:text-tuerkis-200" : "text-muted-foreground hover:text-foreground"}`;
 
   return (
     <>

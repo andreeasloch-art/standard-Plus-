@@ -7,7 +7,7 @@ import { EmptyState, ErrorState } from "@/components/site/PageHeader";
 import { ProfilListe } from "@/components/site/ProfilListe";
 import { SuchFeld } from "@/components/site/SuchFeld";
 import { Schritte, type Rolle } from "@/components/site/Schritte";
-import { Abfahrtstafel } from "@/components/site/Abfahrtstafel";
+import { WischBuehne } from "@/components/site/WischBuehne";
 import { DolmetscherDemo } from "@/components/site/DolmetscherDemo";
 import { Bald } from "@/components/site/Vorteile";
 import { AppInstallieren } from "@/components/site/AppInstallieren";
@@ -16,14 +16,16 @@ import { istBeispiel, oeffentlicheProfileQuery } from "@/lib/profile-data";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Standard Plus – Europäische Personalvermittlung" },
-      { name: "description", content: "Arbeit in Deutschland finden – oder Fachkräfte aus ganz Europa: Profil anlegen, wischen, Interview mit Dolmetscher." },
-      { property: "og:title", content: "Standard Plus – Ihr nächster Halt: Arbeit in Deutschland" },
+      { title: "Standard Plus – Arbeit finden. Einfach wischen." },
+      { name: "description", content: "Arbeit finden – überall. Fachkräfte und Unternehmen finden sich per Wisch, Interview mit Dolmetscher." },
+      { property: "og:title", content: "Standard Plus – Arbeit finden. Überall. Einfach wischen." },
       { property: "og:description", content: "Fachkräfte aus ganz Europa finden." },
     ],
   }),
   component: Index,
 });
+
+const BEISPIELE = ["Pflegekraft in Wien", "Koch in Paris", "Elektriker in Zürich", "Entwickler in London", "Erntehelfer in Spanien", "Fahrer in New York"];
 
 const BELIEBT = [
   { label: "Pflege", q: "Pflege" },
@@ -35,57 +37,68 @@ const BELIEBT = [
 function Index() {
   const { data, isLoading, isError } = useQuery(oeffentlicheProfileQuery);
   const [rolle, setRolle] = useState<Rolle>("arbeit");
+  const [suche, setSuche] = useState("");
   const tab = (r: Rolle) =>
-    `rounded-md px-3.5 py-2 text-sm font-semibold transition sm:px-4 ${rolle === r ? "bg-white text-ink shadow-soft" : "text-tafel-text/80 hover:text-tafel-text"}`;
+    `rounded-md px-3.5 py-2 text-sm font-semibold transition ${rolle === r ? "bg-white text-tuerkis-800 shadow-soft dark:bg-card dark:text-tuerkis-200" : "text-muted-foreground hover:text-foreground"}`;
 
   return (
     <>
-      <section className="container-page pt-4 sm:pt-6">
-        <Abfahrtstafel profile={data ?? []}>
-          <h1 className="max-w-3xl text-[2.5rem] leading-[1.02] text-tafel-text sm:text-6xl lg:text-7xl">
-            Ihr nächster Halt: Arbeit in Deutschland.
+      <section className="container-page grid gap-8 pb-16 pt-6 sm:pt-14 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-x-16 lg:gap-y-8 lg:pb-24">
+        <div className="min-w-0 lg:self-end">
+          <h1 className="text-[2.4rem] leading-[1.02] sm:text-6xl lg:text-7xl">
+            Arbeit finden. Überall.{" "}
+            <span className="text-tuerkis-700 dark:text-tuerkis-300">Einfach wischen.</span>
           </h1>
+          <p className="mt-4 max-w-xl text-base text-muted-foreground sm:mt-5 sm:text-lg">
+            Fachkräfte und Unternehmen finden sich per Wisch – von Wien bis Paris, von London bis New York.
+          </p>
 
-          <div className="mt-7 inline-flex rounded-lg border border-white/15 bg-white/10 p-1 backdrop-blur-md" role="group" aria-label="Ich bin hier, weil ich …">
-            <button type="button" aria-pressed={rolle === "arbeit"} className={tab("arbeit")} onClick={() => setRolle("arbeit")}>
-              Ich suche Arbeit
-            </button>
-            <button type="button" aria-pressed={rolle === "personal"} className={tab("personal")} onClick={() => setRolle("personal")}>
-              Ich suche Fachkräfte
-            </button>
+          <SuchFeld gross wert={suche} beispiele={BEISPIELE} onAenderung={setSuche} className="mt-6 max-w-xl sm:mt-8" />
+          <div className="mt-3 flex flex-wrap gap-2" aria-label="Beliebte Suchen">
+            {BELIEBT.map((b) => (
+              <button
+                key={b.label}
+                type="button"
+                onClick={() => setSuche(b.q)}
+                aria-pressed={suche === b.q}
+                className={`rounded-md border px-3 py-1 text-sm transition ${suche === b.q ? "border-tuerkis-300 bg-tint text-tint-foreground" : "glas-knopf text-tint-foreground hover:bg-[var(--glas-stark)]"}`}
+              >
+                {b.label}
+              </button>
+            ))}
           </div>
+        </div>
 
-          {rolle === "arbeit" ? (
-            <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
-              <Button asChild size="lg">
-                <Link to="/auth" search={{ modus: "registrieren" }}>
-                  Kostenlos Profil anlegen <ArrowRight />
-                </Link>
-              </Button>
-              <p className="text-sm text-tafel-leise">Ihre Kontaktdaten sieht nur, mit wem Sie ein Match haben.</p>
-            </div>
-          ) : (
-            <div className="mt-5 max-w-2xl">
-              <SuchFeld gross />
-              <div className="mt-3 flex flex-wrap gap-2" aria-label="Beliebte Suchen">
-                {BELIEBT.map((b) => (
-                  <Link
-                    key={b.label}
-                    to="/talente"
-                    search={{ q: b.q }}
-                    className="rounded-md border border-white/15 bg-white/5 px-3 py-1 text-sm text-tafel-text/90 transition hover:bg-white/15"
-                  >
-                    {b.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
-        </Abfahrtstafel>
+        {/* Auf dem Handy direkt unter der Suche, ab Desktop rechts daneben */}
+        <div className="min-w-0 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-center">
+          <WischBuehne profile={data ?? []} suche={suche} />
+        </div>
+
+        <div className="min-w-0 lg:self-start">
+          <div className="flex flex-wrap items-center gap-3">
+            <Button asChild size="lg">
+              <Link to="/auth" search={{ modus: "registrieren" }}>
+                Kostenlos Profil anlegen <ArrowRight />
+              </Link>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <Link to="/talente" search={{ q: suche.trim() || undefined }}>
+                <Hand /> Fachkräfte wischen
+              </Link>
+            </Button>
+          </div>
+          <p className="mt-3 text-sm text-muted-foreground">Kontaktdaten gibt es erst beim Match.</p>
+        </div>
       </section>
 
-      <section className="container-page py-16 sm:py-24" aria-labelledby="ablauf-titel">
-        <h2 id="ablauf-titel" className="text-3xl sm:text-4xl">So funktioniert’s</h2>
+      <section className="container-page pb-16 sm:pb-24" aria-labelledby="ablauf-titel">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <h2 id="ablauf-titel" className="text-3xl sm:text-4xl">So funktioniert’s</h2>
+          <div className="glas-knopf inline-flex rounded-lg p-1" role="group" aria-label="Ablauf anzeigen für">
+            <button type="button" aria-pressed={rolle === "arbeit"} className={tab("arbeit")} onClick={() => setRolle("arbeit")}>Für Fachkräfte</button>
+            <button type="button" aria-pressed={rolle === "personal"} className={tab("personal")} onClick={() => setRolle("personal")}>Für Unternehmen</button>
+          </div>
+        </div>
         <Schritte rolle={rolle} />
       </section>
 
@@ -136,9 +149,9 @@ function Index() {
 
       <section className="container-page pb-16 sm:pb-24">
         <div className="relative isolate flex flex-col items-start justify-between gap-6 overflow-hidden rounded-2xl bg-tafel p-8 text-tafel-text shadow-lift sm:flex-row sm:items-center sm:p-12">
-          <span aria-hidden className="absolute -right-24 -top-32 -z-10 h-80 w-80 rounded-full bg-tuerkis-500/30 blur-3xl" />
+          <span aria-hidden className="absolute -right-24 -top-32 -z-10 h-80 w-80 rounded-full bg-tuerkis-500/15 blur-3xl" />
           <div>
-            <h2 className="text-3xl sm:text-4xl">Ihre nächste Abfahrt: Ihr Profil.</h2>
+            <h2 className="text-3xl sm:text-4xl">Ihr nächster Job wartet – überall.</h2>
             <p className="mt-2 text-tafel-leise">Kostenlos für Fachkräfte. Unternehmen zahlen nur bei Erfolg.</p>
           </div>
           <div className="flex flex-wrap gap-3">

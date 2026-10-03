@@ -338,15 +338,16 @@
 }
 :root {
   --radius: 0.625rem;
-  --tafel: #0f2a2d;
-  --tafel-zeile: #163a3e;
-  --tafel-text: #f2f8f8;
-  --tafel-leise: #9fc4c6;
+  /* dunkle Fläche (Schlussaufruf): neutral graphit statt grün */
+  --tafel: #1d2426;
+  --tafel-zeile: #283133;
+  --tafel-text: #f4f6f6;
+  --tafel-leise: #b4c0c1;
   --border: oklch(0.9 0.012 205);
 }
 .dark {
-  --tafel: #0b1f21;
-  --tafel-zeile: #12302f;
+  --tafel: #151b1c;
+  --tafel-zeile: #1f2729;
 }
 @layer base {
   h1, h2, h3, h4 { letter-spacing: -0.015em; font-weight: 700; }
@@ -389,4 +390,13 @@
   font-weight: 700;
   font-size: 0.95rem;
   line-height: 1;
+}
+
+/* Karten mischen sich neu ein, wenn sich die Suche ändert */
+@utility karte-rein {
+  animation: karte-rein 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes karte-rein {
+  from { translate: 0 -28px; rotate: -5deg; scale: 0.92; opacity: 0; }
+  to { translate: 0 0; rotate: 0deg; scale: 1; opacity: 1; }
 }

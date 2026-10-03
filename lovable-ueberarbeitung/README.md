@@ -143,3 +143,17 @@ Ziel: moderner, aufgeräumter, professioneller – mit gläsernen Bedienelemente
 
 Geänderte Dateien: `src/styles.css`, `src/components/ui/button.tsx` (neu im Paket), `Header`, `AppNavigation`, `SuchFeld`, `WischStapel`, `ProfileCard`, `Schritte`, `PageHeader`, `Modal`, `CookieBanner`, `routes/index`, `routes/talente`, `routes/__root` (Abstand unten 5.5rem für das schwebende Dock).
 Tests: `test.mjs` 35/35 bestanden; App-Test bestanden (Installierbarkeit mit festem Profil geprüft).
+
+## Runde 6 – Neues Design „Wisch-Startseite“ (03.10.2026)
+
+Mit dem Design-Skill „Impeccable“ erarbeitet (Produktprofil `PRODUCT.md`, Richtungsvertrag `.impeccable/surfaces/`, unabhängige Endprüfung).
+
+- **Weltweit:** Texte nicht mehr auf Deutschland beschränkt („Arbeit finden. Überall. Einfach wischen.“).
+- **Wischen im Mittelpunkt:** neue Komponente `WischBuehne.tsx` direkt oben auf der Startseite. Der Stapel wischt sich selbst vor, lässt sich mit Maus/Finger oder ✕/★ selbst wischen (rechts = echter Favorit) und mischt sich bei jeder Sucheingabe neu (Trefferzahl mit Klappziffern).
+- **Lebendige Suche:** `SuchFeld` hat die neue Option `beispiele` – im leeren Feld tippen sich Beispiele von selbst („Pflegekraft in Wien“, „Koch in Paris“ …). Bei „reduzierter Bewegung“ statisch.
+- **Weniger Grün:** keine großen türkisen Flächen mehr; Türkis nur für Text, Linien, Schilder. Der Schlussaufruf ist neutral graphit (`--tafel`).
+- **Schilder-Details:** Verbindung „Von ──→ Nach“ in Barlow Condensed, Sprachniveau als Gleisschild, Ablauf als Linienplan mit nummerierten Halten und Umschalter „Für Fachkräfte / Für Unternehmen“.
+- **Schriften:** Überschriften jetzt **Barlow** / **Barlow Condensed** (lokal über `@fontsource/barlow` und `@fontsource/barlow-condensed` – in Lovable installieren). Plus Jakarta Sans entfällt.
+- Knöpfe mit Schild-Ecken (`rounded-lg`) statt Pillen; Karten wieder fest (weiß), Glas nur für Leisten, Suchfeld und Knöpfe.
+- Neu: `WischBuehne.tsx`, `KlappText.tsx`. Geändert: `styles.css`, `button.tsx`, `SuchFeld`, `Schritte`, `ProfileCard`, `WischStapel`, `Header`, `AppNavigation`, `PageHeader`, `DolmetscherDemo`, `Vorteile`, `routes/index`, `routes/talente`, `routes/__root`.
+- Tests: `test.mjs` alle Prüfungen bestanden (inkl. neuer Prüfungen für Wisch-Vorschau, Tipp-Animation und Neumischen bei Suche).

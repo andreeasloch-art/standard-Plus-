@@ -6,6 +6,37 @@ import { oeffentlicheProfileQuery } from "@/lib/profile-data";
 import { cn } from "@/lib/utils";
 
 type Art = "Beruf" | "Skill" | "Ort" | "Branche";
+
+/** Tippt Beispielsuchen Buchstabe für Buchstabe in den Platzhalter (nur wenn das Feld leer und nicht aktiv ist). */
+function useTippBeispiel(beispiele: string[] | undefined, an: boolean) {
+  const [text, setText] = useState("");
+  useEffect(() => {
+    if (!beispiele?.length || !an) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setText(beispiele[0]);
+      return;
+    }
+    let nr = 0, pos = 0, loeschen = false;
+    let t: number;
+    const schritt = () => {
+      const ziel = beispiele[nr % beispiele.length];
+      if (!loeschen) {
+        pos++;
+        setText(ziel.slice(0, pos));
+        if (pos >= ziel.length) { loeschen = true; t = window.setTimeout(schritt, 1600); return; }
+        t = window.setTimeout(schritt, 70 + Math.random() * 60);
+      } else {
+        pos--;
+        setText(ziel.slice(0, pos));
+        if (pos <= 0) { loeschen = false; nr++; t = window.setTimeout(schritt, 350); return; }
+        t = window.setTimeout(schritt, 30);
+      }
+    };
+    t = window.setTimeout(schritt, 600);
+    return () => window.clearTimeout(t);
+  }, [beispiele, an]);
+  return text;
+}
 type Vorschlag = { text: string; art: Art };
 
 /**
@@ -17,8 +48,11 @@ export function SuchFeld({
   onSuche,
   onAenderung,
   gross = false,
+  beispiele,
   className,
 }: {
+  /** Beispielsuchen, die sich im leeren Feld von selbst eintippen */
+  beispiele?: string[];
   wert?: string;
   onSuche?: (q: string) => void;
   onAenderung?: (q: string) => void;
@@ -30,6 +64,8 @@ export function SuchFeld({
   const [q, setQ] = useState(wert);
   const [offen, setOffen] = useState(false);
   const [aktiv, setAktiv] = useState(-1);
+  const [fokus, setFokus] = useState(false);
+  const tipp = useTippBeispiel(beispiele, !fokus && q === "");
   const basisId = useId();
   const inputId = `${basisId}-eingabe`;
   const listId = `${basisId}-liste`;
@@ -124,7 +160,7 @@ export function SuchFeld({
           aria-activedescendant={zeige && aktiv >= 0 ? `${listId}-${aktiv}` : undefined}
           autoComplete="off"
           maxLength={100}
-          placeholder="Beruf, Skill oder Ort"
+          placeholder={beispiele && !fokus ? (tipp ? `z. B. ${tipp}` : "") : "Beruf, Skill oder Ort"}
           value={q}
           onChange={(e) => {
             setQ(e.target.value);
@@ -132,8 +168,8 @@ export function SuchFeld({
             setAktiv(-1);
             onAenderung?.(e.target.value);
           }}
-          onFocus={() => setOffen(true)}
-          onBlur={() => setOffen(false)}
+          onFocus={() => { setOffen(true); setFokus(true); }}
+          onBlur={() => { setOffen(false); setFokus(false); }}
           onKeyDown={onKeyDown}
           className={cn(
             "min-w-0 flex-1 bg-transparent text-foreground outline-none placeholder:text-muted-foreground",
