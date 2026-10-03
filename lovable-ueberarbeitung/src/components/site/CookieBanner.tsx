@@ -14,7 +14,7 @@ export function CookieBanner() {
         <section
           role="region"
           aria-labelledby="consent-titel"
-          className="fixed inset-x-0 bottom-0 z-50 border-t bg-card shadow-lift"
+          className="glas-leiste fixed inset-x-3 bottom-3 z-50 mx-auto max-w-4xl rounded-3xl"
         >
           <div className="container-page flex flex-col gap-3 py-4 lg:flex-row lg:items-center lg:gap-6">
             <div className="flex-1">

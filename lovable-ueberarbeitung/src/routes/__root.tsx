@@ -112,7 +112,7 @@ function RootComponent() {
         <a href="#inhalt" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2">
           Zum Inhalt springen
         </a>
-        <div className="flex min-h-screen flex-col pb-[calc(4rem+env(safe-area-inset-bottom,0px))] md:pb-0">
+        <div className="flex min-h-screen flex-col pb-[calc(5.5rem+env(safe-area-inset-bottom,0px))] md:pb-0">
           <Header />
           <main id="inhalt" className="flex-1">
             <Outlet />

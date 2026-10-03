@@ -73,11 +73,11 @@ function Talente() {
   const filterAktiv = Object.values(f).filter(Boolean).length;
   const sel = "field appearance-none";
   const umschalter = (aktiv: boolean) =>
-    `inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-sm font-semibold transition ${aktiv ? "bg-card text-tint-foreground shadow-soft" : "text-muted-foreground hover:text-foreground"}`;
+    `inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold transition ${aktiv ? "bg-[var(--glas-stark)] text-tint-foreground shadow-soft" : "text-muted-foreground hover:text-foreground"}`;
 
   return (
     <>
-      <section className="flaeche-hell border-b">
+      <section className="flaeche-hell">
         <div className="container-page mx-auto max-w-5xl py-6 sm:py-12">
           <h1 className="text-2xl sm:text-4xl">Fachkräfte finden</h1>
           <p className="mt-1 hidden text-muted-foreground sm:block">Suchen, nach rechts wischen für Favoriten, dann zum Interview einladen.</p>
@@ -123,7 +123,7 @@ function Talente() {
 
       <section className="container-page mx-auto max-w-5xl pb-14 pt-4 sm:pt-6">
         <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
-          <div className="inline-flex rounded-xl bg-surface p-1" role="group" aria-label="Ansicht">
+          <div className="glas-knopf inline-flex rounded-full p-1" role="group" aria-label="Ansicht">
             <button type="button" aria-pressed={!liste_} className={umschalter(!liste_)} onClick={() => navigate({ search: (s) => ({ ...s, ansicht: undefined }), replace: true })}>
               <Hand className="h-4 w-4" aria-hidden /> Wischen
             </button>

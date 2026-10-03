@@ -145,18 +145,21 @@
 }
 @utility prose-measure { max-width: 70ch; }
 @utility card-base {
-  background-color: var(--color-card);
+  /* Glas: halbtransparent, unscharfer Hintergrund, feine Lichtkante oben */
+  background-color: var(--glas);
   color: var(--color-card-foreground);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--glas-rand);
   border-radius: var(--radius-2xl);
-  box-shadow: var(--shadow-soft);
+  box-shadow: inset 0 1px 0 var(--glas-licht), var(--shadow-soft);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  backdrop-filter: blur(18px) saturate(160%);
 }
 @utility field {
   width: 100%;
   height: 2.75rem;
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-input);
-  background-color: var(--color-card);
+  background-color: var(--glas-stark);
   color: var(--color-foreground);
   padding-inline: 0.875rem;
   font-size: 1rem;
@@ -222,12 +225,19 @@
 }
 /* Helle Fläche mit leichtem Türkis- und Goldschimmer – Standard für Seitenköpfe */
 @utility flaeche-hell {
-  background-color: var(--color-background);
-  background-image:
-    radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--color-tuerkis-500) 14%, transparent) 1px, transparent 0),
-    radial-gradient(50% 70% at 90% 0%, color-mix(in oklab, var(--color-primary) 22%, transparent), transparent 70%),
-    radial-gradient(55% 80% at 0% 100%, color-mix(in oklab, var(--color-tuerkis-400) 18%, transparent), transparent 70%);
-  background-size: 24px 24px, auto, auto;
+  position: relative;
+  isolation: isolate;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--color-tuerkis-500) 18%, transparent) 1px, transparent 0);
+    background-size: 24px 24px;
+    -webkit-mask-image: radial-gradient(80% 90% at 50% 0%, #000 30%, transparent 75%);
+    mask-image: radial-gradient(80% 90% at 50% 0%, #000 30%, transparent 75%);
+  }
 }
 /* Platzhalter, solange kein Foto hochgeladen ist */
 @utility foto-platzhalter {
@@ -235,4 +245,85 @@
     radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--color-tuerkis-500) 16%, transparent) 1px, transparent 0),
     linear-gradient(160deg, var(--color-tuerkis-50), var(--color-tuerkis-200));
   background-size: 14px 14px, auto;
+}
+
+/* ---------- Glas-Design (Oktober 2026) ----------
+   Regeln: Glas nur für Bedienelemente und Karten (Navigation, Knöpfe, Suchfeld, Profilkarten).
+   Gold bleibt die Farbe der Hauptaktion, Türkis die Markenfarbe – beide sparsam.
+   Damit Glas wirkt, liegt hinter der Seite ein ruhiger Farbverlauf („aurora“). */
+:root {
+  --glas: rgb(255 255 255 / 0.62);
+  --glas-stark: rgb(255 255 255 / 0.86);
+  --glas-rand: rgb(255 255 255 / 0.75);
+  --glas-linie: oklch(0.25 0.012 210 / 0.08);
+  --glas-licht: rgb(255 255 255 / 0.9);
+  --background: #f3f7f7;
+  --shadow-soft: 0 0 0 1px oklch(0.25 0.012 210 / 0.05), 0 1px 2px oklch(0.25 0.012 210 / 0.04), 0 12px 32px -16px oklch(0.3 0.04 200 / 0.22);
+  --shadow-lift: 0 0 0 1px oklch(0.25 0.012 210 / 0.06), 0 2px 6px oklch(0.25 0.012 210 / 0.05), 0 28px 56px -24px oklch(0.3 0.05 200 / 0.35);
+}
+.dark {
+  --glas: rgb(30 44 47 / 0.55);
+  --glas-stark: rgb(30 44 47 / 0.78);
+  --glas-rand: rgb(255 255 255 / 0.09);
+  --glas-linie: rgb(255 255 255 / 0.08);
+  --glas-licht: rgb(255 255 255 / 0.07);
+  --shadow-soft: 0 0 0 1px rgb(0 0 0 / 0.2), 0 12px 32px -16px rgb(0 0 0 / 0.6);
+  --shadow-lift: 0 0 0 1px rgb(0 0 0 / 0.25), 0 28px 56px -24px rgb(0 0 0 / 0.75);
+}
+
+@layer base {
+  body { background-color: var(--color-background); }
+  /* Ruhiger Farbverlauf hinter allem – bleibt beim Scrollen stehen */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(42rem 30rem at 8% -6%, color-mix(in oklab, var(--color-tuerkis-300) 42%, transparent), transparent 70%),
+      radial-gradient(36rem 26rem at 96% 4%, color-mix(in oklab, var(--color-primary) 30%, transparent), transparent 70%),
+      radial-gradient(48rem 34rem at 60% 108%, color-mix(in oklab, var(--color-tuerkis-200) 55%, transparent), transparent 70%);
+  }
+  .dark body::before {
+    background:
+      radial-gradient(42rem 30rem at 8% -6%, color-mix(in oklab, var(--color-tuerkis-700) 55%, transparent), transparent 70%),
+      radial-gradient(36rem 26rem at 96% 4%, color-mix(in oklab, var(--color-primary) 10%, transparent), transparent 70%),
+      radial-gradient(48rem 34rem at 60% 108%, color-mix(in oklab, var(--color-tuerkis-800) 60%, transparent), transparent 70%);
+  }
+  h1 { letter-spacing: -0.035em; text-wrap: balance; }
+  h2 { letter-spacing: -0.03em; text-wrap: balance; }
+}
+
+/* Glas für schwebende Leisten (Kopfzeile, App-Leiste, Wisch-Knöpfe) – etwas dichter */
+@utility glas-leiste {
+  background-color: var(--glas-stark);
+  border: 1px solid var(--glas-rand);
+  box-shadow: inset 0 1px 0 var(--glas-licht), var(--shadow-lift);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+}
+/* Kleines Glaselement (Chips, Symbol-Kacheln, Zweitknöpfe) */
+@utility glas-knopf {
+  background-color: var(--glas);
+  border: 1px solid var(--glas-rand);
+  box-shadow: inset 0 1px 0 var(--glas-licht), var(--shadow-soft);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  backdrop-filter: blur(14px) saturate(160%);
+}
+/* Goldener Hauptknopf mit Glanzkante */
+@utility knopf-gold {
+  background-image: linear-gradient(180deg, color-mix(in oklab, var(--color-primary) 70%, white), var(--color-primary) 55%);
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.7), inset 0 -1px 0 rgb(0 0 0 / 0.06), 0 1px 2px rgb(120 90 0 / 0.18), 0 8px 20px -10px rgb(180 140 0 / 0.55);
+}
+
+/* Fester Untergrund, wo Glas stören würde (gestapelte Wischkarten, Dialoge) */
+@layer utilities {
+  .karte-fest.karte-fest {
+    background-color: var(--color-card);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
 }

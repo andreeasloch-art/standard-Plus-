@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 /** Heller Seitenkopf mit leichtem Türkis- und Goldschimmer. */
 export function PageHeader({ eyebrow, title, children }: { eyebrow?: string; title: string; children?: ReactNode }) {
   return (
-    <section className="flaeche-hell border-b">
+    <section className="flaeche-hell">
       <div className="container-page py-12 sm:py-16">
         {eyebrow && <p className="text-sm font-semibold uppercase tracking-[0.18em] text-info">{eyebrow}</p>}
         <h1 className="fade-up mt-2 text-3xl sm:text-5xl">{title}</h1>

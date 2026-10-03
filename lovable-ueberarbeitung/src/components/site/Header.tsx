@@ -34,7 +34,7 @@ function ThemeToggle() {
 function FavoritenLink() {
   const { ids } = useFavoriten();
   return (
-    <Link to="/favoriten" aria-label={`Favoriten (${ids.length})`} className="relative flex h-11 w-11 items-center justify-center rounded-xl hover:bg-accent">
+    <Link to="/favoriten" aria-label={`Favoriten (${ids.length})`} className="relative flex h-11 w-11 items-center justify-center rounded-full transition-colors hover:bg-[var(--glas)]">
       <Star className="h-5 w-5" aria-hidden />
       {ids.length > 0 && (
         <span className="absolute right-1 top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1 text-[11px] font-bold text-primary-foreground" aria-hidden>
@@ -71,15 +71,17 @@ export function Header() {
     navigate({ to: "/auth", replace: true });
   };
 
-  const linkCls = "rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground";
+  const linkCls = "rounded-full px-3.5 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-[var(--glas)] hover:text-foreground";
 
   return (
-    <header className="sticky top-0 z-40 border-b bg-background/85 backdrop-blur">
-      <div className="container-page flex h-16 items-center justify-between gap-4">
-        <Logo className="h-6 sm:h-7" />
+    <header className="sticky top-0 z-40 bg-gradient-to-b from-background via-background/80 to-transparent pt-2 pb-1 sm:pt-3">
+      {/* Schwebende Glasleiste */}
+      <div className="container-page">
+      <div className="glas-leiste flex h-14 items-center justify-between gap-4 rounded-full pl-4 pr-1.5 sm:h-16 sm:pl-6 sm:pr-2">
+        <Logo className="h-5 sm:h-6" />
         <nav className="hidden items-center gap-1 md:flex" aria-label="Hauptnavigation">
           {NAV.map((n) => (
-            <Link key={n.to} to={n.to} className={linkCls} activeProps={{ className: "bg-tint text-tint-foreground" }}>
+            <Link key={n.to} to={n.to} className={linkCls} activeProps={{ className: "bg-[var(--glas-stark)] text-foreground shadow-soft" }}>
               {n.label}
             </Link>
           ))}
@@ -102,11 +104,12 @@ export function Header() {
           </Button>
         </div>
       </div>
+      </div>
       {open && (
-        <nav ref={menuRef} id="mobile-nav" className="border-t bg-background md:hidden" aria-label="Mobile Navigation">
-          <div className="container-page flex flex-col gap-1 py-4">
+        <nav ref={menuRef} id="mobile-nav" className="container-page mt-2 md:hidden" aria-label="Mobile Navigation">
+          <div className="glas-leiste flex flex-col gap-1 rounded-3xl p-3">
             {NAV.map((n) => (
-              <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="rounded-xl px-4 py-3 text-base font-medium hover:bg-accent">
+              <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="rounded-2xl px-4 py-3 text-base font-medium hover:bg-[var(--glas)]">
                 {n.label}
               </Link>
             ))}

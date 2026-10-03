@@ -16,13 +16,13 @@ export function ProfileCard({ p }: { p: OeffentlichesProfil }) {
       to="/profil/$id"
       params={{ id: p.id }}
       aria-label={`Profil von ${name} ansehen${beispiel ? " (Beispielprofil, fiktiv)" : ""}`}
-      className="card-base group grid h-full overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lift hover:ring-2 hover:ring-tuerkis-400 md:grid-cols-[11rem_minmax(0,1fr)]"
+      className="card-base group grid h-full overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lift hover:bg-[var(--glas-stark)] md:grid-cols-[11rem_minmax(0,1fr)]"
     >
       <div className="relative">
         <ProfilFoto url={p.foto_url} name={name} className="md:aspect-auto md:h-full md:min-h-[13.75rem]" />
         {/* Echte Übereinstimmung gibt es erst mit einem Matching gegen eine Stelle – bis dahin nur bei Beispielen zeigen. */}
         {beispiel && (
-          <span className="absolute left-2 top-2 rounded-full bg-white/95 px-2 py-0.5 text-[11px] font-bold text-tuerkis-800 shadow-soft">
+          <span className="absolute left-2 top-2 rounded-full bg-white/70 ring-1 ring-white/70 backdrop-blur-md px-2 py-0.5 text-[11px] font-bold text-tuerkis-800 shadow-soft">
             {match} % · Beispiel
           </span>
         )}
@@ -43,13 +43,13 @@ export function ProfileCard({ p }: { p: OeffentlichesProfil }) {
 
         <div className="hidden flex-wrap gap-1.5 sm:flex">
           {p.skills.slice(0, 3).map((s) => (
-            <span key={s} className="rounded-full bg-tint px-2.5 py-0.5 text-xs font-medium text-tint-foreground">
+            <span key={s} className="rounded-full bg-tint/80 px-2.5 py-0.5 text-xs font-medium text-tint-foreground">
               {s}
             </span>
           ))}
         </div>
 
-        <div className="mt-auto flex items-center justify-between gap-2 border-t pt-2 text-xs sm:pt-3 sm:text-sm">
+        <div className="mt-auto flex items-center justify-between gap-2 border-t border-[var(--glas-linie)] pt-2 text-xs sm:pt-3 sm:text-sm">
           <span>
             Deutsch <strong>{p.deutschniveau ?? "–"}</strong>
           </span>

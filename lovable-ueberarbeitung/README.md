@@ -125,3 +125,21 @@ Typen neu erzeugt, Build fehlerfrei, Sicherheitsscan ohne neue Befunde. Abweichu
 
 Noch offen: die Oberfläche aus diesem Ordner (Wischen, Favoriten, Einladen, Fotos, App-Version, Türkis-Design) und
 7 ältere Hinweise des Sicherheitsscans zu öffentlich aufrufbaren Prüffunktionen (`has_role`, `hat_beidseitig` …).
+
+## Runde 5 – Glas-Design (03.10.2026)
+
+Ziel: moderner, aufgeräumter, professioneller – mit gläsernen Bedienelementen.
+
+| Entscheidung | Umsetzung | Warum |
+|---|---|---|
+| Ruhiger Farbverlauf hinter der Seite | `body::before` (fest stehend): Türkis oben links, Gold oben rechts, helles Türkis unten | Glas braucht Farbe dahinter; Markenfarben bleiben dezent |
+| Glas nur für Bedienelemente und Karten | Utilities `glas-leiste` (Kopfzeile, App-Dock, Suchfeld, Wisch-Knöpfe), `glas-knopf` (Chips, Zweitknöpfe), `card-base` jetzt gläsern | Klare Rolle, kein „alles verschwommen“ |
+| Schwebende Kopfzeile | Glas-Pille mit Abstand zum Rand, aktive Seite als helle Glas-Pille | Wirkt leichter und moderner |
+| Schwebendes App-Dock (Handy) | Glas-Dock mit Abstand unten, aktiver Punkt hervorgehoben | Wie moderne iOS/Android-Apps |
+| Knöpfe als Pillen | `rounded-full`; Hauptknopf `knopf-gold` mit Glanzkante, Zweitknöpfe gläsern | Gold bleibt nur für die Hauptaktion |
+| Gestapelte Wischkarten fest | Klasse `karte-fest` | Glas über Glas wäre unruhig/unleserlich |
+| Keine Trennlinien zwischen Abschnitten | `border-b`/`border-y` an Abschnitten entfernt | Aufgeräumter, ein durchgehender Hintergrund |
+| Überschriften enger, größer | `letter-spacing -0.035em`, `text-wrap: balance`, Hero bis `text-7xl` | Professioneller, ruhiger Zeilenfall |
+
+Geänderte Dateien: `src/styles.css`, `src/components/ui/button.tsx` (neu im Paket), `Header`, `AppNavigation`, `SuchFeld`, `WischStapel`, `ProfileCard`, `Schritte`, `PageHeader`, `Modal`, `CookieBanner`, `routes/index`, `routes/talente`, `routes/__root` (Abstand unten 5.5rem für das schwebende Dock).
+Tests: `test.mjs` 35/35 bestanden; App-Test bestanden (Installierbarkeit mit festem Profil geprüft).

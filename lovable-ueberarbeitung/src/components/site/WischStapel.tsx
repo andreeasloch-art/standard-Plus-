@@ -124,7 +124,7 @@ export function WischStapel({ profile, onEinladen }: { profile: OeffentlichesPro
       >
         {/* Die nächsten Karten liegen sichtbar dahinter */}
         {[2, 1].map((n) => profile[pos + n] && (
-          <div key={profile[pos + n].id} aria-hidden className="card-base absolute inset-0 overflow-hidden"
+          <div key={profile[pos + n].id} aria-hidden className="card-base karte-fest absolute inset-0 overflow-hidden"
             style={{ transform: `translateY(${n * 10}px) scale(${1 - n * 0.04})`, opacity: 1 - n * 0.25 }}>
             <ProfilFoto url={profile[pos + n].foto_url} name={profile[pos + n].anzeigename} className="max-h-[20vh] sm:max-h-[44vh]" />
           </div>
@@ -136,7 +136,7 @@ export function WischStapel({ profile, onEinladen }: { profile: OeffentlichesPro
           onPointerMove={onMove}
           onPointerUp={onUp}
           onPointerCancel={() => { start.current = null; setDx(0); }}
-          className="card-base relative cursor-grab touch-pan-y select-none overflow-hidden active:cursor-grabbing"
+          className="card-base karte-fest relative cursor-grab touch-pan-y select-none overflow-hidden active:cursor-grabbing"
           style={{
             transform: `translateX(${x}px) rotate(${x / 18}deg)`,
             transition: start.current ? "none" : "transform 260ms cubic-bezier(.2,.7,.2,1)",
@@ -145,7 +145,7 @@ export function WischStapel({ profile, onEinladen }: { profile: OeffentlichesPro
           <div className="relative">
             <ProfilFoto url={aktuell.foto_url} name={name} gross className="max-h-[20vh] sm:max-h-[44vh]" />
             {beispiel && (
-              <span className="absolute left-3 top-3 rounded-full bg-white/95 px-2.5 py-0.5 text-xs font-bold text-tuerkis-800 shadow-soft">
+              <span className="absolute left-3 top-3 rounded-full bg-white/70 ring-1 ring-white/70 backdrop-blur-md px-2.5 py-0.5 text-xs font-bold text-tuerkis-800 shadow-soft">
                 {matchProzent(aktuell.id)} % · Beispiel
               </span>
             )}
@@ -168,8 +168,8 @@ export function WischStapel({ profile, onEinladen }: { profile: OeffentlichesPro
               {aktuell.wohnort ?? aktuell.land} → {aktuell.zielort ?? "flexibel"}
             </p>
             <div className="mt-3 flex flex-wrap gap-1.5">
-              <span className="rounded-full bg-surface px-2.5 py-0.5 text-xs font-semibold">Deutsch {aktuell.deutschniveau ?? "–"}</span>
-              {aktuell.erfahrung_jahre != null && <span className="rounded-full bg-surface px-2.5 py-0.5 text-xs font-semibold">{aktuell.erfahrung_jahre} J. Erfahrung</span>}
+              <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-semibold">Deutsch {aktuell.deutschniveau ?? "–"}</span>
+              {aktuell.erfahrung_jahre != null && <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-semibold">{aktuell.erfahrung_jahre} J. Erfahrung</span>}
               {aktuell.skills.slice(0, 3).map((s) => <span key={s} className="rounded-full bg-tint px-2.5 py-0.5 text-xs text-tint-foreground">{s}</span>)}
             </div>
             <Link to="/profil/$id" params={{ id: aktuell.id }} className="mt-3 inline-block text-sm font-semibold text-info underline-offset-4 hover:underline">
@@ -179,21 +179,21 @@ export function WischStapel({ profile, onEinladen }: { profile: OeffentlichesPro
         </div>
       </div>
 
-      <div className="sticky bottom-[calc(env(safe-area-inset-bottom,0px)+4.75rem)] z-10 mx-auto mt-5 flex w-fit items-center justify-center gap-3 rounded-full bg-background/80 p-1.5 backdrop-blur sm:static sm:bg-transparent sm:backdrop-blur-none">
+      <div className="glas-leiste sticky bottom-[calc(env(safe-area-inset-bottom,0px)+5.25rem)] z-10 mx-auto mt-5 flex w-fit items-center justify-center gap-2.5 rounded-full p-2 sm:static sm:gap-3">
         <button type="button" onClick={rueckgaengig} disabled={!verlauf.length} aria-label="Letzte Entscheidung zurücknehmen"
-          className="flex h-11 w-11 items-center justify-center rounded-full border bg-card text-muted-foreground shadow-soft transition hover:bg-accent disabled:opacity-40">
+          className="glas-knopf flex h-11 w-11 items-center justify-center rounded-full text-muted-foreground transition hover:bg-[var(--glas-stark)] disabled:opacity-40">
           <RotateCcw className="h-5 w-5" />
         </button>
         <button type="button" onClick={() => entscheiden(false)} aria-label={`${name} überspringen`} aria-keyshortcuts="ArrowLeft"
-          className="flex h-16 w-16 items-center justify-center rounded-full border-2 bg-card text-ink shadow-soft transition hover:scale-105 hover:bg-accent dark:text-foreground">
+          className="glas-knopf flex h-16 w-16 items-center justify-center rounded-full text-ink transition hover:scale-105 hover:bg-[var(--glas-stark)] dark:text-foreground">
           <X className="h-7 w-7" />
         </button>
         <button type="button" onClick={() => entscheiden(true)} aria-label={`${name} als Favorit merken`} aria-keyshortcuts="ArrowRight"
-          className="flex h-16 w-16 items-center justify-center rounded-full bg-tuerkis-600 text-white shadow-soft transition hover:scale-105 hover:bg-tuerkis-700">
+          className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-b from-tuerkis-500 to-tuerkis-700 text-white shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_10px_24px_-10px_var(--color-tuerkis-700)] transition hover:scale-105 hover:brightness-110">
           <Star className="h-7 w-7" fill="currentColor" />
         </button>
         <button type="button" onClick={() => onEinladen(aktuell)} aria-label={`${name} zum Interview einladen`}
-          className="flex h-11 items-center gap-1.5 rounded-full bg-primary px-4 text-sm font-semibold text-primary-foreground shadow-soft transition hover:bg-primary-hover">
+          className="knopf-gold flex h-11 items-center gap-1.5 rounded-full px-4 text-sm font-semibold transition hover:brightness-[1.03]">
           <CalendarCheck className="h-4 w-4" aria-hidden /> Einladen
         </button>
       </div>

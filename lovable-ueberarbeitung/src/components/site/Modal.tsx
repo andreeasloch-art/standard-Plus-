@@ -21,7 +21,7 @@ export function Modal({ offen, onClose, titel, children }: { offen: boolean; onC
       aria-labelledby="modal-titel"
       onClose={onClose}
       onClick={(e) => { if (e.target === ref.current) onClose(); }}
-      className="m-auto w-[min(32rem,calc(100vw-2rem))] rounded-3xl border bg-card p-0 text-card-foreground shadow-lift backdrop:bg-black/50 backdrop:backdrop-blur-sm"
+      className="m-auto w-[min(32rem,calc(100vw-2rem))] rounded-[1.75rem] border border-[var(--glas-rand)] bg-card p-0 text-card-foreground shadow-lift backdrop:bg-black/50 backdrop:backdrop-blur-sm"
     >
       {offen && (
         <div className="max-h-[85vh] overflow-y-auto p-6 sm:p-7">

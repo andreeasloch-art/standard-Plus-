@@ -35,10 +35,10 @@ function Index() {
 
   return (
     <>
-      <section className="flaeche-hell border-b">
+      <section className="flaeche-hell">
         <div className="container-page mx-auto max-w-3xl pb-16 pt-14 text-center sm:pb-20 sm:pt-20">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-info">Personalvermittlung in Europa</p>
-          <h1 className="isolate mt-4 text-4xl sm:text-6xl">
+          <p className="glas-knopf inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-info"><span className="h-1.5 w-1.5 rounded-full bg-tuerkis-500" aria-hidden />Personalvermittlung in Europa</p>
+          <h1 className="isolate mt-5 text-[2.6rem] leading-[1.05] sm:text-7xl">
             Menschen verbinden.{" "}
             <span className="relative whitespace-nowrap">
               Erfolg gestalten.
@@ -55,7 +55,7 @@ function Index() {
                 key={b.label}
                 to="/talente"
                 search={{ q: b.q }}
-                className="rounded-full border border-tuerkis-200 bg-card px-3.5 py-1 text-sm text-tint-foreground transition hover:bg-tint dark:border-tuerkis-800"
+                className="glas-knopf rounded-full px-4 py-1.5 text-sm font-medium text-tint-foreground transition hover:-translate-y-px hover:bg-[var(--glas-stark)]"
               >
                 {b.label}
               </Link>
@@ -69,7 +69,7 @@ function Index() {
         <Schritte />
       </section>
 
-      <section className="border-y bg-surface/60 py-14 sm:py-20">
+      <section className="py-14 sm:py-20">
         <div className="container-page mx-auto max-w-5xl">
           <div className="mb-6 flex flex-wrap items-end justify-between gap-4 sm:mb-8">
             <div>
@@ -114,7 +114,9 @@ function Index() {
       <AppInstallieren />
 
       <section className="container-page pb-14 sm:pb-20">
-        <div className="flex flex-col items-start justify-between gap-6 rounded-3xl bg-ink p-8 text-ink-foreground sm:flex-row sm:items-center sm:p-12">
+        <div className="relative isolate flex flex-col items-start justify-between gap-6 overflow-hidden rounded-[2rem] bg-ink p-8 text-ink-foreground shadow-lift sm:flex-row sm:items-center sm:p-12">
+          <span aria-hidden className="absolute -right-24 -top-32 -z-10 h-80 w-80 rounded-full bg-tuerkis-500/45 blur-3xl" />
+          <span aria-hidden className="absolute -bottom-40 left-1/4 -z-10 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
           <div>
             <h2 className="text-2xl sm:text-3xl">Bereit für Ihr nächstes Team-Mitglied?</h2>
             <p className="mt-2 text-ink-foreground/80">Kostenlos registrieren – Zahlung nur bei Erfolg.</p>

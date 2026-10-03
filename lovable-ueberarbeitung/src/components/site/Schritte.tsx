@@ -11,10 +11,10 @@ const SCHRITTE = [
 export function Schritte() {
   return (
     <ol className="relative mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
-      <span className="absolute left-7 right-7 top-7 hidden h-px bg-tuerkis-200 lg:block dark:bg-tuerkis-800" aria-hidden />
+      <span className="absolute left-7 right-7 top-7 hidden h-px bg-gradient-to-r from-tuerkis-300/0 via-tuerkis-300 to-tuerkis-300/0 lg:block dark:via-tuerkis-700" aria-hidden />
       {SCHRITTE.map(({ icon: I, t, d }, i) => (
         <li key={t} className="relative flex gap-4 lg:flex-col lg:gap-3">
-          <span className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-tuerkis-200 bg-card text-tuerkis-600 shadow-soft dark:border-tuerkis-800 dark:text-tuerkis-300">
+          <span className="relative flex h-14 w-14 shrink-0 items-center justify-center glas-knopf rounded-2xl text-tuerkis-600 dark:text-tuerkis-300">
             <I className="h-6 w-6" aria-hidden />
             <span className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[11px] font-bold text-primary-foreground">
               {i + 1}

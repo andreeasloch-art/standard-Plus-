@@ -109,8 +109,8 @@ export function SuchFeld({
       </label>
       <div
         className={cn(
-          "flex items-center gap-2 rounded-2xl border bg-card shadow-soft transition focus-within:ring-2 focus-within:ring-ring",
-          gross ? "p-2 pl-4" : "p-1.5 pl-3",
+          "glas-leiste flex items-center gap-2 rounded-full transition focus-within:ring-2 focus-within:ring-ring",
+          gross ? "p-2 pl-5" : "p-1.5 pl-3.5",
         )}
       >
         <Search className={cn("shrink-0 text-muted-foreground", gross ? "h-5 w-5" : "h-4 w-4")} aria-hidden />
@@ -143,8 +143,8 @@ export function SuchFeld({
         <button
           type="submit"
           className={cn(
-            "shrink-0 rounded-xl bg-primary font-semibold text-primary-foreground transition hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-            gross ? "h-11 px-5" : "h-9 px-4 text-sm",
+            "knopf-gold shrink-0 rounded-full font-semibold transition hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+            gross ? "h-11 px-6" : "h-9 px-4 text-sm",
           )}
         >
           Suchen
@@ -156,7 +156,7 @@ export function SuchFeld({
         role="listbox"
         aria-label="Vorschläge"
         hidden={!zeige}
-        className="absolute inset-x-0 top-full z-40 mt-2 overflow-hidden rounded-2xl border bg-popover py-1 shadow-lift"
+        className="absolute inset-x-0 top-full z-40 mt-2 overflow-hidden glas-leiste rounded-3xl p-1.5"
       >
         {vorschlaege.map((v, i) => (
           <li
@@ -170,8 +170,8 @@ export function SuchFeld({
             }}
             onMouseEnter={() => setAktiv(i)}
             className={cn(
-              "flex cursor-pointer items-center justify-between gap-3 px-4 py-2.5 text-sm",
-              i === aktiv && "bg-surface",
+              "flex cursor-pointer items-center justify-between gap-3 rounded-2xl px-4 py-2.5 text-sm",
+              i === aktiv && "bg-tint",
             )}
           >
             <span>
