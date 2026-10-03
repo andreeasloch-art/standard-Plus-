@@ -4,14 +4,14 @@ const HALTE: Record<Rolle, { t: string; d: string }[]> = {
   arbeit: [
     { t: "Profil anlegen", d: "Kostenlos, in wenigen Minuten – mit Foto." },
     { t: "Gefunden werden", d: "Unternehmen sehen Beruf, Erfahrung und Deutschniveau." },
-    { t: "Einladung & Match", d: "Sie sagen zu – erst dann gibt es Kontaktdaten." },
-    { t: "Interview", d: "Per Telefon oder Video, mit Dolmetscher." },
+    { t: "Einladung & Match", d: "Sie sagen zu – das Interview läuft über Standard Plus." },
+    { t: "Interview & Vertrag", d: "Mit Dolmetscher. Kontaktdaten erst bei Vertragsabschluss." },
   ],
   personal: [
     { t: "Suchen", d: "Beruf eingeben – passende Profile werden vorgeschlagen." },
-    { t: "Wischen", d: "Nach rechts = Favorit, nach links = weiter." },
+    { t: "Wischen", d: "Haken = gefällt mir, mehr Infos sehen. Kreuz = weiter." },
     { t: "Einladen & Match", d: "Sagt die Fachkraft zu, ist es ein Match." },
-    { t: "Interview", d: "Jeder spricht seine Sprache, übersetzt wird live." },
+    { t: "Interview & Vertrag", d: "Live übersetzt. Kontaktdaten erst bei Vertragsabschluss." },
   ],
 };
 

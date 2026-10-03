@@ -102,7 +102,7 @@ export function FotoUpload({
         <h2 id={`${id}-titel`} className="text-xl">Profilfoto</h2>
         <p className="mt-1 text-sm text-muted-foreground">Freiwillig. Am besten frontal, gut ausgeleuchtet, Gesicht gut erkennbar.</p>
         <p className="mt-2 rounded-xl bg-tint p-3 text-sm text-tint-foreground">
-          Ihr Foto ist für <strong>alle</strong> sichtbar – auch für Besucher ohne Anmeldung. Name und Kontaktdaten gibt es weiterhin erst beim Match.
+          Ihr Foto ist für <strong>alle</strong> sichtbar – auch für Besucher ohne Anmeldung. Vollständiger Name und Kontaktdaten werden erst bei Vertragsabschluss sichtbar.
         </p>
         {!fotoPfad && (
           <label className="mt-3 flex items-start gap-3 text-sm">

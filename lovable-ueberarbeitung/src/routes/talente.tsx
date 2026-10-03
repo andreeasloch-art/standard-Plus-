@@ -79,11 +79,11 @@ function Talente() {
   return (
     <>
       <section className="flaeche-hell">
-        <div className="container-page mx-auto max-w-5xl pb-2 pt-6 sm:pb-4 sm:pt-12">
-          <h1 className="text-3xl sm:text-5xl">Fachkräfte finden</h1>
-          <p className="mt-1 hidden text-muted-foreground sm:block">Suchen, nach rechts wischen für Favoriten, dann zum Interview einladen.</p>
+        <div className={`container-page mx-auto max-w-5xl pb-2 sm:pb-4 sm:pt-12 ${liste_ ? "pt-6" : "pt-3"}`}>
+          <h1 className={`text-3xl sm:text-5xl ${liste_ ? "" : "sr-only sm:not-sr-only"}`}>Fachkräfte finden</h1>
+          <p className="mt-1 hidden text-muted-foreground sm:block">Wischen wie bei Tinder: Haken heißt „gefällt mir“, Kreuz heißt „weiter“. Kontaktdaten erst bei Vertragsabschluss.</p>
 
-          <div className="mt-4 flex gap-2 sm:mt-6 sm:gap-3">
+          <div className={`flex gap-2 sm:mt-6 sm:gap-3 ${liste_ ? "mt-4" : "mt-0"}`}>
             <SuchFeld wert={qParam} onAenderung={setQ} onSuche={(t) => navigate({ search: (s) => ({ ...s, q: t || undefined }), replace: true })} />
             <Button variant="outline" size="lg" className="h-auto shrink-0 px-3 py-3 sm:px-7" aria-label={`Filter${filterAktiv ? ` (${filterAktiv} aktiv)` : ""}`} aria-expanded={filterOffen} aria-controls="filter" onClick={() => setFilterOffen((o) => !o)}>
               <SlidersHorizontal /> <span className="hidden sm:inline">Filter{filterAktiv > 0 && ` (${filterAktiv})`}</span>
@@ -122,7 +122,7 @@ function Talente() {
         </div>
       </section>
 
-      <section className="container-page mx-auto max-w-5xl pb-14 pt-4 sm:pt-6">
+      <section className="container-page mx-auto max-w-5xl pb-6 pt-3 sm:pb-14 sm:pt-6">
         <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
           <div className="glas-knopf inline-flex rounded-lg p-1" role="group" aria-label="Ansicht">
             <button type="button" aria-pressed={!liste_} className={umschalter(!liste_)} onClick={() => navigate({ search: (s) => ({ ...s, ansicht: undefined }), replace: true })}>
@@ -137,7 +137,7 @@ function Talente() {
           </Link>
         </div>
 
-        <p className="mb-3 text-sm text-muted-foreground" aria-live="polite">
+        <p className="mb-3 text-xs text-muted-foreground sm:text-sm" aria-live="polite">
           {isLoading ? "Profile werden geladen …" : <><KlappText text={String(liste.length)} className="schrift-tafel font-bold text-foreground" /> {liste.length === 1 ? "Vorschlag" : "Vorschläge"}</>}
           {qParam && !isLoading && ` für „${qParam}“`}
           {liste.some((p) => istBeispiel(p.id)) && " · enthält Beispielprofile (fiktiv)"}

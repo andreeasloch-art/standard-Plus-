@@ -62,7 +62,7 @@ export function EinladenDialog({ profil, onClose }: { profil: OeffentlichesProfi
         <div className="text-center">
           <CheckCircle2 className="mx-auto h-12 w-12 text-tuerkis-600" aria-hidden />
           <p className="mt-3">{name} bekommt Ihre Einladung. Sagt {name} zu, haben Sie ein Match.</p>
-          <p className="mt-2 text-sm text-muted-foreground">Mit dem Match sehen Sie beide Name und Kontaktdaten und können das Interview starten.</p>
+          <p className="mt-2 text-sm text-muted-foreground">Mit dem Match führen Sie das Interview über Standard Plus. Vollständiger Name und Kontaktdaten werden erst bei Vertragsabschluss sichtbar.</p>
           <Button className="mt-6" onClick={onClose}>Weiter wischen</Button>
         </div>
       ) : (
@@ -104,7 +104,7 @@ export function EinladenDialog({ profil, onClose }: { profil: OeffentlichesProfi
           )}
 
           <p className="text-xs text-muted-foreground">
-            {name} sieht mit der Einladung Ihr Firmenprofil. Kontaktdaten gibt es erst beim Match. Mehr in der{" "}
+            {name} sieht mit der Einladung Ihr Firmenprofil. Kontaktdaten gibt es erst bei Vertragsabschluss. Mehr in der{" "}
             <Link to="/datenschutz" className="underline">Datenschutzerklärung</Link>.
           </p>
 

@@ -157,3 +157,14 @@ Mit dem Design-Skill „Impeccable“ erarbeitet (Produktprofil `PRODUCT.md`, Ri
 - Knöpfe mit Schild-Ecken (`rounded-lg`) statt Pillen; Karten wieder fest (weiß), Glas nur für Leisten, Suchfeld und Knöpfe.
 - Neu: `WischBuehne.tsx`, `KlappText.tsx`. Geändert: `styles.css`, `button.tsx`, `SuchFeld`, `Schritte`, `ProfileCard`, `WischStapel`, `Header`, `AppNavigation`, `PageHeader`, `DolmetscherDemo`, `Vorteile`, `routes/index`, `routes/talente`, `routes/__root`.
 - Tests: `test.mjs` alle Prüfungen bestanden (inkl. neuer Prüfungen für Wisch-Vorschau, Tipp-Animation und Neumischen bei Suche).
+
+## Runde 7 – Wischen wie bei Tinder (03.10.2026)
+
+- **`WischStapel.tsx` neu:** Die Karte füllt den Bildschirm. Großes Foto, unten darauf Name (+ Alter, falls freigegeben), Beruf, Berufsfeld, Erfahrung, Deutschniveau, Verbindung „Von → Nach“. Knöpfe liegen auf der Karte: Rückgängig, Kreuz (weiter), **grüner Haken** (gefällt mir), Einladen.
+- **Haken / nach rechts wischen** = gefällt mir → Favorit gespeichert **und die Karte klappt auf**: mehr Infos (Berufsfeld, Erfahrung, verfügbar ab, Von → Nach, Deutsch, Herkunft, Über mich, Fähigkeiten) und großer Knopf „Einladen“. Kreuz oder Wischen führt danach zur nächsten Karte.
+- Talente-Seite im Wisch-Modus kompakter (Überschrift auf dem Handy nur für Screenreader), damit die Karte möglichst groß ist.
+- **Kontaktdaten erst bei Vertragsabschluss** (vorher: beim Match). Texte angepasst in Einladen-Dialog, Foto-Upload, Ablauf, Unternehmen, Startseite und Datenschutzerklärung (Abschnitt 6).
+
+### ⚠ Für Lovable / Datenbank – noch umzusetzen
+1. **Kontaktfreigabe umstellen:** Bisher gibt die Datenbank Nachname/Telefon/E-Mail beim Match frei. Neu: erst wenn **beide Seiten den Vertragsabschluss bestätigt** haben. Vorschlag: Spalten `anfragen.vertrag_unternehmen_am` und `anfragen.vertrag_fachkraft_am` (timestamptz), Freigabe-Funktion/RLS prüft beide statt Status „angenommen“. Knöpfe „Vertrag abgeschlossen bestätigen“ im Dashboard beider Seiten. **Bis das umgesetzt ist, stimmen die neuen Texte nicht mit dem Verhalten überein.**
+2. **Alter (optional):** Feld `alter` im Typ `OeffentlichesProfil` ist vorbereitet. Die Datenbank liefert es nur, wenn die Fachkraft es im Profil einschaltet (neue Spalte z. B. `profiles.alter_sichtbar boolean default false`; RPC `oeffentliche_profile` gibt `alter` = Jahre aus `geburtsjahr` nur bei `alter_sichtbar`). **Rechtlich prüfen lassen:** Alter in Bewerberprofilen kann Altersdiskriminierung nach AGG begünstigen.

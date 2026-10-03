@@ -84,7 +84,7 @@ function Index() {
               </Link>
             </Button>
           </div>
-          <p className="mt-3 hidden text-sm text-muted-foreground sm:block">Kontaktdaten gibt es erst beim Match.</p>
+          <p className="mt-3 hidden text-sm text-muted-foreground sm:block">Kontaktdaten erst bei Vertragsabschluss.</p>
         </div>
 
         {/* Handy: unter den Knöpfen; Desktop: rechts über beide Zeilen */}

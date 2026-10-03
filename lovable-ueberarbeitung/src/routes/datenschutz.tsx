@@ -50,8 +50,8 @@ function Datenschutz() {
       <h2>5. Profil- und Matching-Daten</h2>
       <p>
         Alle weiteren Profilangaben sind freiwillig (z. B. Name, Telefon, Wohnort, Beruf, Erfahrung, Deutschniveau, Sprachen, Werdegang, Skills;
-        bei Unternehmen Firmendaten). Geburtsjahr dient nur der Prüfung des Mindestalters, Staatsangehörigkeit nur der Einschätzung, ob eine Arbeitserlaubnis nötig ist;
-        beides ist nie öffentlich sichtbar. Besondere Kategorien personenbezogener Daten (z. B. Gesundheit, Religion) fragen wir nicht ab. Ein Profilfoto ist freiwillig (siehe Abschnitt 8).
+        bei Unternehmen Firmendaten). Geburtsjahr dient der Prüfung des Mindestalters; Ihr Alter (nicht das Geburtsdatum) wird nur angezeigt, wenn Sie das im Profil ausdrücklich
+        einschalten – freiwillig und jederzeit abschaltbar (Art. 6 Abs. 1 lit. a DSGVO). Staatsangehörigkeit dient nur der Einschätzung, ob eine Arbeitserlaubnis nötig ist, und ist nie öffentlich sichtbar. Besondere Kategorien personenbezogener Daten (z. B. Gesundheit, Religion) fragen wir nicht ab. Ein Profilfoto ist freiwillig (siehe Abschnitt 8).
       </p>
       <p>
         Arbeitnehmerprofile erscheinen in der Suche nur mit Ihrer ausdrücklichen, freiwilligen Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) und nur pseudonymisiert
@@ -65,12 +65,13 @@ function Datenschutz() {
 
       <h2>6. Anfragen und beidseitige Freigabe</h2>
       <p>
-        Fragt ein Unternehmen ein Profil an, sieht die Fachkraft den Firmennamen und die Firmenangaben. Nachname, Telefon und E-Mail der Fachkraft werden dem Unternehmen erst angezeigt,
-        wenn beide Seiten die Anfrage freigegeben haben („Match“). Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. lit. a (Freigabe).
+        Fragt ein Unternehmen ein Profil an, sieht die Fachkraft den Firmennamen und die Firmenangaben. Sagt die Fachkraft zu („Match“), findet das Interview über die Plattform statt.
+        Nachname, Telefon und E-Mail der Fachkraft werden dem Unternehmen erst angezeigt, wenn beide Seiten den Vertragsabschluss bestätigt haben.
+        Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen und Vertrag) bzw. lit. a (Freigabe).
       </p>
 
       <h2>7. Bewertungen</h2>
-      <p>Nach beidseitiger Freigabe können sich beide Seiten einmal gegenseitig bewerten (1–5 Sterne, optional Text). Sichtbar nur für die Beteiligten. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
+      <p>Nach einem Match können sich beide Seiten einmal gegenseitig bewerten (1–5 Sterne, optional Text). Sichtbar nur für die Beteiligten. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
 
       <h2>8. Profilfoto</h2>
       <p>

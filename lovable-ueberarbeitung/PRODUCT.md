@@ -18,7 +18,9 @@ Wischen wie bei Tinder ist das Herzstück (rechts = Favorit, links = weiter) sta
 
 ## Capabilities and Constraints
 - Suche mit Autovervollständigung, Wischstapel (rechts = Favorit, links = weiter), Liste mit Endlos-Scrollen, Favoriten, Einladung zum Interview (Telefon/Video, Wunschtermin, Dolmetscher-Option).
-- Fotos sind für alle sichtbar (mit Einwilligung); Name/Kontaktdaten erst nach Match.
+- Fotos sind für alle sichtbar (mit Einwilligung). Match = Fachkraft sagt zur Einladung zu, Interview läuft über die Plattform. Vollständiger Name und Kontaktdaten erst bei Vertragsabschluss (beidseitig bestätigt).
+- Wisch-Ansicht wie Tinder: großes Foto, Daten unten; Haken = gefällt mir (Favorit) → Karte klappt auf und zeigt mehr Infos; Kreuz = weiter.
+- Alter nur, wenn die Fachkraft es freiwillig einschaltet (offen: rechtliche Prüfung AGG).
 - Profile immer zwei nebeneinander, Gesichter klar sichtbar.
 - PWA (installierbar), Lovable-Stack: TanStack Start, React 19, Tailwind v4, shadcn/ui, Supabase.
 - Rechtlich: DSGVO, BFSG-Barrierefreiheit, Cookie-Banner mit „Alle ablehnen“, Schriften lokal.
@@ -39,7 +41,7 @@ Keine echten Bewertungen, Kundenlogos oder Kennzahlen – nichts davon erfinden.
 ## Product Principles
 1. Kurz statt lang: ein Satz pro Gedanke.
 2. Menschen sichtbar machen: Gesichter und Namen vor Kennzahlen.
-3. Vertrauen durch Kontrolle: Kontaktdaten erst beim Match.
+3. Vertrauen durch Kontrolle: Kontaktdaten erst bei Vertragsabschluss.
 4. Sprache ist keine Hürde.
 
 ## Accessibility & Inclusion

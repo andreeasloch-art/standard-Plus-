@@ -196,7 +196,7 @@ export function SuchFeld({
         <button
           type="submit"
           className={cn(
-            "shrink-0 rounded-lg bg-ink font-semibold text-ink-foreground transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+            "shrink-0 rounded-lg border border-tuerkis-300 bg-tint font-semibold text-tint-foreground transition hover:border-tuerkis-500 hover:bg-tuerkis-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
             gross ? "h-11 px-6" : "h-9 px-4 text-sm",
           )}
         >

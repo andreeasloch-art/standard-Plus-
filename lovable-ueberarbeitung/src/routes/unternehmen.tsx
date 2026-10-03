@@ -9,7 +9,7 @@ export const Route = createFileRoute("/unternehmen")({
       { title: "Für Unternehmen – Standard Plus" },
       { name: "description", content: "Fachkräfte aus der EU finden und anfragen – Zahlung nur bei Erfolg." },
       { property: "og:title", content: "Für Unternehmen – Standard Plus" },
-      { property: "og:description", content: "Fachkräfte aus ganz Europa – Kontaktdaten erst beim Match." },
+      { property: "og:description", content: "Fachkräfte aus ganz Europa – Kontaktdaten erst bei Vertragsabschluss." },
     ],
   }),
   component: () => (

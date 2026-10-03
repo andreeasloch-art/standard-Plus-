@@ -13,6 +13,8 @@ export type OeffentlichesProfil = {
   zielort: string | null;
   deutschniveau: string | null;
   erfahrung_jahre: number | null;
+  /** Alter nur, wenn die Fachkraft es freiwillig zeigt (Opt-in; Hinweis AGG im README) – sonst fehlt das Feld */
+  alter?: number | null;
   verfuegbar_ab: string | null;
   ueber_mich: string | null;
   skills: string[];

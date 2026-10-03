@@ -30,7 +30,7 @@ export function ProfileCard({ p }: { p: OeffentlichesProfil }) {
 
       <div className="flex min-w-0 flex-col gap-2 p-3 sm:gap-3 sm:p-5">
         <div className="min-w-0">
-          <h3 className="truncate text-lg sm:text-xl">{name}</h3>
+          <h3 className="truncate text-lg sm:text-xl">{name}{p.alter ? <span className="font-normal text-muted-foreground">, {p.alter}</span> : null}</h3>
           <p className="truncate text-sm text-tuerkis-700 dark:text-tuerkis-300">{p.beruf ?? "–"}</p>
         </div>
 
@@ -54,10 +54,14 @@ export function ProfileCard({ p }: { p: OeffentlichesProfil }) {
         </div>
 
         <div className="mt-auto flex items-center justify-between gap-2 border-t border-[var(--glas-linie)] pt-2 text-xs sm:pt-3 sm:text-sm">
-          <span className="flex items-center gap-2">
-            <span className="text-muted-foreground">Deutsch</span>
-            <span className="gleis h-6 min-w-6 text-sm">{p.deutschniveau ?? "–"}</span>
-          </span>
+          {p.deutschniveau ? (
+            <span className="flex items-center gap-2">
+              <span className="text-muted-foreground">Deutsch</span>
+              <span className="gleis h-6 min-w-6 text-sm">{p.deutschniveau}</span>
+            </span>
+          ) : (
+            <span />
+          )}
           {p.erfahrung_jahre != null && <span className="text-muted-foreground">{p.erfahrung_jahre} J.</span>}
         </div>
       </div>

@@ -10,11 +10,14 @@ export function ProfilFoto({
   name,
   className,
   gross = false,
+  kopfOben = false,
 }: {
   url?: string | null;
   name: string;
   className?: string;
   gross?: boolean;
+  /** Platzhalter im oberen Drittel (wenn unten Text über dem Bild liegt) */
+  kopfOben?: boolean;
 }) {
   return (
     <div className={cn("relative aspect-[4/5] w-full overflow-hidden bg-tuerkis-100", className)}>
@@ -27,7 +30,7 @@ export function ProfilFoto({
           className="h-full w-full object-cover object-[50%_28%]"
         />
       ) : (
-        <div className="foto-platzhalter flex h-full w-full flex-col items-center justify-center gap-2" role="img" aria-label={`Noch kein Foto von ${name}`}>
+        <div className={cn("foto-platzhalter flex h-full w-full flex-col items-center gap-2", kopfOben ? "justify-start pt-[16%]" : "justify-center")} role="img" aria-label={`Noch kein Foto von ${name}`}>
           {/* Avatar-Kreis statt riesigem Buchstaben – wirkt persönlicher */}
           <span
             className={cn(
