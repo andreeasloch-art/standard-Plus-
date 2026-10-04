@@ -36,8 +36,11 @@ function Datenschutz() {
 
       <h2>3. Registrierung und Konto</h2>
       <p>
-        Für ein Konto benötigen wir nur Ihre Rolle (Unternehmen oder Fachkraft) und <em>entweder</em> Ihre Handynummer <em>oder</em> E-Mail-Adresse und Passwort
-        (gespeichert als Hash). Bei der Handynummer schicken wir Ihnen einen einmaligen Code per SMS; Ihr Konto wird erst freigeschaltet und Ihr Profil erst sichtbar,
+        Für ein Konto benötigen wir Ihre Rolle (Fachkraft, Arbeitgeber oder Busunternehmen), Vor- und Nachnamen, bei Fachkräften das Geburtsdatum,
+        bei Unternehmen Firmennamen und Handelsregister- bzw. USt-Nummer, sowie <em>entweder</em> Ihre Handynummer <em>oder</em> E-Mail-Adresse und Passwort
+        (gespeichert als Hash). Name und Geburtsdatum bzw. Registernummer nutzen wir, um sicherzustellen, dass jede Person und jede Firma nur ein Konto hat
+        (Schutz vor Mehrfach- und Scheinkonten) und dass Fachkräfte volljährig sind. Dafür vergleichen wir diese Angaben mit bestehenden Konten.
+        Das Geburtsdatum ist nie öffentlich sichtbar; Rechtsgrundlage: Art. 6 Abs. 1 lit. b und f DSGVO. Bei der Handynummer schicken wir Ihnen einen einmaligen Code per SMS; Ihr Konto wird erst freigeschaltet und Ihr Profil erst sichtbar,
         wenn Sie diesen Code bestätigt haben. Unbestätigte Registrierungen löschen wir nach <Ph>z. B. 7 Tagen</Ph>.
         Wir speichern außerdem Zeitpunkt und Version Ihrer Zustimmung zur Datenschutzerklärung und zu den AGB bzw. Nutzungsbedingungen
         sowie bei Unternehmen die Bestätigung der Unternehmereigenschaft. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertrag) und lit. c (Nachweispflichten).
@@ -54,7 +57,7 @@ function Datenschutz() {
       <h2>5. Profil- und Matching-Daten</h2>
       <p>
         Alle weiteren Profilangaben sind freiwillig (z. B. Name, Telefon, Wohnort, Beruf, Erfahrung, Deutschniveau, Sprachen, Werdegang, Skills;
-        bei Unternehmen Firmendaten). Geburtsjahr dient der Prüfung des Mindestalters; Ihr Alter (nicht das Geburtsdatum) wird nur angezeigt, wenn Sie das im Profil ausdrücklich
+        bei Unternehmen Firmendaten). Das Geburtsdatum dient der Prüfung des Mindestalters und der Ein-Konto-Regel (Abschnitt 3); Ihr Alter (nicht das Geburtsdatum) wird nur angezeigt, wenn Sie das im Profil ausdrücklich
         einschalten – freiwillig und jederzeit abschaltbar (Art. 6 Abs. 1 lit. a DSGVO). Staatsangehörigkeit dient nur der Einschätzung, ob eine Arbeitserlaubnis nötig ist, und ist nie öffentlich sichtbar. Besondere Kategorien personenbezogener Daten (z. B. Gesundheit, Religion) fragen wir nicht ab. Ein Profilfoto ist freiwillig (siehe Abschnitt 8).
       </p>
       <p>

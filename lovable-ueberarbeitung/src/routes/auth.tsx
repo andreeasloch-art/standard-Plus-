@@ -37,20 +37,62 @@ const zustimmungen = {
   unternehmer: z.string().optional(),
   sichtbar: z.string().optional(),
 };
+/** Spätestes erlaubtes Geburtsdatum (mindestens 18 Jahre). */
+export const spaetestesGeburtsdatum = () => {
+  const d = new Date(); d.setFullYear(d.getFullYear() - 18);
+  return d.toISOString().slice(0, 10);
+};
+const person = {
+  vorname: z.string().trim().min(1, "Bitte Vornamen eingeben.").max(60),
+  nachname: z.string().trim().min(1, "Bitte Nachnamen eingeben.").max(60),
+  geburtsdatum: z.string().optional(),
+  firma: z.string().trim().max(120).optional(),
+  register_nr: z.string().trim().max(60).optional(),
+};
+/** Fachkraft: Geburtsdatum (mind. 18). Unternehmen: Firma + Handelsregister- oder USt-Nummer. */
+const personPruefen = (d: { rolle: string; geburtsdatum?: string; firma?: string; register_nr?: string }, ctx: z.RefinementCtx) => {
+  if (d.rolle === "arbeitnehmer") {
+    if (!d.geburtsdatum) ctx.addIssue({ code: "custom", path: ["geburtsdatum"], message: "Bitte Geburtsdatum eingeben." });
+    else if (d.geburtsdatum > spaetestesGeburtsdatum()) ctx.addIssue({ code: "custom", path: ["geburtsdatum"], message: "Sie müssen mindestens 18 Jahre alt sein." });
+    else if (d.geburtsdatum < "1900-01-01") ctx.addIssue({ code: "custom", path: ["geburtsdatum"], message: "Bitte Geburtsdatum prüfen." });
+  } else {
+    if (!d.firma || d.firma.length < 2) ctx.addIssue({ code: "custom", path: ["firma"], message: "Bitte Firmennamen eingeben." });
+    if (!d.register_nr || d.register_nr.replace(/[^A-Za-z0-9]/g, "").length < 5) ctx.addIssue({ code: "custom", path: ["register_nr"], message: "Bitte Handelsregister- oder USt-Nummer eingeben." });
+  }
+};
+/** Alle Fehler auf einmal: zod prüft Zusatzregeln nur, wenn die Grundfelder stimmen – darum hier zusätzlich. */
+function fehlerListe(issues: z.ZodIssue[], raw: Record<string, string>, rolle: string, registrieren: boolean): Record<string, string> {
+  const errs: Record<string, string> = {};
+  issues.forEach((i) => { errs[String(i.path[0])] ??= i.message; });
+  if (registrieren) {
+    const extra: z.ZodIssue[] = [];
+    personPruefen({ ...raw, rolle } as never, { addIssue: (i: { path?: (string | number)[]; message?: string }) => extra.push({ code: "custom", path: i.path ?? [], message: i.message ?? "" }) } as unknown as z.RefinementCtx);
+    extra.forEach((i) => { errs[String(i.path[0])] ??= i.message; });
+    if (rolle !== "arbeitnehmer" && raw["unternehmer"] !== "on") errs["unternehmer"] ??= unternehmerFehler.message;
+  }
+  return errs;
+}
+const personMeta = (d: { rolle: string; vorname: string; nachname: string; geburtsdatum?: string; firma?: string; register_nr?: string }) => ({
+  vorname: d.vorname, nachname: d.nachname,
+  ...(d.rolle === "arbeitnehmer" ? { geburtsdatum: d.geburtsdatum ?? "" } : { firma: d.firma ?? "", register_nr: d.register_nr ?? "" }),
+});
+const KONTO_EXISTIERT = "Für diese Person bzw. Firma gibt es bereits ein Konto – pro Person/Firma ist nur ein Konto möglich. Bitte melden Sie sich an. Ist das nicht Ihr Konto, schreiben Sie uns.";
 const unternehmerPflicht = (d: { rolle: string; unternehmer?: string }) => d.rolle === "arbeitnehmer" || d.unternehmer === "on";
 const unternehmerFehler = { path: ["unternehmer"], message: "Unsere Angebote richten sich ausschließlich an Unternehmer. Bitte bestätigen." };
 const regSchema = z.object({
   rolle: z.enum(["arbeitgeber", "arbeitnehmer", "busunternehmen"], { errorMap: () => ({ message: "Bitte eine Rolle wählen." }) }),
   email: z.string().trim().min(1, "Bitte E-Mail-Adresse eingeben.").email("Bitte eine gültige E-Mail-Adresse eingeben.").max(255),
   passwort: z.string().min(8, "Das Passwort muss mindestens 8 Zeichen lang sein.").max(72, "Maximal 72 Zeichen."),
+  ...person,
   ...zustimmungen,
-}).refine(unternehmerPflicht, unternehmerFehler);
+}).refine(unternehmerPflicht, unternehmerFehler).superRefine(personPruefen);
 const regTelSchema = z.object({
   rolle: z.enum(["arbeitgeber", "arbeitnehmer", "busunternehmen"]),
+  ...person,
   ...zustimmungen,
-}).refine(unternehmerPflicht, unternehmerFehler);
+}).refine(unternehmerPflicht, unternehmerFehler).superRefine(personPruefen);
 
-const FELD_NAMEN: Record<string, string> = { email: "E-Mail", passwort: "Passwort", telefon: "Handynummer", code: "SMS-Code", datenschutz: "Datenschutzerklärung", bedingungen: "Bedingungen", unternehmer: "Unternehmer-Bestätigung", rolle: "Rolle" };
+const FELD_NAMEN: Record<string, string> = { vorname: "Vorname", nachname: "Nachname", geburtsdatum: "Geburtsdatum", firma: "Firma", register_nr: "Registernummer", email: "E-Mail", passwort: "Passwort", telefon: "Handynummer", code: "SMS-Code", datenschutz: "Datenschutzerklärung", bedingungen: "Bedingungen", unternehmer: "Unternehmer-Bestätigung", rolle: "Rolle" };
 
 type Errors = Record<string, string>;
 type Weg = "telefon" | "email";
@@ -66,6 +108,7 @@ function startLand() {
 
 function smsFehler(msg: string) {
   const m = msg.toLowerCase();
+  if (m.includes("database error") || m.includes("konto_existiert") || m.includes("duplicate")) return KONTO_EXISTIERT;
   if (m.includes("rate") || m.includes("seconds")) return "Zu viele Versuche. Bitte warten Sie einen Moment.";
   if (m.includes("expired") || m.includes("invalid") || m.includes("token")) return "Der Code ist falsch oder abgelaufen.";
   if (m.includes("signups not allowed") || m.includes("user not found")) return "Zu dieser Nummer gibt es noch kein Konto. Bitte registrieren Sie sich.";
@@ -102,11 +145,6 @@ function AuthPage() {
     return () => window.clearTimeout(t);
   }, [warten]);
 
-  const fehlerAus = (issues: z.ZodIssue[]) => {
-    const errs: Errors = {};
-    issues.forEach((i) => { errs[String(i.path[0])] ??= i.message; });
-    setErrors(errs);
-  };
 
   /** Schritt 1 (Handy): Code per SMS anfordern. Bei der Registrierung entsteht das Konto erst gesperrt. */
   const codeSenden = async (raw: Record<string, string>) => {
@@ -116,8 +154,9 @@ function AuthPage() {
     let meta: Record<string, string> | undefined;
     if (modus === "registrieren") {
       const p = regTelSchema.safeParse({ ...raw, rolle });
-      if (!p.success) p.error.issues.forEach((i) => { errs[String(i.path[0])] ??= i.message; });
+      if (!p.success) Object.entries(fehlerListe(p.error.issues, raw, rolle, true)).forEach(([k, v]) => { errs[k] ??= v; });
       else meta = {
+        ...personMeta(p.data),
         rolle: p.data.rolle, kanal: "telefon", datenschutz_version: DATENSCHUTZ_VERSION, bedingungen_version: BEDINGUNGEN_VERSION,
         unternehmer: p.data.rolle !== "arbeitnehmer" && p.data.unternehmer === "on" ? "true" : "false",
         sichtbar: p.data.rolle === "arbeitnehmer" && p.data.sichtbar === "on" ? "true" : "false",
@@ -163,7 +202,7 @@ function AuthPage() {
       return codeSenden(raw);
     }
     const parsed = modus === "login" ? loginSchema.safeParse(raw) : regSchema.safeParse({ ...raw, rolle });
-    if (!parsed.success) return fehlerAus(parsed.error.issues);
+    if (!parsed.success) return setErrors(fehlerListe(parsed.error.issues, raw, rolle, modus === "registrieren"));
     setErrors({});
     setBusy(true);
     try {
@@ -177,12 +216,13 @@ function AuthPage() {
         const { data, error } = await supabase.auth.signUp({
           email: d.email, password: d.passwort,
           options: { emailRedirectTo: window.location.origin, data: {
+            ...personMeta(d),
             rolle: d.rolle, kanal: "email", datenschutz_version: DATENSCHUTZ_VERSION, bedingungen_version: BEDINGUNGEN_VERSION,
             unternehmer: d.rolle !== "arbeitnehmer" && d.unternehmer === "on" ? "true" : "false",
             sichtbar: d.rolle === "arbeitnehmer" && d.sichtbar === "on" ? "true" : "false",
           } },
         });
-        if (error) throw new Error(error.message.includes("registered") ? "Diese E-Mail-Adresse ist bereits registriert." : error.message.includes("weak") || error.message.includes("pwned") ? "Dieses Passwort ist zu unsicher. Bitte wählen Sie ein anderes." : error.message.includes("not allowed") || error.message.includes("invalid") ? "Diese E-Mail-Adresse wird nicht akzeptiert. Bitte verwenden Sie eine echte Adresse." : error.message.includes("rate") ? "Zu viele Versuche. Bitte warten Sie einen Moment." : "Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.");
+        if (error) throw new Error(/database error|duplicate/i.test(error.message) ? KONTO_EXISTIERT : error.message.includes("registered") ? "Diese E-Mail-Adresse ist bereits registriert." : error.message.includes("weak") || error.message.includes("pwned") ? "Dieses Passwort ist zu unsicher. Bitte wählen Sie ein anderes." : error.message.includes("not allowed") || error.message.includes("invalid") ? "Diese E-Mail-Adresse wird nicht akzeptiert. Bitte verwenden Sie eine echte Adresse." : error.message.includes("rate") ? "Zu viele Versuche. Bitte warten Sie einen Moment." : "Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.");
         if (!data.session) setBestaetigen(d.email);
       }
     } catch (err) {
@@ -294,13 +334,36 @@ function AuthPage() {
                 <fieldset>
                   <legend className="text-sm font-medium">Ich bin … <span aria-hidden>*</span></legend>
                   <div className="mt-1.5 grid grid-cols-3 gap-2">
-                    {([["arbeitnehmer", "Fachkraft", UserRound], ["arbeitgeber", "Arbeitgeber", Building2], ["busunternehmen", "Busunternehmen", Bus]] as const).map(([v, l, I]) => (
+                    {([["arbeitnehmer", "Fachkraft", UserRound], ["arbeitgeber", "Arbeitgeber", Building2], ["busunternehmen", "Bus\u00adunternehmen", Bus]] as const).map(([v, l, I]) => (
                       <button type="button" key={v} onClick={() => setRolle(v)} aria-pressed={rolle === v}
-                        className={`flex flex-col items-center gap-1 rounded-xl border-2 p-3 text-sm font-semibold transition-colors ${rolle === v ? "border-tuerkis-500 bg-tint text-tint-foreground" : "border-border hover:bg-accent"}`}>
+                        className={`flex min-w-0 flex-col items-center gap-1 rounded-xl border-2 px-1.5 py-3 text-center text-xs font-semibold leading-tight transition-colors [hyphens:manual] sm:text-sm ${rolle === v ? "border-tuerkis-500 bg-tint text-tint-foreground" : "border-border hover:bg-accent"}`}>
                         <I className="h-5 w-5" aria-hidden />{l}
                       </button>
                     ))}
                   </div>
+                </fieldset>
+              )}
+              {modus === "registrieren" && (
+                <fieldset className="space-y-3">
+                  <legend className="text-sm font-medium">{rolle === "arbeitnehmer" ? "Ihre Angaben" : "Ihr Unternehmen"}</legend>
+                  <p className="rounded-lg bg-tint p-3 text-xs text-tint-foreground">
+                    Pro {rolle === "arbeitnehmer" ? "Person" : "Firma"} ist nur <strong>ein</strong> Konto möglich. {rolle === "arbeitnehmer"
+                      ? "Name und Geburtsdatum können später nicht mehr selbst geändert werden. Das Geburtsdatum ist nie öffentlich."
+                      : "Wir prüfen das Unternehmen anhand der Registernummer."}
+                  </p>
+                  {rolle !== "arbeitnehmer" && (
+                    <>
+                      <Feld name="firma" label="Firmenname" auto="organization" error={errors["firma"]} />
+                      <Feld name="register_nr" label="Handelsregister- oder USt-Nummer" error={errors["register_nr"]} platzhalter="z. B. HRB 12345 oder DE123456789" />
+                    </>
+                  )}
+                  <div className="grid grid-cols-2 gap-2">
+                    <Feld name="vorname" label={rolle === "arbeitnehmer" ? "Vorname" : "Vorname (Ansprechpartner)"} auto="given-name" error={errors["vorname"]} />
+                    <Feld name="nachname" label="Nachname" auto="family-name" error={errors["nachname"]} />
+                  </div>
+                  {rolle === "arbeitnehmer" && (
+                    <Feld name="geburtsdatum" label="Geburtsdatum" type="date" auto="bday" error={errors["geburtsdatum"]} max={spaetestesGeburtsdatum()} min="1900-01-01" />
+                  )}
                 </fieldset>
               )}
               {weg === "telefon" ? (
@@ -362,11 +425,11 @@ function Check({ name, error, pflicht, children }: { name: string; error?: strin
   );
 }
 
-function Feld({ name, label, type = "text", auto, error }: { name: string; label: string; type?: string; auto?: string | undefined; error?: string | undefined }) {
+function Feld({ name, label, type = "text", auto, error, platzhalter, min, max }: { name: string; label: string; type?: string; auto?: string | undefined; error?: string | undefined; platzhalter?: string; min?: string; max?: string }) {
   return (
     <div>
       <label htmlFor={name} className="text-sm font-medium">{label} <span aria-hidden>*</span></label>
-      <input id={name} name={name} type={type} autoComplete={auto} required aria-required className="field mt-1.5" aria-invalid={!!error} aria-describedby={error ? `${name}-err` : undefined} />
+      <input id={name} name={name} type={type} autoComplete={auto} required aria-required className="field mt-1.5" placeholder={platzhalter} min={min} max={max} aria-invalid={!!error} aria-describedby={error ? `${name}-err` : undefined} />
       {error && <p id={`${name}-err`} className="mt-1 text-sm text-destructive">{error}</p>}
     </div>
   );

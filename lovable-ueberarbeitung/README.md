@@ -229,3 +229,21 @@ Getestet: `tests/bus.mjs` (27 Prüfungen), `konto.mjs` und `test.mjs` weiter gr�
 2. **Prüfung vor Freischaltung (eingebaut)**: Fahrten eines Busunternehmens sind erst öffentlich, wenn euer Team `profiles.bus_freigegeben_at` setzt (nur Rolle admin darf das; bis zum Admin-Bereich im Lovable-Cloud-Tabellen-Editor). Vorher prüfen: Firmenname, Anschrift, Konzession/Registernummer (Pflicht für Plattformen nach Digital Services Act Art. 30). Das Busunternehmen sieht im Bereich „In Prüfung“ bzw. „Geprüft und freigegeben“.
 3. **Bezahlung** läuft direkt zwischen Fachkraft und Busunternehmen – so steht es auch auf der Seite. Falls Standard Plus mitkassieren soll: Zahlungsanbieter + Rechtsprüfung nötig.
 4. **Benachrichtigungen** (neue Buchungsanfrage, Bestätigung) per E-Mail/SMS gibt es noch nicht – Busunternehmen sehen Anfragen im Dashboard.
+
+## Runde 10 – Ein Konto pro Person bzw. Firma (04.10.2026)
+
+- **Registrierung verlangt jetzt:**
+  - Fachkraft: Vorname, Nachname, **Geburtsdatum** (mind. 18)
+  - Arbeitgeber/Busunternehmen: **Firmenname, Handelsregister- oder USt-Nummer**, Ansprechpartner (Vor- und Nachname)
+- **Datenbank** (`20261004140000_ein_konto_pro_person.sql`):
+  - Spalten `geburtsdatum`, `register_nr`, `identitaet`, `identitaet_bestaetigt`
+  - Eindeutiger Index auf `identitaet`: Person = Vorname + Nachname + Geburtsdatum (Akzente, Groß/klein, Bindestriche egal); Firma = Registernummer (nur Buchstaben/Ziffern)
+  - Gesperrt wird schon beim SMS-Versand bzw. Absenden, wenn es die Person/Firma **bestätigt** gibt; zusätzlich schlägt die Bestätigung fehl, falls zwei Versuche parallel laufen. Unbestätigte Versuche blockieren niemanden.
+  - Name, Geburtsdatum und Registernummer kann danach nur noch das Team (admin) ändern – sonst ließe sich die Sperre durch Umbenennen umgehen.
+  - Handynummer und E-Mail sind in Supabase ohnehin je Konto eindeutig.
+- **Für Lovable:** In `profil-bearbeiten.tsx` Vorname, Nachname, Geburtsdatum und Registernummer **nur anzeigen** (nicht bearbeitbar) und Hinweis „Änderung über den Support“. Datenexport um die neuen Felder ergänzen.
+- Tests: `tests/konto.mjs` jetzt 30 Prüfungen (u. a. unter 18 abgelehnt, gleiche Person mit anderer Nummer/Schreibweise abgelehnt, gleiche Firma abgelehnt).
+
+### Grenzen – bitte bewusst entscheiden
+- Wer **falsche Angaben** macht (anderer Name/anderes Geburtsdatum), kommt so noch durch. Wirklich sicher ist nur eine **Ausweisprüfung** (z. B. IDnow, Veriff, Video-Ident; kostet pro Prüfung, ca. 1–5 €). Lässt sich später vor dem Vertragsabschluss einbauen.
+- Zwei verschiedene Menschen mit gleichem Namen **und** gleichem Geburtsdatum würden sich blockieren – sehr selten; dann hilft der Support (admin ändert Daten).
