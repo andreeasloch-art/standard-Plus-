@@ -87,6 +87,29 @@ ok(await p.getByText("mit Dolmetscher").first().isVisible(), "Interview-Details 
 await p.getByRole("button", { name: "Zusagen" }).click();
 await p.waitForTimeout(400);
 ok((await p.getByText("Match – Interview").count()) === 2, "Nach Zusage: Match");
+ok((await p.getByRole("button", { name: "Vertragsabschluss bestätigen" }).count()) === 0 && await p.getByText("geprüften Ausweis").first().isVisible(), "Ohne geprüften Ausweis: kein Vertragsabschluss");
+// Ausweis hochladen
+ok(await p.getByRole("button", { name: "Ausweis zur Prüfung senden" }).isDisabled(), "Ausweis: erst Foto + Einwilligung");
+await p.locator("#ausweis-vorne").setInputFiles("testgesicht.png");
+await p.getByRole("checkbox", { name: /sofort nach der Prüfung löscht/ }).check();
+await p.getByRole("button", { name: "Ausweis zur Prüfung senden" }).click();
+await p.getByText(/Eingereicht – wir prüfen gerade/).waitFor();
+ok(true, "Ausweis eingereicht");
+await p.screenshot({ path: R + "/ausweis-eingereicht.png", fullPage: true });
+// Team prüft
+await p.evaluate(() => localStorage.setItem("test-rolle", "admin"));
+await p.goto(base + "/admin", { waitUntil: "networkidle" });
+ok(await p.getByText("Test Person").isVisible() && await p.getByRole("img", { name: "Ausweis Vorderseite" }).isVisible(), "Team sieht Ausweis + Daten laut Konto");
+await p.screenshot({ path: R + "/admin.png", fullPage: true });
+await p.getByRole("button", { name: "Bestätigen" }).click();
+await p.getByText("Keine offenen Ausweise").waitFor();
+ok(true, "Team bestätigt – Liste leer, Bilder gelöscht");
+await p.getByRole("button", { name: "Freigeben" }).click();
+await p.getByText("Keine offenen Busunternehmen").waitFor();
+ok(true, "Team gibt Busunternehmen frei");
+await p.evaluate(() => localStorage.setItem("test-rolle", "arbeitnehmer"));
+await p.goto(base + "/dashboard", { waitUntil: "networkidle" });
+ok(await p.getByText("Ausweis geprüft – die Bilder wurden gelöscht.").isVisible(), "Fachkraft sieht: Ausweis geprüft");
 p.once("dialog", (d) => d.accept());
 await p.getByRole("button", { name: "Vertragsabschluss bestätigen" }).last().click();
 await p.waitForTimeout(500);

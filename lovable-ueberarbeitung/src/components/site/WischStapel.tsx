@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, BriefcaseBusiness, CalendarCheck, CalendarDays, Check, Lock, MapPin, RotateCcw, Star, X } from "lucide-react";
+import { ArrowRight, BadgeCheck, BriefcaseBusiness, CalendarCheck, CalendarDays, Check, Lock, MapPin, RotateCcw, Star, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ProfilFoto } from "@/components/site/ProfilFoto";
 import { formatDatum, istBeispiel, matchProzent, type OeffentlichesProfil } from "@/lib/profile-data";
@@ -209,7 +209,7 @@ export function WischStapel({ profile, onEinladen }: { profile: OeffentlichesPro
 
             {/* Daten unten auf dem Foto */}
             <div className={cn("absolute inset-x-0 bottom-0 p-5 text-white", !offen && "pb-28")}>
-              <h3 className="text-3xl leading-tight text-white drop-shadow sm:text-4xl">{kopf}</h3>
+              <h3 className="flex items-center gap-2 text-3xl leading-tight text-white drop-shadow sm:text-4xl">{kopf}{aktuell.ausweis_geprueft && <BadgeCheck className="h-7 w-7 shrink-0 text-tuerkis-200" aria-label="Ausweis geprüft" />}</h3>
               <p className="mt-0.5 text-lg font-medium text-white/95">{aktuell.beruf ?? "Fachkraft"}</p>
               {!offen && (<>
               <p className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-white/90">

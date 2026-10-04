@@ -15,6 +15,8 @@ export type OeffentlichesProfil = {
   erfahrung_jahre: number | null;
   /** Alter nur, wenn die Fachkraft es freiwillig zeigt (Opt-in; Hinweis AGG im README) – sonst fehlt das Feld */
   alter?: number | null;
+  /** Team hat den Ausweis geprüft (Bilder danach gelöscht) */
+  ausweis_geprueft?: boolean;
   verfuegbar_ab: string | null;
   ueber_mich: string | null;
   skills: string[];

@@ -100,6 +100,15 @@ function Datenschutz() {
         Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO. Speicherdauer: <Ph>z. B. 12 Monate nach dem Reisedatum</Ph>, bei Kontolöschung sofort.
       </p>
 
+      <h2>8a. Ausweisprüfung</h2>
+      <p>
+        Vor dem Vertragsabschluss prüfen wir die Identität von Fachkräften: Sie laden ein Foto Ihres Ausweises oder Reisepasses hoch (Einwilligung, Art. 6 Abs. 1 lit. a DSGVO;
+        zugleich vorvertragliche Maßnahme, lit. b). Nur geschulte Mitarbeitende unseres Teams sehen die Bilder und vergleichen Name und Geburtsdatum mit Ihrem Konto.
+        Die Bilder liegen in einem privaten Speicher, werden <strong>unmittelbar nach der Entscheidung gelöscht</strong>, und es bleibt nur der Vermerk „geprüft am …“.
+        Zugangsnummer (CAN) und Seriennummer dürfen Sie schwärzen. Eine automatische Auswertung (Texterkennung, Gesichtsabgleich) findet nicht statt.
+        Unternehmen werden anhand der Registernummer und – bei Busunternehmen – der Konzession geprüft.
+      </p>
+
       <h2>9b. Busreisen über Busunternehmen</h2>
       <p>
         <strong>Busunternehmen</strong> veröffentlichen auf Standard Plus Firmenname, Sitz, Telefon und E-Mail für Buchungen, ihre Fahrten und Bilder

@@ -55,7 +55,7 @@ await p.screenshot({ path: R + "/bus-dashboard.png", fullPage: true });
 // Deal → Vorschläge für Fachkraft
 p = await neu({ width: 390, height: 844 });
 await p.goto(base + "/", { waitUntil: "networkidle" });
-await p.evaluate(() => localStorage.setItem("test-rolle", "arbeitnehmer"));
+await p.evaluate(() => { localStorage.setItem("test-rolle", "arbeitnehmer"); sessionStorage.setItem("test-db", JSON.stringify({ ausweis_pruefungen: [{ user_id: "u-test", status: "geprueft" }] })); });
 await p.goto(base + "/dashboard", { waitUntil: "networkidle" });
 ok(await p.getByRole("heading", { name: "Anreise mit dem Bus" }).isVisible() === false, "Vor Vertragsabschluss: noch keine Fahrtvorschläge");
 p.once("dialog", (d) => d.accept());

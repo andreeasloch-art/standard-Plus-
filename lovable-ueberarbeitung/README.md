@@ -247,3 +247,18 @@ Getestet: `tests/bus.mjs` (27 Prüfungen), `konto.mjs` und `test.mjs` weiter gr�
 ### Grenzen – bitte bewusst entscheiden
 - Wer **falsche Angaben** macht (anderer Name/anderes Geburtsdatum), kommt so noch durch. Wirklich sicher ist nur eine **Ausweisprüfung** (z. B. IDnow, Veriff, Video-Ident; kostet pro Prüfung, ca. 1–5 €). Lässt sich später vor dem Vertragsabschluss einbauen.
 - Zwei verschiedene Menschen mit gleichem Namen **und** gleichem Geburtsdatum würden sich blockieren – sehr selten; dann hilft der Support (admin ändert Daten).
+
+## Runde 11 – Ausweisprüfung ohne externen Anbieter + Team-Bereich (04.10.2026)
+
+- **Fachkraft** (Dashboard-Karte „Ausweis“, `AusweisUpload.tsx`): Foto Vorder- und Rückseite (oder Passseite) aufnehmen/hochladen, Einwilligung, Hinweis „CAN und Seriennummer dürfen geschwärzt werden“. Bilder werden verkleinert (Metadaten weg) und liegen im **privaten** Speicher `ausweise`; die Person kann sie danach selbst nicht mehr abrufen (Schutz bei gestohlenen Sitzungen). Status: eingereicht → geprüft / abgelehnt (mit Grund, dann neu hochladen).
+- **Team-Bereich** `/admin` (nur Rolle admin, Link im Dashboard):
+  - **Ausweise prüfen**: Bilder neben Name und Geburtsdatum laut Konto (mit Alter), Prüfhinweise, „Bestätigen“ / „Ablehnen mit Grund“. **Danach werden die Bilder sofort gelöscht**, gespeichert bleibt `profiles.ausweis_geprueft_at`.
+  - **Busunternehmen freigeben**: Firma, Sitz, Registernummer, Konzession, Kontakt → „Freigeben“ (ersetzt den Tabellen-Editor).
+- **Verknüpfung**: Die Fachkraft kann den **Vertragsabschluss erst mit geprüftem Ausweis** bestätigen (Datenbank-Sperre `AUSWEIS_FEHLT` + Hinweis in der Oberfläche). Profile mit geprüftem Ausweis tragen ein Häkchen-Abzeichen (Profilkarte, Wischkarte).
+- Migration `20261004150000_ausweis_pruefung.sql` (Speicher, Tabelle `ausweis_pruefungen`, Funktionen `ausweis_entscheiden`, `ausweise_offen`, `busunternehmen_offen`, `bus_freigeben`, Feld `ausweis_geprueft` in `oeffentliche_profile`).
+- **Admin anlegen**: einmalig in der Datenbank `user_roles` eine Zeile (user_id = euer Konto, role = 'admin') eintragen.
+- Tests: `konto.mjs` jetzt 38 Prüfungen (Upload, Team-Prüfung, Freigabe, Sperre beim Vertrag).
+
+### Hinweise
+- Kein externer Anbieter nötig. Grenze: Menschen erkennen gut gemachte Fälschungen nicht immer. Wer später automatisch prüfen will (Texterkennung, Echtheit, Gesichtsabgleich), kann einen Anbieter nachrüsten – die Oberfläche bleibt gleich.
+- Personalausweis-Kopien sind nach § 20 PAuswG nur mit Zustimmung erlaubt und müssen als Kopie erkennbar sein; Löschung direkt nach Prüfung ist eingebaut. Bitte rechtlich bestätigen lassen und im Team festlegen, wer prüfen darf.

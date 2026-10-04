@@ -19,10 +19,26 @@ ok((await p.locator("#land").inputValue()) === "DE", "Land aus Browsersprache: D
 await p.getByRole("button", { name: "Code per SMS senden" }).click();
 ok(await p.getByRole("alert").isVisible(), "Ohne Angaben: Fehlerliste erscheint");
 await p.screenshot({ path: R + "/handy-registrieren.png", fullPage: true });
+ok(await p.getByText("Bitte Vornamen eingeben.").first().isVisible() && await p.getByText("Bitte Geburtsdatum eingeben.").first().isVisible(), "Pflicht: Name und Geburtsdatum");
 await p.locator("#land").selectOption("RO");
 await p.locator("#telefon").fill("0712 345 678");
 await p.locator("#datenschutz").check();
 await p.locator("#bedingungen").check();
+await p.locator("#vorname").fill("Ana");
+await p.locator("#nachname").fill("Popescu");
+await p.locator("#geburtsdatum").fill("2012-01-01");
+await p.getByRole("button", { name: "Code per SMS senden" }).click();
+ok(await p.getByText("Sie müssen mindestens 18 Jahre alt sein.").first().isVisible(), "Unter 18: abgelehnt");
+// Dublette: dieselbe Person (Akzente/Groß-klein egal) mit anderer Nummer
+await p.locator("#vorname").fill("MARIA");
+await p.locator("#nachname").fill("Kovács");
+await p.locator("#geburtsdatum").fill("1985-05-05");
+await p.getByRole("button", { name: "Code per SMS senden" }).click();
+await p.getByText(/gibt es bereits ein Konto/).first().waitFor();
+ok(true, "Zweites Konto für dieselbe Person wird abgelehnt");
+await p.locator("#vorname").fill("Ana");
+await p.locator("#nachname").fill("Popescu");
+await p.locator("#geburtsdatum").fill("1994-03-12");
 await p.getByRole("button", { name: "Code per SMS senden" }).click();
 await p.getByText("+40712345678").waitFor();
 ok(true, "Code an +40712345678 (führende 0 entfernt, Vorwahl Rumänien)");
@@ -37,6 +53,22 @@ await p.screenshot({ path: R + "/handy-code.png", fullPage: true });
 await p.getByRole("button", { name: "Bestätigen & Konto freischalten" }).click();
 await p.getByText("Konto freigeschaltet").waitFor();
 ok(true, "Richtiger Code → Konto freigeschaltet");
+// Dieselbe Person nochmal mit anderer Nummer → abgelehnt
+await p.goto(base + "/auth?modus=registrieren", { waitUntil: "networkidle" });
+await p.locator("#telefon").fill("0170 9999999");
+await p.locator("#vorname").fill("Ana"); await p.locator("#nachname").fill("Popescu"); await p.locator("#geburtsdatum").fill("1994-03-12");
+await p.locator("#datenschutz").check(); await p.locator("#bedingungen").check();
+await p.getByRole("button", { name: "Code per SMS senden" }).click();
+await p.getByText(/gibt es bereits ein Konto/).first().waitFor();
+ok(true, "Nach Bestätigung: zweite Registrierung derselben Person gesperrt");
+// Unternehmen: Registernummer nur einmal
+await p.getByRole("button", { name: "Arbeitgeber" }).click();
+ok(await p.locator("#geburtsdatum").count() === 0 && await p.locator("#register_nr").isVisible(), "Unternehmen: Firma + Registernummer statt Geburtsdatum");
+await p.locator("#firma").fill("Muster Pflege GmbH"); await p.locator("#register_nr").fill("hrb 12345");
+await p.locator("#unternehmer").check();
+await p.getByRole("button", { name: "Code per SMS senden" }).click();
+await p.getByText(/gibt es bereits ein Konto/).first().waitFor();
+ok(true, "Zweites Konto für dieselbe Firma (HRB 12345) wird abgelehnt");
 
 // Anmeldung mit Handynummer (ohne Zustimmungen)
 await p.goto(base + "/auth", { waitUntil: "networkidle" });
@@ -55,6 +87,29 @@ ok(await p.getByText("mit Dolmetscher").first().isVisible(), "Interview-Details 
 await p.getByRole("button", { name: "Zusagen" }).click();
 await p.waitForTimeout(400);
 ok((await p.getByText("Match – Interview").count()) === 2, "Nach Zusage: Match");
+ok((await p.getByRole("button", { name: "Vertragsabschluss bestätigen" }).count()) === 0 && await p.getByText("geprüften Ausweis").first().isVisible(), "Ohne geprüften Ausweis: kein Vertragsabschluss");
+// Ausweis hochladen
+ok(await p.getByRole("button", { name: "Ausweis zur Prüfung senden" }).isDisabled(), "Ausweis: erst Foto + Einwilligung");
+await p.locator("#ausweis-vorne").setInputFiles("testgesicht.png");
+await p.getByRole("checkbox", { name: /sofort nach der Prüfung löscht/ }).check();
+await p.getByRole("button", { name: "Ausweis zur Prüfung senden" }).click();
+await p.getByText(/Eingereicht – wir prüfen gerade/).waitFor();
+ok(true, "Ausweis eingereicht");
+await p.screenshot({ path: R + "/ausweis-eingereicht.png", fullPage: true });
+// Team prüft
+await p.evaluate(() => localStorage.setItem("test-rolle", "admin"));
+await p.goto(base + "/admin", { waitUntil: "networkidle" });
+ok(await p.getByText("Test Person").isVisible() && await p.getByRole("img", { name: "Ausweis Vorderseite" }).isVisible(), "Team sieht Ausweis + Daten laut Konto");
+await p.screenshot({ path: R + "/admin.png", fullPage: true });
+await p.getByRole("button", { name: "Bestätigen" }).click();
+await p.getByText("Keine offenen Ausweise").waitFor();
+ok(true, "Team bestätigt – Liste leer, Bilder gelöscht");
+await p.getByRole("button", { name: "Freigeben" }).click();
+await p.getByText("Keine offenen Busunternehmen").waitFor();
+ok(true, "Team gibt Busunternehmen frei");
+await p.evaluate(() => localStorage.setItem("test-rolle", "arbeitnehmer"));
+await p.goto(base + "/dashboard", { waitUntil: "networkidle" });
+ok(await p.getByText("Ausweis geprüft – die Bilder wurden gelöscht.").isVisible(), "Fachkraft sieht: Ausweis geprüft");
 p.once("dialog", (d) => d.accept());
 await p.getByRole("button", { name: "Vertragsabschluss bestätigen" }).last().click();
 await p.waitForTimeout(500);

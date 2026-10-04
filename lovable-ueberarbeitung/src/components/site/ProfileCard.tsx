@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight, BadgeCheck, MapPin } from "lucide-react";
 import { istBeispiel, matchProzent, type OeffentlichesProfil } from "@/lib/profile-data";
 import { ProfilFoto } from "@/components/site/ProfilFoto";
 
@@ -30,7 +30,7 @@ export function ProfileCard({ p }: { p: OeffentlichesProfil }) {
 
       <div className="flex min-w-0 flex-col gap-2 p-3 sm:gap-3 sm:p-5">
         <div className="min-w-0">
-          <h3 className="truncate text-lg sm:text-xl">{name}{p.alter ? <span className="font-normal text-muted-foreground">, {p.alter}</span> : null}</h3>
+          <h3 className="flex min-w-0 items-center gap-1 text-lg sm:text-xl"><span className="truncate">{name}{p.alter ? <span className="font-normal text-muted-foreground">, {p.alter}</span> : null}</span>{p.ausweis_geprueft && <BadgeCheck className="h-5 w-5 shrink-0 text-tuerkis-600" aria-label="Ausweis geprüft" />}</h3>
           <p className="truncate text-sm text-tuerkis-700 dark:text-tuerkis-300">{p.beruf ?? "–"}</p>
         </div>
 

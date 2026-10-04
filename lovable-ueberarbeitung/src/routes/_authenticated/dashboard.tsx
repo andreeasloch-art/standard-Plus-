@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { EmptyState, ErrorState } from "@/components/site/PageHeader";
 import { AnfrageStatus, InterviewInfo, VertragBlock, type AnfrageZeile } from "@/components/site/AnfrageDetails";
 import { BusDashboard } from "@/components/site/BusDashboard";
+import { AusweisUpload } from "@/components/site/AusweisUpload";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth, useRolle } from "@/lib/auth";
 import { oeffentlicheProfileQuery } from "@/lib/profile-data";
@@ -43,7 +44,8 @@ function Dashboard() {
         </div>
         <div className="flex flex-col gap-2 sm:flex-row">
           {rolle.data !== "busunternehmen" && <Button asChild variant="outline"><Link to="/profil-bearbeiten"><UserPen />Mein Profil bearbeiten</Link></Button>}
-          {rolle.data !== "arbeitnehmer" && <Button asChild variant="outline"><Link to="/kuendigen">Vertrag/Abo kündigen</Link></Button>}
+          {rolle.data !== "arbeitnehmer" && rolle.data !== "admin" && <Button asChild variant="outline"><Link to="/kuendigen">Vertrag/Abo kündigen</Link></Button>}
+          {rolle.data === "admin" && <Button asChild><Link to="/admin">Team-Bereich</Link></Button>}
         </div>
       </div>
       {rolle.data === "arbeitgeber" ? <ArbeitgeberDashboard uid={uid} /> : rolle.data === "busunternehmen" ? <BusDashboard uid={uid} /> : <ArbeitnehmerDashboard uid={uid} />}
@@ -248,11 +250,14 @@ function ArbeitnehmerDashboard({ uid }: { uid: string }) {
         </div>
       </section>
 
+      <div className="space-y-6">
+      <AusweisUpload uid={uid} />
       <section className="card-base h-fit p-6">
         <h2 className="flex items-center gap-2 text-xl"><Bus className="h-5 w-5 text-tuerkis-600" aria-hidden />Anreise</h2>
         <p className="mt-1 text-sm text-muted-foreground">Sie brauchen eine Fahrt zum Arbeitsort? Wir organisieren Bus oder Fahrt für Sie.</p>
         <Button asChild className="mt-4 w-full" variant="outline"><Link to="/anreise">Anreise anfragen</Link></Button>
       </section>
+      </div>
     </div>
   );
 }

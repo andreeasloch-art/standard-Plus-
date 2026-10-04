@@ -4,6 +4,7 @@ import { CalendarClock, FileSignature, Languages, Lock, Mail, Phone, Video } fro
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { FahrtVorschlaege } from "@/components/site/FahrtVorschlaege";
+import { useAusweis } from "@/components/site/AusweisUpload";
 
 /** Felder einer Anfrage, die hier gebraucht werden (Spalten aus den Migrationen 2026-10-01 und 2026-10-04). */
 export type AnfrageZeile = {
@@ -64,6 +65,8 @@ export function VertragBlock({ a, seite, uid, queryKey }: { a: AnfrageZeile; sei
   const andere = seite === "arbeitgeber" ? a.vertrag_arbeitnehmer_at : a.vertrag_arbeitgeber_at;
   const fertig = vertragFertig(a);
   const gegenueber = seite === "arbeitgeber" ? a.arbeitnehmer_id : a.arbeitgeber_id;
+  const ausweis = useAusweis(uid);
+  const ausweisFehlt = seite === "arbeitnehmer" && ausweis.data?.status !== "geprueft";
 
   const bestaetigen = useMutation({
     mutationFn: async () => {
@@ -72,7 +75,7 @@ export function VertragBlock({ a, seite, uid, queryKey }: { a: AnfrageZeile; sei
       if (error) throw error;
     },
     onSuccess: () => { toast.success("Vertragsabschluss bestätigt."); qc.invalidateQueries({ queryKey }); },
-    onError: () => toast.error("Bestätigung fehlgeschlagen."),
+    onError: (e: Error) => toast.error(/AUSWEIS_FEHLT/.test(e.message ?? "") ? "Bitte zuerst Ihren Ausweis prüfen lassen (Dashboard → Ausweis)." : "Bestätigung fehlgeschlagen."),
   });
 
   const kontakt = useQuery({
@@ -115,6 +118,8 @@ export function VertragBlock({ a, seite, uid, queryKey }: { a: AnfrageZeile; sei
       <div className="mt-2 flex flex-wrap items-center gap-3">
         {ich ? (
           <span className="font-semibold text-success">Von Ihnen bestätigt.</span>
+        ) : ausweisFehlt ? (
+          <span className="text-muted-foreground">Zum Bestätigen brauchen wir zuerst Ihren <a href="#ausweis-titel" className="font-semibold text-info underline">geprüften Ausweis</a>.</span>
         ) : (
           <Button size="sm" variant="outline" disabled={bestaetigen.isPending}
             onClick={() => { if (confirm("Bestätigen Sie, dass ein Arbeitsvertrag abgeschlossen wurde? Danach werden die Kontaktdaten beider Seiten freigegeben.")) bestaetigen.mutate(); }}>
