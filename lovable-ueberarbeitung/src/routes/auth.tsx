@@ -2,7 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
-import { Building2, Mail, Smartphone, UserRound } from "lucide-react";
+import { Building2, Bus, Mail, Smartphone, UserRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
@@ -10,7 +10,10 @@ import { internationaleNummer, laenderListe } from "@/lib/laender";
 import { CodeFeld, TelefonFeld } from "@/components/site/TelefonFeld";
 
 export const Route = createFileRoute("/auth")({
-  validateSearch: (s: Record<string, unknown>): { modus?: "registrieren" } => (s["modus"] === "registrieren" ? { modus: "registrieren" } : {}),
+  validateSearch: (s: Record<string, unknown>): { modus?: "registrieren"; rolle?: "busunternehmen" | "arbeitgeber" } => ({
+    ...(s["modus"] === "registrieren" ? { modus: "registrieren" as const } : {}),
+    ...(s["rolle"] === "busunternehmen" || s["rolle"] === "arbeitgeber" ? { rolle: s["rolle"] as "busunternehmen" | "arbeitgeber" } : {}),
+  }),
   head: () => ({
     meta: [
       { title: "Anmelden oder registrieren – Standard Plus" },
@@ -34,16 +37,16 @@ const zustimmungen = {
   unternehmer: z.string().optional(),
   sichtbar: z.string().optional(),
 };
-const unternehmerPflicht = (d: { rolle: string; unternehmer?: string }) => d.rolle !== "arbeitgeber" || d.unternehmer === "on";
+const unternehmerPflicht = (d: { rolle: string; unternehmer?: string }) => d.rolle === "arbeitnehmer" || d.unternehmer === "on";
 const unternehmerFehler = { path: ["unternehmer"], message: "Unsere Angebote richten sich ausschließlich an Unternehmer. Bitte bestätigen." };
 const regSchema = z.object({
-  rolle: z.enum(["arbeitgeber", "arbeitnehmer"], { errorMap: () => ({ message: "Bitte eine Rolle wählen." }) }),
+  rolle: z.enum(["arbeitgeber", "arbeitnehmer", "busunternehmen"], { errorMap: () => ({ message: "Bitte eine Rolle wählen." }) }),
   email: z.string().trim().min(1, "Bitte E-Mail-Adresse eingeben.").email("Bitte eine gültige E-Mail-Adresse eingeben.").max(255),
   passwort: z.string().min(8, "Das Passwort muss mindestens 8 Zeichen lang sein.").max(72, "Maximal 72 Zeichen."),
   ...zustimmungen,
 }).refine(unternehmerPflicht, unternehmerFehler);
 const regTelSchema = z.object({
-  rolle: z.enum(["arbeitgeber", "arbeitnehmer"]),
+  rolle: z.enum(["arbeitgeber", "arbeitnehmer", "busunternehmen"]),
   ...zustimmungen,
 }).refine(unternehmerPflicht, unternehmerFehler);
 
@@ -75,7 +78,7 @@ function AuthPage() {
   const search = Route.useSearch();
   const [modus, setModus] = useState<"login" | "registrieren">(search.modus === "registrieren" ? "registrieren" : "login");
   const [weg, setWeg] = useState<Weg>("telefon");
-  const [rolle, setRolle] = useState<"arbeitgeber" | "arbeitnehmer">("arbeitnehmer");
+  const [rolle, setRolle] = useState<"arbeitgeber" | "arbeitnehmer" | "busunternehmen">(search.rolle ?? "arbeitnehmer");
   const [land, setLand] = useState("DE");
   const [nummer, setNummer] = useState("");
   const [codeAn, setCodeAn] = useState<string | null>(null); // internationale Nummer, an die der Code ging
@@ -116,7 +119,7 @@ function AuthPage() {
       if (!p.success) p.error.issues.forEach((i) => { errs[String(i.path[0])] ??= i.message; });
       else meta = {
         rolle: p.data.rolle, kanal: "telefon", datenschutz_version: DATENSCHUTZ_VERSION, bedingungen_version: BEDINGUNGEN_VERSION,
-        unternehmer: p.data.rolle === "arbeitgeber" && p.data.unternehmer === "on" ? "true" : "false",
+        unternehmer: p.data.rolle !== "arbeitnehmer" && p.data.unternehmer === "on" ? "true" : "false",
         sichtbar: p.data.rolle === "arbeitnehmer" && p.data.sichtbar === "on" ? "true" : "false",
       };
     }
@@ -175,7 +178,7 @@ function AuthPage() {
           email: d.email, password: d.passwort,
           options: { emailRedirectTo: window.location.origin, data: {
             rolle: d.rolle, kanal: "email", datenschutz_version: DATENSCHUTZ_VERSION, bedingungen_version: BEDINGUNGEN_VERSION,
-            unternehmer: d.rolle === "arbeitgeber" && d.unternehmer === "on" ? "true" : "false",
+            unternehmer: d.rolle !== "arbeitnehmer" && d.unternehmer === "on" ? "true" : "false",
             sichtbar: d.rolle === "arbeitnehmer" && d.sichtbar === "on" ? "true" : "false",
           } },
         });
@@ -290,8 +293,8 @@ function AuthPage() {
               {modus === "registrieren" && (
                 <fieldset>
                   <legend className="text-sm font-medium">Ich bin … <span aria-hidden>*</span></legend>
-                  <div className="mt-1.5 grid grid-cols-2 gap-2">
-                    {([["arbeitnehmer", "Fachkraft", UserRound], ["arbeitgeber", "Unternehmen", Building2]] as const).map(([v, l, I]) => (
+                  <div className="mt-1.5 grid grid-cols-3 gap-2">
+                    {([["arbeitnehmer", "Fachkraft", UserRound], ["arbeitgeber", "Arbeitgeber", Building2], ["busunternehmen", "Busunternehmen", Bus]] as const).map(([v, l, I]) => (
                       <button type="button" key={v} onClick={() => setRolle(v)} aria-pressed={rolle === v}
                         className={`flex flex-col items-center gap-1 rounded-xl border-2 p-3 text-sm font-semibold transition-colors ${rolle === v ? "border-tuerkis-500 bg-tint text-tint-foreground" : "border-border hover:bg-accent"}`}>
                         <I className="h-5 w-5" aria-hidden />{l}
@@ -313,7 +316,7 @@ function AuthPage() {
                   <Check name="datenschutz" error={errors["datenschutz"]} pflicht>
                     Ich habe die <Link to="/datenschutz" target="_blank" className="underline">Datenschutzerklärung</Link> gelesen.
                   </Check>
-                  {rolle === "arbeitgeber" ? (
+                  {rolle !== "arbeitnehmer" ? (
                     <>
                       <Check name="bedingungen" error={errors["bedingungen"]} pflicht>
                         Ich akzeptiere die <Link to="/agb" target="_blank" className="underline">AGB für Unternehmen</Link>.

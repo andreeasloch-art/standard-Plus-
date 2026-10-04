@@ -7,6 +7,7 @@ import { Bus, Plus, Trash2, Star, UserPen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { EmptyState, ErrorState } from "@/components/site/PageHeader";
 import { AnfrageStatus, InterviewInfo, VertragBlock, type AnfrageZeile } from "@/components/site/AnfrageDetails";
+import { BusDashboard } from "@/components/site/BusDashboard";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth, useRolle } from "@/lib/auth";
 import { oeffentlicheProfileQuery } from "@/lib/profile-data";
@@ -37,15 +38,15 @@ function Dashboard() {
     <div className="container-page py-10">
       <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
         <div>
-          <p className="text-sm font-semibold text-info">{rolle.data === "arbeitgeber" ? "Unternehmen" : "Fachkraft"}</p>
-          <h1 className="text-4xl">Hallo{profil.data?.vorname ? `, ${profil.data.vorname}` : ""}!</h1>
+          <p className="text-sm font-semibold text-info">{rolle.data === "arbeitgeber" ? "Arbeitgeber" : rolle.data === "busunternehmen" ? "Busunternehmen" : "Fachkraft"}</p>
+          <h1 className="text-4xl">Hallo{rolle.data === "busunternehmen" && profil.data?.firma ? `, ${profil.data.firma}` : profil.data?.vorname ? `, ${profil.data.vorname}` : ""}!</h1>
         </div>
         <div className="flex flex-col gap-2 sm:flex-row">
-          <Button asChild variant="outline"><Link to="/profil-bearbeiten"><UserPen />Mein Profil bearbeiten</Link></Button>
-          {rolle.data === "arbeitgeber" && <Button asChild variant="outline"><Link to="/kuendigen">Vertrag/Abo kündigen</Link></Button>}
+          {rolle.data !== "busunternehmen" && <Button asChild variant="outline"><Link to="/profil-bearbeiten"><UserPen />Mein Profil bearbeiten</Link></Button>}
+          {rolle.data !== "arbeitnehmer" && <Button asChild variant="outline"><Link to="/kuendigen">Vertrag/Abo kündigen</Link></Button>}
         </div>
       </div>
-      {rolle.data === "arbeitgeber" ? <ArbeitgeberDashboard uid={uid} /> : <ArbeitnehmerDashboard uid={uid} />}
+      {rolle.data === "arbeitgeber" ? <ArbeitgeberDashboard uid={uid} /> : rolle.data === "busunternehmen" ? <BusDashboard uid={uid} /> : <ArbeitnehmerDashboard uid={uid} />}
     </div>
   );
 }

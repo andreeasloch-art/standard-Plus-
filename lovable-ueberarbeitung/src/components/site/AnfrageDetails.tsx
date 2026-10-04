@@ -3,6 +3,7 @@ import { toast } from "sonner";
 import { CalendarClock, FileSignature, Languages, Lock, Mail, Phone, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
+import { FahrtVorschlaege } from "@/components/site/FahrtVorschlaege";
 
 /** Felder einer Anfrage, die hier gebraucht werden (Spalten aus den Migrationen 2026-10-01 und 2026-10-04). */
 export type AnfrageZeile = {
@@ -99,6 +100,8 @@ export function VertragBlock({ a, seite, uid, queryKey }: { a: AnfrageZeile; sei
             {k.email && <li><a className="inline-flex items-center gap-1.5 underline" href={`mailto:${k.email}`}><Mail className="h-4 w-4" aria-hidden />{k.email}</a></li>}
           </ul>
         )}
+        {/* Deal steht → passende Busfahrten für die Anreise */}
+        <FahrtVorschlaege anfrageId={a.id} seite={seite} uid={uid} />
       </div>
     );
   }

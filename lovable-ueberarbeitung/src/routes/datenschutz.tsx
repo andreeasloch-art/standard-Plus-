@@ -97,6 +97,21 @@ function Datenschutz() {
         Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO. Speicherdauer: <Ph>z. B. 12 Monate nach dem Reisedatum</Ph>, bei Kontolöschung sofort.
       </p>
 
+      <h2>9b. Busreisen über Busunternehmen</h2>
+      <p>
+        <strong>Busunternehmen</strong> veröffentlichen auf Standard Plus Firmenname, Sitz, Telefon und E-Mail für Buchungen, ihre Fahrten und Bilder
+        (Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO). Bilder liegen in einem privaten Speicher und werden über kurzlebige Links angezeigt; gelöschte Bilder werden sofort entfernt.
+      </p>
+      <p>
+        <strong>Fragen Sie als Fachkraft eine Fahrt an</strong>, erhält das jeweilige Busunternehmen nur Ihren Namen, Ihre Handynummer, Reisedatum, Personenzahl und Ihre Nachricht –
+        mit Ihrer Einwilligung bei der Anfrage (Art. 6 Abs. 1 lit. a und b DSGVO). Ihr Arbeitgeber sieht den Stand der Fahrt, wenn sie zu Ihrem Vertrag gehört.
+        Fahrtvorschläge berechnen wir aus Ihrem Wohnort und dem Arbeitsort; es findet keine Entscheidung allein durch Software statt.
+      </p>
+      <p>
+        <strong>Bewertungen</strong> von Fahrten sind nur nach einer als durchgeführt bestätigten Buchung möglich und werden öffentlich mit Vorname und Initial angezeigt.
+        Speicherdauer: Buchungen und Bewertungen bis zur Löschung eines beteiligten Kontos.
+      </p>
+
       <h2>9a. Kündigungen</h2>
       <p>
         Über das Kündigungsformular übermittelte Angaben (Art der Kündigung, Name, E-Mail, ggf. Firma und Vertragsnummer, Zeitpunkt, optional Grund) speichern wir zur Bearbeitung
@@ -119,7 +134,7 @@ function Datenschutz() {
       </p>
 
       <h2>12. Empfänger</h2>
-      <p>Hosting- und Infrastrukturanbieter (Abschnitt 2) und der SMS-Dienst (Abschnitt 4) als Auftragsverarbeiter; nach beidseitig bestätigtem Vertragsabschluss das jeweilige Unternehmen bzw. die Fachkraft; bei einer Anreise das Beförderungsunternehmen (Abschnitt 9); Behörden nur bei gesetzlicher Pflicht.</p>
+      <p>Hosting- und Infrastrukturanbieter (Abschnitt 2) und der SMS-Dienst (Abschnitt 4) als Auftragsverarbeiter; bei einer Fahrtanfrage das Busunternehmen (Abschnitt 9b); nach beidseitig bestätigtem Vertragsabschluss das jeweilige Unternehmen bzw. die Fachkraft; bei einer Anreise das Beförderungsunternehmen (Abschnitt 9); Behörden nur bei gesetzlicher Pflicht.</p>
 
       <h2>13. Speicherdauer</h2>
       <ul>

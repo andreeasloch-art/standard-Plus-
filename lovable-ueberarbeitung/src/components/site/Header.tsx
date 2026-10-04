@@ -12,6 +12,7 @@ const NAV = [
   { to: "/talente", label: "Talente finden" },
   { to: "/unternehmen", label: "Unternehmen" },
   { to: "/arbeitnehmer", label: "Arbeitnehmer" },
+  { to: "/busreisen", label: "Busreisen" },
   { to: "/preise", label: "Preise" },
 ] as const;
 

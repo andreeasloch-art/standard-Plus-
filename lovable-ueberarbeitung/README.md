@@ -205,3 +205,27 @@ Alles im Testaufbau durchgeklickt (`konto.mjs`: 23 Prüfungen bestanden; `test.m
 - **E-Mail-/SMS-Benachrichtigungen** bei Einladung, Zusage, Vertrag, Anreise-Status (Vorschlag: Resend über Lovable, Edge Function auf Datenbank-Änderungen).
 - **Videoanruf** im Browser (Vorschlag: Daily mit EU-Servern; Raum entsteht beim Match, Link nur für die beiden Beteiligten, keine Telefonnummern nötig).
 - **Live-Übersetzung** im Anruf (Sprache → Text → Übersetzung → Sprache; Einwilligung beider Seiten, AV-Vertrag).
+
+## Runde 9 – Busunternehmen (04.10.2026)
+
+Getestet: `tests/bus.mjs` (27 Prüfungen), `konto.mjs` und `test.mjs` weiter grün.
+
+### Was es kann
+- **Rolle „Busunternehmen“**: Registrierung (Handy oder E-Mail) mit Unternehmer-Bestätigung; Link „Als Busunternehmen registrieren“ auf /busreisen (`/auth?modus=registrieren&rolle=busunternehmen`).
+- **Bereich für Busunternehmen** (`BusDashboard.tsx`, erscheint im Dashboard je nach Rolle):
+  - Firmendaten (öffentlich: Name, Sitz, Telefon, E-Mail; dazu Konzession, Fahrten bisher, „Über uns“)
+  - **Bilder** hochladen (bis 12, verkleinert, Metadaten entfernt, privater Speicher, erst nach Bestätigung der Bildrechte)
+  - **Fahrten anbieten**: von, nach, **alle Zwischenhalte in Reihenfolge**, Abfahrt („jeden Freitag 18:00“), Dauer, **Preis**, Plätze, Hinweise; online/offline, löschen
+  - **Buchungsanfragen**: Name + Handynummer der Fachkraft (nur das), Bestätigen/Ablehnen, „Fahrt durchgeführt“
+- **Öffentliche Seite /busreisen**: Suche „von → nach“ (Zwischenhalte zählen, Richtung muss stimmen, Akzente egal: Timisoara = Timișoara), Karte mit Foto, Route als Linie mit allen Halten, Preis, Bewertung (aufklappbar), „x Fahrten über Standard Plus“ und – gekennzeichnet – „insgesamt ca. … (Angabe des Unternehmens)“, Kontakt.
+- **Verknüpfung mit dem Deal**: Sobald beide Seiten den Vertragsabschluss bestätigt haben, zeigt das Dashboard beiden **passende Fahrten vom Wohnort der Fachkraft zum Arbeitsort** (Ort der Stelle, sonst Wunschziel). Die Fachkraft fragt mit einem Klick an (Einwilligung zur Weitergabe von Name + Nummer), der Arbeitgeber sieht den Stand. Sortierung offen angezeigt: Strecke, Bewertung, Preis.
+- **Echte Bewertungen**: nur nach einer vom Busunternehmen als durchgeführt markierten Buchung, je Buchung und Person einmal (Fachkraft und Arbeitgeber des Deals).
+
+### Dateien
+`supabase/migrations/20261004130000_rolle_busunternehmen.sql` (neue Rolle, eigene Migration!), `20261004130100_busfahrten.sql` (Tabellen `busfahrten`, `bus_bilder`, `bus_buchungen`, `bus_bewertungen`, Speicher `busbilder`, Funktionen `oeffentliche_busfahrten`, `fahrt_vorschlaege`, `buchung_reisender`, `bus_bewertungen_oeffentlich`), `src/lib/bus.ts`, `src/components/site/{FahrtKarte,FahrtVorschlaege,BusDashboard}.tsx`, `src/routes/busreisen.tsx`; geändert: `auth.tsx` (3 Rollen), `_authenticated/dashboard.tsx`, `AnfrageDetails.tsx`, `Header.tsx` (Menüpunkt „Busreisen“), `datenschutz.tsx` (Abschnitt 9b).
+
+### ⚠ Offen / zu klären
+1. **AGB für Busunternehmen** fehlen – Registrierung verlinkt bisher die AGB für Unternehmen (Personalvermittlung). Eigene Bedingungen für Busunternehmen (Plattformnutzung, Pflichten, Gebühren) erstellen lassen.
+2. **Prüfung vor Freischaltung (eingebaut)**: Fahrten eines Busunternehmens sind erst öffentlich, wenn euer Team `profiles.bus_freigegeben_at` setzt (nur Rolle admin darf das; bis zum Admin-Bereich im Lovable-Cloud-Tabellen-Editor). Vorher prüfen: Firmenname, Anschrift, Konzession/Registernummer (Pflicht für Plattformen nach Digital Services Act Art. 30). Das Busunternehmen sieht im Bereich „In Prüfung“ bzw. „Geprüft und freigegeben“.
+3. **Bezahlung** läuft direkt zwischen Fachkraft und Busunternehmen – so steht es auch auf der Seite. Falls Standard Plus mitkassieren soll: Zahlungsanbieter + Rechtsprüfung nötig.
+4. **Benachrichtigungen** (neue Buchungsanfrage, Bestätigung) per E-Mail/SMS gibt es noch nicht – Busunternehmen sehen Anfragen im Dashboard.
