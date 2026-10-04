@@ -168,3 +168,40 @@ Mit dem Design-Skill „Impeccable“ erarbeitet (Produktprofil `PRODUCT.md`, Ri
 ### ⚠ Für Lovable / Datenbank – noch umzusetzen
 1. **Kontaktfreigabe umstellen:** Bisher gibt die Datenbank Nachname/Telefon/E-Mail beim Match frei. Neu: erst wenn **beide Seiten den Vertragsabschluss bestätigt** haben. Vorschlag: Spalten `anfragen.vertrag_unternehmen_am` und `anfragen.vertrag_fachkraft_am` (timestamptz), Freigabe-Funktion/RLS prüft beide statt Status „angenommen“. Knöpfe „Vertrag abgeschlossen bestätigen“ im Dashboard beider Seiten. **Bis das umgesetzt ist, stimmen die neuen Texte nicht mit dem Verhalten überein.**
 2. **Alter (optional):** Feld `alter` im Typ `OeffentlichesProfil` ist vorbereitet. Die Datenbank liefert es nur, wenn die Fachkraft es im Profil einschaltet (neue Spalte z. B. `profiles.alter_sichtbar boolean default false`; RPC `oeffentliche_profile` gibt `alter` = Jahre aus `geburtsjahr` nur bei `alter_sichtbar`). **Rechtlich prüfen lassen:** Alter in Bewerberprofilen kann Altersdiskriminierung nach AGG begünstigen.
+
+## Runde 8 – Handynummer-Registrierung, Vertragsabschluss, Anreise (04.10.2026)
+
+Alles im Testaufbau durchgeklickt (`konto.mjs`: 23 Prüfungen bestanden; `test.mjs` weiter grün).
+
+### Neu / geändert
+| Datei | Was |
+|---|---|
+| `src/lib/laender.ts` | Alle Länder der Welt mit Vorwahl (256 Einträge, Namen aus dem Browser), Umwandlung in internationale Nummer (+49…; führende 0, Leerzeichen, „00“ werden korrigiert) |
+| `src/components/site/TelefonFeld.tsx` | Länder-Auswahl („Häufig“ oben: DE, AT, CH, RO, PL, BG …) + Handynummer; Code-Feld (füllt sich auf dem Handy automatisch aus der SMS) |
+| `src/routes/auth.tsx` | Anmelden/Registrieren **mit Handynummer** (Standard) oder E-Mail. SMS-Code → erst nach Bestätigung angemeldet. „Code erneut senden“ nach 60 s. Land wird aus der Browsersprache vorgewählt. `DATENSCHUTZ_VERSION = "2026-10-04"` |
+| `src/components/site/AnfrageDetails.tsx` | Status „Einladung offen → Match – Interview → Vertrag abgeschlossen“, Interview-Details, Knopf **„Vertragsabschluss bestätigen“**, Kontaktdaten erst wenn beide bestätigt |
+| `src/routes/_authenticated/dashboard.tsx` | nutzt das; Fachkraft: „Zusagen/Ablehnen“, Karte „Anreise anfragen“; Sterne ohne Zeichen-Glyphen |
+| `src/routes/_authenticated/anreise.tsx` | **Anreise anfragen** (von, nach, Datum, Personen, Hinweis) mit Stand „Angefragt → In Planung → Gebucht → Angekommen“, Infos vom Team, Stornieren |
+| `supabase/migrations/20261004120000_telefon_vertrag_anreise.sql` | siehe unten |
+| `src/routes/datenschutz.tsx` | Abschnitte SMS-Versand, Anreise, Empfänger, Konto per Handynummer |
+
+### Datenbank (Migration `20261004120000_telefon_vertrag_anreise.sql`)
+1. **Handy-Registrierung:** `handle_new_user` speichert die Handynummer; das Profil wird erst **sichtbar, wenn Code oder E-Mail-Link bestätigt** ist (neuer Trigger `on_auth_user_bestaetigt`). Supabase legt das Konto schon beim SMS-Versand an – ohne Bestätigung gibt es aber keine Anmeldung und keine Sichtbarkeit.
+2. **Kontaktdaten erst bei Vertragsabschluss:** neue Spalten `anfragen.vertrag_arbeitgeber_at / vertrag_arbeitnehmer_at`; jede Seite kann nur ihr eigenes Feld setzen, erst nach dem Match, und nicht zurücknehmen. Die Regel „Vollprofil nach beidseitiger Freigabe“ wird ersetzt durch **„Vollprofil nach Vertragsabschluss“** (`hat_vertrag`).
+3. **Anreise:** Tabelle `anreise_anfragen` mit RLS. Fachkraft legt an und kann nur stornieren; Status und „Infos vom Team“ setzt nur die Rolle `admin`.
+
+### ⚠ Das musst du (bzw. Lovable) einrichten
+1. **SMS-Anbieter** – ohne den kommt keine SMS an:
+   - In Lovable Cloud → Authentifizierung den **Anbieter „Phone“ aktivieren** und einen SMS-Dienst eintragen (z. B. **Twilio Verify**, MessageBird oder Vonage). Dafür brauchst du ein Konto beim Anbieter (Kosten pro SMS, je nach Land ca. 0,01–0,20 €).
+   - Für Tests „Test-Telefonnummern“ mit festem Code anlegen.
+   - **Schutz vor SMS-Betrug** (teure Nummern in Massen): Länder-Sperre beim Anbieter und Begrenzung der Versuche einschalten; ggf. CAPTCHA (dann im Cookie-Banner/Datenschutz ergänzen).
+2. **AV-Vertrag** mit dem SMS-Anbieter abschließen und den Namen in der Datenschutzerklärung (Abschnitt 4) eintragen.
+3. **Unbestätigte Registrierungen löschen** (z. B. täglicher Job: Konten ohne bestätigte E-Mail/Nummer, älter als 7 Tage). Frist in Datenschutzerklärung eintragen.
+4. **Anreisen bearbeiten:** bis es einen Admin-Bereich gibt, im Lovable-Cloud-Tabellen-Editor (`anreise_anfragen`: `status`, `team_info`). Busunternehmen/Partner in der Datenschutzerklärung benennen. **Rechtlich prüfen**, ob ihr als Reisevermittler/Veranstalter auftretet (Pauschalreiserecht) oder selbst befördert (Personenbeförderungsgesetz).
+5. **Datenexport** (`KontoBereich.tsx`): Tabelle `anreise_anfragen` und die neuen Vertrags-Spalten mit exportieren.
+6. Typen neu erzeugen lassen (`src/integrations/supabase/types.ts`), Pakete `@fontsource/barlow` und `@fontsource/barlow-condensed` installieren.
+
+### Noch nicht gebaut (braucht Entscheidung + Anbieter-Konto)
+- **E-Mail-/SMS-Benachrichtigungen** bei Einladung, Zusage, Vertrag, Anreise-Status (Vorschlag: Resend über Lovable, Edge Function auf Datenbank-Änderungen).
+- **Videoanruf** im Browser (Vorschlag: Daily mit EU-Servern; Raum entsteht beim Match, Link nur für die beiden Beteiligten, keine Telefonnummern nötig).
+- **Live-Übersetzung** im Anruf (Sprache → Text → Übersetzung → Sprache; Einwilligung beider Seiten, AV-Vertrag).

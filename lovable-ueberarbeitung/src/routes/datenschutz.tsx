@@ -13,7 +13,7 @@ export const Route = createFileRoute("/datenschutz")({
 
 function Datenschutz() {
   return (
-    <Rechtstext titel="Datenschutzerklärung" stand="01.10.2026 (Version 2026-10-01)">
+    <Rechtstext titel="Datenschutzerklärung" stand="04.10.2026 (Version 2026-10-04)">
       <h2>1. Verantwortlicher</h2>
       <p><Ph>Firmenname</Ph>, <Ph>Anschrift</Ph>, E-Mail: <Ph>E-Mail-Adresse</Ph>, Telefon: <Ph>Telefonnummer</Ph>.</p>
       <p>Datenschutzbeauftragte/r: <Ph>Name und Kontakt – oder Satz streichen, falls keine Benennungspflicht</Ph></p>
@@ -36,14 +36,18 @@ function Datenschutz() {
 
       <h2>3. Registrierung und Konto</h2>
       <p>
-        Für ein Konto benötigen wir nur E-Mail-Adresse, Passwort (gespeichert als Hash) und Ihre Rolle (Unternehmen oder Arbeitnehmer).
+        Für ein Konto benötigen wir nur Ihre Rolle (Unternehmen oder Fachkraft) und <em>entweder</em> Ihre Handynummer <em>oder</em> E-Mail-Adresse und Passwort
+        (gespeichert als Hash). Bei der Handynummer schicken wir Ihnen einen einmaligen Code per SMS; Ihr Konto wird erst freigeschaltet und Ihr Profil erst sichtbar,
+        wenn Sie diesen Code bestätigt haben. Unbestätigte Registrierungen löschen wir nach <Ph>z. B. 7 Tagen</Ph>.
         Wir speichern außerdem Zeitpunkt und Version Ihrer Zustimmung zur Datenschutzerklärung und zu den AGB bzw. Nutzungsbedingungen
         sowie bei Unternehmen die Bestätigung der Unternehmereigenschaft. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertrag) und lit. c (Nachweispflichten).
       </p>
 
-      <h2>4. E-Mail-Versand</h2>
+      <h2>4. E-Mail- und SMS-Versand</h2>
       <p>
         Für Bestätigungs- und Passwort-Zurücksetzen-E-Mails wird Ihre E-Mail-Adresse über den Anmeldedienst von Lovable Cloud versendet.
+        Für Anmelde-Codes per SMS übermitteln wir Ihre Handynummer und den Code an den SMS-Dienst <Ph>Name und Anschrift des SMS-Anbieters, z. B. Twilio Ireland Ltd.</Ph>
+        als Auftragsverarbeiter. <Ph>Übermittlung in Drittländer und Garantien (z. B. EU-US Data Privacy Framework, Standardvertragsklauseln) – bitte prüfen</Ph>.
         Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO. Newsletter versenden wir nicht.
       </p>
 
@@ -86,7 +90,14 @@ function Datenschutz() {
       </p>
       <p>Andere Datei-Uploads bietet die Plattform derzeit nicht an.</p>
 
-      <h2>9. Kündigungen</h2>
+      <h2>9. Anreise</h2>
+      <p>
+        Wenn Sie eine Anreise anfragen, speichern wir Abfahrts- und Zielort, frühestes Reisedatum, Anzahl der Personen und Ihren freiwilligen Hinweis, um die Fahrt
+        für Sie zu organisieren. Für die Buchung geben wir Ihren Namen und die Reisedaten an das jeweilige Beförderungsunternehmen weiter (<Ph>Busunternehmen/Partner benennen</Ph>).
+        Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO. Speicherdauer: <Ph>z. B. 12 Monate nach dem Reisedatum</Ph>, bei Kontolöschung sofort.
+      </p>
+
+      <h2>9a. Kündigungen</h2>
       <p>
         Über das Kündigungsformular übermittelte Angaben (Art der Kündigung, Name, E-Mail, ggf. Firma und Vertragsnummer, Zeitpunkt, optional Grund) speichern wir zur Bearbeitung
         und als Nachweis über den Eingang der Kündigung. Löschen Sie Ihr Konto, bleibt die Kündigung ohne Verknüpfung zum Konto bis zum Ablauf der unten genannten Frist gespeichert.
@@ -108,12 +119,13 @@ function Datenschutz() {
       </p>
 
       <h2>12. Empfänger</h2>
-      <p>Hosting- und Infrastrukturanbieter (Abschnitt 2) als Auftragsverarbeiter; im Rahmen der Freigabe das jeweils anfragende Unternehmen bzw. die Fachkraft; Behörden nur bei gesetzlicher Pflicht.</p>
+      <p>Hosting- und Infrastrukturanbieter (Abschnitt 2) und der SMS-Dienst (Abschnitt 4) als Auftragsverarbeiter; nach beidseitig bestätigtem Vertragsabschluss das jeweilige Unternehmen bzw. die Fachkraft; bei einer Anreise das Beförderungsunternehmen (Abschnitt 9); Behörden nur bei gesetzlicher Pflicht.</p>
 
       <h2>13. Speicherdauer</h2>
       <ul>
         <li>Konto- und Profildaten: bis zur Löschung des Kontos (jederzeit selbst im Profil möglich).</li>
-        <li>Anfragen und Bewertungen: bis zur Löschung eines beteiligten Kontos.</li>
+        <li>Anfragen, Vertragsbestätigungen und Bewertungen: bis zur Löschung eines beteiligten Kontos.</li>
+        <li>Anreise-Anfragen: siehe Abschnitt 9.</li>
         <li>Profilfoto: bis Sie es löschen oder ersetzen, spätestens bis zur Löschung des Kontos.</li>
         <li>Einwilligungsnachweise: bis zur Löschung des Kontos.</li>
         <li>Kündigungen: <Ph>z. B. 3 Jahre nach Ende des Jahres, in dem die Kündigung eingegangen ist</Ph>, auch wenn das Konto vorher gelöscht wurde; danach werden sie gelöscht.</li>
