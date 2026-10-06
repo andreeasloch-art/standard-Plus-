@@ -57,10 +57,10 @@
   });
 
   /* ---------- Paket-Buttons füllen das Formular vor ---------- */
-  var paketSelect = document.getElementById('f-paket');
+  var betreff = document.getElementById('f-betreff');
   document.querySelectorAll('[data-paket]').forEach(function (btn) {
     btn.addEventListener('click', function () {
-      if (paketSelect) paketSelect.value = btn.getAttribute('data-paket');
+      if (betreff) betreff.value = 'Anfrage ' + btn.getAttribute('data-paket');
     });
   });
 
@@ -155,14 +155,10 @@
 
     /* Ohne Server: fertige E-Mail im E-Mail-Programm öffnen */
     var lines = [
-      'Anfrage als: ' + data.get('anfrage_als'),
       'Name: ' + data.get('name'),
-      'Firma: ' + (data.get('firma') || '–'),
       'E-Mail: ' + data.get('email'),
       'Telefon: ' + (data.get('telefon') || '–'),
       'Adresse: ' + (data.get('adresse') || '–'),
-      'Branche: ' + (data.get('branche') || '–'),
-      'Interesse an: ' + (data.get('paket') || 'Noch offen / Beratung'),
       '',
       'Nachricht:',
       data.get('nachricht')

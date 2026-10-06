@@ -4,7 +4,7 @@ Statische Website (reines HTML, CSS und JavaScript – kein Baukasten, keine Abh
 
 | Datei | Inhalt |
 | --- | --- |
-| `index.html` | Landingpage: Über uns, Vorteile, Ablauf, Branchen, Pakete, FAQ, Kontaktformular |
+| `index.html` | Landingpage: Über uns, Branchen, Ablauf, Pakete, Fragen, Kontaktformular |
 | `impressum.html` | Impressum (Daten von standard-aaa.com übernommen) |
 | `agb.html` | Allgemeine Geschäftsbedingungen |
 | `datenschutz.html` | Datenschutzerklärung |
