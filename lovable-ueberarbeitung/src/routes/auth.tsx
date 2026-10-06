@@ -9,6 +9,7 @@ import { useAuth } from "@/lib/auth";
 import { internationaleNummer, laenderListe, smsMoeglich } from "@/lib/laender";
 import { CodeFeld, TelefonFeld } from "@/components/site/TelefonFeld";
 import { BotSchutz, botSchutzAktiv } from "@/components/site/BotSchutz";
+import { smsCodePruefen, smsCodeSenden } from "@/lib/sms.functions";
 
 export const Route = createFileRoute("/auth")({
   validateSearch: (s: Record<string, unknown>): { modus?: "registrieren"; rolle?: "busunternehmen" | "arbeitgeber" } => ({
@@ -107,6 +108,22 @@ function startLand() {
   return "DE";
 }
 
+/** Antworten des eigenen SMS-Servers (Twilio Verify mit Kostenbremse). */
+const SERVER_FEHLER: Record<string, string> = {
+  ungueltig: "Diese Handynummer ist ungültig. Bitte Vorwahl und Nummer prüfen.",
+  festnetz: "An diese Nummer können wir keine SMS schicken (Festnetz- oder Sondernummer). Bitte eine Handynummer verwenden.",
+  land: "Für dieses Land verschicken wir keine SMS. Bitte nutzen Sie E-Mail – das ist genauso schnell.",
+  limit: "Zu viele Codes in kurzer Zeit. Bitte versuchen Sie es später erneut oder nutzen Sie E-Mail.",
+  budget: "Heute können wir keine weiteren SMS verschicken. Bitte nutzen Sie E-Mail oder versuchen Sie es morgen.",
+  bot: "Die Sicherheitsprüfung ist fehlgeschlagen. Bitte laden Sie die Seite neu.",
+  unbekannt: "Zu dieser Nummer gibt es noch kein Konto. Bitte registrieren Sie sich.",
+  vergeben: "Mit dieser Nummer gibt es schon ein Konto. Bitte melden Sie sich an.",
+  konto_existiert: KONTO_EXISTIERT,
+  angaben: "Bitte füllen Sie alle Pflichtangaben aus.",
+  falsch: "Der Code ist falsch oder abgelaufen.",
+  fehler: "Das hat nicht geklappt. Bitte versuchen Sie es erneut.",
+};
+
 function smsFehler(msg: string) {
   const m = msg.toLowerCase();
   if (m.includes("database error") || m.includes("konto_existiert") || m.includes("duplicate")) return KONTO_EXISTIERT;
@@ -129,6 +146,8 @@ function AuthPage() {
   const [code, setCode] = useState("");
   const [warten, setWarten] = useState(0);
   const [letzteMeta, setLetzteMeta] = useState<Record<string, string> | undefined>(undefined);
+  // "server": eigener SMS-Server mit Kostenbremse; "eingebaut": SMS-Anbieter von Lovable Cloud (Rückfall)
+  const [smsWeg, setSmsWeg] = useState<"server" | "eingebaut">("server");
   const [errors, setErrors] = useState<Errors>({});
   const [busy, setBusy] = useState(false);
   // Bot-Prüfung (nur aktiv mit VITE_TURNSTILE_SITE_KEY); Token gilt für genau einen Versand
@@ -177,6 +196,24 @@ function AuthPage() {
   const otpSenden = async (tel: string, meta: Record<string, string> | undefined) => {
     if (botFehlt) return void toast.error("Sicherheitsprüfung läuft noch – bitte einen Moment warten.");
     setBusy(true);
+    const zweck = modus === "registrieren" ? "registrieren" : "login";
+    const s = await smsCodeSenden({ data: { telefon: tel, zweck, meta: (meta ?? null) as never, sprache: navigator.language.slice(0, 2), ...(botToken ? { botToken } : {}) } })
+      .catch(() => ({ fehler: "aus" as const }));
+    if (botToken) setBotNeu((n) => n + 1);
+    if ("ok" in s) {
+      setBusy(false);
+      setSmsWeg("server");
+      setLetzteMeta(meta);
+      setCodeAn(s.nummer);
+      setCode("");
+      setWarten(60);
+      return void toast.success("Code per SMS gesendet.");
+    }
+    if (s.fehler !== "aus") {
+      setBusy(false);
+      return void setErrors({ telefon: SERVER_FEHLER[s.fehler] ?? SERVER_FEHLER["fehler"]! });
+    }
+    setSmsWeg("eingebaut");
     const { error } = await supabase.auth.signInWithOtp({
       phone: tel,
       options: { channel: "sms", shouldCreateUser: modus === "registrieren", ...(meta ? { data: meta } : {}), ...bot() },
@@ -196,9 +233,18 @@ function AuthPage() {
     if (code.length !== 6) return void setErrors({ code: "Bitte den 6-stelligen Code eingeben." });
     setErrors({});
     setBusy(true);
-    const { error } = await supabase.auth.verifyOtp({ phone: codeAn, token: code, type: "sms" });
-    setBusy(false);
-    if (error) return void setErrors({ code: smsFehler(error.message) });
+    if (smsWeg === "server") {
+      const r = await smsCodePruefen({ data: { telefon: codeAn, code, zweck: modus === "registrieren" ? "registrieren" : "login", meta: (letzteMeta ?? null) as never } })
+        .catch(() => ({ fehler: "fehler" as const }));
+      if ("fehler" in r) { setBusy(false); return void setErrors({ code: SERVER_FEHLER[r.fehler] ?? SERVER_FEHLER["fehler"]! }); }
+      const { error } = await supabase.auth.setSession(r);
+      setBusy(false);
+      if (error) return void setErrors({ code: SERVER_FEHLER["fehler"]! });
+    } else {
+      const { error } = await supabase.auth.verifyOtp({ phone: codeAn, token: code, type: "sms" });
+      setBusy(false);
+      if (error) return void setErrors({ code: smsFehler(error.message) });
+    }
     toast.success(modus === "registrieren" ? "Konto freigeschaltet. Willkommen!" : "Willkommen zurück!");
   };
 

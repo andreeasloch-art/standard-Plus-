@@ -49,8 +49,12 @@ function Datenschutz() {
       <h2>4. E-Mail- und SMS-Versand</h2>
       <p>
         Für Bestätigungs- und Passwort-Zurücksetzen-E-Mails wird Ihre E-Mail-Adresse über den Anmeldedienst von Lovable Cloud versendet.
-        Für Anmelde-Codes per SMS übermitteln wir Ihre Handynummer und den Code an den SMS-Dienst <Ph>Name und Anschrift des SMS-Anbieters, z. B. Twilio Ireland Ltd.</Ph>
-        als Auftragsverarbeiter. <Ph>Übermittlung in Drittländer und Garantien (z. B. EU-US Data Privacy Framework, Standardvertragsklauseln) – bitte prüfen</Ph>.
+        Für Anmelde-Codes per SMS übermitteln wir Ihre Handynummer an den Dienst Twilio Verify (Twilio Ireland Limited, 25–28 North Wall Quay,
+        Dublin 1, Irland; Mutterunternehmen Twilio Inc., USA) als Auftragsverarbeiter. Twilio erzeugt den Code, verschickt ihn und prüft ihn.
+        <Ph>Übermittlung in die USA und Garantien (EU-US Data Privacy Framework, Standardvertragsklauseln) – bitte prüfen</Ph>.
+        Zum Schutz vor Kostenmissbrauch zählen wir, wie oft Codes angefordert werden. Dafür speichern wir nur gekürzte, nicht umkehrbare
+        Prüfwerte (Hash) Ihrer Nummer und Ihrer IP-Adresse sowie das Land, nie die Nummer oder IP selbst, und löschen sie nach 30 Tagen
+        (Art. 6 Abs. 1 lit. f DSGVO).
         Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO. Newsletter versenden wir nicht.
       </p>
       <p>
@@ -170,6 +174,7 @@ function Datenschutz() {
         <li>Anreise-Anfragen: siehe Abschnitt 9.</li>
         <li>Profilfoto: bis Sie es löschen oder ersetzen, spätestens bis zur Löschung des Kontos.</li>
         <li>Benachrichtigungen: 180 Tage, bei Kontolöschung sofort.</li>
+        <li>Zählwerte zum SMS-Missbrauchsschutz (nur Hashes): 30 Tage.</li>
         <li>Einwilligungsnachweise: bis zur Löschung des Kontos.</li>
         <li>Kündigungen: <Ph>z. B. 3 Jahre nach Ende des Jahres, in dem die Kündigung eingegangen ist</Ph>, auch wenn das Konto vorher gelöscht wurde; danach werden sie gelöscht.</li>
         <li>Rechnungsrelevante Unterlagen: gesetzliche Aufbewahrung (bis zu 10 Jahre, § 147 AO, § 257 HGB).</li>

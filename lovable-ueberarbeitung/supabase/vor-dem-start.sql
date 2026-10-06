@@ -26,9 +26,11 @@ DELETE FROM public.anfragen   WHERE arbeitnehmer_id::text LIKE '11111111-0000-40
 DELETE FROM public.profiles   WHERE id::text LIKE '11111111-0000-4000-8000-%';
 DELETE FROM auth.users        WHERE id::text LIKE '11111111-0000-4000-8000-%';
 
--- 3) Alte Benachrichtigungen nach 180 Tagen automatisch löschen (Datenschutzerklärung, Speicherdauer)
+-- 3) Löschfristen automatisch: Benachrichtigungen nach 180 Tagen, SMS-Zählwerte nach 30 Tagen
 CREATE EXTENSION IF NOT EXISTS pg_cron;
 SELECT cron.schedule('benachrichtigungen-aufraeumen', '17 3 * * *', $$ SELECT intern.benachrichtigungen_aufraeumen() $$);
+-- Zählwerte der SMS-Kostenbremse nach 30 Tagen löschen
+SELECT cron.schedule('sms-log-aufraeumen', '23 3 * * *', $$ SELECT intern.sms_log_aufraeumen() $$);
 
 -- 4) Kontrolle: sollte 0 Beispielprofile und mindestens 1 Team-Konto zeigen.
 SELECT

@@ -19,6 +19,15 @@ ok(await p.locator("input[name=email]").isVisible(), "Wechsel auf E-Mail");
 await p.getByRole("button", { name: "Mit Handynummer" }).click();
 await p.locator("#land").selectOption("RO");
 ok(await p.getByText("Für dieses Land verschicken wir keine SMS-Codes.").count() === 0, "Rumänien: SMS erlaubt");
+// Antwort der Kostenbremse wird verständlich angezeigt (Stub: Nummern auf …999 = Festnetz, …888 = Tageslimit)
+await p.locator("input[type=tel]").fill("1712345999");
+await p.getByRole("button", { name: /Code senden|Code per SMS/ }).first().click();
+await p.waitForTimeout(300);
+ok(await p.getByText("An diese Nummer können wir keine SMS schicken (Festnetz- oder Sondernummer).").first().isVisible(), "Festnetz-Hinweis vom Server");
+await p.locator("input[type=tel]").fill("1712345888");
+await p.getByRole("button", { name: /Code senden|Code per SMS/ }).first().click();
+await p.waitForTimeout(300);
+ok(await p.getByText("Heute können wir keine weiteren SMS verschicken.").first().isVisible(), "Tageslimit-Hinweis vom Server");
 ok(logs.length === 0, "Keine Fehler" + (logs.length ? ": " + logs.join(" | ") : ""));
 await b.close();
 console.log(fehler ? `\n${fehler} Prüfung(en) fehlgeschlagen` : "\nAlle Prüfungen bestanden");
