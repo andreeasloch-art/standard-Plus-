@@ -30,6 +30,20 @@ const ROH: [string, string][] = [
   ["BQ","599"],["BL","590"],["MF","590"],["PM","508"],["SH","290"],["AX","358"],["SJ","47"],["IO","246"],["NF","672"],["TK","690"],
 ];
 
+/**
+ * SMS nur in diese Länder (Schutz vor SMS-Betrug: Betrüger lösen massenhaft SMS an teure Auslandsnummern aus).
+ * Alle anderen Länder registrieren sich kostenlos per E-Mail. Liste bei Bedarf erweitern –
+ * und dieselben Länder beim SMS-Anbieter (z. B. Twilio → Geo Permissions) freischalten, alle anderen dort sperren.
+ */
+export const SMS_LAENDER = new Set([
+  // EU / EWR
+  "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR", "HU", "IE", "IT", "LV", "LT", "LU", "MT",
+  "NL", "PL", "PT", "RO", "SK", "SI", "ES", "SE", "IS", "LI", "NO",
+  // weitere Herkunfts- und Zielländer der Plattform
+  "CH", "GB", "MD", "UA", "RS", "BA", "ME", "MK", "AL", "XK", "TR", "US", "CA",
+]);
+export const smsMoeglich = (iso: string) => SMS_LAENDER.has(iso);
+
 /** Diese Länder stehen oben (häufig auf der Plattform). */
 export const HAEUFIG = ["DE", "AT", "CH", "RO", "PL", "BG", "HR", "HU", "IT", "ES", "FR", "GB", "US", "MD", "UA", "RS"];
 

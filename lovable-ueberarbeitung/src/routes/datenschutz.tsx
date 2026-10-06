@@ -54,6 +54,13 @@ function Datenschutz() {
         Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO. Newsletter versenden wir nicht.
       </p>
       <p>
+        <strong>Schutz vor Missbrauch:</strong> Damit niemand automatisiert massenhaft SMS oder E-Mails auslöst, verschicken wir SMS-Codes nur in
+        ausgewählte Länder und prüfen vor dem Versand mit Cloudflare Turnstile (Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA),
+        ob ein Mensch die Seite bedient. Dabei werden technische Merkmale Ihres Browsers und Ihre IP-Adresse an Cloudflare übermittelt; es werden
+        keine Werbe-Cookies gesetzt. Turnstile wird nur auf der Anmeldeseite geladen. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (Schutz vor
+        Betrug und Kostenmissbrauch) und § 25 Abs. 2 Nr. 2 TDDDG. <Ph>Nur aufführen, wenn Turnstile eingeschaltet ist; Drittlandgarantien (EU-US Data Privacy Framework) bitte prüfen</Ph>.
+      </p>
+      <p>
         <strong>Benachrichtigungen:</strong> Über neue Einladungen, Zusagen, Vertragsbestätigungen, das Ergebnis der Ausweisprüfung und Fahrtanfragen
         informieren wir Sie in der App (Glocke). Die Nachrichten enthalten keine Namen oder Kontaktdaten der Gegenseite. Haben Sie eine E-Mail-Adresse
         hinterlegt, schicken wir dieselbe Nachricht zusätzlich per E-Mail über den Versanddienst <Ph>Resend, Inc., 2261 Market Street #5039, San Francisco, CA 94114, USA – Anschrift bitte prüfen</Ph> als

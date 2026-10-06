@@ -6,8 +6,9 @@ import { Building2, Bus, Mail, Smartphone, UserRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
-import { internationaleNummer, laenderListe } from "@/lib/laender";
+import { internationaleNummer, laenderListe, smsMoeglich } from "@/lib/laender";
 import { CodeFeld, TelefonFeld } from "@/components/site/TelefonFeld";
+import { BotSchutz, botSchutzAktiv } from "@/components/site/BotSchutz";
 
 export const Route = createFileRoute("/auth")({
   validateSearch: (s: Record<string, unknown>): { modus?: "registrieren"; rolle?: "busunternehmen" | "arbeitgeber" } => ({
@@ -130,6 +131,11 @@ function AuthPage() {
   const [letzteMeta, setLetzteMeta] = useState<Record<string, string> | undefined>(undefined);
   const [errors, setErrors] = useState<Errors>({});
   const [busy, setBusy] = useState(false);
+  // Bot-Prüfung (nur aktiv mit VITE_TURNSTILE_SITE_KEY); Token gilt für genau einen Versand
+  const [botToken, setBotToken] = useState<string | null>(null);
+  const [botNeu, setBotNeu] = useState(0);
+  const bot = () => { const t = botToken; if (t) setBotNeu((n) => n + 1); return t ? { captchaToken: t } : {}; };
+  const botFehlt = botSchutzAktiv && !botToken;
   const [bestaetigen, setBestaetigen] = useState<string | null>(null);
   const [vergessen, setVergessen] = useState(false);
   const [linkGesendet, setLinkGesendet] = useState(false);
@@ -150,7 +156,8 @@ function AuthPage() {
   const codeSenden = async (raw: Record<string, string>) => {
     const tel = internationaleNummer(laenderListe().find((l) => l.iso === land)?.vorwahl ?? "49", nummer);
     const errs: Errors = {};
-    if (!tel) errs["telefon"] = "Bitte eine gültige Handynummer eingeben.";
+    if (!smsMoeglich(land)) errs["telefon"] = "Für dieses Land verschicken wir keine SMS. Bitte nutzen Sie E-Mail – das ist genauso schnell.";
+    else if (!tel) errs["telefon"] = "Bitte eine gültige Handynummer eingeben.";
     let meta: Record<string, string> | undefined;
     if (modus === "registrieren") {
       const p = regTelSchema.safeParse({ ...raw, rolle });
@@ -168,10 +175,11 @@ function AuthPage() {
   };
 
   const otpSenden = async (tel: string, meta: Record<string, string> | undefined) => {
+    if (botFehlt) return void toast.error("Sicherheitsprüfung läuft noch – bitte einen Moment warten.");
     setBusy(true);
     const { error } = await supabase.auth.signInWithOtp({
       phone: tel,
-      options: { channel: "sms", shouldCreateUser: modus === "registrieren", ...(meta ? { data: meta } : {}) },
+      options: { channel: "sms", shouldCreateUser: modus === "registrieren", ...(meta ? { data: meta } : {}), ...bot() },
     });
     setBusy(false);
     if (error) return void toast.error(smsFehler(error.message));
@@ -208,14 +216,14 @@ function AuthPage() {
     try {
       if (modus === "login") {
         const d = parsed.data as z.infer<typeof loginSchema>;
-        const { error } = await supabase.auth.signInWithPassword({ email: d.email, password: d.passwort });
+        const { error } = await supabase.auth.signInWithPassword({ email: d.email, password: d.passwort, options: { ...bot() } });
         if (error) throw new Error(error.message.includes("Invalid") ? "E-Mail oder Passwort ist falsch." : error.message.includes("confirmed") ? "Bitte bestätigen Sie zuerst Ihre E-Mail-Adresse." : "Anmeldung fehlgeschlagen.");
         toast.success("Willkommen zurück!");
       } else {
         const d = parsed.data as z.infer<typeof regSchema>;
         const { data, error } = await supabase.auth.signUp({
           email: d.email, password: d.passwort,
-          options: { emailRedirectTo: window.location.origin, data: {
+          options: { emailRedirectTo: window.location.origin, ...bot(), data: {
             ...personMeta(d),
             rolle: d.rolle, kanal: "email", datenschutz_version: DATENSCHUTZ_VERSION, bedingungen_version: BEDINGUNGEN_VERSION,
             unternehmer: d.rolle !== "arbeitnehmer" && d.unternehmer === "on" ? "true" : "false",
@@ -249,7 +257,7 @@ function AuthPage() {
     if (!r.success) return void setErrors({ email: r.error.issues[0]?.message ?? "Ungültige E-Mail-Adresse." });
     setErrors({});
     setBusy(true);
-    const { error } = await supabase.auth.resetPasswordForEmail(r.data, { redirectTo: `${window.location.origin}/reset-password` });
+    const { error } = await supabase.auth.resetPasswordForEmail(r.data, { redirectTo: `${window.location.origin}/reset-password`, ...bot() });
     setBusy(false);
     if (error) return void toast.error(error.message.includes("rate") ? "Zu viele Versuche. Bitte warten Sie kurz." : "Link konnte nicht gesendet werden.");
     setLinkGesendet(true);
@@ -265,6 +273,7 @@ function AuthPage() {
           <form onSubmit={sendeLink} noValidate className="mt-6 space-y-4">
             <p className="text-sm text-muted-foreground">Wir senden Ihnen einen Link, mit dem Sie ein neues Passwort festlegen können.</p>
             <Feld name="email" label="E-Mail" type="email" auto="email" error={errors["email"]} />
+            <BotSchutz onToken={setBotToken} zuruecksetzen={botNeu} />
             <Button type="submit" size="lg" className="w-full" disabled={busy}>{busy ? "Wird gesendet …" : "Link senden"}</Button>
           </form>
         )}
@@ -367,7 +376,15 @@ function AuthPage() {
                 </fieldset>
               )}
               {weg === "telefon" ? (
-                <TelefonFeld land={land} onLand={setLand} nummer={nummer} onNummer={setNummer} error={errors["telefon"]} />
+                <>
+                  <TelefonFeld land={land} onLand={setLand} nummer={nummer} onNummer={setNummer} error={errors["telefon"]} />
+                  {!smsMoeglich(land) && (
+                    <div role="status" className="rounded-xl border border-dashed p-3 text-sm">
+                      Für dieses Land verschicken wir keine SMS-Codes.{" "}
+                      <button type="button" className="font-semibold text-info underline" onClick={() => { setWeg("email"); setErrors({}); }}>Mit E-Mail fortfahren</button>
+                    </div>
+                  )}
+                </>
               ) : (
                 <>
                   <Feld name="email" label="E-Mail" type="email" auto="email" error={errors["email"]} />
@@ -406,6 +423,7 @@ function AuthPage() {
               )}
             </>
           )}
+          <BotSchutz onToken={setBotToken} zuruecksetzen={botNeu} />
           <Button type="submit" className="w-full" size="lg" disabled={busy}>{busy ? "Bitte warten …" : knopf}</Button>
         </form>
         {modus === "login" && weg === "email" && (
