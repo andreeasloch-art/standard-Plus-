@@ -1,6 +1,6 @@
 # Übertragung in Lovable – fertige Aufträge zum Kopieren
 
-Stand: 06.10.2026 · Code-Stand (fester Commit): `79d42e1fa1d78da514790360c79721df8382ebe8`
+Stand: 06.10.2026 · Code-Stand (fester Commit): `60afda0f3d5da1930e2cc1edc2a74acac2b4ccf6`
 
 Alles hier ist **außerhalb von Lovable gebaut und getestet**. Lovable muss die Dateien nur noch
 herunterladen und einbauen. Dafür gibt es zwei Wege.
@@ -30,7 +30,7 @@ Paket 4 „Datenbank“ – EIN Auftrag, bitte komplett erledigen.
 
 1. Diese Migrationen aus dem öffentlichen Repo GENAU so und in dieser Reihenfolge ausführen
    (jede einzeln, die Enum-Erweiterung muss eine eigene Migration bleiben):
-   B=https://raw.githubusercontent.com/andreeasloch-art/standard-Plus-/79d42e1fa1d78da514790360c79721df8382ebe8/lovable-ueberarbeitung/supabase/migrations
+   B=https://raw.githubusercontent.com/andreeasloch-art/standard-Plus-/60afda0f3d5da1930e2cc1edc2a74acac2b4ccf6/lovable-ueberarbeitung/supabase/migrations
    $B/20261004120000_telefon_vertrag_anreise.sql
    $B/20261004130000_rolle_busunternehmen.sql
    $B/20261004130100_busfahrten.sql
@@ -43,7 +43,7 @@ Paket 4 „Datenbank“ – EIN Auftrag, bitte komplett erledigen.
    Speicher-Werkzeug anlegen und den Rest der Migration ohne diesen Teil ausführen. Die Zugriffsregeln
    (Policies) aus der Migration trotzdem anlegen.
 3. Edge Function anlegen: supabase/functions/benachrichtigungen-mailen/index.ts von
-   https://raw.githubusercontent.com/andreeasloch-art/standard-Plus-/79d42e1fa1d78da514790360c79721df8382ebe8/lovable-ueberarbeitung/supabase/functions/benachrichtigungen-mailen/index.ts
+   https://raw.githubusercontent.com/andreeasloch-art/standard-Plus-/60afda0f3d5da1930e2cc1edc2a74acac2b4ccf6/lovable-ueberarbeitung/supabase/functions/benachrichtigungen-mailen/index.ts
    (noch keine Secrets setzen, keinen Cron anlegen).
 4. Supabase-Typen (src/integrations/supabase/types.ts) neu erzeugen. Security-Scan laufen lassen.
 5. Keine Dateien unter src/ ändern außer types.ts – die Oberfläche kommt mit dem nächsten Auftrag.
@@ -55,10 +55,10 @@ Paket 4 „Datenbank“ – EIN Auftrag, bitte komplett erledigen.
 ```
 Paket 5 „Oberfläche“ – EIN Auftrag, gleiches Vorgehen wie Paket 1–3. Bitte komplett erledigen.
 
-1. Diese 23 Dateien herunterladen und an dieselbe Stelle legen (komplett ersetzen bzw. anlegen):
+1. Diese 24 Dateien herunterladen und an dieselbe Stelle legen (komplett ersetzen bzw. anlegen):
 
-B=https://raw.githubusercontent.com/andreeasloch-art/standard-Plus-/79d42e1fa1d78da514790360c79721df8382ebe8/lovable-ueberarbeitung
-for f in src/components/site/AnfrageDetails.tsx src/components/site/AusweisUpload.tsx src/components/site/BusDashboard.tsx \
+B=https://raw.githubusercontent.com/andreeasloch-art/standard-Plus-/60afda0f3d5da1930e2cc1edc2a74acac2b4ccf6/lovable-ueberarbeitung
+for f in src/components/site/AnfrageDetails.tsx src/components/site/AusweisUpload.tsx src/components/site/BotSchutz.tsx src/components/site/BusDashboard.tsx \
   src/components/site/FahrtKarte.tsx src/components/site/FahrtVorschlaege.tsx src/components/site/Footer.tsx \
   src/components/site/FotoUpload.tsx src/components/site/Header.tsx src/components/site/KontoBereich.tsx \
   src/components/site/TelefonFeld.tsx src/lib/benachrichtigungen.ts src/lib/bus.ts src/lib/laender.ts \
@@ -78,14 +78,15 @@ done
 
 ## Danach – das machst du selbst (keine Credits)
 
-1. **SMS einschalten:** Lovable → Cloud → Authentifizierung → Anbieter **Phone** aktivieren, SMS-Dienst eintragen
+1. **Kostenschutz einrichten – VOR dem Einschalten der SMS** (siehe Abschnitt „Schutz vor SMS-Betrug“ unten).
+2. **SMS einschalten:** Lovable → Cloud → Authentifizierung → Anbieter **Phone** aktivieren, SMS-Dienst eintragen
    (z. B. Twilio Verify: Konto anlegen, Account SID, Auth Token und Service-ID einfügen).
-2. **Selbst registrieren** (mit deiner Handynummer).
-3. **Startskript ausführen:** Lovable → Cloud → SQL-Editor → Inhalt von `supabase/vor-dem-start.sql` einfügen,
+3. **Selbst registrieren** (mit deiner Handynummer).
+4. **Startskript ausführen:** Lovable → Cloud → SQL-Editor → Inhalt von `supabase/vor-dem-start.sql` einfügen,
    in Zeile 10 deine Handynummer eintragen, ausführen. Damit bist du Team-Konto (Bereich `/admin`) und die
    Beispielprofile sind weg. Außerdem werden alte Benachrichtigungen ab dann automatisch nach 180 Tagen gelöscht.
-4. **Platzhalter füllen:** Gelb markierte Stellen in Impressum, Datenschutz, AGB, AGB für Busunternehmen.
-5. **Veröffentlichen:** Lovable → **Publish**, optional eigene Domain verbinden.
+5. **Platzhalter füllen:** Gelb markierte Stellen in Impressum, Datenschutz, AGB, AGB für Busunternehmen.
+6. **Veröffentlichen:** Lovable → **Publish**, optional eigene Domain verbinden.
 
 ### Optional: E-Mail-Benachrichtigungen einschalten
 
@@ -108,3 +109,27 @@ $$);
 ```
 
 4. Resend in der Datenschutzerklärung (Abschnitt 4) prüfen und den AV-Vertrag von Resend abschließen.
+
+---
+
+## Schutz vor SMS-Betrug (Kosten deckeln)
+
+Betrüger lösen über Anmeldeformulare massenhaft SMS an teure Auslandsnummern aus und kassieren mit
+(„SMS-Pumping“). Vier Schichten, von „wichtigste“ bis „zusätzlich“:
+
+| # | Was | Wo | Kosten |
+| - | --- | --- | --- |
+| 1 | **Hartes Kostenlimit:** SMS-Anbieter nur mit Guthaben aufladen (z. B. 20–50 €), **automatisches Nachladen AUS**, Warn-E-Mail bei z. B. 10 € Verbrauch | Twilio → Billing | 0 € |
+| 2 | **Länder sperren:** nur die Länder aus `SMS_LAENDER` (in `src/lib/laender.ts`) erlauben, alle anderen sperren | Twilio → Verify → Geo Permissions | 0 € |
+| 3 | **Betrugserkennung:** „Fraud Guard“ einschalten (blockt verdächtige Nummernbereiche automatisch) | Twilio → Verify → Fraud Guard | 0 € (in Verify enthalten) |
+| 4 | **Bot-Prüfung:** Cloudflare Turnstile (kostenlos) – Site Key als `VITE_TURNSTILE_SITE_KEY` eintragen, Secret Key in der Authentifizierung unter „Captcha protection“ (Anbieter Turnstile) | cloudflare.com → Turnstile; Lovable → Cloud → Auth | 0 € |
+| 5 | **Versandlimit:** „Rate limit for sending SMS“ niedrig halten (Start: 30 pro Stunde für das ganze Projekt) | Lovable → Cloud → Auth → Rate Limits | 0 € |
+
+Schon im Code eingebaut: SMS nur in freigegebene Länder (sonst E-Mail, kostenlos), 60 Sekunden Wartezeit
+vor erneutem Senden, Bot-Prüfung (springt an, sobald der Schlüssel gesetzt ist).
+
+**Schlimmstfall mit diesen Einstellungen:** höchstens 30 SMS pro Stunde und nie mehr als das aufgeladene Guthaben.
+Ohne Guthaben werden keine SMS mehr verschickt – die Anmeldung per E-Mail funktioniert weiter.
+
+**Weltweit günstig:** Für Länder außerhalb der Liste registrieren sich Nutzer per E-Mail (kostenlos). Neue Länder
+erst freischalten, wenn dort echte Nutzer sind – dann in `SMS_LAENDER` **und** bei Twilio ergänzen.
