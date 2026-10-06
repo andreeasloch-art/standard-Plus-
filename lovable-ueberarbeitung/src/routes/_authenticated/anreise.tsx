@@ -78,7 +78,7 @@ function Anreise() {
     if (!r.success) {
       const errs: Record<string, string> = {};
       r.error.issues.forEach((i) => { errs[String(i.path[0])] ??= i.message; });
-      return setErrors(errs);
+      return void setErrors(errs);
     }
     setErrors({});
     anfragen.mutate(r.data);

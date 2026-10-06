@@ -58,9 +58,9 @@ export function FotoUpload({
     const datei = e.target.files?.[0];
     e.target.value = "";
     if (!datei) return;
-    if (!zustimmung && !fotoSichtbar) return toast.error("Bitte bestätigen Sie zuerst, dass Ihr Foto für alle sichtbar ist.");
-    if (!ERLAUBT.includes(datei.type)) return toast.error("Bitte ein JPG-, PNG- oder WebP-Bild wählen.");
-    if (datei.size > MAX_EINGABE) return toast.error("Das Bild ist zu groß (max. 15 MB).");
+    if (!zustimmung && !fotoSichtbar) return void toast.error("Bitte bestätigen Sie zuerst, dass Ihr Foto für alle sichtbar ist.");
+    if (!ERLAUBT.includes(datei.type)) return void toast.error("Bitte ein JPG-, PNG- oder WebP-Bild wählen.");
+    if (datei.size > MAX_EINGABE) return void toast.error("Das Bild ist zu groß (max. 15 MB).");
     setBusy(true);
     try {
       const blob = await verkleinern(datei);
@@ -90,7 +90,7 @@ export function FotoUpload({
     const del = await supabase.storage.from(FOTO_BUCKET).remove([fotoPfad]);
     const upd = await supabase.from("profiles").update({ foto_pfad: null, foto_sichtbar: false }).eq("id", uid);
     setBusy(false);
-    if (del.error || upd.error) return toast.error("Foto konnte nicht gelöscht werden.");
+    if (del.error || upd.error) return void toast.error("Foto konnte nicht gelöscht werden.");
     toast.success("Foto gelöscht.");
     fertig();
   };

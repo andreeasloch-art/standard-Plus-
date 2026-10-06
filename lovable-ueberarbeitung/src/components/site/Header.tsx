@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { useQueryClient } from "@tanstack/react-query";
-import { Menu, Moon, Sun, X, LogOut, LayoutDashboard, Star } from "lucide-react";
+import { Bell, Menu, Moon, Sun, X, LogOut, LayoutDashboard, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "./Logo";
 import { useAuth } from "@/lib/auth";
 import { useFavoriten } from "@/lib/favoriten";
+import { useBenachrichtigungen } from "@/lib/benachrichtigungen";
 import { supabase } from "@/integrations/supabase/client";
 
 const NAV = [
@@ -35,11 +36,25 @@ function ThemeToggle() {
 function FavoritenLink() {
   const { ids } = useFavoriten();
   return (
-    <Link to="/favoriten" aria-label={`Favoriten (${ids.length})`} className="relative flex h-11 w-11 items-center justify-center rounded-lg transition-colors hover:bg-[var(--glas)]">
+    <Link to="/favoriten" aria-label={`Favoriten (${ids.length})`} className="relative hidden h-11 w-11 md:flex items-center justify-center rounded-lg transition-colors hover:bg-[var(--glas)]">
       <Star className="h-5 w-5" aria-hidden />
       {ids.length > 0 && (
         <span className="absolute right-1 top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1 text-[11px] font-bold text-primary-foreground" aria-hidden>
           {ids.length}
+        </span>
+      )}
+    </Link>
+  );
+}
+
+function GlockeLink() {
+  const { anzahlUngelesen } = useBenachrichtigungen();
+  return (
+    <Link to="/benachrichtigungen" aria-label={anzahlUngelesen ? `Benachrichtigungen (${anzahlUngelesen} neu)` : "Benachrichtigungen"} className="relative flex h-11 w-11 items-center justify-center rounded-lg transition-colors hover:bg-[var(--glas)]">
+      <Bell className="h-5 w-5" aria-hidden />
+      {anzahlUngelesen > 0 && (
+        <span className="absolute right-1 top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-tuerkis-700 px-1 text-[11px] font-bold text-white" aria-hidden>
+          {anzahlUngelesen > 9 ? "9+" : anzahlUngelesen}
         </span>
       )}
     </Link>
@@ -88,6 +103,7 @@ export function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-1">
+          {session && <GlockeLink />}
           <FavoritenLink />
           <ThemeToggle />
           <div className="hidden items-center gap-2 md:flex">

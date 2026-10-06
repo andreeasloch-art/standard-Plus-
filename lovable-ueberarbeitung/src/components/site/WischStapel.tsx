@@ -164,12 +164,12 @@ export function WischStapel({ profile, onEinladen }: { profile: OeffentlichesPro
         onKeyDown={onKey}
       >
         {/* Die nächsten Karten liegen sichtbar dahinter */}
-        {[2, 1].map((n) => profile[pos + n] && (
-          <div key={profile[pos + n].id} aria-hidden className="card-base karte-fest absolute inset-0 overflow-hidden rounded-3xl"
+        {[2, 1].map((n) => { const hinten = profile[pos + n]; return hinten && (
+          <div key={hinten.id} aria-hidden className="card-base karte-fest absolute inset-0 overflow-hidden rounded-3xl"
             style={{ transform: `translateY(${n * 10}px) scale(${1 - n * 0.04})`, transformOrigin: "50% 100%", opacity: 1 - n * 0.25 }}>
-            <ProfilFoto url={profile[pos + n].foto_url} name={profile[pos + n].anzeigename} kopfOben className="aspect-auto h-full" />
+            <ProfilFoto url={hinten.foto_url} name={hinten.anzeigename} kopfOben className="aspect-auto h-full" />
           </div>
-        ))}
+        ); })}
 
         <div
           ref={karteRef}

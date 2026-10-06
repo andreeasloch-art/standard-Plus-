@@ -53,6 +53,14 @@ function Datenschutz() {
         als Auftragsverarbeiter. <Ph>Übermittlung in Drittländer und Garantien (z. B. EU-US Data Privacy Framework, Standardvertragsklauseln) – bitte prüfen</Ph>.
         Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO. Newsletter versenden wir nicht.
       </p>
+      <p>
+        <strong>Benachrichtigungen:</strong> Über neue Einladungen, Zusagen, Vertragsbestätigungen, das Ergebnis der Ausweisprüfung und Fahrtanfragen
+        informieren wir Sie in der App (Glocke). Die Nachrichten enthalten keine Namen oder Kontaktdaten der Gegenseite. Haben Sie eine E-Mail-Adresse
+        hinterlegt, schicken wir dieselbe Nachricht zusätzlich per E-Mail über den Versanddienst <Ph>Resend, Inc., 2261 Market Street #5039, San Francisco, CA 94114, USA – Anschrift bitte prüfen</Ph> als
+        Auftragsverarbeiter (<Ph>Garantien für die Übermittlung in die USA, z. B. EU-US Data Privacy Framework / Standardvertragsklauseln – bitte prüfen</Ph>).
+        E-Mails können Sie jederzeit unter „Benachrichtigungen“ abbestellen. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.
+        Benachrichtigungen werden nach 180 Tagen gelöscht.
+      </p>
 
       <h2>5. Profil- und Matching-Daten</h2>
       <p>
@@ -146,7 +154,7 @@ function Datenschutz() {
       </p>
 
       <h2>12. Empfänger</h2>
-      <p>Hosting- und Infrastrukturanbieter (Abschnitt 2) und der SMS-Dienst (Abschnitt 4) als Auftragsverarbeiter; bei einer Fahrtanfrage das Busunternehmen (Abschnitt 9b); nach beidseitig bestätigtem Vertragsabschluss das jeweilige Unternehmen bzw. die Fachkraft; bei einer Anreise das Beförderungsunternehmen (Abschnitt 9); Behörden nur bei gesetzlicher Pflicht.</p>
+      <p>Hosting- und Infrastrukturanbieter (Abschnitt 2) der SMS-Dienst und – sobald E-Mail-Benachrichtigungen aktiv sind – der E-Mail-Versanddienst (Abschnitt 4) als Auftragsverarbeiter; bei einer Fahrtanfrage das Busunternehmen (Abschnitt 9b); nach beidseitig bestätigtem Vertragsabschluss das jeweilige Unternehmen bzw. die Fachkraft; bei einer Anreise das Beförderungsunternehmen (Abschnitt 9); Behörden nur bei gesetzlicher Pflicht.</p>
 
       <h2>13. Speicherdauer</h2>
       <ul>
@@ -154,6 +162,7 @@ function Datenschutz() {
         <li>Anfragen, Vertragsbestätigungen und Bewertungen: bis zur Löschung eines beteiligten Kontos.</li>
         <li>Anreise-Anfragen: siehe Abschnitt 9.</li>
         <li>Profilfoto: bis Sie es löschen oder ersetzen, spätestens bis zur Löschung des Kontos.</li>
+        <li>Benachrichtigungen: 180 Tage, bei Kontolöschung sofort.</li>
         <li>Einwilligungsnachweise: bis zur Löschung des Kontos.</li>
         <li>Kündigungen: <Ph>z. B. 3 Jahre nach Ende des Jahres, in dem die Kündigung eingegangen ist</Ph>, auch wenn das Konto vorher gelöscht wurde; danach werden sie gelöscht.</li>
         <li>Rechnungsrelevante Unterlagen: gesetzliche Aufbewahrung (bis zu 10 Jahre, § 147 AO, § 257 HGB).</li>

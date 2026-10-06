@@ -61,8 +61,8 @@ export function AusweisUpload({ uid }: { uid: string }) {
   const senden = async () => {
     if (!vorne || !einwilligung) return;
     for (const d of [vorne, hinten]) {
-      if (d && !["image/jpeg", "image/png", "image/webp"].includes(d.type)) return toast.error("Bitte ein Foto (JPG, PNG oder WebP) wählen.");
-      if (d && d.size > 20 * 1024 * 1024) return toast.error("Das Foto ist zu groß (max. 20 MB).");
+      if (d && !["image/jpeg", "image/png", "image/webp"].includes(d.type)) return void toast.error("Bitte ein Foto (JPG, PNG oder WebP) wählen.");
+      if (d && d.size > 20 * 1024 * 1024) return void toast.error("Das Foto ist zu groß (max. 20 MB).");
     }
     setBusy(true);
     const neu: string[] = [];

@@ -12,7 +12,7 @@ export function useMehrLaden(gesamt: number, schritt = 6) {
     if (!el || anzahl >= gesamt || typeof IntersectionObserver === "undefined") return;
     const io = new IntersectionObserver(
       ([e]) => {
-        if (e.isIntersecting) setAnzahl((a) => Math.min(a + schritt, gesamt));
+        if (e?.isIntersecting) setAnzahl((a) => Math.min(a + schritt, gesamt));
       },
       { rootMargin: "400px" },
     );

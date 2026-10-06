@@ -16,13 +16,13 @@ function useTippBeispiel(beispiele: string[] | undefined, an: boolean, fertig?: 
       return;
     }
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setText(beispiele[0]);
+      setText(beispiele[0] ?? "");
       return;
     }
     let nr = 0, pos = 0, loeschen = false;
     let t: number;
     const schritt = () => {
-      const ziel = beispiele[nr % beispiele.length];
+      const ziel = beispiele[nr % beispiele.length] ?? "";
       if (!loeschen) {
         pos++;
         setText(ziel.slice(0, pos));
@@ -154,7 +154,7 @@ export function SuchFeld({
       className={cn("relative w-full", className)}
       onSubmit={(e) => {
         e.preventDefault();
-        absenden(zeige && aktiv >= 0 ? vorschlaege[aktiv].text : q);
+        absenden(zeige && aktiv >= 0 ? (vorschlaege[aktiv]?.text ?? q) : q);
       }}
     >
       <label htmlFor={inputId} className="sr-only">

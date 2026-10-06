@@ -13,12 +13,12 @@ import { EinladenDialog } from "@/components/site/EinladenDialog";
 import { NIVEAUS, istBeispiel, oeffentlicheProfileQuery, type OeffentlichesProfil } from "@/lib/profile-data";
 import { useFavoriten } from "@/lib/favoriten";
 
-type Suche = { q?: string; ansicht?: "liste" };
+type Suche = { q?: string | undefined; ansicht?: "liste" | undefined };
 
 export const Route = createFileRoute("/talente")({
   validateSearch: (s: Record<string, unknown>): Suche => ({
-    q: typeof s.q === "string" && s.q.trim() ? s.q.slice(0, 100) : undefined,
-    ansicht: s.ansicht === "liste" ? "liste" : undefined,
+    q: typeof s["q"] === "string" && s["q"].trim() ? s["q"].slice(0, 100) : undefined,
+    ansicht: s["ansicht"] === "liste" ? "liste" : undefined,
   }),
   head: () => ({
     meta: [

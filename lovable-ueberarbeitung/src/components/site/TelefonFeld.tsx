@@ -13,7 +13,7 @@ export function TelefonFeld({
   onLand: (iso: string) => void;
   nummer: string;
   onNummer: (n: string) => void;
-  error?: string;
+  error?: string | undefined;
 }) {
   const liste = useMemo(() => laenderListe("de"), []);
   const oben = HAEUFIG.map((iso) => liste.find((l) => l.iso === iso)).filter((l): l is NonNullable<typeof l> => !!l);
@@ -61,7 +61,7 @@ export function TelefonFeld({
 }
 
 /** Eingabe für den 6-stelligen SMS-Code (füllt sich auf dem Handy automatisch). */
-export function CodeFeld({ wert, onWert, error }: { wert: string; onWert: (c: string) => void; error?: string }) {
+export function CodeFeld({ wert, onWert, error }: { wert: string; onWert: (c: string) => void; error?: string | undefined }) {
   return (
     <div>
       <label htmlFor="code" className="text-sm font-medium">Code aus der SMS <span aria-hidden>*</span></label>

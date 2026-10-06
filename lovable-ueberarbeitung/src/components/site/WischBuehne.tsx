@@ -84,7 +84,7 @@ export function WischBuehne({
   useEffect(() => {
     const el = buehne.current;
     if (!el || typeof IntersectionObserver === "undefined") return;
-    const io = new IntersectionObserver(([e]) => setSichtbar(e.isIntersecting), { threshold: 0.2 });
+    const io = new IntersectionObserver(([e]) => setSichtbar(e?.isIntersecting ?? false), { threshold: 0.2 });
     io.observe(el);
     return () => io.disconnect();
   }, []);
@@ -170,7 +170,7 @@ export function WischBuehne({
               className="card-base karte-rein absolute inset-0 overflow-hidden"
               style={{ transform: `translateY(${tiefe * 16}px) rotate(${tiefe === 1 ? 2.5 : -2.5}deg) scale(${1 - tiefe * 0.04})`, transformOrigin: "50% 100%", opacity: 1 - tiefe * 0.15, animationDelay: `${(2 - tiefe) * 90}ms` }}
             >
-              <Karte p={treffer[(idx + tiefe) % n]} />
+              <Karte p={treffer[(idx + tiefe) % n]!} />
             </div>
           ) : null,
         )}

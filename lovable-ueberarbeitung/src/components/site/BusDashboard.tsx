@@ -41,7 +41,7 @@ const firmaSchema = z.object({
   bus_beschreibung: z.string().trim().max(1000),
 });
 
-function Fehler({ text }: { text?: string }) {
+function Fehler({ text }: { text?: string | undefined }) {
   return text ? <p className="mt-1 text-sm text-destructive">{text}</p> : null;
 }
 
@@ -86,7 +86,7 @@ function Firmendaten({ uid }: { uid: string }) {
     if (!r.success) {
       const errs: Record<string, string> = {};
       r.error.issues.forEach((i) => { errs[String(i.path[0])] ??= i.message; });
-      return setErrors(errs);
+      return void setErrors(errs);
     }
     setErrors({});
     speichern.mutate(r.data);
@@ -161,7 +161,7 @@ function Bilder({ uid }: { uid: string }) {
     e.target.value = "";
     if (!dateien.length) return;
     const frei = 12 - (q.data?.length ?? 0);
-    if (dateien.length > frei) return toast.error(`Höchstens 12 Bilder – noch ${frei} frei.`);
+    if (dateien.length > frei) return void toast.error(`Höchstens 12 Bilder – noch ${frei} frei.`);
     setBusy(true);
     try {
       for (const d of dateien) {
@@ -183,7 +183,7 @@ function Bilder({ uid }: { uid: string }) {
   const loeschen = async (b: { id: string; pfad: string }) => {
     const del = await supabase.storage.from(BUS_BUCKET).remove([b.pfad]);
     const row = await supabase.from("bus_bilder").delete().eq("id", b.id);
-    if (del.error || row.error) return toast.error("Bild konnte nicht gelöscht werden.");
+    if (del.error || row.error) return void toast.error("Bild konnte nicht gelöscht werden.");
     toast.success("Bild gelöscht.");
     fertig();
   };
@@ -260,7 +260,7 @@ function Fahrten({ uid }: { uid: string }) {
     if (!r.success) {
       const errs: Record<string, string> = {};
       r.error.issues.forEach((i) => { errs[String(i.path[0])] ??= i.message; });
-      return setErrors(errs);
+      return void setErrors(errs);
     }
     setErrors({});
     anlegen.mutate(r.data);

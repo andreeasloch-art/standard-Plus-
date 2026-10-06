@@ -50,7 +50,7 @@ const person = {
   register_nr: z.string().trim().max(60).optional(),
 };
 /** Fachkraft: Geburtsdatum (mind. 18). Unternehmen: Firma + Handelsregister- oder USt-Nummer. */
-const personPruefen = (d: { rolle: string; geburtsdatum?: string; firma?: string; register_nr?: string }, ctx: z.RefinementCtx) => {
+const personPruefen = (d: { rolle: string; geburtsdatum?: string | undefined; firma?: string | undefined; register_nr?: string | undefined }, ctx: z.RefinementCtx) => {
   if (d.rolle === "arbeitnehmer") {
     if (!d.geburtsdatum) ctx.addIssue({ code: "custom", path: ["geburtsdatum"], message: "Bitte Geburtsdatum eingeben." });
     else if (d.geburtsdatum > spaetestesGeburtsdatum()) ctx.addIssue({ code: "custom", path: ["geburtsdatum"], message: "Sie müssen mindestens 18 Jahre alt sein." });
@@ -72,12 +72,12 @@ function fehlerListe(issues: z.ZodIssue[], raw: Record<string, string>, rolle: s
   }
   return errs;
 }
-const personMeta = (d: { rolle: string; vorname: string; nachname: string; geburtsdatum?: string; firma?: string; register_nr?: string }) => ({
+const personMeta = (d: { rolle: string; vorname: string; nachname: string; geburtsdatum?: string | undefined; firma?: string | undefined; register_nr?: string | undefined }) => ({
   vorname: d.vorname, nachname: d.nachname,
   ...(d.rolle === "arbeitnehmer" ? { geburtsdatum: d.geburtsdatum ?? "" } : { firma: d.firma ?? "", register_nr: d.register_nr ?? "" }),
 });
 const KONTO_EXISTIERT = "Für diese Person bzw. Firma gibt es bereits ein Konto – pro Person/Firma ist nur ein Konto möglich. Bitte melden Sie sich an. Ist das nicht Ihr Konto, schreiben Sie uns.";
-const unternehmerPflicht = (d: { rolle: string; unternehmer?: string }) => d.rolle === "arbeitnehmer" || d.unternehmer === "on";
+const unternehmerPflicht = (d: { rolle: string; unternehmer?: string | undefined }) => d.rolle === "arbeitnehmer" || d.unternehmer === "on";
 const unternehmerFehler = { path: ["unternehmer"], message: "Unsere Angebote richten sich ausschließlich an Unternehmer. Bitte bestätigen." };
 const regSchema = z.object({
   rolle: z.enum(["arbeitgeber", "arbeitnehmer", "busunternehmen"], { errorMap: () => ({ message: "Bitte eine Rolle wählen." }) }),
@@ -162,7 +162,7 @@ function AuthPage() {
         sichtbar: p.data.rolle === "arbeitnehmer" && p.data.sichtbar === "on" ? "true" : "false",
       };
     }
-    if (Object.keys(errs).length || !tel) return setErrors(errs);
+    if (Object.keys(errs).length || !tel) return void setErrors(errs);
     setErrors({});
     await otpSenden(tel, meta);
   };
@@ -174,7 +174,7 @@ function AuthPage() {
       options: { channel: "sms", shouldCreateUser: modus === "registrieren", ...(meta ? { data: meta } : {}) },
     });
     setBusy(false);
-    if (error) return toast.error(smsFehler(error.message));
+    if (error) return void toast.error(smsFehler(error.message));
     setLetzteMeta(meta);
     setCodeAn(tel);
     setCode("");
@@ -185,12 +185,12 @@ function AuthPage() {
   /** Schritt 2 (Handy): Code prüfen – erst jetzt ist das Konto freigeschaltet und man ist angemeldet. */
   const codePruefen = async () => {
     if (!codeAn) return;
-    if (code.length !== 6) return setErrors({ code: "Bitte den 6-stelligen Code eingeben." });
+    if (code.length !== 6) return void setErrors({ code: "Bitte den 6-stelligen Code eingeben." });
     setErrors({});
     setBusy(true);
     const { error } = await supabase.auth.verifyOtp({ phone: codeAn, token: code, type: "sms" });
     setBusy(false);
-    if (error) return setErrors({ code: smsFehler(error.message) });
+    if (error) return void setErrors({ code: smsFehler(error.message) });
     toast.success(modus === "registrieren" ? "Konto freigeschaltet. Willkommen!" : "Willkommen zurück!");
   };
 
@@ -202,7 +202,7 @@ function AuthPage() {
       return codeSenden(raw);
     }
     const parsed = modus === "login" ? loginSchema.safeParse(raw) : regSchema.safeParse({ ...raw, rolle });
-    if (!parsed.success) return setErrors(fehlerListe(parsed.error.issues, raw, rolle, modus === "registrieren"));
+    if (!parsed.success) return void setErrors(fehlerListe(parsed.error.issues, raw, rolle, modus === "registrieren"));
     setErrors({});
     setBusy(true);
     try {
@@ -246,12 +246,12 @@ function AuthPage() {
   const sendeLink = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const r = loginSchema.shape.email.safeParse(new FormData(e.currentTarget).get("email") ?? "");
-    if (!r.success) return setErrors({ email: r.error.issues[0]?.message ?? "Ungültige E-Mail-Adresse." });
+    if (!r.success) return void setErrors({ email: r.error.issues[0]?.message ?? "Ungültige E-Mail-Adresse." });
     setErrors({});
     setBusy(true);
     const { error } = await supabase.auth.resetPasswordForEmail(r.data, { redirectTo: `${window.location.origin}/reset-password` });
     setBusy(false);
-    if (error) return toast.error(error.message.includes("rate") ? "Zu viele Versuche. Bitte warten Sie kurz." : "Link konnte nicht gesendet werden.");
+    if (error) return void toast.error(error.message.includes("rate") ? "Zu viele Versuche. Bitte warten Sie kurz." : "Link konnte nicht gesendet werden.");
     setLinkGesendet(true);
   };
 
@@ -382,7 +382,10 @@ function AuthPage() {
                   {rolle !== "arbeitnehmer" ? (
                     <>
                       <Check name="bedingungen" error={errors["bedingungen"]} pflicht>
-                        Ich akzeptiere die <Link to="/agb" target="_blank" className="underline">AGB für Unternehmen</Link>.
+                        Ich akzeptiere die{" "}
+                        {rolle === "busunternehmen"
+                          ? <Link to="/agb-busunternehmen" target="_blank" className="underline">AGB für Busunternehmen</Link>
+                          : <Link to="/agb" target="_blank" className="underline">AGB für Unternehmen</Link>}.
                       </Check>
                       <Check name="unternehmer" error={errors["unternehmer"]} pflicht>
                         Ich handle als Unternehmer im Sinne von § 14 BGB (nicht als Verbraucher).
