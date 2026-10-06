@@ -290,3 +290,12 @@ Videocall mit Übersetzung (bleibt „in Vorbereitung“).
 
 **Hinweis:** In Lovable stehen seit Paket 1–3 schon die Texte „Kontaktdaten erst bei Vertragsabschluss“. Die Datenbank
 gibt Kontaktdaten dort aber noch beim Match frei – das stimmt erst nach Auftrag 4 (Datenbank). Bis dahin nicht veröffentlichen.
+
+## Runde 13 – SMS-Kostenbremse wie bei Showly (06.10.2026)
+
+SMS-Codes laufen jetzt über den **eigenen Server** und **Twilio Verify** (`src/lib/sms.server.ts`, `sms.functions.ts`,
+`sms-regeln.ts`, Migration `20261006140000_sms_kostenbremse.sql`) – dieselbe Kostenbremse wie bei Showly:
+nur Handynummern, Länderliste, Limits je Nummer/IP/Land/Tag, schließt im Zweifel, nur Hashes gespeichert (30 Tage).
+Zusätzlich: Anmeldung nur für bekannte Nummern, Registrierung nur für neue Nummern/Personen – sonst keine SMS.
+Der Anbieter „Phone“ in Lovable Cloud bleibt **aus** (sonst ließe sich die Bremse umgehen).
+Einrichtung: `UEBERTRAGUNG-LOVABLE.md`, Abschnitt „Schutz vor SMS-Betrug“. Tests: `tests/sms-kostenbremse/` (21/21), `tests/smsschutz.mjs`.
