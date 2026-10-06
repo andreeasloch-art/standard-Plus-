@@ -26,7 +26,11 @@ DELETE FROM public.anfragen   WHERE arbeitnehmer_id::text LIKE '11111111-0000-40
 DELETE FROM public.profiles   WHERE id::text LIKE '11111111-0000-4000-8000-%';
 DELETE FROM auth.users        WHERE id::text LIKE '11111111-0000-4000-8000-%';
 
--- 3) Kontrolle: sollte 0 Beispielprofile und mindestens 1 Team-Konto zeigen.
+-- 3) Alte Benachrichtigungen nach 180 Tagen automatisch löschen (Datenschutzerklärung, Speicherdauer)
+CREATE EXTENSION IF NOT EXISTS pg_cron;
+SELECT cron.schedule('benachrichtigungen-aufraeumen', '17 3 * * *', $$ SELECT intern.benachrichtigungen_aufraeumen() $$);
+
+-- 4) Kontrolle: sollte 0 Beispielprofile und mindestens 1 Team-Konto zeigen.
 SELECT
   (SELECT count(*) FROM public.profiles WHERE id::text LIKE '11111111-0000-4000-8000-%') AS beispielprofile,
   (SELECT count(*) FROM public.user_roles WHERE role = 'admin')                         AS team_konten;

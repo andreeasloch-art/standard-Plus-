@@ -262,3 +262,31 @@ Getestet: `tests/bus.mjs` (27 Prüfungen), `konto.mjs` und `test.mjs` weiter gr�
 ### Hinweise
 - Kein externer Anbieter nötig. Grenze: Menschen erkennen gut gemachte Fälschungen nicht immer. Wer später automatisch prüfen will (Texterkennung, Echtheit, Gesichtsabgleich), kann einen Anbieter nachrüsten – die Oberfläche bleibt gleich.
 - Personalausweis-Kopien sind nach § 20 PAuswG nur mit Zustimmung erlaubt und müssen als Kopie erkennbar sein; Löschung direkt nach Prüfung ist eingebaut. Bitte rechtlich bestätigen lassen und im Team festlegen, wer prüfen darf.
+
+## Runde 12 – Alles, was ohne Lovable geht (06.10.2026)
+
+**Übertragung:** siehe `UEBERTRAGUNG-LOVABLE.md` – fertige Aufträge zum Kopieren (oder kostenlos über eine GitHub-Verbindung).
+
+| Neu / geändert | Was |
+| --- | --- |
+| `supabase/migrations/20261006120000_benachrichtigungen.sql` | Tabelle `benachrichtigungen`, Trigger für Einladung, Zusage/Absage, Vertrag, Ausweisprüfung, Busbuchung, Anreise, Bus-Freigabe; `email_benachrichtigungen` (abbestellbar); Aufräumen nach 180 Tagen |
+| `supabase/functions/benachrichtigungen-mailen/index.ts` | E-Mail-Versand über Resend (nur wenn `RESEND_API_KEY` gesetzt ist), minütlich per pg_cron |
+| `src/lib/benachrichtigungen.ts`, `src/routes/_authenticated/benachrichtigungen.tsx` | Glocke mit Zähler in der Kopfzeile, Seite „Benachrichtigungen“, alle als gelesen, E-Mails an/aus |
+| `supabase/migrations/20261006130000_alter_freiwillig.sql` | Alter nur bei Opt-in (`alter_sichtbar`), `oeffentliche_profile()` liefert `alter` |
+| `src/routes/agb-busunternehmen.tsx` | **Entwurf** AGB für Busunternehmen (gelbe Platzhalter, rechtlich prüfen lassen); verlinkt bei der Registrierung und im Footer |
+| `src/routes/_authenticated/profil-bearbeiten.tsx` | Foto-Upload, Name/Geburtsdatum/Registernummer nur lesbar, Alter-Schalter |
+| `src/routes/profil.$id.tsx` | Foto, Alter, Abzeichen „Ausweis geprüft“, Kontakt erst bei Vertragsabschluss |
+| `src/components/site/Footer.tsx`, `KontoBereich.tsx` | Busreisen + AGB-Link; Datenexport mit allen neuen Tabellen |
+| `supabase/vor-dem-start.sql` | einmalig: Team-Konto anlegen, Beispielprofile löschen, Aufräum-Job |
+| `datenschutz.tsx` | Abschnitt 4 um Benachrichtigungen/Resend ergänzt, Speicherdauer |
+
+Alle Dateien sind gegen die strengen TypeScript-Einstellungen des Lovable-Projekts geprüft
+(`noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`, …), damit Lovable nichts mehr nachbessern muss.
+
+**Getestet:** `tests/benachrichtigung.mjs` (16 Prüfungen), `tests/profilseiten.mjs`, dazu `test.mjs`, `konto.mjs`, `bus.mjs` – alle bestanden.
+
+**Bewusst nicht gebaut (braucht deine Entscheidung):** Bezahlung über die Seite (Stripe oder weiter per Rechnung?),
+Videocall mit Übersetzung (bleibt „in Vorbereitung“).
+
+**Hinweis:** In Lovable stehen seit Paket 1–3 schon die Texte „Kontaktdaten erst bei Vertragsabschluss“. Die Datenbank
+gibt Kontaktdaten dort aber noch beim Match frei – das stimmt erst nach Auftrag 4 (Datenbank). Bis dahin nicht veröffentlichen.
