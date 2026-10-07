@@ -299,3 +299,15 @@ nur Handynummern, Länderliste, Limits je Nummer/IP/Land/Tag, schließt im Zweif
 Zusätzlich: Anmeldung nur für bekannte Nummern, Registrierung nur für neue Nummern/Personen – sonst keine SMS.
 Der Anbieter „Phone“ in Lovable Cloud bleibt **aus** (sonst ließe sich die Bremse umgehen).
 Einrichtung: `UEBERTRAGUNG-LOVABLE.md`, Abschnitt „Schutz vor SMS-Betrug“. Tests: `tests/sms-kostenbremse/` (21/21), `tests/smsschutz.mjs`.
+
+## Stand in Lovable (07.10.2026)
+
+Mit 4,8 Credits (ein einziger Auftrag, Paket 4) sind gelaufen: `20261004120000_telefon_vertrag_anreise` und
+`20261004130000_rolle_busunternehmen`; Speicherbereich `busbilder` (privat, 5 MB) angelegt.
+**Noch offen:** `20261004130100_busfahrten` (ohne den INSERT in storage.buckets), `20261004140000`, `20261004150000`
+(ohne Bucket-Insert; Bucket `ausweise` privat, 10 MB, mit dem Speicher-Werkzeug anlegen), `20261006120000`,
+`20261006130000`, `20261006140000`, danach Paket 5 (Oberfläche).
+**Edge Function** `benachrichtigungen-mailen` ist in Lovable blockiert → beim nächsten Mal als Server-Funktion
+(`src/lib/*.server.ts`) umsetzen statt als Edge Function.
+Registrierung funktioniert weiter wie bisher. Seit Migration 1 gibt die Datenbank Kontaktdaten erst nach
+beidseitigem Vertragsabschluss frei – die Knöpfe dafür kommen mit Paket 5.
