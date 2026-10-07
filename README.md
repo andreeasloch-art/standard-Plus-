@@ -37,7 +37,7 @@ und http://localhost:8000 aufrufen.
 
 Den gesamten Ordner (ohne `StandardPlus-App.zip` und ohne `.git`) auf den Webspace laden –
 auch die versteckte Datei `.htaccess`. Danach die Schritte in `SEO-ANLEITUNG.md` erledigen.
-Die Domain ist auf `https://www.standard-plus.eu` eingestellt (ändern: siehe SEO-ANLEITUNG, Abschnitt 2).
+Die Domain ist auf `https://standard-plus.eu` eingestellt (ändern: siehe SEO-ANLEITUNG, Abschnitt 2).
 
 ## Kontaktformular
 

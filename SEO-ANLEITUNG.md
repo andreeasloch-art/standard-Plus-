@@ -28,13 +28,13 @@ einem Unternehmen erst, wenn sie es an mehreren Stellen im Internet mit
 
 ## 2. Vor dem Hochladen: Domain prüfen
 
-Alle Adressen sind auf **`https://www.standard-plus.eu`** eingestellt.
+Alle Adressen sind auf **`https://standard-plus.eu`** eingestellt.
 Läuft die Seite unter einer anderen Domain (z. B. `standard-plus.de`),
 im Projektordner einmal ausführen:
 
 ```bash
-grep -rl "https://www.standard-plus.eu" --include=*.html --include=*.txt --include=*.xml . \
-  | xargs sed -i 's#https://www.standard-plus.eu#https://www.NEUE-DOMAIN.de#g'
+grep -rl "https://standard-plus.eu" --include=*.html --include=*.txt --include=*.xml . \
+  | xargs sed -i 's#https://standard-plus.eu#https://www.NEUE-DOMAIN.de#g'
 ```
 
 ---
@@ -66,7 +66,7 @@ Diese Suchmaschinen und **ChatGPT-Suche/Copilot** nutzen den Bing-Index.
 2. **Bing Places** – https://www.bingplaces.com (Unternehmensprofil, kann aus Google importiert werden).
 3. **IndexNow** – nach jeder Änderung an der Website Bing sofort informieren:
    ```
-   https://www.bing.com/indexnow?url=https://www.standard-plus.eu/&key=6e2f22d248a8d3948c7f6ffa8403d464
+   https://www.bing.com/indexnow?url=https://standard-plus.eu/&key=6e2f22d248a8d3948c7f6ffa8403d464
    ```
    (Adresse einfach im Browser öffnen.)
 
@@ -89,7 +89,7 @@ Heilbronner Straße 142
 71634 Ludwigsburg
 Telefon: +49 152 28986993
 E-Mail: info@standard-aaa.de
-Website: https://www.standard-plus.eu
+Website: https://standard-plus.eu
 ```
 
 **Achtung:** Die alte Website und das alte Impressum laufen noch unter dem Namen

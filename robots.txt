@@ -46,4 +46,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://www.standard-plus.eu/sitemap.xml
+Sitemap: https://standard-plus.eu/sitemap.xml
