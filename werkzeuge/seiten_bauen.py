@@ -255,7 +255,7 @@ def pakete(kompakt: bool = False) -> str:
         <article class="plan reveal">
           <span class="plan__icon"><svg class="icon"><use href="#i-users"/></svg></span>
           <h3>Abo-Paket</h3>
-          <div class="plan__price"><strong>399&nbsp;€</strong><span>einmalig</span><em>+ 119&nbsp;€ / Monat</em></div>
+          <div class="plan__price"><strong>399&nbsp;€</strong><span>einmalig</span><em>+ 119&nbsp;€ / Monat</em><small class="plan__tax">alle Preise inkl. MwSt.</small></div>
           <ul class="plan__list">
             <li>Suche nach qualifizierten Arbeitskräften</li>
             <li>Fortlaufende Betreuung und Unterstützung</li>
@@ -266,7 +266,7 @@ def pakete(kompakt: bool = False) -> str:
         <article class="plan plan--featured reveal">
           <span class="plan__icon"><svg class="icon"><use href="#i-file"/></svg></span>
           <h3>Paket für 899&nbsp;Euro</h3>
-          <div class="plan__price"><strong>899&nbsp;€</strong><span>einmalig</span></div>
+          <div class="plan__price"><strong>899&nbsp;€</strong><span>einmalig</span><small class="plan__tax">inkl. MwSt.</small></div>
           <ul class="plan__list">
             <li>Suche nach qualifizierten Arbeitskräften</li>
             <li>Austausch innerhalb von zwei Wochen, falls nötig</li>
@@ -279,7 +279,7 @@ def pakete(kompakt: bool = False) -> str:
         <article class="plan reveal" id="abo">
           <span class="plan__icon"><svg class="icon"><use href="#i-users"/></svg></span>
           <h3>Abo-Paket</h3>
-          <div class="plan__price"><strong>399&nbsp;€</strong><span>einmalig</span><em>+ 119&nbsp;€ / Monat</em></div>
+          <div class="plan__price"><strong>399&nbsp;€</strong><span>einmalig</span><em>+ 119&nbsp;€ / Monat</em><small class="plan__tax">alle Preise inkl. MwSt.</small></div>
           <p class="plan__desc">Das Abo-Paket umfasst eine einmalige Zahlung von 399&nbsp;Euro sowie eine monatliche Betreuungsgebühr von 119&nbsp;Euro. Mit diesem Paket übernehmen wir die Suche nach qualifizierten Arbeitskräften sowie die fortlaufende Betreuung. Ein wesentlicher Vorteil ist, dass Sie auch bei längeren Ausfällen nicht ohne Mitarbeiter dastehen. Innerhalb von 84&nbsp;Stunden sorgen wir für passenden Ersatz, der Ihre Anforderungen erfüllt.</p>
           <ul class="plan__list">
             <li>Einmalige Zahlung: 399&nbsp;Euro</li>
@@ -295,7 +295,7 @@ def pakete(kompakt: bool = False) -> str:
         <article class="plan plan--featured reveal" id="einmal">
           <span class="plan__icon"><svg class="icon"><use href="#i-file"/></svg></span>
           <h3>Paket für 899&nbsp;Euro</h3>
-          <div class="plan__price"><strong>899&nbsp;€</strong><span>einmalig</span></div>
+          <div class="plan__price"><strong>899&nbsp;€</strong><span>einmalig</span><small class="plan__tax">inkl. MwSt.</small></div>
           <p class="plan__desc">Dieses Paket beinhaltet ebenfalls die Suche nach qualifizierten Arbeitskräften, die Ihren Anforderungen entsprechen. Sollten die ausgewählten Mitarbeiter innerhalb von zwei Wochen nach Beginn ihrer Tätigkeit nicht Ihren Erwartungen entsprechen, bieten wir Ihnen einen Austausch an und suchen passende Ersatzkräfte für Sie.</p>
           <ul class="plan__list">
             <li>Einmalige Zahlung: 899&nbsp;Euro</li>
@@ -308,7 +308,7 @@ def pakete(kompakt: bool = False) -> str:
       </div>
       <p class="swipe-hint">← Wischen, um beide Pakete zu sehen →</p>
 
-      <p class="pricing-foot reveal"><svg class="icon"><use href="#i-bulb"/></svg><span><b style="color:#fff">Kurz zusammengefasst:</b> Zwei transparente Pakete – individuell passend für Ihren Personalbedarf. Es gelten unsere <a href="agb.html">AGB</a>.</span></p>'''
+      <p class="pricing-foot reveal"><svg class="icon"><use href="#i-bulb"/></svg><span><b style="color:#fff">Kurz zusammengefasst:</b> Zwei transparente Pakete – individuell passend für Ihren Personalbedarf. Alle Preise sind Endpreise inkl. MwSt. Es gelten unsere <a href="agb.html">AGB</a>; Verbraucher haben ein <a href="widerruf.html">Widerrufsrecht</a>.</span></p>'''
 
 
 FAQ = [
@@ -323,7 +323,7 @@ FAQ = [
     ("Gibt es eine Probezeit?",
      "Das hängt vom Einsatz und der Vereinbarung zwischen Ihnen und dem Mitarbeiter ab."),
     ("Was kostet die Personalvermittlung bei Standard Plus?",
-     "Es gibt zwei Pakete: das Paket für 899 Euro (einmalige Zahlung, inklusive Austausch innerhalb von zwei Wochen) und das Abo-Paket mit einer einmaligen Zahlung von 399 Euro plus 119 Euro Betreuungsgebühr im Monat (inklusive Ersatz innerhalb von 84 Stunden bei längeren Ausfällen)."),
+     "Es gibt zwei Pakete, alle Preise inklusive MwSt.: das Paket für 899 Euro (einmalige Zahlung, inklusive Austausch innerhalb von zwei Wochen) und das Abo-Paket mit einer einmaligen Zahlung von 399 Euro plus 119 Euro Betreuungsgebühr im Monat (inklusive Ersatz innerhalb von 84 Stunden bei längeren Ausfällen)."),
     ("Für welche Branchen vermitteln Sie Personal?",
      "Für Bau & Handwerk, Landwirtschaft (auch Milchvieh- und Pferdebetriebe), Pflege & Betreuung, Lager & Logistik sowie Gastronomie & Hotellerie."),
     ("Muss ich Geld im Voraus bezahlen?",
@@ -413,13 +413,14 @@ def catalog() -> dict:
         "itemListElement": [
             {"@type": "Offer", "name": "Paket für 899 Euro", "url": DOMAIN + "/pakete.html#einmal",
              "description": "Suche nach qualifizierten Arbeitskräften; Austausch innerhalb von zwei Wochen nach Arbeitsbeginn, falls nötig.",
-             "price": "899", "priceCurrency": "EUR", "seller": {"@id": ORG_ID}},
+             "price": "899", "priceCurrency": "EUR", "seller": {"@id": ORG_ID},
+             "priceSpecification": {"@type": "PriceSpecification", "price": "899", "priceCurrency": "EUR", "valueAddedTaxIncluded": True}},
             {"@type": "Offer", "name": "Abo-Paket", "url": DOMAIN + "/pakete.html#abo",
              "description": "Suche nach qualifizierten Arbeitskräften, fortlaufende Betreuung und Ersatz innerhalb von 84 Stunden bei längeren Ausfällen.",
              "priceCurrency": "EUR", "seller": {"@id": ORG_ID},
              "priceSpecification": [
-                 {"@type": "UnitPriceSpecification", "name": "Einmalige Zahlung", "price": "399", "priceCurrency": "EUR"},
-                 {"@type": "UnitPriceSpecification", "name": "Monatliche Betreuungsgebühr", "price": "119", "priceCurrency": "EUR",
+                 {"@type": "UnitPriceSpecification", "name": "Einmalige Zahlung", "price": "399", "priceCurrency": "EUR", "valueAddedTaxIncluded": True},
+                 {"@type": "UnitPriceSpecification", "name": "Monatliche Betreuungsgebühr", "price": "119", "priceCurrency": "EUR", "valueAddedTaxIncluded": True,
                   "referenceQuantity": {"@type": "QuantitativeValue", "value": 1, "unitCode": "MON"}}]},
         ],
     }
@@ -527,12 +528,13 @@ def footer() -> str:
           <li><a href="impressum.html">Impressum</a></li>
           <li><a href="agb.html">AGB</a></li>
           <li><a href="datenschutz.html">Datenschutz</a></li>
+          <li><a href="widerruf.html">Widerrufsbelehrung</a></li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom">
       <span>© <span data-year>2026</span> Standard Plus Personalvermittlung</span>
-      <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="agb.html">AGB</a><a href="datenschutz.html">Datenschutz</a></nav>
+      <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="agb.html">AGB</a><a href="datenschutz.html">Datenschutz</a><a href="widerruf.html">Widerruf</a></nav>
     </div>
   </div>
 </footer>
@@ -891,6 +893,7 @@ def main() -> None:
         ("impressum.html", "Impressum", "Impressum von Standard Plus Personalvermittlung, Heilbronner Straße 142, 71634 Ludwigsburg.", "index, follow"),
         ("agb.html", "Allgemeine Geschäftsbedingungen", "Allgemeine Geschäftsbedingungen von Standard Plus Personalvermittlung.", "index, follow"),
         ("datenschutz.html", "Datenschutzerklärung", "Datenschutzerklärung von Standard Plus Personalvermittlung.", "noindex, follow"),
+        ("widerruf.html", "Widerrufsbelehrung", "Widerrufsbelehrung und Muster-Widerrufsformular für Verbraucher bei Standard Plus Personalvermittlung.", "index, follow"),
     ):
         build(file, f"{'AGB' if file == 'agb.html' else name} – Standard Plus Personalvermittlung", desc, read(f"werkzeuge/inhalte/{file}"),
               sub(file, name), robots=robots)

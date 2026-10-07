@@ -297,6 +297,7 @@ p { margin: 0 0 1em; }
 .plan__price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; margin: 14px 0 20px; }
 .plan__price strong { font-size: clamp(44px, 5vw, 60px); font-weight: 700; letter-spacing: -.045em; line-height: 1; color: #fff; }
 .plan__price span { font-size: 15px; color: rgba(255,255,255,.65); }
+.plan__tax { flex-basis: 100%; font-size: 13px; color: rgba(255,255,255,.6); }
 .plan__price em { font-style: normal; font-weight: 600; font-size: 17px; color: var(--yellow); }
 .plan__desc { font-size: 15.5px; line-height: 1.6; margin: 0 0 24px; color: rgba(255,255,255,.78); }
 .plan__list { list-style: none; padding: 22px 0 0; margin: 0 0 26px; border-top: 1px solid rgba(255,255,255,.14); display: grid; gap: 12px; }

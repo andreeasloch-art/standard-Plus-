@@ -166,6 +166,12 @@
           "priceCurrency": "EUR",
           "seller": {
             "@id": "https://www.standard-plus.eu/#organisation"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "899",
+            "priceCurrency": "EUR",
+            "valueAddedTaxIncluded": true
           }
         },
         {
@@ -182,13 +188,15 @@
               "@type": "UnitPriceSpecification",
               "name": "Einmalige Zahlung",
               "price": "399",
-              "priceCurrency": "EUR"
+              "priceCurrency": "EUR",
+              "valueAddedTaxIncluded": true
             },
             {
               "@type": "UnitPriceSpecification",
               "name": "Monatliche Betreuungsgebühr",
               "price": "119",
               "priceCurrency": "EUR",
+              "valueAddedTaxIncluded": true,
               "referenceQuantity": {
                 "@type": "QuantitativeValue",
                 "value": 1,
@@ -291,7 +299,7 @@
         <article class="plan reveal" id="abo">
           <span class="plan__icon"><svg class="icon"><use href="#i-users"/></svg></span>
           <h3>Abo-Paket</h3>
-          <div class="plan__price"><strong>399&nbsp;€</strong><span>einmalig</span><em>+ 119&nbsp;€ / Monat</em></div>
+          <div class="plan__price"><strong>399&nbsp;€</strong><span>einmalig</span><em>+ 119&nbsp;€ / Monat</em><small class="plan__tax">alle Preise inkl. MwSt.</small></div>
           <p class="plan__desc">Das Abo-Paket umfasst eine einmalige Zahlung von 399&nbsp;Euro sowie eine monatliche Betreuungsgebühr von 119&nbsp;Euro. Mit diesem Paket übernehmen wir die Suche nach qualifizierten Arbeitskräften sowie die fortlaufende Betreuung. Ein wesentlicher Vorteil ist, dass Sie auch bei längeren Ausfällen nicht ohne Mitarbeiter dastehen. Innerhalb von 84&nbsp;Stunden sorgen wir für passenden Ersatz, der Ihre Anforderungen erfüllt.</p>
           <ul class="plan__list">
             <li>Einmalige Zahlung: 399&nbsp;Euro</li>
@@ -307,7 +315,7 @@
         <article class="plan plan--featured reveal" id="einmal">
           <span class="plan__icon"><svg class="icon"><use href="#i-file"/></svg></span>
           <h3>Paket für 899&nbsp;Euro</h3>
-          <div class="plan__price"><strong>899&nbsp;€</strong><span>einmalig</span></div>
+          <div class="plan__price"><strong>899&nbsp;€</strong><span>einmalig</span><small class="plan__tax">inkl. MwSt.</small></div>
           <p class="plan__desc">Dieses Paket beinhaltet ebenfalls die Suche nach qualifizierten Arbeitskräften, die Ihren Anforderungen entsprechen. Sollten die ausgewählten Mitarbeiter innerhalb von zwei Wochen nach Beginn ihrer Tätigkeit nicht Ihren Erwartungen entsprechen, bieten wir Ihnen einen Austausch an und suchen passende Ersatzkräfte für Sie.</p>
           <ul class="plan__list">
             <li>Einmalige Zahlung: 899&nbsp;Euro</li>
@@ -320,7 +328,7 @@
       </div>
       <p class="swipe-hint">← Wischen, um beide Pakete zu sehen →</p>
 
-      <p class="pricing-foot reveal"><svg class="icon"><use href="#i-bulb"/></svg><span><b style="color:#fff">Kurz zusammengefasst:</b> Zwei transparente Pakete – individuell passend für Ihren Personalbedarf. Es gelten unsere <a href="agb.html">AGB</a>.</span></p>
+      <p class="pricing-foot reveal"><svg class="icon"><use href="#i-bulb"/></svg><span><b style="color:#fff">Kurz zusammengefasst:</b> Zwei transparente Pakete – individuell passend für Ihren Personalbedarf. Alle Preise sind Endpreise inkl. MwSt. Es gelten unsere <a href="agb.html">AGB</a>; Verbraucher haben ein <a href="widerruf.html">Widerrufsrecht</a>.</span></p>
     </div>
   </section>
 
@@ -375,12 +383,13 @@
           <li><a href="impressum.html">Impressum</a></li>
           <li><a href="agb.html">AGB</a></li>
           <li><a href="datenschutz.html">Datenschutz</a></li>
+          <li><a href="widerruf.html">Widerrufsbelehrung</a></li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom">
       <span>© <span data-year>2026</span> Standard Plus Personalvermittlung</span>
-      <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="agb.html">AGB</a><a href="datenschutz.html">Datenschutz</a></nav>
+      <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="agb.html">AGB</a><a href="datenschutz.html">Datenschutz</a><a href="widerruf.html">Widerruf</a></nav>
     </div>
   </div>
 </footer>
