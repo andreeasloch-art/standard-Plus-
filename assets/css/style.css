@@ -529,3 +529,6 @@ p { margin: 0 0 1em; }
   .site-header, .site-footer, .legal__toc, .fab, .legal-hero .crumb { display: none !important; }
   .legal .container { display: block; }
 }
+
+/* Hinweis-Schild, das der Hoster (Lovable) automatisch einfügt, ausblenden */
+#lovable-badge { display: none !important; }
