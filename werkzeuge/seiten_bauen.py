@@ -10,6 +10,7 @@ Danach liegen index.html, ueber-uns.html, branchen.html, ablauf.html,
 pakete.html, fragen.html, kontakt.html, impressum.html, agb.html und
 datenschutz.html fertig im Projektordner.
 """
+import hashlib
 import html
 import json
 import os
@@ -446,6 +447,13 @@ def read(name: str) -> str:
         return f.read()
 
 
+def version(path: str) -> str:
+    """Kurzer Fingerabdruck einer Datei, damit Browser nach Änderungen
+    die neue Fassung laden (Lovable speichert /assets/* ein Jahr zwischen)."""
+    with open(os.path.join(ROOT, path), "rb") as f:
+        return hashlib.sha1(f.read()).hexdigest()[:8]
+
+
 def sprite() -> str:
     s = read("werkzeuge/inhalte/_icons.svg")
     return s.strip()
@@ -578,7 +586,7 @@ def head(file: str, title: str, desc: str, robots: str, ld: list, og_title: str 
   <link rel="alternate" type="text/markdown" href="llms.txt" title="Standard Plus – Zusammenfassung für KI-Assistenten">{preload}
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v={version("assets/css/style.css")}">
   <script>document.documentElement.classList.remove('no-js');</script>
   <!-- Strukturierte Daten (schema.org) – erzeugt von werkzeuge/seiten_bauen.py -->
   <script type="application/ld+json">
@@ -608,7 +616,7 @@ def build(file: str, title: str, desc: str, body: str, ld: list, robots: str = "
 
 {footer()}
 
-<script src="assets/js/main.js" defer></script>
+<script src="assets/js/main.js?v={version("assets/js/main.js")}" defer></script>
 </body>
 </html>
 '''
