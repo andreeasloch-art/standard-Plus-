@@ -19,8 +19,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INHALTE = os.path.join(ROOT, "werkzeuge", "inhalte")
 
 DOMAIN = "https://www.standard-aaa.com"
-TEL = "0176 45258501"
-TEL_LINK = "tel:+4917645258501"
+TEL = "0152 28986993"
+TEL_LINK = "tel:+4915228986993"
 MAIL = "info@standard-aaa.de"
 STAND = "2026-10-07"
 
@@ -378,7 +378,7 @@ def org_graph() -> list:
         "url": DOMAIN + "/",
         "logo": {"@type": "ImageObject", "url": DOMAIN + "/assets/img/logo.png", "width": 600, "height": 200},
         "image": DOMAIN + "/assets/img/og-image.jpg",
-        "telephone": "+49 176 45258501",
+        "telephone": "+49 152 28986993",
         "email": MAIL,
         "address": {"@type": "PostalAddress", "streetAddress": "Heilbronner Straße 142", "postalCode": "71634",
                     "addressLocality": "Ludwigsburg", "addressRegion": "Baden-Württemberg", "addressCountry": "DE"},
@@ -387,7 +387,7 @@ def org_graph() -> list:
         "knowsAbout": ["Personalvermittlung", "Arbeitsvermittlung", "Arbeitskräfte aus Europa", "Erntehelfer", "Pferdepfleger",
                        "Melker", "Bauhelfer", "Pflegekräfte", "Betreuungskräfte", "Lagerhelfer", "Kommissionierer",
                        "Servicekräfte", "Küchenhilfen", "Housekeeping"],
-        "contactPoint": {"@type": "ContactPoint", "telephone": "+49 176 45258501", "email": MAIL,
+        "contactPoint": {"@type": "ContactPoint", "telephone": "+49 152 28986993", "email": MAIL,
                          "contactType": "customer service", "availableLanguage": ["German"], "areaServed": "DE"},
         "hasOfferCatalog": {"@id": DOMAIN + "/pakete.html#pakete"},
     }
@@ -781,7 +781,7 @@ def main() -> None:
         <div><dt>Pakete</dt><dd><a href="pakete.html">Paket für 899&nbsp;€ einmalig · Abo-Paket 399&nbsp;€ einmalig + 119&nbsp;€ monatlich</a></dd></div>
         <div><dt>Service</dt><dd>Fester, deutschsprachiger Ansprechpartner · erreichbar an 6 Tagen pro Woche · kein Geld im Voraus</dd></div>
         <div><dt>Sitz</dt><dd>Heilbronner Straße 142, 71634 Ludwigsburg, Deutschland</dd></div>
-        <div><dt>Kontakt</dt><dd><a href="tel:+4917645258501">0176 45258501</a> · <a href="mailto:info@standard-aaa.de">info@standard-aaa.de</a></dd></div>
+        <div><dt>Kontakt</dt><dd><a href="tel:+4915228986993">0152 28986993</a> · <a href="mailto:info@standard-aaa.de">info@standard-aaa.de</a></dd></div>
       </dl>
     </div>
   </section>
@@ -882,7 +882,7 @@ def main() -> None:
                      "Unverbindlich und kostenlos – wir melden uns schnellstmöglich persönlich bei Ihnen.",
                      "Kontakt") + "\n\n" + read("werkzeuge/inhalte/kontakt.html")
     build("kontakt.html", "Kontakt – Personal anfragen | Standard Plus",
-          "Personal anfragen bei Standard Plus: Telefon 0176 45258501, WhatsApp, E-Mail info@standard-aaa.de oder Kontaktformular. Heilbronner Straße 142, Ludwigsburg.",
+          "Personal anfragen bei Standard Plus: Telefon 0152 28986993, WhatsApp, E-Mail info@standard-aaa.de oder Kontaktformular. Heilbronner Straße 142, Ludwigsburg.",
           body, sub("kontakt.html", "Kontakt") + [{"@type": "ContactPage", "url": DOMAIN + "/kontakt.html", "about": {"@id": ORG_ID}}],
           strip=True)
 

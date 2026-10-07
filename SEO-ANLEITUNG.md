@@ -87,7 +87,7 @@ KI-Assistenten gleichen Angaben aus vielen Quellen ab. Bitte **überall exakt** 
 Standard Plus Personalvermittlung
 Heilbronner Straße 142
 71634 Ludwigsburg
-Telefon: +49 176 45258501
+Telefon: +49 152 28986993
 E-Mail: info@standard-aaa.de
 Website: https://www.standard-aaa.com
 ```

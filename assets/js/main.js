@@ -150,7 +150,7 @@
           showStatus('ok', 'Vielen Dank! Ihre Anfrage ist bei uns eingegangen. Wir melden uns schnellstmöglich bei Ihnen.');
         })
         .catch(function () {
-          showStatus('err', 'Leider ist beim Senden ein Fehler aufgetreten. Bitte rufen Sie uns an: 0176 45258501 oder schreiben Sie an info@standard-aaa.de.');
+          showStatus('err', 'Leider ist beim Senden ein Fehler aufgetreten. Bitte rufen Sie uns an: 0152 28986993 oder schreiben Sie an info@standard-aaa.de.');
         })
         .then(function () { btn.disabled = false; });
       return;
@@ -171,6 +171,6 @@
       '?subject=' + encodeURIComponent('Anfrage über die Website: ' + data.get('betreff')) +
       '&body=' + encodeURIComponent(lines.join('\n'));
     window.location.href = href;
-    showStatus('ok', 'Ihr E-Mail-Programm wurde mit Ihrer Anfrage geöffnet – bitte dort nur noch auf „Senden“ klicken. Falls sich nichts öffnet, schreiben Sie uns direkt an ' + to + ' oder rufen Sie an: 0176 45258501.');
+    showStatus('ok', 'Ihr E-Mail-Programm wurde mit Ihrer Anfrage geöffnet – bitte dort nur noch auf „Senden“ klicken. Falls sich nichts öffnet, schreiben Sie uns direkt an ' + to + ' oder rufen Sie an: 0152 28986993.');
   });
 })();
