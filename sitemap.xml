@@ -2,82 +2,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://www.standard-aaa.com/</loc>
+    <loc>https://www.standard-plus.eu/</loc>
     <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://www.standard-aaa.com/assets/img/beratung-gross.jpg</image:loc>
+      <image:loc>https://www.standard-plus.eu/assets/img/beratung-gross.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.standard-aaa.com/assets/img/og-image.jpg</image:loc>
+      <image:loc>https://www.standard-plus.eu/assets/img/og-image.jpg</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://www.standard-aaa.com/branchen.html</loc>
+    <loc>https://www.standard-plus.eu/branchen.html</loc>
     <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://www.standard-aaa.com/assets/img/branchen/bau.jpg</image:loc>
+      <image:loc>https://www.standard-plus.eu/assets/img/branchen/bau.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.standard-aaa.com/assets/img/branchen/landwirtschaft.jpg</image:loc>
+      <image:loc>https://www.standard-plus.eu/assets/img/branchen/landwirtschaft.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.standard-aaa.com/assets/img/branchen/pferde.jpg</image:loc>
+      <image:loc>https://www.standard-plus.eu/assets/img/branchen/pferde.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.standard-aaa.com/assets/img/branchen/pflege.jpg</image:loc>
+      <image:loc>https://www.standard-plus.eu/assets/img/branchen/pflege.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.standard-aaa.com/assets/img/branchen/logistik.jpg</image:loc>
+      <image:loc>https://www.standard-plus.eu/assets/img/branchen/logistik.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.standard-aaa.com/assets/img/branchen/gastronomie.jpg</image:loc>
+      <image:loc>https://www.standard-plus.eu/assets/img/branchen/gastronomie.jpg</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://www.standard-aaa.com/pakete.html</loc>
+    <loc>https://www.standard-plus.eu/pakete.html</loc>
     <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.standard-aaa.com/ueber-uns.html</loc>
+    <loc>https://www.standard-plus.eu/ueber-uns.html</loc>
     <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.standard-aaa.com/assets/img/gespraech.jpg</image:loc>
+      <image:loc>https://www.standard-plus.eu/assets/img/gespraech.jpg</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://www.standard-aaa.com/ablauf.html</loc>
+    <loc>https://www.standard-plus.eu/ablauf.html</loc>
     <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.standard-aaa.com/fragen.html</loc>
+    <loc>https://www.standard-plus.eu/fragen.html</loc>
     <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.standard-aaa.com/kontakt.html</loc>
+    <loc>https://www.standard-plus.eu/kontakt.html</loc>
     <lastmod>2026-10-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.standard-aaa.com/agb.html</loc>
+    <loc>https://www.standard-plus.eu/agb.html</loc>
     <lastmod>2026-10-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.standard-aaa.com/impressum.html</loc>
+    <loc>https://www.standard-plus.eu/impressum.html</loc>
     <lastmod>2026-10-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

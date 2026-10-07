@@ -12,17 +12,17 @@ Wichtige Fakten:
 
 ## Seiten
 
-- [Startseite](https://www.standard-aaa.com/): Überblick über Leistungen, Branchen, Ablauf und Pakete
-- [Branchen](https://www.standard-aaa.com/branchen.html): wen Standard Plus in Bau & Handwerk, Landwirtschaft & Milchvieh, Pferdebetrieben, Pflege & Betreuung, Lager & Logistik sowie Gastronomie & Hotellerie vermittelt
-- [Pakete & Preise](https://www.standard-aaa.com/pakete.html): Paket für 899 Euro und Abo-Paket (399 Euro + 119 Euro monatlich)
-- [Ablauf](https://www.standard-aaa.com/ablauf.html): Vermittlung in 4 Schritten
-- [Über uns](https://www.standard-aaa.com/ueber-uns.html): wofür Standard Plus steht, woran man seriöse Vermittler erkennt
-- [Häufige Fragen](https://www.standard-aaa.com/fragen.html)
-- [Kontakt](https://www.standard-aaa.com/kontakt.html): Telefon, WhatsApp, E-Mail, Kontaktformular
-- [Ausführliche Zusammenfassung für KI-Assistenten](https://www.standard-aaa.com/llms-full.txt): alle Inhalte der Website als Text
+- [Startseite](https://www.standard-plus.eu/): Überblick über Leistungen, Branchen, Ablauf und Pakete
+- [Branchen](https://www.standard-plus.eu/branchen.html): wen Standard Plus in Bau & Handwerk, Landwirtschaft & Milchvieh, Pferdebetrieben, Pflege & Betreuung, Lager & Logistik sowie Gastronomie & Hotellerie vermittelt
+- [Pakete & Preise](https://www.standard-plus.eu/pakete.html): Paket für 899 Euro und Abo-Paket (399 Euro + 119 Euro monatlich)
+- [Ablauf](https://www.standard-plus.eu/ablauf.html): Vermittlung in 4 Schritten
+- [Über uns](https://www.standard-plus.eu/ueber-uns.html): wofür Standard Plus steht, woran man seriöse Vermittler erkennt
+- [Häufige Fragen](https://www.standard-plus.eu/fragen.html)
+- [Kontakt](https://www.standard-plus.eu/kontakt.html): Telefon, WhatsApp, E-Mail, Kontaktformular
+- [Ausführliche Zusammenfassung für KI-Assistenten](https://www.standard-plus.eu/llms-full.txt): alle Inhalte der Website als Text
 
 ## Rechtliches
 
-- [Impressum](https://www.standard-aaa.com/impressum.html)
-- [AGB](https://www.standard-aaa.com/agb.html)
-- [Datenschutz](https://www.standard-aaa.com/datenschutz.html)
+- [Impressum](https://www.standard-plus.eu/impressum.html)
+- [AGB](https://www.standard-plus.eu/agb.html)
+- [Datenschutz](https://www.standard-plus.eu/datenschutz.html)

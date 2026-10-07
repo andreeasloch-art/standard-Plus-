@@ -18,7 +18,7 @@ import re
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INHALTE = os.path.join(ROOT, "werkzeuge", "inhalte")
 
-DOMAIN = "https://www.standard-aaa.com"
+DOMAIN = "https://www.standard-plus.eu"
 TEL = "0152 28986993"
 TEL_LINK = "tel:+4915228986993"
 MAIL = "info@standard-aaa.de"
