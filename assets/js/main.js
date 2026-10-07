@@ -56,13 +56,16 @@
     el.textContent = new Date().getFullYear();
   });
 
-  /* ---------- Paket-Buttons füllen das Formular vor ---------- */
+  /* ---------- Betreff vorausfüllen ----------
+     Buttons auf Pakete- und Branchenseite verlinken auf
+     kontakt.html?betreff=…; das Feld wird damit vorausgefüllt. */
   var betreff = document.getElementById('f-betreff');
-  document.querySelectorAll('[data-paket]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      if (betreff) betreff.value = 'Anfrage ' + btn.getAttribute('data-paket');
-    });
-  });
+  if (betreff && !betreff.value) {
+    try {
+      var vorgabe = new URLSearchParams(window.location.search).get('betreff');
+      if (vorgabe) betreff.value = vorgabe.slice(0, 120);
+    } catch (e) { /* ältere Browser: Feld bleibt leer */ }
+  }
 
   /* ---------- Kontaktformular ---------- */
   var form = document.getElementById('kontaktformular');

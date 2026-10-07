@@ -382,6 +382,97 @@ p { margin: 0 0 1em; }
 @media (max-width: 900px) { .contact { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .form__grid { grid-template-columns: 1fr; } }
 
+/* ---------- Unterseiten: Kopfbereich ---------- */
+.page-hero { padding: clamp(48px, 7vw, 88px) 0 clamp(28px, 4vw, 44px); background: radial-gradient(900px 420px at 50% -20%, rgba(19,115,123,.11), transparent 70%), linear-gradient(#fbfbfd, #fff); }
+.page-hero h1 { font-size: clamp(38px, 6.4vw, 68px); letter-spacing: -.045em; line-height: 1.03; margin-bottom: 16px; max-width: 900px; }
+.page-hero__lead { font-size: clamp(18px, 2vw, 22px); color: var(--ink-3); max-width: 760px; margin: 0; line-height: 1.45; letter-spacing: -.02em; }
+.crumb { font-size: 14px; color: var(--ink-3); margin: 0 0 18px; }
+.crumb a { color: var(--ink-3); }
+.crumb a:hover { color: var(--brand); }
+.section--tight { padding-top: clamp(28px, 4vw, 48px); }
+.more { text-align: center; margin: clamp(28px, 4vw, 40px) 0 0; }
+.more--left { text-align: left; margin-top: 18px; }
+.nav a[aria-current="page"] { color: var(--brand); background: var(--brand-tint); }
+
+/* ---------- Startseite: Branchen-Karten mit Foto ---------- */
+.bcards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.bcard { display: flex; flex-direction: column; background: #fff; border-radius: var(--r); overflow: hidden; color: inherit; text-decoration: none !important; transition: transform .45s var(--ease), box-shadow .45s var(--ease); }
+.bcard:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.bcard__img { display: block; aspect-ratio: 3 / 2; overflow: hidden; background: var(--bg-alt); }
+.bcard__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
+.bcard:hover .bcard__img img { transform: scale(1.04); }
+.bcard__body { display: flex; flex-direction: column; gap: 4px; padding: 18px 20px 22px; }
+.bcard__body strong { color: var(--ink); font-size: 19px; letter-spacing: -.02em; }
+.bcard__body span { color: var(--ink-3); font-size: 15px; line-height: 1.45; }
+@media (max-width: 900px) { .bcards { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .bcards { grid-template-columns: 1fr; } }
+
+/* ---------- Branchen-Seite ---------- */
+.jump { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 0 0 clamp(36px, 5vw, 56px); }
+.jump a { padding: 9px 16px; border-radius: 980px; background: var(--bg-alt); color: var(--ink-2); font-size: 14.5px; font-weight: 500; text-decoration: none; transition: background-color .2s, color .2s; }
+.jump a:hover { background: var(--brand-tint); color: var(--brand); text-decoration: none; }
+.branch { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; padding: clamp(28px, 4vw, 48px) 0; border-top: 1px solid var(--hair); scroll-margin-top: calc(var(--header-h) + 16px); }
+.branch:first-of-type { border-top: 0; }
+.branch:nth-of-type(even) .branch__media { order: 2; }
+.branch__media { position: relative; border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 3 / 2; background: var(--bg-alt); box-shadow: var(--shadow); }
+.branch__media img { width: 100%; height: 100%; object-fit: cover; }
+.branch__badge { position: absolute; left: 14px; bottom: 14px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px 8px 10px; border-radius: 980px; font-size: 14px; font-weight: 600; color: var(--ink);
+  background: rgba(255,255,255,.78); backdrop-filter: saturate(180%) blur(16px); -webkit-backdrop-filter: saturate(180%) blur(16px); box-shadow: inset 0 0 0 1px rgba(255,255,255,.6); }
+.branch__badge .icon { width: 20px; height: 20px; color: var(--brand); }
+.branch h2 { font-size: clamp(28px, 3.6vw, 40px); }
+.branch__lead { font-size: 18px; color: var(--ink-2); line-height: 1.5; }
+.branch__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 28px; margin: 22px 0 26px; }
+.branch__cols h3 { font-size: 15px; font-weight: 600; color: var(--ink-3); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 10px; }
+.ticks--tight { margin: 0; }
+.ticks--tight li { padding: 7px 0; font-size: 15.5px; border-top: 0 !important; border-bottom: 0 !important; align-items: flex-start; line-height: 1.4; }
+.ticks--tight .icon { width: 18px; height: 18px; margin-top: 2px; }
+.dots { list-style: none; margin: 0; padding: 0; }
+.dots li { position: relative; padding: 7px 0 7px 18px; font-size: 15.5px; line-height: 1.4; color: var(--ink-2); }
+.dots li::before { content: ""; position: absolute; left: 2px; top: 15px; width: 7px; height: 7px; border-radius: 50%; background: var(--yellow-600); }
+.note { display: flex; gap: 14px; align-items: flex-start; margin-top: clamp(28px, 4vw, 44px); padding: 20px 22px; border-radius: var(--r); background: var(--bg-alt); }
+.note .icon { color: var(--yellow-600); margin-top: 2px; }
+.note p { margin: 0; }
+@media (max-width: 860px) {
+  .branch { grid-template-columns: 1fr; }
+  .branch:nth-of-type(even) .branch__media { order: 0; }
+}
+@media (max-width: 520px) {
+  .branch__cols { grid-template-columns: 1fr; }
+  .branch .btn { white-space: normal; width: 100%; text-align: center; line-height: 1.3; }
+}
+
+/* ---------- Seriös-Checkliste, zwei Spalten ---------- */
+.trustbox { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(32px, 5vw, 64px); align-items: center; }
+.trustbox h2 { font-size: clamp(30px, 4vw, 44px); }
+.checklist { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; list-style: none; padding: 0; margin: 0; }
+.checklist li { display: flex; gap: 12px; align-items: center; background: #fff; border-radius: 16px; padding: 16px; font-weight: 600; font-size: 15px; color: var(--ink); line-height: 1.3; }
+.checklist .icon-wrap { width: 40px; height: 40px; flex: none; border-radius: 50%; background: var(--yellow); color: var(--brand-900); display: grid; place-items: center; }
+.checklist .icon-wrap .icon { width: 20px; height: 20px; }
+.warn { grid-column: 1 / -1; display: flex; gap: 14px; align-items: center; padding: 16px 18px; border-radius: 16px; background: #fdf4d8 !important; color: #5c4300 !important; font-weight: 600; }
+.warn .icon { width: 24px; height: 24px; color: #b07f00; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
+.two-col h2 { font-size: clamp(28px, 3.6vw, 40px); }
+@media (max-width: 900px) { .trustbox, .two-col { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .checklist { grid-template-columns: 1fr; } }
+
+/* ---------- Gelber Balken unten ---------- */
+.cta-strip { background: var(--yellow); position: relative; overflow: hidden; }
+.cta-strip::after { content: ""; position: absolute; right: -40px; top: 0; bottom: 0; width: 220px; background: var(--brand); opacity: .1; clip-path: polygon(0 0, 55% 0, 100% 50%, 55% 100%, 0 100%, 45% 50%); pointer-events: none; }
+.cta-strip .container { display: flex; align-items: center; justify-content: space-between; gap: 14px 24px; flex-wrap: wrap; padding-top: 22px; padding-bottom: 22px; position: relative; z-index: 1; }
+.cta-strip__text { margin: 0; font-size: 18px; color: var(--ink); letter-spacing: -.015em; }
+.cta-strip__text strong { font-weight: 700; margin-right: 6px; }
+.cta-strip__text span { color: #4a3a0a; }
+.cta-strip__actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.cta-strip .btn { padding: 12px 20px; font-size: 15px; }
+.btn--dark { background: var(--ink); color: #fff; }
+.btn--dark:hover { background: var(--brand-800); color: #fff; }
+.btn--white { background: #fff; color: var(--ink); }
+.btn--white:hover { background: #fffbea; color: var(--ink); }
+@media (max-width: 560px) {
+  .cta-strip__actions, .cta-strip .btn { width: 100%; }
+  .cta-strip__text span { display: block; }
+}
+
 /* ---------- Fußzeile ---------- */
 .site-footer { background: var(--bg-alt); color: var(--ink-3); padding: 56px 0 28px; font-size: 13.5px; border-top: 1px solid var(--hair); }
 .footer__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px; }

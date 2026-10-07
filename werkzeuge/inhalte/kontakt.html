@@ -1,0 +1,69 @@
+  <section class="section section--tight" id="kontakt">
+    <div class="container contact">
+      <aside class="contact__info reveal">
+        <span class="kicker">Direkter Draht</span>
+        <h2>So erreichen Sie uns.</h2>
+        <p>Rufen Sie an, schreiben Sie per WhatsApp oder E-Mail – oder nutzen Sie das Formular. Unser Team ist an sechs Tagen pro Woche für Sie da.</p>
+        <ul class="contact-list">
+          <li><a href="tel:+4917645258501"><span class="icon-wrap"><svg class="icon"><use href="#i-phone"/></svg></span><span><small>Telefon</small><b>0176 45258501</b></span></a></li>
+          <li><a href="https://wa.me/4917645258501" target="_blank" rel="noopener"><span class="icon-wrap"><svg class="icon"><use href="#i-chat"/></svg></span><span><small>WhatsApp</small><b>Nachricht schreiben</b></span></a></li>
+          <li><a href="mailto:info@standard-aaa.de"><span class="icon-wrap"><svg class="icon"><use href="#i-mail"/></svg></span><span><small>E-Mail</small><b>info@standard-aaa.de</b></span></a></li>
+          <li><div><span class="icon-wrap"><svg class="icon"><use href="#i-pin"/></svg></span><span><small>Adresse</small><b>Heilbronner Straße 142, 71634 Ludwigsburg</b></span></div></li>
+        </ul>
+      </aside>
+
+      <!--
+        Kontaktformular: Ohne Server öffnet es das E-Mail-Programm mit einer fertigen
+        Nachricht an info@standard-aaa.de. Für direkten Versand die Adresse eines
+        Formular-Dienstes in data-endpoint eintragen (und in der Datenschutzerklärung nennen).
+      -->
+      <form class="form reveal" id="kontaktformular" novalidate data-endpoint="" data-mailto="info@standard-aaa.de">
+        <h3>Anfrage senden</h3>
+        <div class="form__grid">
+          <div class="field">
+            <label for="f-name">Name <span class="req">*</span></label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="f-tel">Telefon</label>
+            <input id="f-tel" name="telefon" type="tel" autocomplete="tel">
+            <span class="field__error"></span>
+          </div>
+          <div class="field">
+            <label for="f-email">E-Mail <span class="req">*</span></label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="f-adresse">Adresse</label>
+            <input id="f-adresse" name="adresse" type="text" autocomplete="street-address">
+            <span class="field__error"></span>
+          </div>
+          <div class="field field--full">
+            <label for="f-betreff">Betreff <span class="req">*</span></label>
+            <input id="f-betreff" name="betreff" type="text" required>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+          <div class="field field--full">
+            <label for="f-nachricht">Nachricht <span class="req">*</span></label>
+            <textarea id="f-nachricht" name="nachricht" required placeholder="Wen suchen Sie? Anzahl, Aufgaben, Zeitraum, Ort …"></textarea>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+          <div class="hp" aria-hidden="true">
+            <label for="f-website">Bitte leer lassen</label>
+            <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="field field--full">
+            <label class="consent">
+              <input type="checkbox" name="datenschutz" required>
+              <span>Ich bin mit der Verarbeitung meiner Angaben gemäß <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a> einverstanden. <span class="req">*</span></span>
+            </label>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+        </div>
+        <button class="btn btn--primary btn--block" type="submit"><svg class="icon"><use href="#i-send"/></svg>Anfrage senden</button>
+        <div class="form-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>

@@ -4,19 +4,29 @@ Statische Website (reines HTML, CSS und JavaScript – kein Baukasten, keine Abh
 
 | Datei | Inhalt |
 | --- | --- |
-| `index.html` | Landingpage: Werte, Über uns, Branchen, Ablauf, Pakete, Fragen, Kontaktformular |
-| `impressum.html` | Impressum (Daten von standard-aaa.com übernommen) |
-| `agb.html` | Allgemeine Geschäftsbedingungen |
-| `datenschutz.html` | Datenschutzerklärung |
+| `index.html` | Startseite: Überblick mit Branchen-Fotos, Ablauf, Pakete |
+| `ueber-uns.html`, `branchen.html`, `ablauf.html`, `pakete.html`, `fragen.html`, `kontakt.html` | Unterseiten |
+| `impressum.html`, `agb.html`, `datenschutz.html` | Rechtstexte |
+| `werkzeuge/seiten_bauen.py` | **Erzeugt alle Seiten.** Kopfzeile, gelber Balken, Fußzeile, Branchen, Pakete und Fragen stehen nur hier |
+| `werkzeuge/inhalte/` | Rechtstexte, Kontaktbereich, Icons |
 | `assets/css/style.css` | Gestaltung (Farben oben unter „Design-Tokens“) |
 | `assets/js/main.js` | Menü, Animationen, Kontaktformular |
 | `assets/fonts/` | Schriften lokal (keine Verbindung zu Google – DSGVO) |
-| `assets/img/` | Fotos (JPG + WebP), Vorschaubild `og-image.jpg`, Logo, Icons |
+| `assets/img/` | Fotos (JPG + WebP), Branchenfotos in `branchen/` (Unsplash-Lizenz), Vorschaubild `og-image.jpg`, Logo, Icons |
 | `robots.txt`, `sitemap.xml` | Für Google, Bing & Co. |
 | `llms.txt`, `llms-full.txt` | Zusammenfassung für KI-Assistenten |
 | `site.webmanifest` | App-Icons fürs Handy |
 | `.htaccess` | HTTPS, Komprimierung, Cache, Sicherheit (Apache-Server) |
 | `SEO-ANLEITUNG.md` | Schritte für Google, Bing, Verzeichnisse und KI-Sichtbarkeit |
+
+## Inhalte ändern
+
+Texte nicht direkt in den HTML-Dateien ändern, sondern in `werkzeuge/seiten_bauen.py`
+(bzw. `werkzeuge/inhalte/`) und danach einmal ausführen:
+
+```
+python3 werkzeuge/seiten_bauen.py
+```
 
 ## Ansehen
 
