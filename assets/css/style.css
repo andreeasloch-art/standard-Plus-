@@ -335,6 +335,14 @@ p { margin: 0 0 1em; }
 .faq .answer { padding: 0 4px 26px; color: var(--ink-3); font-size: 17px; max-width: 700px; }
 .faq .answer p:last-child { margin: 0; }
 
+/* ---------- Auf einen Blick ---------- */
+.facts { max-width: 880px; margin: 0 auto; background: #fff; border-radius: var(--r-lg); padding: 8px clamp(20px, 3vw, 36px); box-shadow: var(--shadow-sm); }
+.facts > div { display: grid; grid-template-columns: 180px 1fr; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--hair); }
+.facts > div:last-child { border-bottom: 0; }
+.facts dt { font-weight: 600; color: var(--ink); }
+.facts dd { margin: 0; color: var(--ink-2); }
+@media (max-width: 600px) { .facts > div { grid-template-columns: 1fr; gap: 2px; } }
+
 /* ---------- Kontakt ---------- */
 .contact { display: grid; grid-template-columns: .9fr 1.1fr; gap: 20px; align-items: stretch; }
 .contact__info { border-radius: var(--r-lg); padding: clamp(30px, 4vw, 44px); color: rgba(255,255,255,.78); position: relative; overflow: hidden;

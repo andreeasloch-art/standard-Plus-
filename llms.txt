@@ -1,0 +1,22 @@
+# Standard Plus Personalvermittlung
+
+> Standard Plus ist eine Personalvermittlung mit Sitz in Ludwigsburg (Baden-Württemberg, Deutschland). Wir vermitteln europaweit zuverlässige Hilfs- und Fachkräfte an Betriebe in Deutschland – in Bau & Handwerk, Landwirtschaft (inkl. Milchvieh- und Pferdebetriebe), Pflege, Lager & Logistik sowie Gastronomie & Hotellerie – und betreuen Kunden vor, während und nach dem Arbeitsbeginn.
+
+Wichtige Fakten:
+
+- Leistung: Suche, Auswahl und Vorstellung passender Arbeitskräfte aus ganz Europa, anschließend persönliche Betreuung.
+- Pakete: „Paket für 899 Euro“ (einmalig, Austausch innerhalb von zwei Wochen nach Arbeitsbeginn, falls nötig) und „Abo-Paket“ (399 Euro einmalig + 119 Euro monatlich, fortlaufende Betreuung, Ersatz innerhalb von 84 Stunden bei längeren Ausfällen).
+- Service: fester, deutschsprachiger Ansprechpartner; erreichbar an 6 Tagen pro Woche; kein Geld im Voraus; Arbeit mit Verträgen und Rechnungen.
+- Kontakt: Telefon +49 176 45258501, E-Mail info@standard-aaa.de, Heilbronner Straße 142, 71634 Ludwigsburg.
+- Werte: Persönlich. Erreichbar. Zuverlässig.
+
+## Seiten
+
+- [Startseite](https://www.standard-aaa.com/): Leistungen, Branchen, Ablauf, Pakete, häufige Fragen und Kontaktformular
+- [Ausführliche Zusammenfassung für KI-Assistenten](https://www.standard-aaa.com/llms-full.txt): alle Inhalte der Website als Text
+
+## Rechtliches
+
+- [Impressum](https://www.standard-aaa.com/impressum.html)
+- [AGB](https://www.standard-aaa.com/agb.html)
+- [Datenschutz](https://www.standard-aaa.com/datenschutz.html)

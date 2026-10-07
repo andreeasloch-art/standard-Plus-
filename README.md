@@ -11,7 +11,12 @@ Statische Website (reines HTML, CSS und JavaScript – kein Baukasten, keine Abh
 | `assets/css/style.css` | Gestaltung (Farben oben unter „Design-Tokens“) |
 | `assets/js/main.js` | Menü, Animationen, Kontaktformular |
 | `assets/fonts/` | Schriften lokal (keine Verbindung zu Google – DSGVO) |
-| `assets/img/` | Fotos, Favicon |
+| `assets/img/` | Fotos (JPG + WebP), Vorschaubild `og-image.jpg`, Logo, Icons |
+| `robots.txt`, `sitemap.xml` | Für Google, Bing & Co. |
+| `llms.txt`, `llms-full.txt` | Zusammenfassung für KI-Assistenten |
+| `site.webmanifest` | App-Icons fürs Handy |
+| `.htaccess` | HTTPS, Komprimierung, Cache, Sicherheit (Apache-Server) |
+| `SEO-ANLEITUNG.md` | Schritte für Google, Bing, Verzeichnisse und KI-Sichtbarkeit |
 
 ## Ansehen
 
@@ -20,7 +25,9 @@ und http://localhost:8000 aufrufen.
 
 ## Online stellen
 
-Den gesamten Ordner (ohne `StandardPlus-App.zip`) auf den Webspace laden.
+Den gesamten Ordner (ohne `StandardPlus-App.zip` und ohne `.git`) auf den Webspace laden –
+auch die versteckte Datei `.htaccess`. Danach die Schritte in `SEO-ANLEITUNG.md` erledigen.
+Die Domain ist auf `https://www.standard-aaa.com` eingestellt (ändern: siehe SEO-ANLEITUNG, Abschnitt 2).
 
 ## Kontaktformular
 
