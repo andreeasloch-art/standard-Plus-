@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0a8086"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Standard Plus"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<link rel="apple-touch-icon" href="../assets/app/apple-touch-icon.png"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<!-- Hinweis: frame-ancestors, HSTS, X-Content-Type-Options und Permissions-Policy
+     wirken nur als HTTP-Kopfzeilen. Sie stehen in assets/security-headers.conf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Sign in – Standard Plus</title>
+<link rel="stylesheet" href="../assets/sp-theme.css?v=20260929153130"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a9296'/%3E%3Cpath d='M9 10l6 6-6 6M18 10l6 6-6 6' stroke='%23ffd84d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
+<link rel="alternate" hreflang="de" href="../standardplus-login.html"/>
+<link rel="alternate" hreflang="en" href="standardplus-login.html"/>
+<link rel="alternate" hreflang="ro" href="../ro/standardplus-login.html"/>
+</head>
+<body>
+<div class="split">
+
+  <!-- ============ LINKE SEITE ============ -->
+  <aside class="split-left">
+    <svg class="hero-pattern" aria-hidden="true" preserveAspectRatio="none">
+      <defs><pattern id="dots2" width="34" height="34" patternUnits="userSpaceOnUse">
+        <circle cx="2" cy="2" r="1.4" fill="#ffffff"/></pattern></defs>
+      <rect width="100%" height="100%" fill="url(#dots2)"/>
+    </svg>
+
+    <a class="sp-logo on-dark rel" href="standardplus-main.html">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Recruitment</span>
+    </a>
+
+    <div class="rel">
+      <h2 class="h2 t-white">Your access to<br/>vetted skilled workers</h2>
+      <p class="lede t-w70 mb32">One account for matching, interviews, contracts and transport – secured to the state of the art.</p>
+      <ul class="stack">
+        <li class="flex g14 ai-c t-w80">
+          <span class="feature-ic dark mb0"><svg class="ic" aria-hidden="true"><use href="#i-fingerprint"></use></svg></span>
+          <span class="small">Two-factor authentication for every company account</span></li>
+        <li class="flex g14 ai-c t-w80">
+          <span class="feature-ic dark mb0"><svg class="ic" aria-hidden="true"><use href="#i-server"></use></svg></span>
+          <span class="small">Data stays in EU data centres</span></li>
+        <li class="flex g14 ai-c t-w80">
+          <span class="feature-ic dark mb0"><svg class="ic" aria-hidden="true"><use href="#i-eye"></use></svg></span>
+          <span class="small">Every sign-in is logged and can be reviewed</span></li>
+        <li class="flex g14 ai-c t-w80">
+          <span class="feature-ic dark mb0"><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg></span>
+          <span class="small">No sharing of contact details without approval</span></li>
+      </ul>
+    </div>
+
+    <div class="rel flex g24">
+      <div><strong class="hero-num">27</strong><span class="tiny t-w50">EU countries</span></div>
+      <div><strong class="hero-num">24</strong><span class="tiny t-w50">languages</span></div>
+      <div><strong class="hero-num">0</strong><span class="tiny t-w50">trackers</span></div>
+    </div>
+  </aside>
+
+  <!-- ============ RECHTE SEITE ============ -->
+  <main class="split-right" id="main">
+    <div class="authbox">
+
+      <div class="notice notice-warn mb20 hidden" id="timeout-note">
+        <svg class="ic" aria-hidden="true"><use href="#i-clock"></use></svg>
+        <span>Your session ended automatically after 15 minutes of inactivity. Please sign in again.</span>
+      </div>
+
+      <div class="authtabs" role="tablist" aria-label="Sign in or register">
+        <button type="button" role="tab" id="tab-login" aria-selected="true" aria-controls="panel-login">Sign in</button>
+        <button type="button" role="tab" id="tab-reg" aria-selected="false" aria-controls="panel-reg">Register</button>
+      </div>
+
+      <!-- ---------- ANMELDEN ---------- -->
+      <section id="panel-login" role="tabpanel" aria-labelledby="tab-login">
+        <h1 class="h2 mb8">Welcome back</h1>
+        <p class="small muted mb24">Sign in with your login details.</p>
+
+        <form id="form-login" novalidate autocomplete="on">
+          <input type="hidden" name="csrf_token" value="demo-token-serverseitig-erzeugen"/>
+          <div class="hp" aria-hidden="true">
+            <label for="fax">Fax (please leave empty)</label>
+            <input class="inp plain" type="text" id="fax" name="fax" tabindex="-1" autocomplete="off"/>
+          </div>
+
+          <div class="field">
+            <label for="login-mail">Email address</label>
+            <div class="inp-wrap">
+              <svg class="ic" aria-hidden="true"><use href="#i-mail"></use></svg>
+              <input class="inp" type="email" id="login-mail" name="email" required
+                     autocomplete="username" placeholder="name@company.com" spellcheck="false"/>
+            </div>
+            <p class="err-msg" id="err-mail"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-alert"></use></svg>Please enter a valid email address.</p>
+          </div>
+
+          <div class="field">
+            <label for="login-pw">Password</label>
+            <div class="inp-wrap">
+              <svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg>
+              <input class="inp" type="password" id="login-pw" name="password" required
+                     autocomplete="current-password" placeholder="Your password"/>
+              <button class="inp-btn" type="button" data-toggle-pw="login-pw" aria-label="Show password">
+                <svg class="ic" aria-hidden="true"><use href="#i-eye"></use></svg>
+              </button>
+            </div>
+            <p class="err-msg" id="err-pw"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-alert"></use></svg>Please enter your password.</p>
+          </div>
+
+          <div class="flex jc-b ai-c mb20">
+            <label class="check mb0" for="trust">
+              <input type="checkbox" id="trust" name="trust"/>
+              <span class="small">Remember this device for 30 days</span>
+            </label>
+            <a class="small t-teal u" href="#" id="forgot">Forgot password?</a>
+          </div>
+
+          <button class="btn btn-primary btn-block btn-lg" type="submit">
+            Continue to verification
+            <svg class="ic" aria-hidden="true"><use href="#i-arrowright"></use></svg>
+          </button>
+        </form>
+
+        <div class="notice notice-info mt20">
+          <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+          <span><b>Prototype:</b> Accounts are really created, but stored only in this browser. Nothing is sent to a server. Passwords are salted and stored as a hash, never in plain text.</span>
+        </div>
+
+        <details class="card card-pad mt16">
+          <summary class="small fw7 t-teal">Test login details</summary>
+          <p class="small muted mt12">So that you can see the complete process from both sides, sample accounts are set up. Password in each case: <b>Demo!2026</b></p>
+          <div class="tbl-wrap mt12">
+            <table class="tbl">
+              <thead><tr><th>Role</th><th>Email address</th></tr></thead>
+              <tbody>
+                <tr><td>Employer (Musterbau AG)</td><td>demo@unternehmen.invalid</td></tr>
+                <tr><td>Worker (Ion Tudose)</td><td>demo1@beispiel.invalid</td></tr>
+                <tr><td>Worker (Maria Kovacs)</td><td>demo0@beispiel.invalid</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="tiny muted mt12">Shared logins like these only exist in the prototype. In live operation, every account has its own password and two-factor protection.</p>
+        </details>
+
+        <p class="small muted t-c mt24">No account yet?
+          <button class="card-link" type="button" id="to-reg">Register now</button></p>
+      </section>
+
+      <!-- ---------- REGISTRIEREN ---------- -->
+      <section id="panel-reg" role="tabpanel" aria-labelledby="tab-reg" hidden>
+
+        <ol class="schritte" id="reg-schritte">
+          <li class="an" id="sch1"><b>1</b>Role</li>
+          <li id="sch2"><b>2</b>Login details</li>
+          <li id="sch3"><b>3</b>Verification</li>
+        </ol>
+
+        <!-- Schritt 1: Rolle -->
+        <div id="reg-schritt1">
+          <h1 class="h2 mb8">How would you like to use Standard Plus?</h1>
+          <p class="small muted mb24">Choose your role. After that we only ask for what you really need.</p>
+
+          <div class="rollenwahl">
+            <button class="rollenkarte gold" type="button" data-wahl="arbeitgeber">
+              <span class="rollenkarte-ic">
+                <svg class="ic ic-lg" aria-hidden="true"><use href="#i-building"></use></svg></span>
+              <span class="rollenkarte-text">
+                <span class="rolle-unter">Employer</span>
+                <strong>I'm looking for staff</strong> <span class="rolle-text">Post jobs, search vetted profiles and send requests. You only pay once a placement is made.</span>
+              </span>
+              <svg class="ic" aria-hidden="true"><use href="#i-arrowright"></use></svg>
+            </button>
+
+            <button class="rollenkarte" type="button" data-wahl="arbeitnehmer">
+              <span class="rollenkarte-ic">
+                <svg class="ic ic-lg" aria-hidden="true"><use href="#i-user"></use></svg></span>
+              <span class="rollenkarte-text">
+                <span class="rolle-unter">Workers</span>
+                <strong>I'm looking for a job</strong> <span class="rolle-text">Create a profile, upload your credentials and get found by companies. Use is permanently free for you.</span>
+              </span>
+              <svg class="ic" aria-hidden="true"><use href="#i-arrowright"></use></svg>
+            </button>
+
+            <button class="rollenkarte" type="button" data-wahl="transport">
+              <span class="rollenkarte-ic">
+                <svg class="ic ic-lg" aria-hidden="true"><use href="#i-bus"></use></svg></span>
+              <span class="rollenkarte-text">
+                <span class="rolle-unter">Transport company</span>
+                <strong>I drive the route</strong> <span class="rolle-text">Enter routes with weekdays and stops. Placed workers find your trips and book the right day directly.</span>
+              </span>
+              <svg class="ic" aria-hidden="true"><use href="#i-arrowright"></use></svg>
+            </button>
+          </div>
+
+          <div class="notice notice-info">
+            <svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>
+            <span>Your data only becomes visible once you approve a request. Before that, others only see professional details without name and contact details.</span>
+          </div>
+
+          <p class="small muted t-c mt24">Already registered?
+            <button class="card-link" type="button" id="to-login">Sign in now</button></p>
+        </div>
+
+        <!-- Schritt 2: Zugangsdaten -->
+        <div id="reg-schritt2" hidden>
+          <div class="rolle-gewaehlt">
+            <svg class="ic ic-lg" aria-hidden="true" id="rolle-icon"><use href="#i-building"></use></svg>
+            <div>
+              <strong id="rolle-titel">Employer</strong> <span id="rolle-text">I'm looking for staff</span>
+            </div>
+            <button class="btn btn-outline btn-sm" type="button" id="rolle-wechseln">Change</button>
+          </div>
+
+          <h1 class="h2 mb8">Create account</h1>
+          <p class="small muted mb24" id="reg-untertitel">Just five details – you can fill in the profile at your leisure afterwards.</p>
+
+          <form id="form-reg" novalidate>
+            <input type="hidden" name="csrf_token" value="demo-token-serverseitig-erzeugen"/>
+
+            <div class="field" id="wrap-firma">
+              <label for="reg-firma">Company name</label>
+              <div class="inp-wrap">
+                <svg class="ic" aria-hidden="true"><use href="#i-building"></use></svg>
+                <input class="inp" type="text" id="reg-firma" name="firma" autocomplete="organization" maxlength="120"/>
+              </div>
+            </div>
+
+            <p class="lbl" id="name-legende">Your name</p>
+            <div class="grid g2 g12">
+              <div class="field">
+                <label for="reg-vor">First name</label>
+                <div class="inp-wrap">
+                  <svg class="ic" aria-hidden="true"><use href="#i-user"></use></svg>
+                  <input class="inp" type="text" id="reg-vor" name="vorname" required autocomplete="given-name" maxlength="60"/>
+                </div>
+              </div>
+              <div class="field">
+                <label for="reg-nach">Last name</label>
+                <div class="inp-wrap">
+                  <svg class="ic" aria-hidden="true"><use href="#i-user"></use></svg>
+                  <input class="inp" type="text" id="reg-nach" name="nachname" required autocomplete="family-name" maxlength="60"/>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="reg-mail" id="mail-label">Email address</label>
+              <div class="inp-wrap">
+                <svg class="ic" aria-hidden="true"><use href="#i-mail"></use></svg>
+                <input class="inp" type="email" id="reg-mail" name="email" required autocomplete="email" spellcheck="false"/>
+              </div>
+              <p class="hint"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-info"></use></svg>
+                Used as your login name. We don't send advertising without your consent.</p>
+            </div>
+
+            <div class="field">
+              <label for="reg-pw">Password</label>
+              <div class="inp-wrap">
+                <svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg>
+                <input class="inp" type="password" id="reg-pw" name="password" required
+                       autocomplete="new-password" placeholder="At least 12 characters"/>
+                <button class="inp-btn" type="button" data-toggle-pw="reg-pw" aria-label="Show password">
+                  <svg class="ic" aria-hidden="true"><use href="#i-eye"></use></svg>
+                </button>
+              </div>
+              <div class="pw-meter" aria-hidden="true"><i id="pb1"></i><i id="pb2"></i><i id="pb3"></i><i id="pb4"></i></div>
+              <ul class="pw-rules" id="pw-rules">
+                <li data-rule="len"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>at least 12 characters</li>
+                <li data-rule="upper"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>Upper- and lower-case letters</li>
+                <li data-rule="num"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>at least one digit</li>
+                <li data-rule="spec"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>a special character</li>
+              </ul>
+            </div>
+
+            <label class="check" for="ok-agb">
+              <input type="checkbox" id="ok-agb" required/>
+              <span>I have read the <a href="standardplus-agb.html">terms</a> and the <a href="standardplus-datenschutz.html">privacy policy</a> and agree to the processing described there. <b>(required)</b></span>
+            </label>
+            <label class="check" for="ok-mail">
+              <input type="checkbox" id="ok-mail"/>
+              <span>I would like to receive product news by email. Can be withdrawn at any time.</span>
+            </label>
+            <p class="err-msg mb12" id="err-agb"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-alert"></use></svg>Registration is not possible without this consent.</p>
+
+            <button class="btn btn-primary btn-block btn-lg" type="submit">
+              Continue to verification
+              <svg class="ic" aria-hidden="true"><use href="#i-arrowright"></use></svg>
+            </button>
+          </form>
+
+          <p class="small muted t-c mt24">Already registered?
+            <button class="card-link" type="button" id="to-login2">Sign in now</button></p>
+        </div>
+      </section>
+
+      <!-- ---------- ZWEITER FAKTOR ---------- -->
+      <section id="panel-2fa" hidden>
+        <button class="card-link mb16" type="button" id="back-login">
+          <svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowleft"></use></svg>Back
+        </button>
+        <span class="feature-ic"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-fingerprint"></use></svg></span>
+        <h1 class="h2 mb8">Two-step verification</h1>
+        <p class="small muted mb24">Enter the six-digit code from your authenticator app. The code changes every 30 seconds.</p>
+
+        <form id="form-2fa" novalidate>
+          <div class="otp" id="otp">
+            <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Digit 1" autocomplete="one-time-code"/>
+            <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Digit 2"/>
+            <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Digit 3"/>
+            <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Digit 4"/>
+            <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Digit 5"/>
+            <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Digit 6"/>
+          </div>
+          <p class="err-msg t-c mb12" id="err-otp"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-alert"></use></svg>Please enter all six digits.</p>
+          <button class="btn btn-primary btn-block btn-lg" type="submit">Complete sign-in</button>
+        </form>
+
+        <div class="notice notice-info mt20">
+          <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+          <span>In the prototype, any six-digit code is accepted. In production: TOTP according to RFC 6238, codes can be used only once, after five failed attempts the account is locked for 15 minutes.</span>
+        </div>
+
+        <p class="small muted t-c mt16">
+          <button class="card-link" type="button" id="recovery">Access with recovery code</button></p>
+      </section>
+
+      <p class="tiny muted t-c mt32">
+        <a class="u" href="standardplus-datenschutz.html">Privacy</a> · <a class="u" href="standardplus-sicherheit.html">Security</a> · <a class="u" href="standardplus-impressum.html">Legal notice</a> · <a class="u" href="#" data-consent>Cookie settings</a>
+      </p>
+    </div>
+  </main>
+</div>
+
+<script src="../assets/sp-i18n-en.js?v=20260929153130"></script>
+<script src="../assets/sp-icons.js?v=20260929153130"></script>
+<script src="../assets/sp-app.js?v=20260929153130"></script>
+<script src="../assets/sp-db.js?v=20260929153130"></script>
+<script src="../assets/sp-login.js?v=20260929153130"></script>
+<script src="../assets/sp-effekte.js?v=20260929153130"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0a8086"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Standard Plus"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<link rel="apple-touch-icon" href="assets/app/apple-touch-icon.png"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<!-- Hinweis: frame-ancestors, HSTS, X-Content-Type-Options und Permissions-Policy
+     wirken nur als HTTP-Kopfzeilen. Sie stehen in assets/security-headers.conf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Profil ansehen &ndash; Standard Plus</title>
+<link rel="stylesheet" href="assets/sp-theme.css?v=20260929153130"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a9296'/%3E%3Cpath d='M9 10l6 6-6 6M18 10l6 6-6 6' stroke='%23ffd84d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
+<link rel="alternate" hreflang="de" href="standardplus-profil-ansicht.html"/>
+<link rel="alternate" hreflang="en" href="en/standardplus-profil-ansicht.html"/>
+<link rel="alternate" hreflang="ro" href="ro/standardplus-profil-ansicht.html"/>
+</head>
+<body>
+<a class="sp-skip" href="#main">Zum Inhalt springen</a>
+
+<header class="sp-header">
+  <div class="sp-header-in">
+    <a class="sp-logo" href="standardplus-main.html">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Personalvermittlung</span>
+    </a>
+    <nav aria-label="Hauptnavigation">
+      <ul class="sp-nav">
+        <li><a href="standardplus-talente.html" data-nav>Arbeitnehmer</a></li>
+        <li><a href="standardplus-unternehmen.html" data-nav>Unternehmen</a></li>
+        <li><a href="standardplus-main.html#ablauf">Ablauf</a></li>
+        <li><a href="standardplus-preise.html" data-nav>Preise</a></li>
+      </ul>
+    </nav>
+    <div class="sp-header-act">
+      <a class="btn btn-primary btn-sm" href="standardplus-login.html" hidden data-anon>Anmelden</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-dashboard.html" hidden data-auth>Dashboard</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-profil.html" hidden data-auth>Mein Profil</a>
+      <button class="btn btn-outline btn-sm" type="button" data-logout hidden data-auth>
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-logout"></use></svg>Abmelden</button>
+      <button class="iconbtn sp-burger" type="button" aria-label="Men&uuml; &ouml;ffnen" aria-expanded="false">
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  
+  </div>
+</header>
+
+<main class="legal" id="main">
+  <p class="mb16">
+    <button class="card-link" type="button" id="zurueck">
+      <svg class="ic ic-sm" aria-hidden="true"><use href="#i-arrowleft"></use></svg>Zur&uuml;ck</button>
+  </p>
+
+  <!-- Kopfbereich, Sichtbarkeitshinweis, Inhalt und Aktionen werden gef&uuml;llt -->
+  <div id="kopf" class="card card-pad mb20"></div>
+  <div id="sicht" class="mb24"></div>
+  <div id="aktionen" class="flex wrapf g10 mb32"></div>
+  <div id="inhalt"></div>
+
+  <div class="notice notice-warn mt32">
+    <svg class="ic" aria-hidden="true"><use href="#i-alert"></use></svg>
+    <span><b>Prototyp:</b> Alle hier gezeigten Angaben stammen aus der lokalen Datenbank in
+      diesem Browser. Beispielprofile sind erfunden. Im Echtbetrieb entscheidet der Server
+      bei jedem Aufruf erneut, welche Felder Sie sehen d&uuml;rfen.</span>
+  </div>
+</main>
+
+<!-- ---------- Bewertung abgeben ---------- -->
+<div class="modal" id="modal-bewertung" role="dialog" aria-labelledby="mb-h" aria-modal="true">
+  <div class="modal-box">
+    <h2 id="mb-h"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-star"></use></svg>Bewertung abgeben</h2>
+    <p class="small muted mb16">Bewerten k&ouml;nnen nur Konten, die tats&auml;chlich zusammengearbeitet
+      haben. Ihre Bewertung ist ver&ouml;ffentlicht und Ihrem Konto zugeordnet.</p>
+
+    <div class="field">
+      <span class="lbl">Gesamteindruck</span>
+      <div class="sternwahl" id="sternwahl" role="radiogroup" aria-label="Sterne"></div>
+    </div>
+    <div class="field">
+      <label for="bw-taetigkeit">Worum ging es?</label>
+      <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-briefcase"></use></svg>
+        <input class="inp" id="bw-taetigkeit" maxlength="120" placeholder="z. B. Anstellung als Polier"/></div>
+    </div>
+    <div class="field">
+      <label for="bw-zeitraum">Zeitraum</label>
+      <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-calendar"></use></svg>
+        <input class="inp" id="bw-zeitraum" maxlength="60" placeholder="z. B. 2024 bis 2025"/></div>
+    </div>
+    <div class="field">
+      <label for="bw-text">Ihre Erfahrung</label>
+      <textarea class="inp plain" id="bw-text" rows="4" maxlength="600"
+        placeholder="Sachlich und nachvollziehbar. Keine Angaben zu Gesundheit, Religion oder Herkunft."></textarea>
+      <p class="hint"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-info"></use></svg>
+        Unsachliche oder rechtswidrige Bewertungen werden entfernt.</p>
+    </div>
+    <div class="flex g10">
+      <button class="btn btn-primary f1" type="button" id="bw-senden">Bewertung ver&ouml;ffentlichen</button>
+      <button class="btn btn-outline f1" type="button" id="bw-abbrechen">Abbrechen</button>
+    </div>
+  </div>
+</div>
+
+<!-- ---------- Sperren ---------- -->
+<div class="modal" id="modal-sperre" role="dialog" aria-labelledby="ms-h" aria-modal="true">
+  <div class="modal-box">
+    <h2 id="ms-h"><svg class="ic ic-lg ic-err" aria-hidden="true"><use href="#i-shield"></use></svg>Auf meine Sperrliste setzen</h2>
+    <p>Dieses Profil wird f&uuml;r Sie ausgeblendet, und es sind keine Anfragen mehr in beide
+      Richtungen m&ouml;glich. Die Sperre gilt <b>nur f&uuml;r Ihr Konto</b> &ndash; andere
+      Unternehmen und Bewerber sehen davon nichts.</p>
+    <div class="notice notice-info mt16">
+      <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+      <span>Eine gemeinsame, unternehmens&uuml;bergreifende schwarze Liste gibt es bei uns
+        bewusst nicht. Sie w&auml;re rechtlich unzul&auml;ssig.</span>
+    </div>
+    <div class="field mt16">
+      <label for="sp-grund">Grund (nur f&uuml;r Sie sichtbar, freiwillig)</label>
+      <textarea class="inp plain" id="sp-grund" rows="2" maxlength="300"></textarea>
+    </div>
+    <div class="flex g10">
+      <button class="btn btn-danger f1" type="button" id="sp-setzen">Sperre setzen</button>
+      <button class="btn btn-outline f1" type="button" id="sp-abbrechen">Abbrechen</button>
+    </div>
+  </div>
+</div>
+
+<footer class="sp-foot">
+  <div class="wrap">
+    <div class="foot-bot">
+      <span>&copy; 2026 Standard Plus. Alle Rechte vorbehalten.</span>
+      <span class="foot-seal">
+        <a class="seal" href="standardplus-datenschutz.html"><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>Datenschutz</a>
+        <a class="seal" href="standardplus-sicherheit.html"><svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg>Sicherheit</a>
+        <a class="seal" href="standardplus-impressum.html"><svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>Impressum</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/sp-icons.js?v=20260929153130"></script>
+<script src="assets/sp-app.js?v=20260929153130"></script>
+<script src="assets/sp-db.js?v=20260929153130"></script>
+<script src="assets/sp-ansicht.js?v=20260929153130"></script>
+<script src="assets/sp-effekte.js?v=20260929153130"></script>
+</body>
+</html>

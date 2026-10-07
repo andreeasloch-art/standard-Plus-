@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0a8086"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Standard Plus"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<link rel="apple-touch-icon" href="assets/app/apple-touch-icon.png"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<!-- Hinweis: frame-ancestors, HSTS, X-Content-Type-Options und Permissions-Policy
+     wirken nur als HTTP-Kopfzeilen. Sie stehen in assets/security-headers.conf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Dolmetscher &ndash; Standard Plus</title>
+<link rel="stylesheet" href="assets/sp-theme.css?v=20260929153130"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a9296'/%3E%3Cpath d='M9 10l6 6-6 6M18 10l6 6-6 6' stroke='%23ffd84d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
+<link rel="alternate" hreflang="de" href="standardplus-dolmetscher.html"/>
+<link rel="alternate" hreflang="en" href="en/standardplus-dolmetscher.html"/>
+<link rel="alternate" hreflang="ro" href="ro/standardplus-dolmetscher.html"/>
+</head>
+<body>
+<a class="sp-skip" href="#main">Zum Inhalt springen</a>
+
+<header class="sp-header">
+  <div class="sp-header-in">
+    <a class="sp-logo" href="standardplus-main.html">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Personalvermittlung</span>
+    </a>
+    <nav aria-label="Hauptnavigation">
+      <ul class="sp-nav">
+        <li><a href="standardplus-talente.html" data-nav>Arbeitnehmer</a></li>
+        <li><a href="standardplus-unternehmen.html" data-nav>Unternehmen</a></li>
+        <li><a href="standardplus-main.html#ablauf">Ablauf</a></li>
+        <li><a href="standardplus-preise.html" data-nav>Preise</a></li>
+      </ul>
+    </nav>
+    <div class="sp-header-act">
+      <a class="btn btn-primary btn-sm" href="standardplus-login.html" hidden data-anon>Anmelden</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-dashboard.html" hidden data-auth>Dashboard</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-profil.html" hidden data-auth>Mein Profil</a>
+      <button class="btn btn-outline btn-sm" type="button" data-logout hidden data-auth>
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-logout"></use></svg>Abmelden</button>
+      <button class="iconbtn sp-burger" type="button" aria-label="Men&uuml; &ouml;ffnen" aria-expanded="false">
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= EINRICHTEN ================= -->
+<section class="sec-tight sec-gruen" id="einrichten">
+  <div class="wrap">
+    <div class="center mb46">
+      <span class="eyebrow"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-translate"></use></svg>Dolmetscher</span>
+      <h1 class="h2">Jeder spricht seine Sprache</h1>
+      <p class="lede">Sie sprechen Deutsch, Ihr Gegen&uuml;ber h&ouml;rt Rum&auml;nisch &ndash;
+        und umgekehrt. Zwei Ger&auml;te, ein Kennwort. Mikrofon und Lautsprecher
+        gen&uuml;gen, Kopfh&ouml;rer sind nicht n&ouml;tig.</p>
+    </div>
+
+    <div class="dolm-karten">
+
+      <!-- Schritt 1: Sprache -->
+      <div class="card card-pad">
+        <p class="tiny fw7 t-teal mb12">1 &middot; IHRE SPRACHE</p>
+        <div class="field mb0">
+          <label for="d-sprache">Was sprechen Sie?</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-globe"></use></svg>
+            <select class="inp" id="d-sprache">
+              <option value="de" selected>Deutsch</option>
+              <option value="ro">Rum&auml;nisch &middot; Rom&acirc;n&#259;</option>
+              <option value="pl">Polnisch &middot; Polski</option>
+              <option value="bg">Bulgarisch &middot; &#1041;&#1098;&#1083;&#1075;&#1072;&#1088;&#1089;&#1082;&#1080;</option>
+              <option value="hu">Ungarisch &middot; Magyar</option>
+              <option value="hr">Kroatisch &middot; Hrvatski</option>
+              <option value="sk">Slowakisch &middot; Sloven&#269;ina</option>
+              <option value="cs">Tschechisch &middot; &#268;e&#353;tina</option>
+              <option value="it">Italienisch &middot; Italiano</option>
+              <option value="es">Spanisch &middot; Espa&ntilde;ol</option>
+              <option value="pt">Portugiesisch &middot; Portugu&ecirc;s</option>
+              <option value="tr">T&uuml;rkisch &middot; T&uuml;rk&ccedil;e</option>
+              <option value="uk">Ukrainisch &middot; &#1059;&#1082;&#1088;&#1072;&#1111;&#1085;&#1089;&#1100;&#1082;&#1072;</option>
+              <option value="en">Englisch &middot; English</option>
+            </select></div>
+          <p class="hint"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-info"></use></svg>
+            Die Zielsprache stellt niemand ein &ndash; sie ergibt sich aus dem,
+            was die Gegenseite gew&auml;hlt hat.</p>
+        </div>
+      </div>
+
+      <!-- Schritt 2: Kennwort -->
+      <div class="card card-pad">
+        <p class="tiny fw7 t-teal mb12">2 &middot; KENNWORT</p>
+        <div class="field">
+          <label for="d-raum">Beide Seiten geben dasselbe ein</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-key"></use></svg>
+            <input class="inp dolm-kennwort" id="d-raum" maxlength="12" autocomplete="off"
+                   spellcheck="false" placeholder="ABC-123"/></div>
+        </div>
+        <button class="btn btn-outline btn-sm btn-block" type="button" id="d-neu">
+          <svg class="ic ic-sm" aria-hidden="true"><use href="#i-refresh"></use></svg>
+          Neues Kennwort erzeugen</button>
+        <p class="hint mt12"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-info"></use></svg>
+          Lesen Sie es der Gegenseite am Telefon vor oder schicken Sie es per Nachricht.</p>
+      </div>
+
+      <!-- Schritt 3: Name -->
+      <div class="card card-pad">
+        <p class="tiny fw7 t-teal mb12">3 &middot; IHR NAME</p>
+        <div class="field mb0">
+          <label for="d-name">Wie sollen Sie angezeigt werden?</label>
+          <div class="inp-wrap"><svg class="ic" aria-hidden="true"><use href="#i-user"></use></svg>
+            <input class="inp" id="d-name" maxlength="60" autocomplete="off" placeholder="Vorname gen&uuml;gt"/></div>
+          <p class="hint"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>
+            Nur f&uuml;r die Anzeige beim Gegen&uuml;ber. Wird nicht gespeichert.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wie gesprochen wird: Lautsprecher genuegt -->
+    <div class="card card-pad mt24" id="d-kopfhoerer">
+      <p class="tiny fw7 t-teal mb12">4 &middot; WIE SIE SPRECHEN</p>
+      <div class="dolm-modus">
+        <div>
+          <h3 class="h3 mb8">
+            <svg class="ic ic-lg ic-teal" aria-hidden="true"><use href="#i-mic"></use></svg>
+            &Uuml;ber Mikrofon und Lautsprecher
+          </h3>
+          <p class="small muted">Sie brauchen nichts weiter als Ihr Ger&auml;t. W&auml;hrend die
+            &Uuml;bersetzung vorgelesen wird, pausiert das Mikrofon kurz &ndash; sonst
+            h&ouml;rte es die eigene Ausgabe und w&uuml;rde sie erneut &uuml;bersetzen.
+            Sie sprechen also abwechselnd, so wie bei einem Dolmetscher.</p>
+        </div>
+        <label class="check mb0" for="d-kopfhoerer-an">
+          <input type="checkbox" id="d-kopfhoerer-an"/>
+          <span><b>Ich benutze Kopfh&ouml;rer.</b> Dann entf&auml;llt die Pause und Sie
+            k&ouml;nnen auch w&auml;hrend der Ausgabe sprechen. In lauter Umgebung &ndash;
+            Baustelle, Werkshalle &ndash; ist das die bessere Wahl, n&ouml;tig ist es nicht.</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="notice notice-info mt16" id="d-hinweis">
+      <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+      <span id="d-hinweis-text">Kein Dolmetscher-Server hinterlegt. Tragen Sie die Adresse
+        in <code>assets/sp-konfig.js</code> ein, dann l&auml;sst sich hier sprechen.</span>
+    </div>
+
+    <div class="flex g10 wrapf jc-c mt24">
+      <button class="btn btn-white btn-lg" type="button" id="d-start">
+        <svg class="ic" aria-hidden="true"><use href="#i-mic"></use></svg>
+        Dolmetscher starten</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GESPRAECH ================= -->
+<section class="sec-tight" id="gespraech" hidden>
+  <div class="wrap">
+
+    <div class="dolm-leiste">
+      <span class="dolm-status an" id="d-status">
+        <span class="dolm-punkt" aria-hidden="true"></span>
+        <span id="d-status-text">Verbunden.</span>
+      </span>
+      <button class="btn btn-danger btn-sm" type="button" id="d-stop">
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-phoneoff"></use></svg>
+        Beenden</button>
+    </div>
+
+    <div class="dolm-spuren">
+      <div>
+        <p class="tiny fw7 t-teal mb8">SIE SAGEN</p>
+        <div class="dolm-spur" id="d-eigen" aria-live="polite">
+          <p class="leerhinweis">Sprechen Sie los. Hier erscheint, was der Server verstanden hat.</p>
+        </div>
+      </div>
+      <div>
+        <p class="tiny fw7 t-gold-d mb8">SIE H&Ouml;REN</p>
+        <div class="dolm-spur" id="d-gegen" aria-live="polite">
+          <p class="leerhinweis">Sobald die Gegenseite spricht, steht es hier &ndash; und Sie
+            h&ouml;ren es in Ihrer Sprache.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="notice notice-info mt24">
+      <svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>
+      <span><b>Wohin Ihre Stimme geht:</b> ausschlie&szlig;lich an den Server, dessen Adresse
+        in dieser Anwendung hinterlegt ist. Kein zweiter Empf&auml;nger, keine Aufzeichnung,
+        keine Ablage. Der Ton wird nach jedem Satz verworfen. Original und &Uuml;bersetzung
+        stehen immer nebeneinander, damit Missverst&auml;ndnisse auffallen.</span>
+    </div>
+
+    <div class="notice notice-warn mt16">
+      <svg class="ic" aria-hidden="true"><use href="#i-alert"></use></svg>
+      <span><b>Keine verbindliche &Uuml;bersetzung.</b> F&uuml;r Gehalt, Arbeitszeit und
+        Sicherheitszusagen geh&ouml;rt ein Mensch dazu oder eine schriftliche Best&auml;tigung
+        in beiden Sprachen.</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="sp-foot">
+  <div class="wrap">
+    <div class="foot-bot">
+      <span>&copy; 2026 Standard Plus. Alle Rechte vorbehalten.</span>
+      <span class="foot-seal">
+        <a class="seal" href="standardplus-datenschutz.html"><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>Datenschutz</a>
+        <a class="seal" href="standardplus-sicherheit.html"><svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg>Sicherheit</a>
+        <a class="seal" href="standardplus-impressum.html"><svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>Impressum</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/sp-konfig.js?v=20260929153130"></script>
+<script src="assets/sp-icons.js?v=20260929153130"></script>
+<script src="assets/sp-app.js?v=20260929153130"></script>
+<script src="assets/sp-dolmetscher.js?v=20260929153130"></script>
+<script src="assets/sp-dolmetscherseite.js?v=20260929153130"></script>
+<script src="assets/sp-effekte.js?v=20260929153130"></script>
+</body>
+</html>

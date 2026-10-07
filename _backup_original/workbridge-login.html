@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>WorkBridge – Login & Registrierung</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --b900:#0a1f44;--b700:#1a3f8f;--b600:#1e56b0;--b500:#2563eb;--b400:#3b82f6;
+  --b100:#dbeafe;--b50:#eff6ff;
+  --g600:#16a34a;--g500:#22c55e;--g100:#dcfce7;--g50:#f0fdf4;
+  --white:#fff;--gray-50:#f8fafc;--gray-100:#f1f5f9;--gray-200:#e2e8f0;
+  --gray-400:#94a3b8;--gray-500:#64748b;--gray-700:#334155;--gray-900:#0f172a;
+}
+html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--gray-50);color:var(--gray-700)}
+
+/* LAYOUT */
+.auth-layout{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+
+/* LEFT PANEL */
+.left-panel{
+  background:linear-gradient(160deg,var(--b900) 0%,var(--b700) 60%,var(--b500) 100%);
+  display:flex;flex-direction:column;justify-content:space-between;
+  padding:48px;position:relative;overflow:hidden;
+}
+.left-panel::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='40' cy='40' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+.left-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.15}
+.left-orb.a{width:400px;height:400px;background:var(--b400);top:-100px;right:-100px;animation:pulse 6s ease-in-out infinite}
+.left-orb.b{width:300px;height:300px;background:#60a5fa;bottom:-50px;left:-50px;animation:pulse 6s ease-in-out infinite;animation-delay:-3s}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+
+.left-logo{display:flex;align-items:center;gap:10px;position:relative;z-index:1}
+.left-logo-icon{width:42px;height:42px;background:rgba(255,255,255,0.15);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,0.2);border-radius:12px;
+  display:flex;align-items:center;justify-content:center}
+.left-logo-icon svg{width:22px;height:22px;fill:white}
+.left-logo span{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:white}
+.left-logo span em{font-style:normal;color:#93c5fd}
+
+.left-content{position:relative;z-index:1}
+.left-content h2{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:800;color:white;
+  line-height:1.1;letter-spacing:-1px;margin-bottom:20px}
+.left-content h2 em{font-style:normal;color:#93c5fd}
+.left-content p{color:rgba(255,255,255,0.7);line-height:1.75;font-size:1rem;max-width:380px;margin-bottom:40px}
+
+.feature-list{list-style:none;display:flex;flex-direction:column;gap:16px}
+.feature-list li{display:flex;align-items:center;gap:14px;color:rgba(255,255,255,0.85);font-size:0.9rem}
+.fl-icon{width:36px;height:36px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);
+  border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-size:1rem;flex-shrink:0}
+
+.left-stats{display:flex;gap:32px;position:relative;z-index:1}
+.l-stat strong{display:block;font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:white}
+.l-stat span{font-size:0.78rem;color:rgba(255,255,255,0.55)}
+
+/* RIGHT PANEL */
+.right-panel{display:flex;align-items:center;justify-content:center;padding:48px 40px;background:var(--white)}
+.auth-box{width:100%;max-width:440px}
+
+.auth-tabs{display:flex;background:var(--gray-100);border-radius:12px;padding:4px;margin-bottom:36px}
+.auth-tab{flex:1;padding:10px;text-align:center;border-radius:9px;cursor:pointer;
+  font-weight:600;font-size:0.875rem;color:var(--gray-500);transition:all .2s;border:none;background:transparent;
+  font-family:'DM Sans',sans-serif}
+.auth-tab.active{background:white;color:var(--b600);box-shadow:0 1px 6px rgba(0,0,0,0.1)}
+
+.auth-header{margin-bottom:32px}
+.auth-header h3{font-family:'Syne',sans-serif;font-size:1.75rem;font-weight:800;color:var(--gray-900);
+  letter-spacing:-0.5px;margin-bottom:8px}
+.auth-header p{color:var(--gray-500);font-size:0.9rem}
+
+/* ROLE SELECTOR */
+.role-selector{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:28px}
+.role-card{border:2px solid var(--gray-200);border-radius:14px;padding:16px 10px;text-align:center;
+  cursor:pointer;transition:all .2s;background:white}
+.role-card:hover{border-color:var(--b300);background:var(--b50)}
+.role-card.selected{border-color:var(--b500);background:var(--b50)}
+.role-card input{display:none}
+.role-emoji{font-size:1.8rem;display:block;margin-bottom:6px}
+.role-label{font-size:0.78rem;font-weight:600;color:var(--gray-700)}
+.role-card.selected .role-label{color:var(--b600)}
+
+/* FORM */
+.form-group{margin-bottom:20px;position:relative}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:block;font-size:0.8rem;font-weight:600;color:var(--gray-700);margin-bottom:6px;
+  letter-spacing:0.3px;text-transform:uppercase}
+.input-wrap{position:relative}
+.input-wrap .icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  font-size:1rem;color:var(--gray-400);pointer-events:none}
+input[type=text],input[type=email],input[type=password],select{
+  width:100%;padding:13px 16px 13px 42px;border:1.5px solid var(--gray-200);border-radius:12px;
+  font-size:0.9rem;color:var(--gray-900);background:var(--gray-50);
+  transition:all .2s;outline:none;font-family:'DM Sans',sans-serif;
+  -webkit-appearance:none;appearance:none;
+}
+input:focus,select:focus{border-color:var(--b400);background:white;box-shadow:0 0 0 4px rgba(37,99,235,0.08)}
+input::placeholder{color:var(--gray-400)}
+select{padding-left:42px;cursor:pointer}
+
+.pwd-toggle{position:absolute;right:14px;top:50%;transform:translateY(-50%);
+  cursor:pointer;color:var(--gray-400);font-size:1rem;background:none;border:none;padding:0}
+
+.divider{display:flex;align-items:center;gap:12px;margin:24px 0;color:var(--gray-400);font-size:0.82rem}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--gray-200)}
+
+.social-btns{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:4px}
+.social-btn{display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:11px;border:1.5px solid var(--gray-200);border-radius:12px;
+  font-size:0.875rem;font-weight:500;cursor:pointer;transition:all .2s;
+  text-decoration:none;color:var(--gray-700);background:white}
+.social-btn:hover{border-color:var(--gray-400);background:var(--gray-50)}
+.social-icon{width:20px;height:20px;object-fit:contain}
+
+.btn-submit{
+  width:100%;padding:15px;
+  background:linear-gradient(135deg,var(--b600),var(--b500));
+  color:white;border:none;border-radius:12px;
+  font-weight:700;font-size:1rem;cursor:pointer;transition:all .2s;
+  font-family:'Syne',sans-serif;letter-spacing:0.3px;margin-top:8px;
+  box-shadow:0 4px 16px rgba(37,99,235,0.3);
+}
+.btn-submit:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(37,99,235,0.4)}
+.btn-submit:active{transform:translateY(0)}
+
+.forgot-link{text-align:right;margin-top:-12px;margin-bottom:16px}
+.forgot-link a{font-size:0.8rem;color:var(--b500);text-decoration:none}
+.forgot-link a:hover{text-decoration:underline}
+
+.terms{font-size:0.76rem;color:var(--gray-500);text-align:center;margin-top:16px;line-height:1.6}
+.terms a{color:var(--b500);text-decoration:none}
+
+.auth-switch{text-align:center;margin-top:24px;font-size:0.875rem;color:var(--gray-500)}
+.auth-switch a{color:var(--b500);font-weight:600;text-decoration:none;cursor:pointer}
+.auth-switch a:hover{text-decoration:underline}
+
+.success-msg{display:none;background:var(--g50);border:1.5px solid var(--g100);border-radius:12px;
+  padding:16px;margin-bottom:20px;color:var(--g600);font-size:0.875rem;text-align:center}
+
+/* PASSWORD STRENGTH */
+.pwd-strength{margin-top:6px;display:flex;gap:4px}
+.pwd-bar{height:3px;flex:1;background:var(--gray-200);border-radius:100px;transition:background .3s}
+.pwd-bar.weak{background:#ef4444}
+.pwd-bar.medium{background:#f59e0b}
+.pwd-bar.strong{background:var(--g500)}
+
+@media(max-width:900px){
+  .auth-layout{grid-template-columns:1fr}
+  .left-panel{display:none}
+  .right-panel{padding:32px 24px}
+}
+</style>
+</head>
+<body>
+<div class="auth-layout">
+
+  <!-- LEFT -->
+  <div class="left-panel">
+    <div class="left-orb a"></div>
+    <div class="left-orb b"></div>
+
+    <div class="left-logo">
+      <div class="left-logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      </div>
+      <span>Work<em>Bridge</em></span>
+    </div>
+
+    <div class="left-content">
+      <h2>Europas <em>smarteste</em><br/>Jobbörse wartet</h2>
+      <p>Verbinde dich mit tausenden Arbeitgebern und Talenten in allen 27 EU-Ländern – KI-gestützt, mehrsprachig, digital.</p>
+      <ul class="feature-list">
+        <li><div class="fl-icon">🤖</div>KI-Matching mit 95% Treffsicherheit</li>
+        <li><div class="fl-icon">💬</div>Live-Übersetzung in 24 Sprachen</li>
+        <li><div class="fl-icon">📄</div>Digitale Verträge & DSGVO-konform</li>
+        <li><div class="fl-icon">🚌</div>Integrierte Transportlogistik</li>
+        <li><div class="fl-icon">🌍</div>Alle 27 EU-Mitgliedsstaaten</li>
+      </ul>
+    </div>
+
+    <div class="left-stats">
+      <div class="l-stat"><strong>27+</strong><span>EU-Länder</span></div>
+      <div class="l-stat"><strong>50+</strong><span>Branchen</span></div>
+      <div class="l-stat"><strong>95%</strong><span>Match-Rate</span></div>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right-panel">
+    <div class="auth-box">
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" onclick="showLogin()">Anmelden</button>
+        <button class="auth-tab" onclick="showRegister()">Registrieren</button>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <div id="login-form">
+        <div class="auth-header">
+          <h3>Willkommen zurück 👋</h3>
+          <p>Melden Sie sich in Ihrem WorkBridge-Konto an</p>
+        </div>
+
+        <div class="social-btns">
+          <a href="#" class="social-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            Google
+          </a>
+          <a href="#" class="social-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+
+        <div class="divider">oder mit E-Mail anmelden</div>
+
+        <div class="form-group">
+          <label>E-Mail-Adresse</label>
+          <div class="input-wrap">
+            <span class="icon">✉️</span>
+            <input type="email" placeholder="name@firma.de"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Passwort</label>
+          <div class="input-wrap">
+            <span class="icon">🔒</span>
+            <input type="password" id="login-pwd" placeholder="Ihr Passwort"/>
+            <button class="pwd-toggle" onclick="togglePwd('login-pwd')">👁</button>
+          </div>
+        </div>
+        <div class="forgot-link"><a href="#">Passwort vergessen?</a></div>
+
+        <button class="btn-submit" onclick="handleLogin()">Jetzt anmelden →</button>
+
+        <div class="auth-switch">Noch kein Konto? <a onclick="showRegister()">Jetzt registrieren</a></div>
+      </div>
+
+      <!-- REGISTER FORM -->
+      <div id="register-form" style="display:none">
+        <div class="auth-header">
+          <h3>Konto erstellen 🚀</h3>
+          <p>Wählen Sie Ihr Profil und starten Sie kostenlos</p>
+        </div>
+
+        <div class="role-selector">
+          <label class="role-card selected" onclick="selectRole(this)">
+            <input type="radio" name="role" value="company" checked/>
+            <span class="role-emoji">🏢</span>
+            <span class="role-label">Unternehmen</span>
+          </label>
+          <label class="role-card" onclick="selectRole(this)">
+            <input type="radio" name="role" value="recruiter"/>
+            <span class="role-emoji">🤝</span>
+            <span class="role-label">Vermittler</span>
+          </label>
+          <label class="role-card" onclick="selectRole(this)">
+            <input type="radio" name="role" value="applicant"/>
+            <span class="role-emoji">👤</span>
+            <span class="role-label">Bewerber</span>
+          </label>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Vorname</label>
+            <div class="input-wrap">
+              <span class="icon">👤</span>
+              <input type="text" placeholder="Max"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Nachname</label>
+            <div class="input-wrap">
+              <span class="icon">👤</span>
+              <input type="text" placeholder="Mustermann"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>E-Mail-Adresse</label>
+          <div class="input-wrap">
+            <span class="icon">✉️</span>
+            <input type="email" placeholder="name@firma.de"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Land</label>
+          <div class="input-wrap">
+            <span class="icon">🌍</span>
+            <select>
+              <option>🇩🇪 Deutschland</option>
+              <option>🇦🇹 Österreich</option>
+              <option>🇨🇭 Schweiz</option>
+              <option>🇷🇴 Rumänien</option>
+              <option>🇵🇱 Polen</option>
+              <option>🇮🇹 Italien</option>
+              <option>🇫🇷 Frankreich</option>
+              <option>🇪🇸 Spanien</option>
+              <option>🇳🇱 Niederlande</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Passwort wählen</label>
+          <div class="input-wrap">
+            <span class="icon">🔒</span>
+            <input type="password" id="reg-pwd" placeholder="Mindestens 8 Zeichen" oninput="checkStrength(this.value)"/>
+            <button class="pwd-toggle" onclick="togglePwd('reg-pwd')">👁</button>
+          </div>
+          <div class="pwd-strength">
+            <div class="pwd-bar" id="bar1"></div>
+            <div class="pwd-bar" id="bar2"></div>
+            <div class="pwd-bar" id="bar3"></div>
+          </div>
+        </div>
+
+        <button class="btn-submit" onclick="handleRegister()">Kostenlos registrieren →</button>
+
+        <p class="terms">Mit der Registrierung stimmen Sie den <a href="#">AGB</a> und der <a href="#">Datenschutzerklärung</a> zu.</p>
+        <div class="auth-switch">Bereits ein Konto? <a onclick="showLogin()">Jetzt anmelden</a></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+const tabs = document.querySelectorAll('.auth-tab');
+function showLogin(){
+  document.getElementById('login-form').style.display='block';
+  document.getElementById('register-form').style.display='none';
+  tabs[0].classList.add('active');tabs[1].classList.remove('active');
+}
+function showRegister(){
+  document.getElementById('login-form').style.display='none';
+  document.getElementById('register-form').style.display='block';
+  tabs[1].classList.add('active');tabs[0].classList.remove('active');
+}
+function selectRole(el){
+  document.querySelectorAll('.role-card').forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+}
+function togglePwd(id){
+  const f=document.getElementById(id);
+  f.type=f.type==='password'?'text':'password';
+}
+function checkStrength(v){
+  const bars=[document.getElementById('bar1'),document.getElementById('bar2'),document.getElementById('bar3')];
+  bars.forEach(b=>{b.className='pwd-bar'});
+  if(v.length>=4){bars[0].classList.add('weak')}
+  if(v.length>=8){bars[1].classList.add('medium')}
+  if(v.length>=12&&/[A-Z]/.test(v)&&/[0-9]/.test(v)){bars[0].classList.add('strong');bars[1].classList.add('strong');bars[2].classList.add('strong')}
+}
+function handleLogin(){
+  window.location.href='workbridge-dashboard.html';
+}
+function handleRegister(){
+  window.location.href='workbridge-dashboard.html';
+}
+</script>
+</body>
+</html>

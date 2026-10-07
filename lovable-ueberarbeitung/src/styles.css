@@ -1,0 +1,402 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/barlow/600.css";
+@import "@fontsource/barlow/700.css";
+@import "@fontsource/barlow-condensed/600.css";
+@import "@fontsource/barlow-condensed/700.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Barlow", "Inter", ui-sans-serif, sans-serif;
+  --font-tafel: "Barlow Condensed", "Barlow", ui-sans-serif, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --shadow-soft: var(--shadow-soft);
+  --shadow-lift: var(--shadow-lift);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.983 0.004 197);
+  --surface: oklch(0.96 0.008 197);
+  --foreground: oklch(0.25 0.012 210);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.25 0.012 210);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.25 0.012 210);
+  --primary: oklch(0.89 0.16 93);
+  --primary-hover: oklch(0.83 0.16 90);
+  --primary-foreground: oklch(0.25 0.012 210);
+  --secondary: oklch(0.96 0.008 197);
+  --secondary-foreground: oklch(0.25 0.012 210);
+  --muted: oklch(0.96 0.008 197);
+  --muted-foreground: oklch(0.43 0.014 205);
+  --accent: oklch(0.92 0.011 205);
+  --accent-foreground: oklch(0.25 0.012 210);
+  --destructive: oklch(0.52 0.16 25);
+  --destructive-foreground: oklch(1 0 0);
+  --success: oklch(0.5 0.1 168);
+  --success-foreground: oklch(1 0 0);
+  --info: oklch(0.48 0.08 197);
+  --info-foreground: oklch(1 0 0);
+  --ink: oklch(0.25 0.012 210);
+  --ink-foreground: oklch(0.983 0.004 197);
+  --border: oklch(0.92 0.011 205);
+  --input: oklch(0.6 0.014 205);
+  --ring: oklch(0.48 0.08 197);
+  --shadow-soft: 0 1px 2px oklch(0.25 0.012 210 / 0.04), 0 8px 24px -12px oklch(0.25 0.012 210 / 0.12);
+  --shadow-lift: 0 2px 4px oklch(0.25 0.012 210 / 0.05), 0 20px 40px -16px oklch(0.25 0.012 210 / 0.2);
+}
+
+.dark {
+  --background: oklch(0.21 0.011 210);
+  --surface: oklch(0.25 0.012 210);
+  --foreground: oklch(0.96 0.008 197);
+  --card: oklch(0.27 0.013 207);
+  --card-foreground: oklch(0.96 0.008 197);
+  --popover: oklch(0.27 0.013 207);
+  --popover-foreground: oklch(0.96 0.008 197);
+  --primary: oklch(0.89 0.16 93);
+  --primary-hover: oklch(0.83 0.16 90);
+  --primary-foreground: oklch(0.25 0.012 210);
+  --secondary: oklch(0.32 0.015 205);
+  --secondary-foreground: oklch(0.96 0.008 197);
+  --muted: oklch(0.32 0.015 205);
+  --muted-foreground: oklch(0.78 0.012 205);
+  --accent: oklch(0.39 0.014 205);
+  --accent-foreground: oklch(0.96 0.008 197);
+  --destructive: oklch(0.65 0.16 25);
+  --destructive-foreground: oklch(0.2 0.01 210);
+  --success: oklch(0.7 0.11 168);
+  --success-foreground: oklch(0.2 0.01 210);
+  --info: oklch(0.72 0.09 197);
+  --info-foreground: oklch(0.2 0.01 210);
+  --ink: oklch(0.16 0.01 210);
+  --ink-foreground: oklch(0.96 0.008 197);
+  --border: oklch(0.36 0.014 205);
+  --input: oklch(0.6 0.014 205);
+  --ring: oklch(0.89 0.16 93);
+  --shadow-soft: 0 1px 2px oklch(0 0 0 / 0.2), 0 8px 24px -12px oklch(0 0 0 / 0.5);
+  --shadow-lift: 0 2px 4px oklch(0 0 0 / 0.25), 0 20px 40px -16px oklch(0 0 0 / 0.6);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+  :focus-visible { outline: 2px solid var(--color-ring); outline-offset: 2px; }
+}
+
+@utility container-page {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media (min-width: 640px) { padding-inline: 1.5rem; }
+}
+@utility prose-measure { max-width: 70ch; }
+@utility card-base {
+  background-color: var(--color-card);
+  color: var(--color-card-foreground);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft);
+}
+@utility field {
+  width: 100%;
+  height: 2.75rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-input);
+  background-color: var(--glas-stark);
+  color: var(--color-foreground);
+  padding-inline: 0.875rem;
+  font-size: 1rem;
+  transition: border-color .15s, box-shadow .15s;
+  &:focus { outline: none; border-color: var(--color-ring); box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-ring) 25%, transparent); }
+}
+@utility hero-glow {
+  background:
+    radial-gradient(60% 60% at 85% 10%, color-mix(in oklab, var(--color-primary) 30%, transparent), transparent 70%),
+    radial-gradient(50% 50% at 0% 100%, color-mix(in oklab, var(--color-info) 18%, transparent), transparent 70%);
+}
+@utility fade-up {
+  animation: fade-up .6s cubic-bezier(.2,.7,.2,1) both;
+}
+@keyframes fade-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+
+@layer base {
+  mark.platzhalter { background-color: var(--color-primary); color: var(--color-primary-foreground); border-radius: 0.25rem; padding-inline: 0.2em; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
+}
+
+/* ---------- Türkis – Hauptfarbe der Marke (aus dem Logo, #448C92) ---------- */
+@theme inline {
+  --color-tuerkis-50: #eef7f7;
+  --color-tuerkis-100: #d9eeef;
+  --color-tuerkis-200: #b3dcde;
+  --color-tuerkis-300: #84c2c5;
+  --color-tuerkis-400: #5aa6ab;
+  --color-tuerkis-500: #448c92;
+  --color-tuerkis-600: #2f767c;
+  --color-tuerkis-700: #1f6166;
+  --color-tuerkis-800: #164d52;
+  --color-tuerkis-900: #0e3a3e;
+  --color-tuerkis-950: #082a2d;
+  --color-tint: var(--tint);
+  --color-tint-foreground: var(--tint-foreground);
+}
+:root {
+  --tint: #eef7f7;
+  --tint-foreground: #164d52;
+  --info: #1f6166;
+  --ring: #2f767c;
+}
+.dark {
+  --tint: #10363a;
+  --tint-foreground: #b3dcde;
+  --info: #84c2c5;
+}
+
+/* Türkisfläche mit feinem Punktraster („Netzwerk“) und goldenem Schimmer */
+@utility flaeche-tuerkis {
+  color: #ffffff;
+  background-color: var(--color-tuerkis-800);
+  background-image:
+    radial-gradient(circle at 1px 1px, rgb(255 255 255 / 0.09) 1px, transparent 0),
+    radial-gradient(55% 70% at 88% 0%, color-mix(in oklab, var(--color-primary) 22%, transparent), transparent 70%),
+    radial-gradient(60% 80% at 0% 100%, color-mix(in oklab, var(--color-tuerkis-400) 45%, transparent), transparent 70%),
+    linear-gradient(135deg, var(--color-tuerkis-900), var(--color-tuerkis-700));
+  background-size: 22px 22px, auto, auto, auto;
+}
+/* Helle Fläche mit leichtem Türkis- und Goldschimmer – Standard für Seitenköpfe */
+@utility flaeche-hell {
+  position: relative;
+  isolation: isolate;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--color-tuerkis-500) 18%, transparent) 1px, transparent 0);
+    background-size: 24px 24px;
+    -webkit-mask-image: radial-gradient(80% 90% at 50% 0%, #000 30%, transparent 75%);
+    mask-image: radial-gradient(80% 90% at 50% 0%, #000 30%, transparent 75%);
+  }
+}
+/* Platzhalter, solange kein Foto hochgeladen ist */
+@utility foto-platzhalter {
+  /* warm: Gold oben, helles Türkis unten – kein kühles Punktraster */
+  background-image:
+    radial-gradient(70% 60% at 30% 20%, color-mix(in oklab, var(--color-primary) 38%, transparent), transparent 70%),
+    linear-gradient(160deg, #fdf7e6, var(--color-tuerkis-100));
+}
+
+/* ---------- Glas-Design (Oktober 2026) ----------
+   Regeln: Glas nur für Bedienelemente und Karten (Navigation, Knöpfe, Suchfeld, Profilkarten).
+   Gold bleibt die Farbe der Hauptaktion, Türkis die Markenfarbe – beide sparsam.
+   Damit Glas wirkt, liegt hinter der Seite ein ruhiger Farbverlauf („aurora“). */
+:root {
+  --glas: rgb(255 255 255 / 0.62);
+  --glas-stark: rgb(255 255 255 / 0.86);
+  --glas-rand: rgb(255 255 255 / 0.75);
+  --glas-linie: oklch(0.25 0.012 210 / 0.08);
+  --glas-licht: rgb(255 255 255 / 0.9);
+  --background: #f3f7f7;
+  --shadow-soft: 0 0 0 1px oklch(0.25 0.012 210 / 0.05), 0 1px 2px oklch(0.25 0.012 210 / 0.04), 0 12px 32px -16px oklch(0.3 0.04 200 / 0.22);
+  --shadow-lift: 0 0 0 1px oklch(0.25 0.012 210 / 0.06), 0 2px 6px oklch(0.25 0.012 210 / 0.05), 0 28px 56px -24px oklch(0.3 0.05 200 / 0.35);
+}
+.dark {
+  --glas: rgb(30 44 47 / 0.55);
+  --glas-stark: rgb(30 44 47 / 0.78);
+  --glas-rand: rgb(255 255 255 / 0.09);
+  --glas-linie: rgb(255 255 255 / 0.08);
+  --glas-licht: rgb(255 255 255 / 0.07);
+  --shadow-soft: 0 0 0 1px rgb(0 0 0 / 0.2), 0 12px 32px -16px rgb(0 0 0 / 0.6);
+  --shadow-lift: 0 0 0 1px rgb(0 0 0 / 0.25), 0 28px 56px -24px rgb(0 0 0 / 0.75);
+}
+
+@layer base {
+  body { background-color: var(--color-background); }
+  /* Ruhiger Farbverlauf hinter allem – bleibt beim Scrollen stehen */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(42rem 30rem at 8% -6%, color-mix(in oklab, var(--color-tuerkis-300) 42%, transparent), transparent 70%),
+      radial-gradient(36rem 26rem at 96% 4%, color-mix(in oklab, var(--color-primary) 30%, transparent), transparent 70%),
+      radial-gradient(48rem 34rem at 60% 108%, color-mix(in oklab, var(--color-tuerkis-200) 55%, transparent), transparent 70%);
+  }
+  .dark body::before {
+    background:
+      radial-gradient(42rem 30rem at 8% -6%, color-mix(in oklab, var(--color-tuerkis-700) 55%, transparent), transparent 70%),
+      radial-gradient(36rem 26rem at 96% 4%, color-mix(in oklab, var(--color-primary) 10%, transparent), transparent 70%),
+      radial-gradient(48rem 34rem at 60% 108%, color-mix(in oklab, var(--color-tuerkis-800) 60%, transparent), transparent 70%);
+  }
+  h1 { letter-spacing: -0.035em; text-wrap: balance; }
+  h2 { letter-spacing: -0.03em; text-wrap: balance; }
+}
+
+/* Glas für schwebende Leisten (Kopfzeile, App-Leiste, Wisch-Knöpfe) – etwas dichter */
+@utility glas-leiste {
+  background-color: var(--glas-stark);
+  border: 1px solid var(--glas-rand);
+  box-shadow: inset 0 1px 0 var(--glas-licht), var(--shadow-lift);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+}
+/* Kleines Glaselement (Chips, Symbol-Kacheln, Zweitknöpfe) */
+@utility glas-knopf {
+  background-color: var(--glas);
+  border: 1px solid var(--glas-rand);
+  box-shadow: inset 0 1px 0 var(--glas-licht), var(--shadow-soft);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  backdrop-filter: blur(14px) saturate(160%);
+}
+/* Goldener Hauptknopf mit Glanzkante */
+@utility knopf-gold {
+  background-image: linear-gradient(180deg, color-mix(in oklab, var(--color-primary) 70%, white), var(--color-primary) 55%);
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.7), inset 0 -1px 0 rgb(0 0 0 / 0.06), 0 1px 2px rgb(120 90 0 / 0.18), 0 8px 20px -10px rgb(180 140 0 / 0.55);
+}
+
+/* Fester Untergrund, wo Glas stören würde (gestapelte Wischkarten, Dialoge) */
+@layer utilities {
+  .karte-fest.karte-fest {
+    background-color: var(--color-card);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+/* ---------- Abfahrtstafel (Oktober 2026) ----------
+   Welt: helle Bahnhofshalle unter Glasdach. Gold = gelber Abfahrtsplan (Hauptaktion),
+   Türkis = Wegeleitung (Gleisnummern, Linienplan, Links). Eine dunkle Tafel als Objekt. */
+@theme inline {
+  --color-tafel: var(--tafel);
+  --color-tafel-zeile: var(--tafel-zeile);
+  --color-tafel-text: var(--tafel-text);
+  --color-tafel-leise: var(--tafel-leise);
+}
+:root {
+  --radius: 0.625rem;
+  /* dunkle Fläche (Schlussaufruf): neutral graphit statt grün */
+  --tafel: #1d2426;
+  --tafel-zeile: #283133;
+  --tafel-text: #f4f6f6;
+  --tafel-leise: #b4c0c1;
+  --border: oklch(0.9 0.012 205);
+}
+.dark {
+  --tafel: #151b1c;
+  --tafel-zeile: #1f2729;
+}
+@layer base {
+  h1, h2, h3, h4 { letter-spacing: -0.015em; font-weight: 700; }
+  h1 { letter-spacing: -0.02em; }
+  ::selection { background-color: color-mix(in oklab, var(--color-primary) 70%, transparent); color: var(--color-ink); }
+  input, textarea { caret-color: var(--color-tuerkis-600); }
+  html { scrollbar-color: color-mix(in oklab, var(--color-tuerkis-700) 45%, transparent) transparent; }
+  a { text-underline-offset: 0.2em; }
+  body::before { opacity: 0.6; }
+}
+/* Schrift der Tafel: schmal, Ziffern gleich breit */
+@utility schrift-tafel {
+  font-family: var(--font-tafel);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+/* Klappbuchstabe: jedes Zeichen klappt von oben herunter, Zeichen für Zeichen versetzt */
+@utility klapp {
+  display: inline-block;
+  transform-origin: 50% 0;
+  animation: klappen 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes klappen {
+  0% { transform: perspective(300px) rotateX(-92deg); opacity: 0; filter: brightness(1.8); }
+  60% { opacity: 1; }
+  100% { transform: none; opacity: 1; filter: none; }
+}
+/* Gleisschild: Türkis-Quadrat mit weißer Ziffer/Text */
+@utility gleis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.75rem;
+  height: 1.75rem;
+  padding-inline: 0.375rem;
+  border-radius: 0.375rem;
+  background-color: var(--color-tuerkis-700);
+  color: #fff;
+  font-family: var(--font-tafel);
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+/* Karten mischen sich neu ein, wenn sich die Suche ändert */
+@utility karte-rein {
+  animation: karte-rein 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes karte-rein {
+  from { translate: 0 -28px; rotate: -5deg; scale: 0.92; opacity: 0; }
+  to { translate: 0 0; rotate: 0deg; scale: 1; opacity: 1; }
+}

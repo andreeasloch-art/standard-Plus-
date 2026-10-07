@@ -1,0 +1,32 @@
+STANDARD PLUS - SO LADEN SIE DIE SEITE HOCH
+===========================================
+
+1. WAS HOCHGELADEN WIRD
+   Nur den INHALT des Ordners "webspace" in das Hauptverzeichnis
+   Ihres Webspace (meist "htdocs", "public_html" oder "/").
+   Wichtig: Auch die unsichtbaren Dateien ".htaccess" und den Ordner
+   ".well-known" mit hochladen. Im FTP-Programm (z. B. FileZilla)
+   unter "Server" -> "Anzeigen versteckter Dateien erzwingen".
+
+2. HTTPS EINSCHALTEN
+   Im Kundenbereich Ihres Anbieters das kostenlose SSL-Zertifikat
+   (Let's Encrypt) fuer Ihre Domain aktivieren. Die Seite leitet danach
+   automatisch auf https um.
+
+3. PRUEFEN
+   - https://IHRE-DOMAIN/            -> Startseite erscheint
+   - https://IHRE-DOMAIN/en/         -> englische Startseite
+   - https://securityheaders.com     -> Ihre Domain eingeben, Ziel: Note A
+   - https://IHRE-DOMAIN/.well-known/security.txt  -> Text erscheint
+
+4. ANBIETER OHNE APACHE
+   - Netlify / Cloudflare Pages: "webspace" hochladen, _headers wirkt automatisch.
+   - nginx (eigener Server): server-einstellungen/nginx.conf einbinden.
+
+5. VOR DEM START UNBEDINGT
+   - Impressum, Datenschutzerklaerung und AGB anwaltlich pruefen lassen.
+   - Mit dem Hosting-Anbieter einen Auftragsverarbeitungsvertrag (AVV)
+     abschliessen - bei deutschen Anbietern im Kundenbereich per Klick.
+   - Server-Protokolle beim Anbieter pruefen: Die Datenschutzerklaerung nennt
+     gekuerzte IP-Adressen und 14 Tage Speicherdauer. Stimmt das nicht,
+     Text anpassen oder Einstellung aendern.

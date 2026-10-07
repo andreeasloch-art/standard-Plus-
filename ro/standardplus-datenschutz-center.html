@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0a8086"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Standard Plus"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<link rel="apple-touch-icon" href="../assets/app/apple-touch-icon.png"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<!-- Hinweis: frame-ancestors, HSTS, X-Content-Type-Options und Permissions-Policy
+     wirken nur als HTTP-Kopfzeilen. Sie stehen in assets/security-headers.conf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Centrul de confidențialitate – Standard Plus</title>
+<link rel="stylesheet" href="../assets/sp-theme.css?v=20260929153130"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a9296'/%3E%3Cpath d='M9 10l6 6-6 6M18 10l6 6-6 6' stroke='%23ffd84d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
+<link rel="alternate" hreflang="de" href="../standardplus-datenschutz-center.html"/>
+<link rel="alternate" hreflang="en" href="../en/standardplus-datenschutz-center.html"/>
+<link rel="alternate" hreflang="ro" href="standardplus-datenschutz-center.html"/>
+</head>
+<body data-protected>
+<a class="sp-skip" href="#main">Salt la conținut</a>
+
+<header class="sp-header">
+  <div class="sp-header-in">
+    <a class="sp-logo" href="standardplus-dashboard.html">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Centrul de confidențialitate</span>
+    </a>
+    <nav aria-label="Navigare principală">
+      <ul class="sp-nav">
+        <li><a href="standardplus-talente.html" data-nav>Angajați</a></li>
+        <li><a href="standardplus-unternehmen.html" data-nav>Companii</a></li>
+        <li><a href="standardplus-main.html#ablauf">Cum funcționează</a></li>
+        <li><a href="standardplus-preise.html" data-nav>Prețuri</a></li>
+      </ul>
+    </nav>
+    <div class="sp-header-act">
+      <a class="btn btn-primary btn-sm" href="standardplus-login.html" hidden data-anon>Autentificare</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-dashboard.html" hidden data-auth>Panou</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-profil.html" hidden data-auth>Profilul meu</a>
+      <button class="btn btn-outline btn-sm" type="button" data-logout hidden data-auth>
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-logout"></use></svg>Deconectare</button>
+      <button class="iconbtn sp-burger" type="button" aria-label="Deschide meniul" aria-expanded="false">
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  
+  </div>
+</header>
+
+<main class="legal" id="main">
+  <h1>Centrul de confidențialitate</h1>
+  <p class="lede mb24">Aici vedeți ce date există despre contul dumneavoastră, cine le-a accesat și vă puteți exercita drepturile – fără a trece prin asistență.</p>
+
+  <div class="card card-pad mb32">
+    <div class="flex ai-c g14 wrapf">
+      <span class="ava ava-lg gold"><span data-initials>SP</span></span>
+      <div class="grow">
+        <h2 class="h3" data-user>Cont autentificat</h2>
+        <p class="small muted" data-org>Companii</p>
+      </div>
+      <span class="tag tag-ok"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-fingerprint"></use></svg>Autentificare în doi pași activă</span>
+      <span class="tag tag-teal"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-clock"></use></svg>Blocare după 15 min.</span>
+    </div>
+  </div>
+
+  <!-- ---------- EINWILLIGUNGEN ---------- -->
+  <h2>Consimțăminte</h2>
+  <p>Selecția dumneavoastră actuală. Modificările au efect imediat și sunt înregistrate cu marcaj temporal (art. 7 alin. (1) GDPR).</p>
+  <div id="consent-status" class="mb16"></div>
+  <div class="flex wrapf g10 mb32">
+    <button class="btn btn-primary btn-sm" type="button" data-consent>
+      <svg class="ic ic-sm" aria-hidden="true"><use href="#i-sliders"></use></svg>Modifică setările</button>
+    <button class="btn btn-outline btn-sm" type="button" id="btn-widerruf">
+      <svg class="ic ic-sm" aria-hidden="true"><use href="#i-x"></use></svg>Retrage toate consimțămintele</button>
+  </div>
+
+  <!-- ---------- IHRE RECHTE ---------- -->
+  <h2>Exercitați-vă drepturile</h2>
+
+  <div class="dsg-row">
+    <svg class="ic ic-lg" aria-hidden="true"><use href="#i-eye"></use></svg>
+    <div class="grow">
+      <h3>Acces conform art. 15 GDPR</h3>
+      <p class="small muted">Prezentarea tuturor datelor stocate despre dumneavoastră, a scopurilor, destinatarilor și termenelor de păstrare. Procesare în termen de o lună.</p>
+    </div>
+    <button class="btn btn-outline btn-sm" type="button" id="btn-auskunft">Solicită</button>
+  </div>
+
+  <div class="dsg-row">
+    <svg class="ic ic-lg" aria-hidden="true"><use href="#i-download"></use></svg>
+    <div class="grow">
+      <h3>Portabilitatea datelor conform art. 20 GDPR</h3>
+      <p class="small muted">Export în format JSON citibil automat, pentru transmitere către alt furnizor. Generat direct în browserul dumneavoastră.</p>
+    </div>
+    <button class="btn btn-primary btn-sm" type="button" id="btn-export">Creează exportul</button>
+  </div>
+
+  <div class="dsg-row">
+    <svg class="ic ic-lg" aria-hidden="true"><use href="#i-refresh"></use></svg>
+    <div class="grow">
+      <h3>Rectificare conform art. 16 GDPR</h3>
+      <p class="small muted">Corectarea informațiilor incorecte din profil, calificări sau datele de contact.</p>
+    </div>
+    <button class="btn btn-outline btn-sm" type="button" id="btn-berichtigung">Raportează o corectură</button>
+  </div>
+
+  <div class="dsg-row">
+    <svg class="ic ic-lg ic-err" aria-hidden="true"><use href="#i-trash"></use></svg>
+    <div class="grow">
+      <h3>Ștergere conform art. 17 GDPR</h3>
+      <p class="small muted">Eliminarea definitivă a contului și a datelor de profil. Datele de facturare rămân stocate până la zece ani din cauza obligațiilor legale de păstrare și sunt blocate în acest timp.</p>
+    </div>
+    <button class="btn btn-outline btn-sm" type="button" id="btn-loeschen">Șterge contul</button>
+  </div>
+
+  <!-- ---------- ZUGRIFFE ---------- -->
+  <h2>Cine v-a accesat profilul?</h2>
+  <p>Fiecare accesare a datelor cu caracter personal este înregistrată. Companiile văd doar profilurile pentru care există o aprobare sau o cerere deschisă.</p>
+  <div class="tbl-wrap mb32">
+    <table class="tbl">
+      <thead><tr><th>Moment</th><th>Cine a accesat</th><th>Motiv</th><th>Volum</th></tr></thead>
+      <tbody>
+        <tr><td>azi, 09:41</td><td>Musterklinikum Berlin</td><td>post deschis terapie intensivă</td><td><span class="tag tag-teal">pseudonimizat</span></td></tr>
+        <tr><td>ieri, 16:02</td><td>Musterbau AG</td><td>Pregătire interviu</td><td><span class="tag tag-gold">după aprobare</span></td></tr>
+        <tr><td>ieri, 11:18</td><td>Asistență Standard Plus</td><td>Tichet 4821, la cererea dumneavoastră</td><td><span class="tag">Date de bază</span></td></tr>
+        <tr><td>acum 3 zile, 08:55</td><td>TechCorp GmbH</td><td>Rezultat al căutării</td><td><span class="tag tag-teal">pseudonimizat</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ---------- GERAETE ---------- -->
+  <h2>Dispozitive autentificate</h2>
+  <div class="tbl-wrap mb16">
+    <table class="tbl">
+      <thead><tr><th>Dispozitiv</th><th>Locație</th><th>Ultima activitate</th><th></th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="flex ai-c g8"><svg class="ic ic-sm ic-teal" aria-hidden="true"><use href="#i-monitor"></use></svg>Acest dispozitiv</span></td>
+          <td>Germania</td><td>acum</td>
+          <td><span class="tag tag-ok">activ</span></td>
+        </tr>
+        <tr>
+          <td><span class="flex ai-c g8"><svg class="ic ic-sm ic-muted" aria-hidden="true"><use href="#i-monitor"></use></svg>Calculator de birou</span></td>
+          <td>Germania</td><td>acum 2 zile</td>
+          <td><button class="btn btn-outline btn-sm" type="button" data-abmelden="B&uuml;ro-Rechner">Deconectare</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted mb32">Nu recunoașteți un dispozitiv? Deconectați-l, schimbați parola și informați [security@ihre-domain.de].</p>
+
+  <!-- ---------- PROTOKOLL ---------- -->
+  <h2>Jurnalul acestei sesiuni</h2>
+  <p>Toate acțiunile efectuate în această sesiune. Înregistrarea rămâne exclusiv în browserul dumneavoastră și este ștearsă la închidere.</p>
+  <div class="log mb16" id="protokoll">Nicio înregistrare încă.</div>
+  <div class="flex wrapf g10 mb32">
+    <button class="btn btn-outline btn-sm" type="button" id="btn-log-neu">
+      <svg class="ic ic-sm" aria-hidden="true"><use href="#i-refresh"></use></svg>Actualizează</button>
+    <button class="btn btn-outline btn-sm" type="button" id="btn-log-export">
+      <svg class="ic ic-sm" aria-hidden="true"><use href="#i-download"></use></svg>Descarcă jurnalul</button>
+  </div>
+
+  <div class="notice notice-info">
+    <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+    <span>Pentru întrebări, responsabilul nostru cu protecția datelor este disponibil la [datenschutz@ihre-domain.de]. Dreptul dumneavoastră de a depune o plângere la autoritatea de supraveghere rămâne neafectat.</span>
+  </div>
+</main>
+
+<!-- ---------- BESTAETIGUNG LOESCHUNG ---------- -->
+<div class="modal" id="modal-loeschen" role="alertdialog" aria-labelledby="ml-h" aria-modal="true">
+  <div class="modal-box">
+    <h2 id="ml-h"><svg class="ic ic-lg ic-err" aria-hidden="true"><use href="#i-alert"></use></svg>Sigur doriți să ștergeți contul?</h2>
+    <p>Profilul, mesajele și toate aprobările vor fi eliminate definitiv. Plasările în curs vor fi anulate. Datele de facturare rămân stocate și blocate până la expirarea termenului legal de păstrare.</p>
+    <div class="field mt20">
+      <label for="bestaetigung">Pentru confirmare, introduceți <b>ȘTERGE</b></label>
+      <div class="inp-wrap">
+        <svg class="ic" aria-hidden="true"><use href="#i-key"></use></svg>
+        <input class="inp" type="text" id="bestaetigung" autocomplete="off" maxlength="20"/>
+      </div>
+    </div>
+    <div class="flex g10 mt20">
+      <button class="btn btn-danger f1" type="button" id="loeschen-ok" disabled>Șterge definitiv</button>
+      <button class="btn btn-outline f1" type="button" id="loeschen-ab">Anulează</button>
+    </div>
+  </div>
+</div>
+
+<footer class="sp-foot">
+  <div class="wrap">
+    <div class="foot-bot">
+      <span>© 2026 Standard Plus. Toate drepturile rezervate.</span>
+      <span class="foot-seal">
+        <a class="seal" href="standardplus-dashboard.html"><svg class="ic" aria-hidden="true"><use href="#i-grid"></use></svg>Panou</a>
+        <a class="seal" href="standardplus-datenschutz.html"><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>Confidențialitate</a>
+        <a class="seal" href="standardplus-sicherheit.html"><svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg>Securitate</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/sp-i18n-ro.js?v=20260929153130"></script>
+<script src="../assets/sp-icons.js?v=20260929153130"></script>
+<script src="../assets/sp-app.js?v=20260929153130"></script>
+<script src="../assets/sp-db.js?v=20260929153130"></script>
+<script src="../assets/sp-center.js?v=20260929153130"></script>
+<script src="../assets/sp-effekte.js?v=20260929153130"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "Standard Plus Personalvermittlung",
+  "short_name": "Standard Plus",
+  "description": "Fachkräfte aus ganz Europa finden: suchen, wischen, zum Interview einladen.",
+  "lang": "de",
+  "dir": "ltr",
+  "id": "/",
+  "start_url": "/?quelle=app",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#f6fafa",
+  "theme_color": "#1f6166",
+  "categories": ["business", "productivity"],
+  "icons": [
+    { "src": "/app/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/app/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/app/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Fachkräfte wischen", "short_name": "Wischen", "url": "/talente", "icons": [{ "src": "/app/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Favoriten", "url": "/favoriten", "icons": [{ "src": "/app/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Dashboard", "url": "/dashboard", "icons": [{ "src": "/app/icon-192.png", "sizes": "192x192" }] }
+  ]
+}

@@ -1,0 +1,13 @@
+# Mac-Systemdateien
+.DS_Store
+._*
+
+# Fertige Upload-Pakete (werden bei Bedarf neu erzeugt)
+StandardPlus-Upload.zip
+StandardPlus-App.zip
+*.zip
+
+# Python-Zwischenstand
+__pycache__/
+*.pyc
+.venv/

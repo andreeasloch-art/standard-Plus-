@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#0a8086"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Standard Plus"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<link rel="apple-touch-icon" href="../assets/app/apple-touch-icon.png"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<!-- Hinweis: frame-ancestors, HSTS, X-Content-Type-Options und Permissions-Policy
+     wirken nur als HTTP-Kopfzeilen. Sie stehen in assets/security-headers.conf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'"/>
+<meta name="description" content="Describe in your own words who or what you are looking for - Standard Plus suggests matching profiles and explains every suggestion."/>
+<title>Search – Standard Plus</title>
+<link rel="stylesheet" href="../assets/sp-theme.css?v=20260929153130"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a9296'/%3E%3Cpath d='M9 10l6 6-6 6M18 10l6 6-6 6' stroke='%23ffd84d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
+<link rel="alternate" hreflang="de" href="../standardplus-suche.html"/>
+<link rel="alternate" hreflang="en" href="standardplus-suche.html"/>
+<link rel="alternate" hreflang="ro" href="../ro/standardplus-suche.html"/>
+</head>
+<body>
+<a class="sp-skip" href="#main">Skip to content</a>
+
+<header class="sp-header">
+  <div class="sp-header-in">
+    <a class="sp-logo" href="standardplus-main.html">
+      <span class="sp-word"><span class="sp-standard">Standard</span><span class="sp-plusbox">Plus<span class="sp-nock" aria-hidden="true"></span></span><span class="sp-arrow" aria-hidden="true"></span></span>
+      <span class="sp-logo-sub">Recruitment</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="sp-nav">
+        <li><a href="standardplus-talente.html" data-nav>Workers</a></li>
+        <li><a href="standardplus-unternehmen.html" data-nav>Companies</a></li>
+        <li><a href="standardplus-main.html#ablauf">How it works</a></li>
+        <li><a href="standardplus-preise.html" data-nav>Pricing</a></li>
+      </ul>
+    </nav>
+    <div class="sp-header-act">
+      <a class="btn btn-primary btn-sm" href="standardplus-login.html" hidden data-anon>Sign in</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-dashboard.html" hidden data-auth>Dashboard</a>
+      <a class="btn btn-outline btn-sm" href="standardplus-profil.html" hidden data-auth>My profile</a>
+      <button class="btn btn-outline btn-sm" type="button" data-logout hidden data-auth>
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-logout"></use></svg>Sign out</button>
+      <button class="iconbtn sp-burger" type="button" aria-label="Open menu" aria-expanded="false">
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  
+  </div>
+</header>
+
+<main id="main">
+<section class="sec-tight seitenkopf">
+  <div class="wrap">
+    <span class="eyebrow"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-search"></use></svg>Search</span>
+    <h1 class="h2">Simply describe what you are looking for</h1>
+    <p class="lede mb24">No form, no filters. Write in your own words – you get matching suggestions straight away, each with a reason.</p>
+
+    <div class="suchbox">
+      <label class="hp" for="frage">What are you looking for?</label>
+      <textarea class="suchfeld" id="frage" rows="3" maxlength="400"
+        placeholder="For example: I'm looking for a foreman for Munich, at least 5 years of experience, good German, available immediately if possible."></textarea>
+      <div class="suchzeile">
+        <div class="richtung" role="group" aria-label="Search direction">
+          <button type="button" id="r-an" aria-pressed="true">
+            <svg class="ic" aria-hidden="true"><use href="#i-users"></use></svg>I'm looking for workers</button>
+          <button type="button" id="r-ag" aria-pressed="false">
+            <svg class="ic" aria-hidden="true"><use href="#i-building"></use></svg>I'm looking for a company</button>
+        </div>
+        <button class="btn btn-primary ml-auto" type="button" id="suchen">
+          <svg class="ic" aria-hidden="true"><use href="#i-search"></use></svg>Show suggestions</button>
+      </div>
+    </div>
+
+    <div class="beispiele" id="beispiele"></div>
+  </div>
+</section>
+
+<section class="sec-tight">
+  <div class="wrap">
+    <div id="verstanden" class="mb24"></div>
+    <div id="ergebnisse"></div>
+
+    <div class="notice notice-info mt24">
+      <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+      <span><b>How it works:</b> Your text is searched for known terms – occupations, sectors, places, language levels, deadlines and numbers. This produces the criteria shown above. It is <b>not a language model</b> but a fixed rule-based evaluation. That is why every suggestion can be explained – and why the final decision always remains with you (Art. 22 GDPR).</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="sp-foot">
+  <div class="wrap">
+    <div class="foot-bot">
+      <span>© 2026 Standard Plus. All rights reserved.</span>
+      <span class="foot-seal">
+        <a class="seal" href="standardplus-datenschutz.html"><svg class="ic" aria-hidden="true"><use href="#i-shieldcheck"></use></svg>Privacy</a>
+        <a class="seal" href="standardplus-sicherheit.html"><svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg>Security</a>
+        <a class="seal" href="standardplus-impressum.html"><svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>Legal notice</a>
+        <a class="seal" href="#" data-consent><svg class="ic" aria-hidden="true"><use href="#i-sliders"></use></svg>Cookies</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/sp-i18n-en.js?v=20260929153130"></script>
+<script src="../assets/sp-icons.js?v=20260929153130"></script>
+<script src="../assets/sp-app.js?v=20260929153130"></script>
+<script src="../assets/sp-db.js?v=20260929153130"></script>
+<script src="../assets/sp-suche.js?v=20260929153130"></script>
+<script src="../assets/sp-vokabular.js?v=20260929153130"></script>
+<script src="../assets/sp-empfehlung.js?v=20260929153130"></script>
+<script src="../assets/sp-wischen.js?v=20260929153130"></script>
+<script src="../assets/sp-suchseite.js?v=20260929153130"></script>
+<script src="../assets/sp-effekte.js?v=20260929153130"></script>
+</body>
+</html>
