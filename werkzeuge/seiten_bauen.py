@@ -166,13 +166,27 @@ def esc(s: str) -> str:
     return html.escape(s, quote=True)
 
 
-def picture(name: str, alt: str, lazy: bool = True, sizes: str = "(max-width: 760px) 100vw, 50vw") -> str:
-    loading = ' loading="lazy"' if lazy else ""
+def srcset(name: str, gross: int, klein: int, ext: str) -> str:
+    return f"assets/img/{name}-klein.{ext} {klein}w, assets/img/{name}.{ext} {gross}w"
+
+
+def foto(name: str, alt: str, w: int, h: int, sizes: str, lazy: bool = True,
+         gross: int = 1600, klein: int = 800) -> str:
+    """Scharfes Foto: WebP mit JPG-Ersatz, je in Handy- und Bildschirmgröße."""
+    laden = ' loading="lazy"' if lazy else ' fetchpriority="high"'
     return (
-        f'<picture><source srcset="assets/img/branchen/{name}.webp" type="image/webp">'
-        f'<img src="assets/img/branchen/{name}.jpg" width="1200" height="800"{loading} decoding="async" '
-        f'sizes="{sizes}" alt="{esc(alt)}"></picture>'
+        f'<picture><source type="image/webp" srcset="{srcset(name, gross, klein, "webp")}" sizes="{sizes}">'
+        f'<img src="assets/img/{name}.jpg" srcset="{srcset(name, gross, klein, "jpg")}" sizes="{sizes}" '
+        f'width="{w}" height="{h}"{laden} decoding="async" alt="{esc(alt)}"></picture>'
     )
+
+
+def picture(name: str, alt: str, lazy: bool = True, sizes: str = "(max-width: 860px) 100vw, 560px") -> str:
+    return foto("branchen/" + name, alt, 1600, 1067, sizes, lazy)
+
+
+BERATERIN = foto("beraterin", "Beraterin von Standard Plus im Gespräch mit einem Arbeitgeber über den Personalbedarf",
+                 1000, 1250, "(max-width: 900px) 92vw, 520px", gross=1000, klein=560)
 
 
 def kontakt_link(betreff: str) -> str:
@@ -186,8 +200,8 @@ def kontakt_link(betreff: str) -> str:
 def branchen_teaser() -> str:
     cards = "\n".join(
         f'''        <a class="bcard reveal" href="branchen.html#{b["id"]}">
-          <span class="bcard__img">{picture(b["id"], b["alt"], sizes="(max-width: 600px) 100vw, 33vw")}</span>
-          <span class="bcard__body"><strong>{esc(b["name"])}</strong><span>{esc(b["kurz"])}</span></span>
+          <span class="bcard__img">{picture(b["id"], b["alt"], sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 360px")}</span>
+          <span class="bcard__body"><strong>{esc(b["name"])}</strong><span>{esc(b["kurz"])}</span><em>Mehr erfahren<svg class="icon"><use href="#i-arrow"/></svg></em></span>
         </a>'''
         for b in BRANCHEN
     )
@@ -553,7 +567,7 @@ def footer() -> str:
 def head(file: str, title: str, desc: str, robots: str, ld: list, og_title: str | None = None, preload_hero: bool = False) -> str:
     url = DOMAIN + "/" if file == "index.html" else f"{DOMAIN}/{file}"
     ld_json = json.dumps({"@context": "https://schema.org", "@graph": ld}, ensure_ascii=False, indent=2)
-    preload = ('\n  <link rel="preload" href="assets/img/beratung-gross.webp" as="image" type="image/webp" fetchpriority="high">'
+    preload = ('\n  <link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/beratung-klein.webp 900w, assets/img/beratung.webp 1800w" imagesizes="(max-width: 900px) 92vw, 560px" fetchpriority="high">'
                if preload_hero else "")
     return f'''<head>
   <meta charset="utf-8">
@@ -644,25 +658,28 @@ def main() -> None:
     # ---------- Start ----------
     start = f'''
   <section class="hero">
-    <div class="container">
-      <p class="pill reveal"><span class="pill__eu"><svg viewBox="0 0 20 20" aria-hidden="true">{eu}</svg></span>Personalvermittlung europaweit</p>
-      <h1 class="reveal">Passende Mitarbeiter.<span class="grad">Persönlich vermittelt.</span></h1>
-      <p class="hero__lead reveal">Standard Plus ist Ihre Personalvermittlung für zuverlässige Arbeitskräfte aus ganz Europa – und wir bleiben auch nach dem Arbeitsbeginn an Ihrer Seite.</p>
-      <div class="hero__actions reveal">
-        <a class="btn btn--primary" href="kontakt.html">Unverbindlich anfragen<svg class="icon"><use href="#i-arrow"/></svg></a>
-        <a class="btn btn--plain" href="branchen.html">Branchen ansehen<svg class="icon"><use href="#i-arrow"/></svg></a>
+    <div class="container hero__grid">
+      <div class="hero__text">
+        <p class="pill reveal"><span class="pill__eu"><svg viewBox="0 0 20 20" aria-hidden="true">{eu}</svg></span>Personalvermittlung europaweit</p>
+        <h1 class="reveal">Passende Mitarbeiter.<span class="grad">Persönlich vermittelt.</span></h1>
+        <p class="hero__lead reveal">Standard Plus ist Ihre Personalvermittlung für zuverlässige Arbeitskräfte aus ganz Europa – und wir bleiben auch nach dem Arbeitsbeginn an Ihrer Seite.</p>
+        <div class="hero__actions reveal">
+          <a class="btn btn--primary" href="kontakt.html">Unverbindlich anfragen<svg class="icon"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--outline" href="{TEL_LINK}"><svg class="icon"><use href="#i-phone"/></svg>{TEL}</a>
+        </div>
+        <ul class="hero__facts reveal">
+          <li><svg class="icon"><use href="#i-check"/></svg>Kein Geld im Voraus</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Fester Ansprechpartner</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>6 Tage pro Woche erreichbar</li>
+        </ul>
       </div>
       <div class="hero__stage reveal">
         <div class="hero__photo">
-          <picture><source srcset="assets/img/beratung-gross.webp" type="image/webp"><img src="assets/img/beratung-gross.jpg" width="1228" height="870" fetchpriority="high" decoding="async" alt="Persönliche Beratung bei Standard Plus Personalvermittlung: Beraterin im Gespräch mit einem Kunden"></picture>
+          {foto("beratung", "Persönliche Beratung bei Standard Plus Personalvermittlung: Vermittler und Arbeitgeber reichen sich die Hand", 1800, 1200, "(max-width: 900px) 92vw, 560px", lazy=False, gross=1800, klein=900)}
         </div>
         <div class="glass-chip glass-chip--a">
           <span class="glass-chip__icon"><svg class="icon"><use href="#i-user"/></svg></span>
           <div><strong>Fester Ansprechpartner</strong><span>deutschsprachig &amp; persönlich</span></div>
-        </div>
-        <div class="glass-chip glass-chip--b">
-          <span class="glass-chip__icon glass-chip__icon--y"><svg class="icon"><use href="#i-calendar"/></svg></span>
-          <div><strong>6 Tage pro Woche</strong><span>für Sie erreichbar</span></div>
         </div>
       </div>
     </div>
@@ -694,7 +711,7 @@ def main() -> None:
   <section class="section">
     <div class="container about">
       <div class="about__media reveal">
-        <picture><source srcset="assets/img/gespraech.webp" type="image/webp"><img src="assets/img/gespraech.jpg" width="489" height="675" loading="lazy" decoding="async" alt="Beraterin von Standard Plus bespricht mit einem Arbeitgeber den Personalbedarf"></picture>
+        {BERATERIN}
         <div class="about__quote">Mit Standard Plus werden Sie auch nach der Vermittlung nicht allein gelassen.</div>
       </div>
       <div class="reveal">
@@ -741,7 +758,7 @@ def main() -> None:
   <section class="section">
     <div class="container about">
       <div class="about__media reveal">
-        <picture><source srcset="assets/img/gespraech.webp" type="image/webp"><img src="assets/img/gespraech.jpg" width="489" height="675" loading="lazy" decoding="async" alt="Beraterin von Standard Plus bespricht mit einem Arbeitgeber den Personalbedarf"></picture>
+        ''' + BERATERIN + '''
         <div class="about__quote">Mit Standard Plus werden Sie auch nach der Vermittlung nicht allein gelassen.</div>
       </div>
       <div class="reveal">
