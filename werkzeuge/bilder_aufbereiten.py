@@ -24,7 +24,7 @@ FOTOS = [
     ("branchen/logistik",       "logistik.jpg",               3 / 2, .5,  (1600, 800)),  # Adobe Stock 298841166
     ("branchen/gastronomie",    "gastronomie.jpg",            3 / 2, .5,  (1600, 800)),  # Adobe Stock 280942529 (kostenlose Sammlung)
     ("beratung",                "1758518730384-be3d205838e8", 3 / 2, .5,  (1800, 900)),
-    ("beraterin",               "1758518730162-09a142505bfd", 4 / 5, .55, (1000, 560)),
+    ("beraterin",               "beraterin.jpg",              4 / 5, .66, (1000, 560)),  # Adobe Stock 308386473
 ]
 
 # Sehr helle Fotos etwas kräftiger machen

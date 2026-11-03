@@ -187,7 +187,7 @@ def picture(name: str, alt: str, lazy: bool = True, sizes: str = "(max-width: 86
     return foto("branchen/" + name, alt, 1600, 1067, sizes, lazy)
 
 
-BERATERIN = foto("beraterin", "Beraterin von Standard Plus im Gespräch mit einem Arbeitgeber über den Personalbedarf",
+BERATERIN = foto("beraterin", "Beraterin von Standard Plus begrüßt einen Kunden am Schreibtisch mit Handschlag",
                  1000, 1250, "(max-width: 900px) 92vw, 520px", gross=1000, klein=560)
 
 
