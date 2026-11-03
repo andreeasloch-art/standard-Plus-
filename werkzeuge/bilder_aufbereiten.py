@@ -17,12 +17,12 @@ IMG = os.path.join(ROOT, "assets", "img")
 # Ziel-Datei, Quelle (Unsplash-Foto-ID oder Dateiname in werkzeuge/fotos/), Seitenverhältnis (Breite/Höhe),
 # horizontaler Bildschwerpunkt (0 = links, 1 = rechts), Breiten (groß, klein)
 FOTOS = [
-    ("branchen/bau",            "bau.jpg",                    3 / 2, .5,  (1600, 800)),
-    ("branchen/landwirtschaft", "landwirtschaft.jpg",         3 / 2, .5,  (1600, 800)),
-    ("branchen/pferde",         "pferde.jpg",                 3 / 2, .5,  (1600, 800)),
-    ("branchen/pflege",         "pflege.jpg",                 3 / 2, .5,  (1600, 800)),
-    ("branchen/logistik",       "logistik.jpg",               3 / 2, .5,  (1600, 800)),
-    ("branchen/gastronomie",    "gastronomie.jpg",            3 / 2, .5,  (1600, 800)),
+    ("branchen/bau",            "bau.jpg",                    3 / 2, .5,  (1600, 800)),  # Pexels 19982408
+    ("branchen/landwirtschaft", "landwirtschaft.jpg",         3 / 2, .5,  (1600, 800)),  # Unsplash 1791395183660-bb1a4156984c
+    ("branchen/pferde",         "pferde.jpg",                 3 / 2, .5,  (1600, 800)),  # Unsplash 1590839823121-c253bf8d1e7d
+    ("branchen/pflege",         "pflege.jpg",                 3 / 2, .5,  (1600, 800)),  # Unsplash 1773227059334-38d10a9075f2
+    ("branchen/logistik",       "logistik.jpg",               3 / 2, .5,  (1600, 800)),  # Pexels 8069548
+    ("branchen/gastronomie",    "gastronomie.jpg",            3 / 2, .5,  (1600, 800)),  # Pexels 4350094
     ("beratung",                "1758518730384-be3d205838e8", 3 / 2, .5,  (1800, 900)),
     ("beraterin",               "1758518730162-09a142505bfd", 4 / 5, .55, (1000, 560)),
 ]

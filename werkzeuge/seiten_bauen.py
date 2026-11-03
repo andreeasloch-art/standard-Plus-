@@ -48,7 +48,7 @@ BRANCHEN = [
         "name": "Bau & Handwerk",
         "icon": "s-bau",
         "kurz": "Hilfs- und Fachkräfte für Baustelle, Handwerk und Straßenbau.",
-        "alt": "Lächelnder Bauarbeiter mit Schutzhelm und Warnweste auf einer Baustelle",
+        "alt": "Lächelnder Bauarbeiter mit Schutzhelm und Sicherheitsgurt auf einer Baustelle",
         "lead": "Ob Rohbau, Ausbau oder Straßenbau: Wir vermitteln zuverlässige Hilfs- und Fachkräfte für alle Gewerke – für einzelne Projekte oder für längere Zeit.",
         "wen": [
             "Bauhelfer und Helfer für alle Gewerke",
@@ -68,7 +68,7 @@ BRANCHEN = [
         "name": "Landwirtschaft & Milchvieh",
         "icon": "s-agrar",
         "kurz": "Erntehelfer, Stallhelfer und Mitarbeiter für den Melkbereich.",
-        "alt": "Freundlicher Mitarbeiter im Milchviehstall vor Holstein-Kühen",
+        "alt": "Mitarbeiterin füttert Milchkühe im Laufstall",
         "lead": "Für landwirtschaftliche Betriebe vermitteln wir Erntehelfer und landwirtschaftliche Hilfskräfte sowie Mitarbeiter für Milchviehbetriebe – für Saisonspitzen oder längerfristig.",
         "wen": [
             "Erntehelfer",
@@ -88,7 +88,7 @@ BRANCHEN = [
         "name": "Pferdebetriebe",
         "icon": "s-pferd",
         "kurz": "Pferdepfleger und Stallhelfer für Reit-, Pensions- und Zuchtställe.",
-        "alt": "Pferdepflegerin kümmert sich im Stall um ein braunes Pferd",
+        "alt": "Pferdepflegerin kümmert sich im Stall um ein Fuchspferd",
         "lead": "Pferde brauchen jeden Tag Zuverlässigkeit. Wir vermitteln Pferdepfleger und Stallhelfer für Reitställe, Pensionsställe und Zuchtbetriebe.",
         "wen": [
             "Pferdepfleger",
@@ -107,7 +107,7 @@ BRANCHEN = [
         "name": "Pflege & Betreuung",
         "icon": "s-pflege",
         "kurz": "Betreuungskräfte für häusliche Pflege, Alltagshilfe und Einrichtungen.",
-        "alt": "Lächelnde Pflegekraft mit einer älteren Dame im Wohnzimmer",
+        "alt": "Betreuerin hält lachenden Seniorinnen die Hände",
         "lead": "Wir vermitteln Pflege- und Betreuungskräfte für die häusliche Pflege, die Alltagshilfe und für Einrichtungen – damit pflegebedürftige Menschen gut versorgt und Angehörige entlastet sind.",
         "wen": [
             "Betreuungskräfte für die häusliche Pflege",
@@ -126,7 +126,7 @@ BRANCHEN = [
         "name": "Lager & Logistik",
         "icon": "s-logistik",
         "kurz": "Lagerhelfer und Kommissionierer für Lager und Versand.",
-        "alt": "Lagermitarbeiter in Warnweste mit Tablet in einem Logistiklager",
+        "alt": "Lächelnder Lagermitarbeiter in Warnweste trägt einen Karton",
         "lead": "Für Lager, Logistik und Versand vermitteln wir Lagerhelfer und Kommissionierer, die mit anpacken – bei Auftragsspitzen ebenso wie im laufenden Betrieb.",
         "wen": [
             "Lagerhelfer",
@@ -146,7 +146,7 @@ BRANCHEN = [
         "name": "Gastronomie & Hotellerie",
         "icon": "s-gastro",
         "kurz": "Personal für Service, Küche, Housekeeping und Reinigung.",
-        "alt": "Freundlicher Kellner mit Schürze in einem Restaurant",
+        "alt": "Freundliche Servicekraft mit Schürze im Gespräch mit einem Gast",
         "lead": "In Gastronomie und Hotellerie zählt jede helfende Hand. Wir vermitteln Personal für Service, Küche, Housekeeping und Reinigung.",
         "wen": [
             "Servicekräfte",
