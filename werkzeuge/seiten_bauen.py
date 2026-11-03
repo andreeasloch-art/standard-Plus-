@@ -105,7 +105,7 @@ BRANCHEN = [
         "name": "Pflege & Betreuung",
         "icon": "s-pflege",
         "kurz": "Betreuungskräfte für häusliche Pflege, Alltagshilfe und Einrichtungen.",
-        "alt": "Betreuerin und ältere Dame lachen gemeinsam",
+        "alt": "Pflegekraft im Gespräch mit einer älteren Dame im Wohnzimmer",
         "lead": "Wir vermitteln Pflege- und Betreuungskräfte für die häusliche Pflege, die Alltagshilfe und für Einrichtungen – damit pflegebedürftige Menschen gut versorgt und Angehörige entlastet sind.",
         "wen": [
             "Betreuungskräfte für die häusliche Pflege",
