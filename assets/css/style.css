@@ -493,6 +493,8 @@ p { margin: 0 0 1em; }
 .cta-strip .btn { padding: 12px 20px; font-size: 15px; }
 .btn--dark { background: var(--ink); color: #fff; }
 .btn--dark:hover { background: var(--brand-800); color: #fff; }
+.btn--wa { background: #25d366; color: #fff; }
+.btn--wa:hover { background: #1ebe5b; color: #fff; box-shadow: 0 10px 26px rgba(37,211,102,.35); }
 .btn--white { background: #fff; color: var(--ink); }
 .btn--white:hover { background: #fffbea; color: var(--ink); }
 @media (max-width: 560px) {

@@ -19,11 +19,13 @@ import re
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INHALTE = os.path.join(ROOT, "werkzeuge", "inhalte")
 
-DOMAIN = "https://standard-plus.eu"
+DOMAIN = "https://standard-plus.net"
 TEL = "0152 28986993"
 TEL_LINK = "tel:+4915228986993"
+# WhatsApp läuft über eine eigene Nummer; sie wird nirgends angezeigt, nur verlinkt.
+WA_LINK = "https://wa.me/4917645258501?text=" + "Guten%20Tag%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Personal%20von%20Standard%20Plus."
 MAIL = "info@standard-plus.net"
-STAND = "2026-10-07"
+STAND = "2026-11-03"
 
 # ---------------------------------------------------------------------------
 # Navigation
@@ -513,6 +515,7 @@ def cta_strip() -> str:
     <p class="cta-strip__text"><strong>Personal gesucht?</strong> <span>Persönlich. Erreichbar. Zuverlässig.</span></p>
     <div class="cta-strip__actions">
       <a class="btn btn--dark" href="{TEL_LINK}"><svg class="icon"><use href="#i-phone"/></svg>{TEL}</a>
+      <a class="btn btn--wa" href="{WA_LINK}" target="_blank" rel="noopener"><svg class="icon"><use href="#i-whatsapp"/></svg>WhatsApp</a>
       <a class="btn btn--white" href="kontakt.html">Jetzt anfragen<svg class="icon"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
@@ -907,7 +910,7 @@ def main() -> None:
     # ---------- Kontakt ----------
     body = page_hero("Kontakt", "Sprechen Sie mit uns.",
                      "Unverbindlich und kostenlos – wir melden uns schnellstmöglich persönlich bei Ihnen.",
-                     "Kontakt") + "\n\n" + read("werkzeuge/inhalte/kontakt.html")
+                     "Kontakt") + "\n\n" + read("werkzeuge/inhalte/kontakt.html").replace("{WA_LINK}", WA_LINK)
     build("kontakt.html", "Kontakt – Personal anfragen | Standard Plus",
           "Personal anfragen bei Standard Plus: Telefon 0152 28986993, WhatsApp, E-Mail info@standard-plus.net oder Kontaktformular. Heilbronner Straße 142, Ludwigsburg.",
           body, sub("kontakt.html", "Kontakt") + [{"@type": "ContactPage", "url": DOMAIN + "/kontakt.html", "about": {"@id": ORG_ID}}],

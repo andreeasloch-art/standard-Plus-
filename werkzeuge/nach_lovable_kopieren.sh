@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Kopiert die fertige Website in das Lovable-Projekt (Repository ready-set-code-76),
-# das sie unter https://standard-plus.eu veröffentlicht.
+# das sie unter https://standard-plus.net veröffentlicht.
 # Aufruf: bash werkzeuge/nach_lovable_kopieren.sh /pfad/zu/ready-set-code-76
 set -euo pipefail
 QUELLE="$(cd "$(dirname "$0")/.." && pwd)"
