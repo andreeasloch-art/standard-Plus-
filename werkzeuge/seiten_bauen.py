@@ -22,7 +22,7 @@ INHALTE = os.path.join(ROOT, "werkzeuge", "inhalte")
 DOMAIN = "https://standard-plus.eu"
 TEL = "0152 28986993"
 TEL_LINK = "tel:+4915228986993"
-MAIL = "info@standard-aaa.de"
+MAIL = "info@standard-plus.net"
 STAND = "2026-10-07"
 
 # ---------------------------------------------------------------------------
@@ -808,7 +808,7 @@ def main() -> None:
         <div><dt>Pakete</dt><dd><a href="pakete.html">Paket für 899&nbsp;€ einmalig · Abo-Paket 399&nbsp;€ einmalig + 119&nbsp;€ monatlich</a></dd></div>
         <div><dt>Service</dt><dd>Fester, deutschsprachiger Ansprechpartner · erreichbar an 6 Tagen pro Woche · kein Geld im Voraus</dd></div>
         <div><dt>Sitz</dt><dd>Heilbronner Straße 142, 71634 Ludwigsburg, Deutschland</dd></div>
-        <div><dt>Kontakt</dt><dd><a href="tel:+4915228986993">0152 28986993</a> · <a href="mailto:info@standard-aaa.de">info@standard-aaa.de</a></dd></div>
+        <div><dt>Kontakt</dt><dd><a href="tel:+4915228986993">0152 28986993</a> · <a href="mailto:info@standard-plus.net">info@standard-plus.net</a></dd></div>
       </dl>
     </div>
   </section>
@@ -909,7 +909,7 @@ def main() -> None:
                      "Unverbindlich und kostenlos – wir melden uns schnellstmöglich persönlich bei Ihnen.",
                      "Kontakt") + "\n\n" + read("werkzeuge/inhalte/kontakt.html")
     build("kontakt.html", "Kontakt – Personal anfragen | Standard Plus",
-          "Personal anfragen bei Standard Plus: Telefon 0152 28986993, WhatsApp, E-Mail info@standard-aaa.de oder Kontaktformular. Heilbronner Straße 142, Ludwigsburg.",
+          "Personal anfragen bei Standard Plus: Telefon 0152 28986993, WhatsApp, E-Mail info@standard-plus.net oder Kontaktformular. Heilbronner Straße 142, Ludwigsburg.",
           body, sub("kontakt.html", "Kontakt") + [{"@type": "ContactPage", "url": DOMAIN + "/kontakt.html", "about": {"@id": ORG_ID}}],
           strip=True)
 

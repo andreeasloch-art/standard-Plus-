@@ -42,7 +42,7 @@ Die Domain ist auf `https://standard-plus.eu` eingestellt (ändern: siehe SEO-AN
 ## Kontaktformular
 
 Ohne Server öffnet das Formular das E-Mail-Programm der Besucher mit einer fertig
-ausgefüllten Nachricht an `info@standard-aaa.de`.
+ausgefüllten Nachricht an `info@standard-plus.net`.
 Für direkten Versand ohne E-Mail-Programm die Adresse eines Formular-Dienstes
 (z. B. Formspree) oder eines PHP-Skripts beim Hoster in `index.html` bei
 `data-endpoint=""` eintragen und den Dienst in der Datenschutzerklärung nennen.

@@ -88,7 +88,7 @@ Standard Plus Personalvermittlung
 Heilbronner Straße 142
 71634 Ludwigsburg
 Telefon: +49 152 28986993
-E-Mail: info@standard-aaa.de
+E-Mail: info@standard-plus.net
 Website: https://standard-plus.eu
 ```
 

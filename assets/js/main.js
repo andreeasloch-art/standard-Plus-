@@ -150,7 +150,7 @@
           showStatus('ok', 'Vielen Dank! Ihre Anfrage ist bei uns eingegangen. Wir melden uns schnellstmöglich bei Ihnen.');
         })
         .catch(function () {
-          showStatus('err', 'Leider ist beim Senden ein Fehler aufgetreten. Bitte rufen Sie uns an: 0152 28986993 oder schreiben Sie an info@standard-aaa.de.');
+          showStatus('err', 'Leider ist beim Senden ein Fehler aufgetreten. Bitte rufen Sie uns an: 0152 28986993 oder schreiben Sie an info@standard-plus.net.');
         })
         .then(function () { btn.disabled = false; });
       return;
