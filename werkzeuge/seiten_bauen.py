@@ -88,7 +88,7 @@ BRANCHEN = [
         "name": "Pferdebetriebe",
         "icon": "s-pferd",
         "kurz": "Pferdepfleger und Stallhelfer für Reit-, Pensions- und Zuchtställe.",
-        "alt": "Pferdepflegerin kümmert sich im Stall um ein Fuchspferd",
+        "alt": "Lächelnde Pferdepflegerin mit gesatteltem Pferd in der Stallgasse",
         "lead": "Pferde brauchen jeden Tag Zuverlässigkeit. Wir vermitteln Pferdepfleger und Stallhelfer für Reitställe, Pensionsställe und Zuchtbetriebe.",
         "wen": [
             "Pferdepfleger",

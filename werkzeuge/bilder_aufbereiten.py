@@ -19,7 +19,7 @@ IMG = os.path.join(ROOT, "assets", "img")
 FOTOS = [
     ("branchen/bau",            "bau.jpg",                    3 / 2, .5,  (1600, 800)),  # Adobe Stock 261840893
     ("branchen/landwirtschaft", "landwirtschaft.jpg",         3 / 2, .5,  (1600, 800)),  # Adobe Stock 135290688
-    ("branchen/pferde",         "pferde.jpg",                 3 / 2, .5,  (1600, 800)),  # Unsplash 1590839823121-c253bf8d1e7d
+    ("branchen/pferde",         "pferde.jpg",                 3 / 2, .5,  (1600, 800)),  # Adobe Stock 315441112
     ("branchen/pflege",         "pflege.jpg",                 3 / 2, .5,  (1600, 800)),  # Adobe Stock 338302872
     ("branchen/logistik",       "logistik.jpg",               3 / 2, .5,  (1600, 800)),  # Adobe Stock 298841166
     ("branchen/gastronomie",    "gastronomie.jpg",            3 / 2, .5,  (1600, 800)),  # Adobe Stock 280942529 (kostenlose Sammlung)
