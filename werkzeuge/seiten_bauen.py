@@ -48,7 +48,7 @@ BRANCHEN = [
         "name": "Bau & Handwerk",
         "icon": "s-bau",
         "kurz": "Hilfs- und Fachkräfte für Baustelle, Handwerk und Straßenbau.",
-        "alt": "Lächelnder Bauarbeiter mit Schutzhelm und Sicherheitsgurt auf einer Baustelle",
+        "alt": "Zwei Bauarbeiter mit Schutzhelm und Warnweste besprechen auf der Baustelle einen Plan",
         "lead": "Ob Rohbau, Ausbau oder Straßenbau: Wir vermitteln zuverlässige Hilfs- und Fachkräfte für alle Gewerke – für einzelne Projekte oder für längere Zeit.",
         "wen": [
             "Bauhelfer und Helfer für alle Gewerke",
@@ -68,7 +68,7 @@ BRANCHEN = [
         "name": "Landwirtschaft & Milchvieh",
         "icon": "s-agrar",
         "kurz": "Erntehelfer, Stallhelfer und Mitarbeiter für den Melkbereich.",
-        "alt": "Mitarbeiterin füttert Milchkühe im Laufstall",
+        "alt": "Landwirtin und Landwirt im Gespräch im Milchviehstall",
         "lead": "Für landwirtschaftliche Betriebe vermitteln wir Erntehelfer und landwirtschaftliche Hilfskräfte sowie Mitarbeiter für Milchviehbetriebe – für Saisonspitzen oder längerfristig.",
         "wen": [
             "Erntehelfer",
@@ -107,7 +107,7 @@ BRANCHEN = [
         "name": "Pflege & Betreuung",
         "icon": "s-pflege",
         "kurz": "Betreuungskräfte für häusliche Pflege, Alltagshilfe und Einrichtungen.",
-        "alt": "Betreuerin hält lachenden Seniorinnen die Hände",
+        "alt": "Betreuerin hilft Senioren bei einer Beschäftigung am Tisch",
         "lead": "Wir vermitteln Pflege- und Betreuungskräfte für die häusliche Pflege, die Alltagshilfe und für Einrichtungen – damit pflegebedürftige Menschen gut versorgt und Angehörige entlastet sind.",
         "wen": [
             "Betreuungskräfte für die häusliche Pflege",
@@ -126,7 +126,7 @@ BRANCHEN = [
         "name": "Lager & Logistik",
         "icon": "s-logistik",
         "kurz": "Lagerhelfer und Kommissionierer für Lager und Versand.",
-        "alt": "Lächelnder Lagermitarbeiter in Warnweste trägt einen Karton",
+        "alt": "Zwei Mitarbeiterinnen im Gespräch in einem Logistiklager",
         "lead": "Für Lager, Logistik und Versand vermitteln wir Lagerhelfer und Kommissionierer, die mit anpacken – bei Auftragsspitzen ebenso wie im laufenden Betrieb.",
         "wen": [
             "Lagerhelfer",
