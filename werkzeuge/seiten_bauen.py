@@ -514,9 +514,9 @@ def cta_strip() -> str:
   <div class="container">
     <p class="cta-strip__text"><strong>Personal gesucht?</strong> <span>Persönlich. Erreichbar. Zuverlässig.</span></p>
     <div class="cta-strip__actions">
-      <a class="btn btn--dark" href="{TEL_LINK}"><svg class="icon"><use href="#i-phone"/></svg>{TEL}</a>
+      <a class="btn btn--white" href="{TEL_LINK}"><svg class="icon"><use href="#i-phone"/></svg>{TEL}</a>
       <a class="btn btn--wa" href="{WA_LINK}" target="_blank" rel="noopener"><svg class="icon"><use href="#i-whatsapp"/></svg>WhatsApp</a>
-      <a class="btn btn--white" href="kontakt.html">Jetzt anfragen<svg class="icon"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn--glass" href="kontakt.html">Jetzt anfragen<svg class="icon"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
 </section>'''
