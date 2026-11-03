@@ -48,7 +48,7 @@ BRANCHEN = [
         "name": "Bau & Handwerk",
         "icon": "s-bau",
         "kurz": "Hilfs- und Fachkräfte für Baustelle, Handwerk und Straßenbau.",
-        "alt": "Zwei Bauarbeiter mit Schutzhelm und Warnweste besprechen auf der Baustelle einen Plan",
+        "alt": "Bauarbeiter mit Schutzhelm geben sich auf der Baustelle die Hand",
         "lead": "Ob Rohbau, Ausbau oder Straßenbau: Wir vermitteln zuverlässige Hilfs- und Fachkräfte für alle Gewerke – für einzelne Projekte oder für längere Zeit.",
         "wen": [
             "Bauhelfer und Helfer für alle Gewerke",
@@ -68,7 +68,7 @@ BRANCHEN = [
         "name": "Landwirtschaft & Milchvieh",
         "icon": "s-agrar",
         "kurz": "Erntehelfer, Stallhelfer und Mitarbeiter für den Melkbereich.",
-        "alt": "Landwirtin und Landwirt im Gespräch im Milchviehstall",
+        "alt": "Lächelnder Landwirt im Milchviehstall vor seinen Kühen",
         "lead": "Für landwirtschaftliche Betriebe vermitteln wir Erntehelfer und landwirtschaftliche Hilfskräfte sowie Mitarbeiter für Milchviehbetriebe – für Saisonspitzen oder längerfristig.",
         "wen": [
             "Erntehelfer",
@@ -107,7 +107,7 @@ BRANCHEN = [
         "name": "Pflege & Betreuung",
         "icon": "s-pflege",
         "kurz": "Betreuungskräfte für häusliche Pflege, Alltagshilfe und Einrichtungen.",
-        "alt": "Betreuerin hilft Senioren bei einer Beschäftigung am Tisch",
+        "alt": "Pflegekraft hilft einer lächelnden Seniorin beim Gehen",
         "lead": "Wir vermitteln Pflege- und Betreuungskräfte für die häusliche Pflege, die Alltagshilfe und für Einrichtungen – damit pflegebedürftige Menschen gut versorgt und Angehörige entlastet sind.",
         "wen": [
             "Betreuungskräfte für die häusliche Pflege",
@@ -126,7 +126,7 @@ BRANCHEN = [
         "name": "Lager & Logistik",
         "icon": "s-logistik",
         "kurz": "Lagerhelfer und Kommissionierer für Lager und Versand.",
-        "alt": "Zwei Mitarbeiterinnen im Gespräch in einem Logistiklager",
+        "alt": "Zwei Lagermitarbeiter mit Helm und Warnweste prüfen den Bestand im Regal",
         "lead": "Für Lager, Logistik und Versand vermitteln wir Lagerhelfer und Kommissionierer, die mit anpacken – bei Auftragsspitzen ebenso wie im laufenden Betrieb.",
         "wen": [
             "Lagerhelfer",
