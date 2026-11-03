@@ -146,7 +146,7 @@ BRANCHEN = [
         "name": "Gastronomie & Hotellerie",
         "icon": "s-gastro",
         "kurz": "Personal für Service, Küche, Housekeeping und Reinigung.",
-        "alt": "Freundliche Servicekraft mit Schürze im Gespräch mit einem Gast",
+        "alt": "Restaurant-Team mit Köchen, Kellnern und Servicekräften",
         "lead": "In Gastronomie und Hotellerie zählt jede helfende Hand. Wir vermitteln Personal für Service, Küche, Housekeeping und Reinigung.",
         "wen": [
             "Servicekräfte",

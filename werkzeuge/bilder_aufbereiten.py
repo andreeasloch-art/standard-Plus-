@@ -22,7 +22,7 @@ FOTOS = [
     ("branchen/pferde",         "pferde.jpg",                 3 / 2, .5,  (1600, 800)),  # Unsplash 1590839823121-c253bf8d1e7d
     ("branchen/pflege",         "pflege.jpg",                 3 / 2, .5,  (1600, 800)),  # Unsplash 1762955911431-4c44c7c3f408
     ("branchen/logistik",       "logistik.jpg",               3 / 2, .5,  (1600, 800)),  # Unsplash 1664382953403-fc1ac77073a0
-    ("branchen/gastronomie",    "gastronomie.jpg",            3 / 2, .5,  (1600, 800)),  # Pexels 4350094
+    ("branchen/gastronomie",    "gastronomie.jpg",            3 / 2, .5,  (1600, 800)),  # Adobe Stock 280942529 (kostenlose Sammlung)
     ("beratung",                "1758518730384-be3d205838e8", 3 / 2, .5,  (1800, 900)),
     ("beraterin",               "1758518730162-09a142505bfd", 4 / 5, .55, (1000, 560)),
 ]
