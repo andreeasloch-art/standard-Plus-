@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Lädt die Fotos (Unsplash-Lizenz) in hoher Auflösung und legt sie in zwei
-Größen als WebP und JPG unter assets/img ab.
+"""Bereitet die Fotos auf und legt sie in zwei Größen als WebP und JPG unter
+assets/img ab. Quellen: Unsplash (Foto-ID, wird geladen) oder ein lokales
+Original in werkzeuge/fotos/ (z. B. aus Canva exportiert).
 
 Aufruf: python3 werkzeuge/bilder_aufbereiten.py
 """
@@ -13,15 +14,15 @@ from PIL import Image, ImageEnhance
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IMG = os.path.join(ROOT, "assets", "img")
 
-# Ziel-Datei, Unsplash-Foto-ID, Seitenverhältnis (Breite/Höhe),
+# Ziel-Datei, Quelle (Unsplash-Foto-ID oder Dateiname in werkzeuge/fotos/), Seitenverhältnis (Breite/Höhe),
 # horizontaler Bildschwerpunkt (0 = links, 1 = rechts), Breiten (groß, klein)
 FOTOS = [
-    ("branchen/bau",            "1589939705384-5185137a7f0f", 3 / 2, .5,  (1600, 800)),
-    ("branchen/landwirtschaft", "1636998980792-63f27ddea4e3", 3 / 2, .5,  (1600, 800)),
-    ("branchen/pferde",         "1576692192914-9abed71b3ef9", 3 / 2, .5,  (1600, 800)),
-    ("branchen/pflege",         "1773227055624-07b515ba87c5", 3 / 2, .5,  (1600, 800)),
-    ("branchen/logistik",       "1586528116022-aeda1613c63d", 3 / 2, .5,  (1600, 800)),
-    ("branchen/gastronomie",    "1622021142947-da7dedc7c39a", 3 / 2, .5,  (1600, 800)),
+    ("branchen/bau",            "bau.jpg",                    3 / 2, .5,  (1600, 800)),
+    ("branchen/landwirtschaft", "landwirtschaft.jpg",         3 / 2, .5,  (1600, 800)),
+    ("branchen/pferde",         "pferde.jpg",                 3 / 2, .5,  (1600, 800)),
+    ("branchen/pflege",         "pflege.jpg",                 3 / 2, .5,  (1600, 800)),
+    ("branchen/logistik",       "logistik.jpg",               3 / 2, .5,  (1600, 800)),
+    ("branchen/gastronomie",    "gastronomie.jpg",            3 / 2, .5,  (1600, 800)),
     ("beratung",                "1758518730384-be3d205838e8", 3 / 2, .5,  (1800, 900)),
     ("beraterin",               "1758518730162-09a142505bfd", 4 / 5, .55, (1000, 560)),
 ]
@@ -31,6 +32,8 @@ KONTRAST = {"beratung": 1.12}
 
 
 def laden(foto_id: str) -> Image.Image:
+    if foto_id.endswith(".jpg"):
+        return Image.open(os.path.join(ROOT, "werkzeuge", "fotos", foto_id)).convert("RGB")
     url = f"https://images.unsplash.com/photo-{foto_id}?w=2600&q=90&fm=jpg"
     with urllib.request.urlopen(url, timeout=60) as r:
         return Image.open(io.BytesIO(r.read())).convert("RGB")
