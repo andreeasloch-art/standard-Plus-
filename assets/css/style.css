@@ -617,3 +617,34 @@ main { overflow-wrap: break-word; }
 .legal .container > *, .faq, .faq summary { min-width: 0; }
 /* Dunkler Abschnitt direkt vor dem Abschlussband: feine helle Trennlinie */
 main > section:last-child.section--dark + .cta-strip, main:has(> .section--dark:last-child) + .cta-strip { border-top: 1px solid rgba(255,255,255,.12); }
+
+/* Kopfbereich: versetzte Fotowand mit Mitarbeitern aller Branchen */
+.h-stack { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; background: none; border-radius: 0; overflow: visible; margin: clamp(32px, 4vw, 56px) var(--side) clamp(32px, 4vw, 56px) 0; align-content: center; }
+.h-stack__col { display: grid; gap: 14px; align-content: start; }
+.h-stack__col--down { margin-top: 56px; }
+.h-stack__col--wide { margin-top: 18px; }
+.h-stack__card { position: relative; margin: 0; border-radius: 22px; overflow: hidden; aspect-ratio: 4 / 4.2; background: var(--surface); box-shadow: 0 20px 40px -24px rgba(6,42,47,.45); }
+.h-stack__card--tall { aspect-ratio: 4 / 5.4; }
+.h-stack__card picture { display: contents; }
+.h-stack__card img { width: 100%; height: 100%; object-fit: cover; }
+.h-stack__card figcaption { position: absolute; left: 10px; bottom: 10px; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,.92); color: var(--brand-900); font-size: 13px; font-weight: 600; line-height: 1.2; }
+.h-hero__media.h-stack img { animation: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .h-stack__card { animation: h-rise .8s var(--ease-out) both; }
+  .h-stack__col:nth-child(2) .h-stack__card { animation-delay: .08s; }
+  .h-stack__col:nth-child(3) .h-stack__card { animation-delay: .16s; }
+}
+@media (max-width: 900px) {
+  .h-stack { order: -1; margin: 16px var(--gutter) 0; aspect-ratio: auto; border-radius: 0; gap: 10px; }
+  .h-stack__col { gap: 10px; }
+  .h-stack__col--down { margin-top: 32px; }
+  .h-stack__col--wide { margin-top: 12px; }
+}
+@media (max-width: 560px) {
+  .h-stack { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .h-stack__col { gap: 8px; }
+  .h-stack__card { border-radius: 14px; }
+  .h-stack__card figcaption { display: none; }
+  .h-stack__col:nth-child(3) .h-stack__card:last-child, .h-stack__col:nth-child(1) .h-stack__card:last-child, .h-stack__col:nth-child(2) .h-stack__card:first-child { display: none; }
+  .h-stack__col--down, .h-stack__col--wide { margin-top: 20px; }
+}

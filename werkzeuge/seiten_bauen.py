@@ -691,8 +691,19 @@ def main() -> None:
           <li><svg class="icon"><use href="#i-clock"/></svg>An 6 Tagen pro Woche erreichbar</li>
         </ul>
       </div>
-      <div class="h-hero__media">
-        {foto("beratung", "Persönliche Beratung bei Standard Plus Personalvermittlung: Vermittler und Arbeitgeber reichen sich die Hand", 2190, 1460, "(max-width: 900px) 100vw, 55vw", lazy=False, gross=2190, klein=1000)}
+      <div class="h-hero__media h-stack" aria-label="Unsere Mitarbeiter in allen Branchen">
+        <div class="h-stack__col">
+          <figure class="h-stack__card h-stack__card--tall">{picture("bau", "Bauarbeiter mit Schutzhelm auf einer Baustelle", lazy=False, sizes="(max-width: 900px) 46vw, 18vw")}<figcaption>Bau &amp; Handwerk</figcaption></figure>
+          <figure class="h-stack__card">{picture("pflege", "Pflegekraft hilft einer Seniorin", lazy=False, sizes="(max-width: 900px) 46vw, 18vw")}<figcaption>Pflege</figcaption></figure>
+        </div>
+        <div class="h-stack__col h-stack__col--down">
+          <figure class="h-stack__card">{picture("landwirtschaft", "Landwirt im Milchviehstall", lazy=False, sizes="(max-width: 900px) 46vw, 18vw")}<figcaption>Landwirtschaft</figcaption></figure>
+          <figure class="h-stack__card h-stack__card--tall">{picture("gastronomie", "Restaurant-Team mit Köchen und Kellnern", lazy=False, sizes="(max-width: 900px) 46vw, 18vw")}<figcaption>Gastronomie &amp; Hotel</figcaption></figure>
+        </div>
+        <div class="h-stack__col h-stack__col--wide">
+          <figure class="h-stack__card h-stack__card--tall">{picture("logistik", "Lagermitarbeiter mit Helm und Warnweste", lazy=False, sizes="(max-width: 900px) 46vw, 18vw")}<figcaption>Lager &amp; Logistik</figcaption></figure>
+          <figure class="h-stack__card">{picture("pferde", "Pferdepflegerin mit Pferd im Stall", lazy=False, sizes="(max-width: 900px) 46vw, 18vw")}<figcaption>Pferdebetriebe</figcaption></figure>
+        </div>
       </div>
     </div>
   </section>
@@ -741,7 +752,7 @@ def main() -> None:
           </ul>
           <a class="btn btn--white btn--block" href="pakete.html#abo">Details zum Abo-Paket<svg class="icon"><use href="#i-arrow"/></svg></a>
         </article>
-        <article class="h-plan h-plan--gelb reveal" aria-labelledby="h-plan-einmal">
+        <article class="h-plan h-plan--petrol reveal" aria-labelledby="h-plan-einmal">
           <h3 id="h-plan-einmal">Paket für 899&nbsp;Euro</h3>
           <p class="h-plan__price"><strong>899&nbsp;€</strong> <span>einmalig</span></p>
           <p class="h-plan__extra">Ohne monatliche Gebühr</p>
@@ -749,7 +760,7 @@ def main() -> None:
             <li><svg class="icon"><use href="#i-check"/></svg>Suche nach qualifizierten Arbeitskräften</li>
             <li><svg class="icon"><use href="#i-check"/></svg>Austausch innerhalb von zwei Wochen, falls nötig</li>
           </ul>
-          <a class="btn btn--dark btn--block" href="pakete.html#einmal">Details zum 899-€-Paket<svg class="icon"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--white btn--block" href="pakete.html#einmal">Details zum 899-€-Paket<svg class="icon"><use href="#i-arrow"/></svg></a>
         </article>
       </div>
     </div>
