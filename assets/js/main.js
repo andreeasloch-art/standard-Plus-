@@ -4,8 +4,16 @@
 
   /* ---------- Kopfzeile: Schatten beim Scrollen ---------- */
   var header = document.querySelector('.site-header');
+  /* Anruf-Button (mobil) erst nach dem ersten Bildschirm zeigen,
+     im Abschlussband wieder ausblenden – dort gibt es die Telefonnummer schon */
+  var fab = document.querySelector('.fab');
+  var strip = document.querySelector('.cta-strip');
   function onScroll() {
     if (header) header.classList.toggle('is-scrolled', window.scrollY > 8);
+    if (fab) {
+      var nearStrip = strip && strip.getBoundingClientRect().top < window.innerHeight;
+      fab.classList.toggle('is-shown', window.scrollY > window.innerHeight * 0.7 && !nearStrip);
+    }
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();

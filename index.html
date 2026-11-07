@@ -29,10 +29,10 @@
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="alternate" type="text/markdown" href="llms.txt" title="Standard Plus – Zusammenfassung für KI-Assistenten">
-  <link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/beratung-klein.webp 900w, assets/img/beratung.webp 1800w" imagesizes="(max-width: 900px) 92vw, 560px" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/beratung-klein.webp 1000w, assets/img/beratung.webp 2190w" imagesizes="(max-width: 900px) 100vw, 55vw" fetchpriority="high">
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css?v=3ca2a551">
+  <link rel="stylesheet" href="assets/css/style.css?v=7497dd96">
   <script>document.documentElement.classList.remove('no-js');</script>
   <!-- Strukturierte Daten (schema.org) – erzeugt von werkzeuge/seiten_bauen.py -->
   <script type="application/ld+json">
@@ -215,157 +215,143 @@
 
 <main id="inhalt">
 
-  <section class="hero">
-    <div class="container hero__grid">
-      <div class="hero__text">
-        <p class="pill reveal"><span class="pill__eu"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10.00" cy="3.80" r="1.05" fill="#ffcc00"/><circle cx="13.10" cy="4.63" r="1.05" fill="#ffcc00"/><circle cx="15.37" cy="6.90" r="1.05" fill="#ffcc00"/><circle cx="16.20" cy="10.00" r="1.05" fill="#ffcc00"/><circle cx="15.37" cy="13.10" r="1.05" fill="#ffcc00"/><circle cx="13.10" cy="15.37" r="1.05" fill="#ffcc00"/><circle cx="10.00" cy="16.20" r="1.05" fill="#ffcc00"/><circle cx="6.90" cy="15.37" r="1.05" fill="#ffcc00"/><circle cx="4.63" cy="13.10" r="1.05" fill="#ffcc00"/><circle cx="3.80" cy="10.00" r="1.05" fill="#ffcc00"/><circle cx="4.63" cy="6.90" r="1.05" fill="#ffcc00"/><circle cx="6.90" cy="4.63" r="1.05" fill="#ffcc00"/></svg></span>Personalvermittlung europaweit</p>
-        <h1 class="reveal">Passende Mitarbeiter.<span class="grad">Persönlich vermittelt.</span></h1>
-        <p class="hero__lead reveal">Standard Plus ist Ihre Personalvermittlung für zuverlässige Arbeitskräfte aus ganz Europa – und wir bleiben auch nach dem Arbeitsbeginn an Ihrer Seite.</p>
-        <div class="hero__actions reveal">
-          <a class="btn btn--primary" href="kontakt.html">Unverbindlich anfragen<svg class="icon"><use href="#i-arrow"/></svg></a>
-          <a class="btn btn--outline" href="tel:+4915228986993"><svg class="icon"><use href="#i-phone"/></svg>0152 28986993</a>
+  <section class="h-hero" aria-labelledby="h-titel">
+    <div class="h-hero__grid">
+      <div class="h-hero__text">
+        <h1 id="h-titel" class="h-hero__title">Passende Mitarbeiter. <span>Persönlich vermittelt.</span></h1>
+        <p class="h-hero__lead">Standard Plus ist Ihre Personalvermittlung für zuverlässige Arbeitskräfte aus ganz Europa – und wir bleiben auch nach dem Arbeitsbeginn an Ihrer Seite.</p>
+        <div class="h-hero__actions">
+          <a class="btn btn--primary btn--lg" href="kontakt.html">Unverbindlich anfragen<svg class="icon"><use href="#i-arrow"/></svg></a>
+          <a class="h-hero__tel" href="tel:+4915228986993"><svg class="icon"><use href="#i-phone"/></svg>0152 28986993</a>
         </div>
-        <ul class="hero__facts reveal">
-          <li><svg class="icon"><use href="#i-check"/></svg>Kein Geld im Voraus</li>
-          <li><svg class="icon"><use href="#i-check"/></svg>Fester Ansprechpartner</li>
-          <li><svg class="icon"><use href="#i-check"/></svg>6 Tage pro Woche erreichbar</li>
+        <ul class="h-facts">
+          <li><span class="h-facts__eu"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10.00" cy="3.80" r="1.05" fill="#ffcc00"/><circle cx="13.10" cy="4.63" r="1.05" fill="#ffcc00"/><circle cx="15.37" cy="6.90" r="1.05" fill="#ffcc00"/><circle cx="16.20" cy="10.00" r="1.05" fill="#ffcc00"/><circle cx="15.37" cy="13.10" r="1.05" fill="#ffcc00"/><circle cx="13.10" cy="15.37" r="1.05" fill="#ffcc00"/><circle cx="10.00" cy="16.20" r="1.05" fill="#ffcc00"/><circle cx="6.90" cy="15.37" r="1.05" fill="#ffcc00"/><circle cx="4.63" cy="13.10" r="1.05" fill="#ffcc00"/><circle cx="3.80" cy="10.00" r="1.05" fill="#ffcc00"/><circle cx="4.63" cy="6.90" r="1.05" fill="#ffcc00"/><circle cx="6.90" cy="4.63" r="1.05" fill="#ffcc00"/></svg></span>Arbeitskräfte aus ganz Europa</li>
+          <li><svg class="icon"><use href="#i-nomoney"/></svg>Kein Geld im Voraus</li>
+          <li><svg class="icon"><use href="#i-user"/></svg>Fester, deutschsprachiger Ansprechpartner</li>
+          <li><svg class="icon"><use href="#i-clock"/></svg>An 6 Tagen pro Woche erreichbar</li>
         </ul>
       </div>
-      <div class="hero__stage reveal">
-        <div class="hero__photo">
-          <picture><source type="image/webp" srcset="assets/img/beratung-klein.webp 900w, assets/img/beratung.webp 1800w" sizes="(max-width: 900px) 92vw, 560px"><img src="assets/img/beratung.jpg" srcset="assets/img/beratung-klein.jpg 900w, assets/img/beratung.jpg 1800w" sizes="(max-width: 900px) 92vw, 560px" width="1800" height="1200" fetchpriority="high" decoding="async" alt="Persönliche Beratung bei Standard Plus Personalvermittlung: Vermittler und Arbeitgeber reichen sich die Hand"></picture>
-        </div>
-        <div class="glass-chip glass-chip--a">
-          <span class="glass-chip__icon"><svg class="icon"><use href="#i-user"/></svg></span>
-          <div><strong>Fester Ansprechpartner</strong><span>deutschsprachig &amp; persönlich</span></div>
-        </div>
+      <div class="h-hero__media">
+        <picture><source type="image/webp" srcset="assets/img/beratung-klein.webp 1000w, assets/img/beratung.webp 2190w" sizes="(max-width: 900px) 100vw, 55vw"><img src="assets/img/beratung.jpg" srcset="assets/img/beratung-klein.jpg 1000w, assets/img/beratung.jpg 2190w" sizes="(max-width: 900px) 100vw, 55vw" width="2190" height="1460" fetchpriority="high" decoding="async" alt="Persönliche Beratung bei Standard Plus Personalvermittlung: Vermittler und Arbeitgeber reichen sich die Hand"></picture>
       </div>
     </div>
   </section>
 
-  <div class="values-bar">
+  <section class="h-sec" aria-labelledby="h-branchen">
     <div class="container">
-      <ul>
-        <li class="reveal"><svg class="icon"><use href="#i-globe"/></svg><strong>Europaweit</strong><span>Arbeitskräfte aus ganz Europa</span></li>
-        <li class="reveal"><svg class="icon"><use href="#i-user"/></svg><strong>Persönlich</strong><span>Fester, deutschsprachiger Ansprechpartner</span></li>
-        <li class="reveal"><svg class="icon"><use href="#i-chat"/></svg><strong>Erreichbar</strong><span>Service an 6 Tagen pro Woche</span></li>
-        <li class="reveal"><svg class="icon"><use href="#i-shield"/></svg><strong>Zuverlässig</strong><span>Kein Geld im Voraus, klare Verträge</span></li>
+      <div class="h-head reveal">
+        <h2 id="h-branchen">Arbeitskräfte für Ihre Branche.</h2>
+        <p>Wir vermitteln Hilfs- und Fachkräfte aus ganz Europa – für Betriebe und Privathaushalte.</p>
+      </div>
+      <ul class="h-tiles" role="list">
+        <li><a class="h-tile reveal" href="branchen.html#bau">
+          <picture><source type="image/webp" srcset="assets/img/branchen/bau-klein.webp 800w, assets/img/branchen/bau.webp 1600w" sizes="(max-width: 1000px) 46vw, 400px"><img src="assets/img/branchen/bau.jpg" srcset="assets/img/branchen/bau-klein.jpg 800w, assets/img/branchen/bau.jpg 1600w" sizes="(max-width: 1000px) 46vw, 400px" width="1600" height="1067" loading="lazy" decoding="async" alt="Bauarbeiter mit Schutzhelm geben sich auf der Baustelle die Hand"></picture>
+          <span class="h-tile__text"><strong>Bau &amp; Handwerk</strong><span>Hilfs- und Fachkräfte für Baustelle, Handwerk und Straßenbau.</span></span>
+        </a></li>
+        <li><a class="h-tile reveal" href="branchen.html#landwirtschaft">
+          <picture><source type="image/webp" srcset="assets/img/branchen/landwirtschaft-klein.webp 800w, assets/img/branchen/landwirtschaft.webp 1600w" sizes="(max-width: 1000px) 46vw, 400px"><img src="assets/img/branchen/landwirtschaft.jpg" srcset="assets/img/branchen/landwirtschaft-klein.jpg 800w, assets/img/branchen/landwirtschaft.jpg 1600w" sizes="(max-width: 1000px) 46vw, 400px" width="1600" height="1067" loading="lazy" decoding="async" alt="Lächelnder Landwirt im Milchviehstall vor seinen Kühen"></picture>
+          <span class="h-tile__text"><strong>Landwirtschaft &amp; Milchvieh</strong><span>Erntehelfer, Stallhelfer und Mitarbeiter für den Melkbereich.</span></span>
+        </a></li>
+        <li><a class="h-tile reveal" href="branchen.html#pferde">
+          <picture><source type="image/webp" srcset="assets/img/branchen/pferde-klein.webp 800w, assets/img/branchen/pferde.webp 1600w" sizes="(max-width: 1000px) 46vw, 400px"><img src="assets/img/branchen/pferde.jpg" srcset="assets/img/branchen/pferde-klein.jpg 800w, assets/img/branchen/pferde.jpg 1600w" sizes="(max-width: 1000px) 46vw, 400px" width="1600" height="1067" loading="lazy" decoding="async" alt="Lächelnde Pferdepflegerin mit gesatteltem Pferd in der Stallgasse"></picture>
+          <span class="h-tile__text"><strong>Pferdebetriebe</strong><span>Pferdepfleger und Stallhelfer für Reit-, Pensions- und Zuchtställe.</span></span>
+        </a></li>
+        <li><a class="h-tile reveal" href="branchen.html#pflege">
+          <picture><source type="image/webp" srcset="assets/img/branchen/pflege-klein.webp 800w, assets/img/branchen/pflege.webp 1600w" sizes="(max-width: 1000px) 46vw, 400px"><img src="assets/img/branchen/pflege.jpg" srcset="assets/img/branchen/pflege-klein.jpg 800w, assets/img/branchen/pflege.jpg 1600w" sizes="(max-width: 1000px) 46vw, 400px" width="1600" height="1067" loading="lazy" decoding="async" alt="Pflegekraft hilft einer lächelnden Seniorin beim Gehen"></picture>
+          <span class="h-tile__text"><strong>Pflege &amp; Betreuung</strong><span>Betreuungskräfte für häusliche Pflege, Alltagshilfe und Einrichtungen.</span></span>
+        </a></li>
+        <li><a class="h-tile reveal" href="branchen.html#logistik">
+          <picture><source type="image/webp" srcset="assets/img/branchen/logistik-klein.webp 800w, assets/img/branchen/logistik.webp 1600w" sizes="(max-width: 1000px) 46vw, 400px"><img src="assets/img/branchen/logistik.jpg" srcset="assets/img/branchen/logistik-klein.jpg 800w, assets/img/branchen/logistik.jpg 1600w" sizes="(max-width: 1000px) 46vw, 400px" width="1600" height="1067" loading="lazy" decoding="async" alt="Zwei Lagermitarbeiter mit Helm und Warnweste prüfen den Bestand im Regal"></picture>
+          <span class="h-tile__text"><strong>Lager &amp; Logistik</strong><span>Lagerhelfer und Kommissionierer für Lager und Versand.</span></span>
+        </a></li>
+        <li><a class="h-tile reveal" href="branchen.html#gastronomie">
+          <picture><source type="image/webp" srcset="assets/img/branchen/gastronomie-klein.webp 800w, assets/img/branchen/gastronomie.webp 1600w" sizes="(max-width: 1000px) 46vw, 400px"><img src="assets/img/branchen/gastronomie.jpg" srcset="assets/img/branchen/gastronomie-klein.jpg 800w, assets/img/branchen/gastronomie.jpg 1600w" sizes="(max-width: 1000px) 46vw, 400px" width="1600" height="1067" loading="lazy" decoding="async" alt="Restaurant-Team mit Köchen, Kellnern und Servicekräften"></picture>
+          <span class="h-tile__text"><strong>Gastronomie &amp; Hotellerie</strong><span>Personal für Service, Küche, Housekeeping und Reinigung.</span></span>
+        </a></li>
       </ul>
-    </div>
-  </div>
-
-  <section class="section section--alt">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="kicker">Branchen</span>
-        <h2>Arbeitskräfte für Ihre Branche.</h2>
-        <p>Wir vermitteln Hilfs- und Fachkräfte aus ganz Europa – tippen Sie auf eine Branche, um mehr zu erfahren.</p>
-      </div>
-      <div class="bcards">
-        <a class="bcard reveal" href="branchen.html#bau">
-          <span class="bcard__img"><picture><source type="image/webp" srcset="assets/img/branchen/bau-klein.webp 800w, assets/img/branchen/bau.webp 1600w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 360px"><img src="assets/img/branchen/bau.jpg" srcset="assets/img/branchen/bau-klein.jpg 800w, assets/img/branchen/bau.jpg 1600w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 360px" width="1600" height="1067" loading="lazy" decoding="async" alt="Bauarbeiter mit Schutzhelm geben sich auf der Baustelle die Hand"></picture></span>
-          <span class="bcard__body"><strong>Bau &amp; Handwerk</strong><span>Hilfs- und Fachkräfte für Baustelle, Handwerk und Straßenbau.</span><em>Mehr erfahren<svg class="icon"><use href="#i-arrow"/></svg></em></span>
-        </a>
-        <a class="bcard reveal" href="branchen.html#landwirtschaft">
-          <span class="bcard__img"><picture><source type="image/webp" srcset="assets/img/branchen/landwirtschaft-klein.webp 800w, assets/img/branchen/landwirtschaft.webp 1600w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 360px"><img src="assets/img/branchen/landwirtschaft.jpg" srcset="assets/img/branchen/landwirtschaft-klein.jpg 800w, assets/img/branchen/landwirtschaft.jpg 1600w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 360px" width="1600" height="1067" loading="lazy" decoding="async" alt="Lächelnder Landwirt im Milchviehstall vor seinen Kühen"></picture></span>
-          <span class="bcard__body"><strong>Landwirtschaft &amp; Milchvieh</strong><span>Erntehelfer, Stallhelfer und Mitarbeiter für den Melkbereich.</span><em>Mehr erfahren<svg class="icon"><use href="#i-arrow"/></svg></em></span>
-        </a>
-        <a class="bcard reveal" href="branchen.html#pferde">
-          <span class="bcard__img"><picture><source type="image/webp" srcset="assets/img/branchen/pferde-klein.webp 800w, assets/img/branchen/pferde.webp 1600w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 360px"><img src="assets/img/branchen/pferde.jpg" srcset="assets/img/branchen/pferde-klein.jpg 800w, assets/img/branchen/pferde.jpg 1600w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 360px" width="1600" height="1067" loading="lazy" decoding="async" alt="Lächelnde Pferdepflegerin mit gesatteltem Pferd in der Stallgasse"></picture></span>
-          <span class="bcard__body"><strong>Pferdebetriebe</strong><span>Pferdepfleger und Stallhelfer für Reit-, Pensions- und Zuchtställe.</span><em>Mehr erfahren<svg class="icon"><use href="#i-arrow"/></svg></em></span>
-        </a>
-        <a class="bcard reveal" href="branchen.html#pflege">
-          <span class="bcard__img"><picture><source type="image/webp" srcset="assets/img/branchen/pflege-klein.webp 800w, assets/img/branchen/pflege.webp 1600w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 360px"><img src="assets/img/branchen/pflege.jpg" srcset="assets/img/branchen/pflege-klein.jpg 800w, assets/img/branchen/pflege.jpg 1600w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 360px" width="1600" height="1067" loading="lazy" decoding="async" alt="Pflegekraft hilft einer lächelnden Seniorin beim Gehen"></picture></span>
-          <span class="bcard__body"><strong>Pflege &amp; Betreuung</strong><span>Betreuungskräfte für häusliche Pflege, Alltagshilfe und Einrichtungen.</span><em>Mehr erfahren<svg class="icon"><use href="#i-arrow"/></svg></em></span>
-        </a>
-        <a class="bcard reveal" href="branchen.html#logistik">
-          <span class="bcard__img"><picture><source type="image/webp" srcset="assets/img/branchen/logistik-klein.webp 800w, assets/img/branchen/logistik.webp 1600w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 360px"><img src="assets/img/branchen/logistik.jpg" srcset="assets/img/branchen/logistik-klein.jpg 800w, assets/img/branchen/logistik.jpg 1600w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 360px" width="1600" height="1067" loading="lazy" decoding="async" alt="Zwei Lagermitarbeiter mit Helm und Warnweste prüfen den Bestand im Regal"></picture></span>
-          <span class="bcard__body"><strong>Lager &amp; Logistik</strong><span>Lagerhelfer und Kommissionierer für Lager und Versand.</span><em>Mehr erfahren<svg class="icon"><use href="#i-arrow"/></svg></em></span>
-        </a>
-        <a class="bcard reveal" href="branchen.html#gastronomie">
-          <span class="bcard__img"><picture><source type="image/webp" srcset="assets/img/branchen/gastronomie-klein.webp 800w, assets/img/branchen/gastronomie.webp 1600w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 360px"><img src="assets/img/branchen/gastronomie.jpg" srcset="assets/img/branchen/gastronomie-klein.jpg 800w, assets/img/branchen/gastronomie.jpg 1600w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 360px" width="1600" height="1067" loading="lazy" decoding="async" alt="Restaurant-Team mit Köchen, Kellnern und Servicekräften"></picture></span>
-          <span class="bcard__body"><strong>Gastronomie &amp; Hotellerie</strong><span>Personal für Service, Küche, Housekeeping und Reinigung.</span><em>Mehr erfahren<svg class="icon"><use href="#i-arrow"/></svg></em></span>
-        </a>
-      </div>
-      <p class="more reveal"><a class="btn btn--primary" href="branchen.html">Alle Branchen im Detail<svg class="icon"><use href="#i-arrow"/></svg></a></p>
+      <p class="h-more reveal"><a class="h-link" href="branchen.html">Alle Branchen im Detail<svg class="icon"><use href="#i-arrow"/></svg></a></p>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container about">
-      <div class="about__media reveal">
-        <picture><source type="image/webp" srcset="assets/img/beraterin-klein.webp 560w, assets/img/beraterin.webp 1000w" sizes="(max-width: 900px) 92vw, 520px"><img src="assets/img/beraterin.jpg" srcset="assets/img/beraterin-klein.jpg 560w, assets/img/beraterin.jpg 1000w" sizes="(max-width: 900px) 92vw, 520px" width="1000" height="1250" loading="lazy" decoding="async" alt="Beraterin von Standard Plus begrüßt einen Kunden am Schreibtisch mit Handschlag"></picture>
-        <div class="about__quote">Mit Standard Plus werden Sie auch nach der Vermittlung nicht allein gelassen.</div>
-      </div>
-      <div class="reveal">
-        <span class="kicker">Über uns</span>
-        <h2>Mehr als Vermittlung.</h2>
-        <p class="about__lead">Bei Standard Plus endet unsere Arbeit nicht mit der Besetzung einer Stelle. Wir begleiten Sie <strong>vor, während und nach dem Arbeitsbeginn.</strong></p>
-        <p class="more more--left"><a class="btn btn--plain" href="ueber-uns.html">Mehr über uns<svg class="icon"><use href="#i-arrow"/></svg></a></p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--alt">
+  <section class="h-sec h-sec--tint" aria-labelledby="h-ablauf">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="kicker">Ablauf</span>
-        <h2>In 4 Schritten zum passenden Mitarbeiter.</h2>
+      <div class="h-head reveal">
+        <h2 id="h-ablauf">In 4 Schritten zum passenden Mitarbeiter.</h2>
+        <p>Klar geregelt, persönlich begleitet – vom ersten Gespräch bis nach dem Arbeitsbeginn.</p>
       </div>
-      <ol class="steps">
-        <li class="step reveal"><svg class="icon"><use href="#i-chat"/></svg><span class="step__no">01</span><h3>Bedarf besprechen</h3><p>Wir klären Profil, Aufgaben und Einsatzbereich.</p></li>
-        <li class="step reveal"><svg class="icon"><use href="#i-search"/></svg><span class="step__no">02</span><h3>Passende Kandidaten</h3><p>Wir suchen europaweit gezielt geeignete Mitarbeiter.</p></li>
-        <li class="step reveal"><svg class="icon"><use href="#i-filecheck"/></svg><span class="step__no">03</span><h3>Auswahl &amp; Vorstellung</h3><p>Sie erhalten passende Vorschläge und entscheiden.</p></li>
-        <li class="step reveal"><svg class="icon"><use href="#i-handshake"/></svg><span class="step__no">04</span><h3>Betreuung danach</h3><p>Auch nach dem Start bleiben wir an Ihrer Seite.</p></li>
+      <ol class="h-steps">
+        <li class="h-step reveal"><span class="h-step__no" aria-hidden="true">1</span><h3>Bedarf besprechen</h3><p>Wir klären Profil, Aufgaben und Einsatzbereich.</p></li>
+        <li class="h-step reveal"><span class="h-step__no" aria-hidden="true">2</span><h3>Passende Kandidaten</h3><p>Wir suchen europaweit gezielt geeignete Mitarbeiter.</p></li>
+        <li class="h-step reveal"><span class="h-step__no" aria-hidden="true">3</span><h3>Auswahl &amp; Vorstellung</h3><p>Sie erhalten passende Vorschläge und entscheiden.</p></li>
+        <li class="h-step reveal"><span class="h-step__no" aria-hidden="true">4</span><h3>Betreuung danach</h3><p>Auch nach dem Start bleiben wir an Ihrer Seite.</p></li>
       </ol>
-      <p class="more reveal"><a class="btn btn--plain" href="ablauf.html">Ablauf im Detail<svg class="icon"><use href="#i-arrow"/></svg></a></p>
+      <p class="h-more reveal"><a class="h-link" href="ablauf.html">Ablauf im Detail<svg class="icon"><use href="#i-arrow"/></svg></a></p>
     </div>
   </section>
 
-  <section class="section section--dark">
+  <section class="h-sec" aria-labelledby="h-pakete">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="kicker">Pakete</span>
-        <h2>Zwei transparente Pakete.</h2>
-        <p>Qualifizierte Fachkräfte. Zuverlässig. Persönlich. Schnell.</p>
+      <div class="h-head reveal">
+        <h2 id="h-pakete">Zwei transparente Pakete.</h2>
+        <p>Qualifizierte Fachkräfte. Zuverlässig. Persönlich. Schnell. Alle Preise inklusive MwSt.</p>
       </div>
-      <div class="pricing">
-        <article class="plan reveal">
-          <span class="plan__icon"><svg class="icon"><use href="#i-users"/></svg></span>
-          <h3>Abo-Paket</h3>
-          <div class="plan__price"><strong>399&nbsp;€</strong><span>einmalig</span><em>+ 119&nbsp;€ / Monat</em><small class="plan__tax">alle Preise inkl. MwSt.</small></div>
-          <ul class="plan__list">
-            <li>Suche nach qualifizierten Arbeitskräften</li>
-            <li>Fortlaufende Betreuung und Unterstützung</li>
-            <li>Ersatz innerhalb von 84&nbsp;Stunden bei längeren Ausfällen</li>
+      <div class="h-plans">
+        <article class="h-plan reveal" aria-labelledby="h-plan-abo">
+          <h3 id="h-plan-abo">Abo-Paket</h3>
+          <p class="h-plan__price"><strong>399&nbsp;€</strong> <span>einmalig</span></p>
+          <p class="h-plan__extra">+ 119&nbsp;€ pro Monat für die Betreuung</p>
+          <ul class="h-checks">
+            <li><svg class="icon"><use href="#i-check"/></svg>Suche nach qualifizierten Arbeitskräften</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Fortlaufende Betreuung und Unterstützung</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Ersatz innerhalb von 84&nbsp;Stunden bei längeren Ausfällen</li>
           </ul>
-          <a class="btn btn--glass btn--block" href="pakete.html#abo">Details ansehen</a>
+          <a class="btn btn--outline btn--block" href="pakete.html#abo">Details zum Abo-Paket</a>
         </article>
-        <article class="plan plan--featured reveal">
-          <span class="plan__icon"><svg class="icon"><use href="#i-file"/></svg></span>
-          <h3>Paket für 899&nbsp;Euro</h3>
-          <div class="plan__price"><strong>899&nbsp;€</strong><span>einmalig</span><small class="plan__tax">inkl. MwSt.</small></div>
-          <ul class="plan__list">
-            <li>Suche nach qualifizierten Arbeitskräften</li>
-            <li>Austausch innerhalb von zwei Wochen, falls nötig</li>
+        <article class="h-plan reveal" aria-labelledby="h-plan-einmal">
+          <h3 id="h-plan-einmal">Paket für 899&nbsp;Euro</h3>
+          <p class="h-plan__price"><strong>899&nbsp;€</strong> <span>einmalig</span></p>
+          <p class="h-plan__extra">Ohne monatliche Gebühr</p>
+          <ul class="h-checks">
+            <li><svg class="icon"><use href="#i-check"/></svg>Suche nach qualifizierten Arbeitskräften</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Austausch innerhalb von zwei Wochen, falls nötig</li>
           </ul>
-          <a class="btn btn--glass btn--block" href="pakete.html#einmal">Details ansehen</a>
+          <a class="btn btn--outline btn--block" href="pakete.html#einmal">Details zum 899-€-Paket</a>
         </article>
       </div>
-      <p class="swipe-hint">← Wischen, um beide Pakete zu sehen →</p>
+    </div>
+  </section>
+
+  <section class="h-sec h-sec--tint" aria-labelledby="h-ueber">
+    <div class="container h-about">
+      <div class="h-about__media reveal">
+        <picture><source type="image/webp" srcset="assets/img/beraterin-klein.webp 560w, assets/img/beraterin.webp 1000w" sizes="(max-width: 900px) 92vw, 520px"><img src="assets/img/beraterin.jpg" srcset="assets/img/beraterin-klein.jpg 560w, assets/img/beraterin.jpg 1000w" sizes="(max-width: 900px) 92vw, 520px" width="1000" height="1250" loading="lazy" decoding="async" alt="Beraterin von Standard Plus begrüßt einen Kunden am Schreibtisch mit Handschlag"></picture>
+      </div>
+      <div class="h-about__text reveal">
+        <h2 id="h-ueber">Mehr als Vermittlung.</h2>
+        <p class="h-about__lead">Bei Standard Plus endet unsere Arbeit nicht mit der Besetzung einer Stelle. Wir begleiten Sie vor, während und nach dem Arbeitsbeginn – auch nach der Vermittlung werden Sie nicht allein gelassen.</p>
+        <ul class="h-checks h-checks--lg">
+          <li><svg class="icon"><use href="#i-check"/></svg>Kein Geld im Voraus</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Arbeit mit Verträgen und Rechnungen</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Deutschsprachiger Ansprechpartner</li>
+        </ul>
+        <a class="h-link" href="ueber-uns.html">Mehr über uns<svg class="icon"><use href="#i-arrow"/></svg></a>
+      </div>
     </div>
   </section>
 
 </main>
 
-<!-- ================= Balken unten ================= -->
-<section class="cta-strip" aria-label="Kontakt">
+<!-- ================= Abschluss (Balken unten) ================= -->
+<section class="cta-strip" aria-labelledby="cta-titel">
   <div class="container">
-    <p class="cta-strip__text"><strong>Personal gesucht?</strong> <span>Persönlich. Erreichbar. Zuverlässig.</span></p>
+    <div class="cta-strip__text">
+      <h2 id="cta-titel">Personal gesucht?</h2>
+      <p>Persönlich. Erreichbar. Zuverlässig. Wir melden uns schnellstmöglich bei Ihnen.</p>
+    </div>
     <div class="cta-strip__actions">
-      <a class="btn btn--white" href="tel:+4915228986993"><svg class="icon"><use href="#i-phone"/></svg>0152 28986993</a>
+      <a class="btn btn--yellow btn--lg" href="kontakt.html">Unverbindlich anfragen<svg class="icon"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn--line" href="tel:+4915228986993"><svg class="icon"><use href="#i-phone"/></svg>0152 28986993</a>
       <a class="btn btn--wa" href="https://wa.me/4917645258501?text=Guten%20Tag%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Personal%20von%20Standard%20Plus." target="_blank" rel="noopener"><svg class="icon"><use href="#i-whatsapp"/></svg>WhatsApp</a>
-      <a class="btn btn--glass" href="kontakt.html">Jetzt anfragen<svg class="icon"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
 </section>
@@ -384,7 +370,7 @@
         <p class="footer__claim">Personalvermittlung europaweit. Qualifizierte Menschen. Starke Unternehmen. Persönliche Betreuung.</p>
       </div>
       <div>
-        <h4>Seiten</h4>
+        <h2 class="footer__h">Seiten</h2>
         <ul>
           <li><a href="ueber-uns.html">Über uns</a></li>
           <li><a href="branchen.html">Branchen</a></li>
@@ -395,7 +381,7 @@
         </ul>
       </div>
       <div>
-        <h4>Kontakt</h4>
+        <h2 class="footer__h">Kontakt</h2>
         <ul>
           <li><a href="tel:+4915228986993">0152 28986993</a></li>
           <li><a href="mailto:info@standard-plus.net">info@standard-plus.net</a></li>
@@ -403,7 +389,7 @@
         </ul>
       </div>
       <div>
-        <h4>Rechtliches</h4>
+        <h2 class="footer__h">Rechtliches</h2>
         <ul>
           <li><a href="impressum.html">Impressum</a></li>
           <li><a href="agb.html">AGB</a></li>
@@ -421,6 +407,6 @@
 
 <a class="fab" href="tel:+4915228986993" aria-label="Standard Plus anrufen"><svg class="icon"><use href="#i-phone"/></svg></a>
 
-<script src="assets/js/main.js?v=e66d3679" defer></script>
+<script src="assets/js/main.js?v=54c96cb6" defer></script>
 </body>
 </html>

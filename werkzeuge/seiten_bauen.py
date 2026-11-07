@@ -509,14 +509,17 @@ def header(active: str) -> str:
 
 
 def cta_strip() -> str:
-    return f'''<!-- ================= Balken unten ================= -->
-<section class="cta-strip" aria-label="Kontakt">
+    return f'''<!-- ================= Abschluss (Balken unten) ================= -->
+<section class="cta-strip" aria-labelledby="cta-titel">
   <div class="container">
-    <p class="cta-strip__text"><strong>Personal gesucht?</strong> <span>Persönlich. Erreichbar. Zuverlässig.</span></p>
+    <div class="cta-strip__text">
+      <h2 id="cta-titel">Personal gesucht?</h2>
+      <p>Persönlich. Erreichbar. Zuverlässig. Wir melden uns schnellstmöglich bei Ihnen.</p>
+    </div>
     <div class="cta-strip__actions">
-      <a class="btn btn--white" href="{TEL_LINK}"><svg class="icon"><use href="#i-phone"/></svg>{TEL}</a>
+      <a class="btn btn--yellow btn--lg" href="kontakt.html">Unverbindlich anfragen<svg class="icon"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn--line" href="{TEL_LINK}"><svg class="icon"><use href="#i-phone"/></svg>{TEL}</a>
       <a class="btn btn--wa" href="{WA_LINK}" target="_blank" rel="noopener"><svg class="icon"><use href="#i-whatsapp"/></svg>WhatsApp</a>
-      <a class="btn btn--glass" href="kontakt.html">Jetzt anfragen<svg class="icon"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
 </section>'''
@@ -534,13 +537,13 @@ def footer() -> str:
         <p class="footer__claim">Personalvermittlung europaweit. Qualifizierte Menschen. Starke Unternehmen. Persönliche Betreuung.</p>
       </div>
       <div>
-        <h4>Seiten</h4>
+        <h2 class="footer__h">Seiten</h2>
         <ul>
 {seiten}
         </ul>
       </div>
       <div>
-        <h4>Kontakt</h4>
+        <h2 class="footer__h">Kontakt</h2>
         <ul>
           <li><a href="{TEL_LINK}">{TEL}</a></li>
           <li><a href="mailto:{MAIL}">{MAIL}</a></li>
@@ -548,7 +551,7 @@ def footer() -> str:
         </ul>
       </div>
       <div>
-        <h4>Rechtliches</h4>
+        <h2 class="footer__h">Rechtliches</h2>
         <ul>
           <li><a href="impressum.html">Impressum</a></li>
           <li><a href="agb.html">AGB</a></li>
@@ -570,7 +573,7 @@ def footer() -> str:
 def head(file: str, title: str, desc: str, robots: str, ld: list, og_title: str | None = None, preload_hero: bool = False) -> str:
     url = DOMAIN + "/" if file == "index.html" else f"{DOMAIN}/{file}"
     ld_json = json.dumps({"@context": "https://schema.org", "@graph": ld}, ensure_ascii=False, indent=2)
-    preload = ('\n  <link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/beratung-klein.webp 900w, assets/img/beratung.webp 1800w" imagesizes="(max-width: 900px) 92vw, 560px" fetchpriority="high">'
+    preload = ('\n  <link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/beratung-klein.webp 1000w, assets/img/beratung.webp 2190w" imagesizes="(max-width: 900px) 100vw, 55vw" fetchpriority="high">'
                if preload_hero else "")
     return f'''<head>
   <meta charset="utf-8">
@@ -658,93 +661,115 @@ def main() -> None:
         for i in range(12)
     )
 
+    tiles = "\n".join(
+        f"""        <li><a class="h-tile reveal" href="branchen.html#{b["id"]}">
+          {picture(b["id"], b["alt"], sizes="(max-width: 1000px) 46vw, 400px")}
+          <span class="h-tile__text"><strong>{esc(b["name"])}</strong><span>{esc(b["kurz"])}</span></span>
+        </a></li>"""
+        for b in BRANCHEN
+    )
+    timeline = "\n".join(
+        f"""        <li class="h-step reveal"><span class="h-step__no" aria-hidden="true">{i}</span><h3>{esc(h)}</h3><p>{esc(kurz)}</p></li>"""
+        for i, (_ic, h, kurz, _lang) in enumerate(STEPS, 1)
+    )
+
     # ---------- Start ----------
     start = f'''
-  <section class="hero">
-    <div class="container hero__grid">
-      <div class="hero__text">
-        <p class="pill reveal"><span class="pill__eu"><svg viewBox="0 0 20 20" aria-hidden="true">{eu}</svg></span>Personalvermittlung europaweit</p>
-        <h1 class="reveal">Passende Mitarbeiter.<span class="grad">Persönlich vermittelt.</span></h1>
-        <p class="hero__lead reveal">Standard Plus ist Ihre Personalvermittlung für zuverlässige Arbeitskräfte aus ganz Europa – und wir bleiben auch nach dem Arbeitsbeginn an Ihrer Seite.</p>
-        <div class="hero__actions reveal">
-          <a class="btn btn--primary" href="kontakt.html">Unverbindlich anfragen<svg class="icon"><use href="#i-arrow"/></svg></a>
-          <a class="btn btn--outline" href="{TEL_LINK}"><svg class="icon"><use href="#i-phone"/></svg>{TEL}</a>
+  <section class="h-hero" aria-labelledby="h-titel">
+    <div class="h-hero__grid">
+      <div class="h-hero__text">
+        <h1 id="h-titel" class="h-hero__title">Passende Mitarbeiter. <span>Persönlich vermittelt.</span></h1>
+        <p class="h-hero__lead">Standard Plus ist Ihre Personalvermittlung für zuverlässige Arbeitskräfte aus ganz Europa – und wir bleiben auch nach dem Arbeitsbeginn an Ihrer Seite.</p>
+        <div class="h-hero__actions">
+          <a class="btn btn--primary btn--lg" href="kontakt.html">Unverbindlich anfragen<svg class="icon"><use href="#i-arrow"/></svg></a>
+          <a class="h-hero__tel" href="{TEL_LINK}"><svg class="icon"><use href="#i-phone"/></svg>{TEL}</a>
         </div>
-        <ul class="hero__facts reveal">
-          <li><svg class="icon"><use href="#i-check"/></svg>Kein Geld im Voraus</li>
-          <li><svg class="icon"><use href="#i-check"/></svg>Fester Ansprechpartner</li>
-          <li><svg class="icon"><use href="#i-check"/></svg>6 Tage pro Woche erreichbar</li>
+        <ul class="h-facts">
+          <li><span class="h-facts__eu"><svg viewBox="0 0 20 20" aria-hidden="true">{eu}</svg></span>Arbeitskräfte aus ganz Europa</li>
+          <li><svg class="icon"><use href="#i-nomoney"/></svg>Kein Geld im Voraus</li>
+          <li><svg class="icon"><use href="#i-user"/></svg>Fester, deutschsprachiger Ansprechpartner</li>
+          <li><svg class="icon"><use href="#i-clock"/></svg>An 6 Tagen pro Woche erreichbar</li>
         </ul>
       </div>
-      <div class="hero__stage reveal">
-        <div class="hero__photo">
-          {foto("beratung", "Persönliche Beratung bei Standard Plus Personalvermittlung: Vermittler und Arbeitgeber reichen sich die Hand", 1800, 1200, "(max-width: 900px) 92vw, 560px", lazy=False, gross=1800, klein=900)}
-        </div>
-        <div class="glass-chip glass-chip--a">
-          <span class="glass-chip__icon"><svg class="icon"><use href="#i-user"/></svg></span>
-          <div><strong>Fester Ansprechpartner</strong><span>deutschsprachig &amp; persönlich</span></div>
-        </div>
+      <div class="h-hero__media">
+        {foto("beratung", "Persönliche Beratung bei Standard Plus Personalvermittlung: Vermittler und Arbeitgeber reichen sich die Hand", 2190, 1460, "(max-width: 900px) 100vw, 55vw", lazy=False, gross=2190, klein=1000)}
       </div>
     </div>
   </section>
 
-  <div class="values-bar">
+  <section class="h-sec" aria-labelledby="h-branchen">
     <div class="container">
-      <ul>
-        <li class="reveal"><svg class="icon"><use href="#i-globe"/></svg><strong>Europaweit</strong><span>Arbeitskräfte aus ganz Europa</span></li>
-        <li class="reveal"><svg class="icon"><use href="#i-user"/></svg><strong>Persönlich</strong><span>Fester, deutschsprachiger Ansprechpartner</span></li>
-        <li class="reveal"><svg class="icon"><use href="#i-chat"/></svg><strong>Erreichbar</strong><span>Service an 6 Tagen pro Woche</span></li>
-        <li class="reveal"><svg class="icon"><use href="#i-shield"/></svg><strong>Zuverlässig</strong><span>Kein Geld im Voraus, klare Verträge</span></li>
+      <div class="h-head reveal">
+        <h2 id="h-branchen">Arbeitskräfte für Ihre Branche.</h2>
+        <p>Wir vermitteln Hilfs- und Fachkräfte aus ganz Europa – für Betriebe und Privathaushalte.</p>
+      </div>
+      <ul class="h-tiles" role="list">
+{tiles}
       </ul>
-    </div>
-  </div>
-
-  <section class="section section--alt">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="kicker">Branchen</span>
-        <h2>Arbeitskräfte für Ihre Branche.</h2>
-        <p>Wir vermitteln Hilfs- und Fachkräfte aus ganz Europa – tippen Sie auf eine Branche, um mehr zu erfahren.</p>
-      </div>
-      {branchen_teaser()}
-      <p class="more reveal"><a class="btn btn--primary" href="branchen.html">Alle Branchen im Detail<svg class="icon"><use href="#i-arrow"/></svg></a></p>
+      <p class="h-more reveal"><a class="h-link" href="branchen.html">Alle Branchen im Detail<svg class="icon"><use href="#i-arrow"/></svg></a></p>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container about">
-      <div class="about__media reveal">
+  <section class="h-sec h-sec--tint" aria-labelledby="h-ablauf">
+    <div class="container">
+      <div class="h-head reveal">
+        <h2 id="h-ablauf">In 4 Schritten zum passenden Mitarbeiter.</h2>
+        <p>Klar geregelt, persönlich begleitet – vom ersten Gespräch bis nach dem Arbeitsbeginn.</p>
+      </div>
+      <ol class="h-steps">
+{timeline}
+      </ol>
+      <p class="h-more reveal"><a class="h-link" href="ablauf.html">Ablauf im Detail<svg class="icon"><use href="#i-arrow"/></svg></a></p>
+    </div>
+  </section>
+
+  <section class="h-sec" aria-labelledby="h-pakete">
+    <div class="container">
+      <div class="h-head reveal">
+        <h2 id="h-pakete">Zwei transparente Pakete.</h2>
+        <p>Qualifizierte Fachkräfte. Zuverlässig. Persönlich. Schnell. Alle Preise inklusive MwSt.</p>
+      </div>
+      <div class="h-plans">
+        <article class="h-plan reveal" aria-labelledby="h-plan-abo">
+          <h3 id="h-plan-abo">Abo-Paket</h3>
+          <p class="h-plan__price"><strong>399&nbsp;€</strong> <span>einmalig</span></p>
+          <p class="h-plan__extra">+ 119&nbsp;€ pro Monat für die Betreuung</p>
+          <ul class="h-checks">
+            <li><svg class="icon"><use href="#i-check"/></svg>Suche nach qualifizierten Arbeitskräften</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Fortlaufende Betreuung und Unterstützung</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Ersatz innerhalb von 84&nbsp;Stunden bei längeren Ausfällen</li>
+          </ul>
+          <a class="btn btn--outline btn--block" href="pakete.html#abo">Details zum Abo-Paket</a>
+        </article>
+        <article class="h-plan reveal" aria-labelledby="h-plan-einmal">
+          <h3 id="h-plan-einmal">Paket für 899&nbsp;Euro</h3>
+          <p class="h-plan__price"><strong>899&nbsp;€</strong> <span>einmalig</span></p>
+          <p class="h-plan__extra">Ohne monatliche Gebühr</p>
+          <ul class="h-checks">
+            <li><svg class="icon"><use href="#i-check"/></svg>Suche nach qualifizierten Arbeitskräften</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Austausch innerhalb von zwei Wochen, falls nötig</li>
+          </ul>
+          <a class="btn btn--outline btn--block" href="pakete.html#einmal">Details zum 899-€-Paket</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="h-sec h-sec--tint" aria-labelledby="h-ueber">
+    <div class="container h-about">
+      <div class="h-about__media reveal">
         {BERATERIN}
-        <div class="about__quote">Mit Standard Plus werden Sie auch nach der Vermittlung nicht allein gelassen.</div>
       </div>
-      <div class="reveal">
-        <span class="kicker">Über uns</span>
-        <h2>Mehr als Vermittlung.</h2>
-        <p class="about__lead">Bei Standard Plus endet unsere Arbeit nicht mit der Besetzung einer Stelle. Wir begleiten Sie <strong>vor, während und nach dem Arbeitsbeginn.</strong></p>
-        <p class="more more--left"><a class="btn btn--plain" href="ueber-uns.html">Mehr über uns<svg class="icon"><use href="#i-arrow"/></svg></a></p>
+      <div class="h-about__text reveal">
+        <h2 id="h-ueber">Mehr als Vermittlung.</h2>
+        <p class="h-about__lead">Bei Standard Plus endet unsere Arbeit nicht mit der Besetzung einer Stelle. Wir begleiten Sie vor, während und nach dem Arbeitsbeginn – auch nach der Vermittlung werden Sie nicht allein gelassen.</p>
+        <ul class="h-checks h-checks--lg">
+          <li><svg class="icon"><use href="#i-check"/></svg>Kein Geld im Voraus</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Arbeit mit Verträgen und Rechnungen</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Deutschsprachiger Ansprechpartner</li>
+        </ul>
+        <a class="h-link" href="ueber-uns.html">Mehr über uns<svg class="icon"><use href="#i-arrow"/></svg></a>
       </div>
-    </div>
-  </section>
-
-  <section class="section section--alt">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="kicker">Ablauf</span>
-        <h2>In 4 Schritten zum passenden Mitarbeiter.</h2>
-      </div>
-      {steps()}
-      <p class="more reveal"><a class="btn btn--plain" href="ablauf.html">Ablauf im Detail<svg class="icon"><use href="#i-arrow"/></svg></a></p>
-    </div>
-  </section>
-
-  <section class="section section--dark">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="kicker">Pakete</span>
-        <h2>Zwei transparente Pakete.</h2>
-        <p>Qualifizierte Fachkräfte. Zuverlässig. Persönlich. Schnell.</p>
-      </div>
-      {pakete(kompakt=True)}
     </div>
   </section>
 '''
