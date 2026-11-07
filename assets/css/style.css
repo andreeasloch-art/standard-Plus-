@@ -435,6 +435,24 @@ p { margin: 0 0 1em; }
 .h-checks li { display: flex; gap: 12px; align-items: flex-start; font-size: 16px; line-height: 1.45; color: var(--ink-2); }
 .h-checks .icon { width: 20px; height: 20px; color: var(--primary); stroke-width: 2.4; margin-top: 1px; }
 .h-plan .btn { margin-top: auto; }
+/* Farbige Paket-Kacheln (Logo-Petrol und Logo-Gelb) */
+.h-plan--petrol { background: var(--primary); box-shadow: 0 18px 40px -18px rgba(6,42,47,.55); color: rgba(255,255,255,.9); }
+.h-plan--petrol h3, .h-plan--petrol .h-plan__price strong { color: #fff; }
+.h-plan--petrol .h-plan__price span, .h-plan--petrol .h-checks li { color: rgba(255,255,255,.9); }
+.h-plan--petrol .h-plan__extra { color: #fff; }
+.h-plan--petrol .h-checks { border-top-color: rgba(255,255,255,.22); }
+.h-plan--petrol .h-checks .icon { color: var(--yellow); }
+.h-plan--gelb { background: var(--yellow); box-shadow: 0 18px 40px -18px rgba(120,90,10,.45); }
+.h-plan--gelb h3, .h-plan--gelb .h-plan__price strong, .h-plan--gelb .h-checks li { color: var(--brand-900); }
+.h-plan--gelb .h-plan__price span { color: #4a3d14; }
+.h-plan--gelb .h-plan__extra { color: var(--brand-900); }
+.h-plan--gelb .h-plan__extra::before { background: var(--brand-900); }
+.h-plan--gelb .h-checks { border-top-color: rgba(6,42,47,.18); }
+.h-plan--gelb .h-checks .icon { color: var(--brand-900); }
+.h-plan--gelb .btn--dark { background: var(--brand-900); }
+.h-plan--gelb .btn--dark:hover { background: var(--ink); }
+.h-plan--gelb :focus-visible { outline-color: var(--brand-900); }
+.h-plan--petrol :focus-visible { outline-color: var(--yellow); }
 @media (max-width: 760px) { .h-plans { grid-template-columns: 1fr; } }
 
 /* Über uns / Vertrauen */
@@ -596,7 +614,6 @@ p { margin: 0 0 1em; }
 
 /* Lange deutsche Wörter auf schmalen Bildschirmen umbrechen statt überlaufen */
 main { overflow-wrap: break-word; }
-h1, h2, h3 { hyphens: auto; -webkit-hyphens: auto; }
 .legal .container > *, .faq, .faq summary { min-width: 0; }
 /* Dunkler Abschnitt direkt vor dem Abschlussband: feine helle Trennlinie */
 main > section:last-child.section--dark + .cta-strip, main:has(> .section--dark:last-child) + .cta-strip { border-top: 1px solid rgba(255,255,255,.12); }

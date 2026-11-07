@@ -730,7 +730,7 @@ def main() -> None:
         <p>Qualifizierte Fachkräfte. Zuverlässig. Persönlich. Schnell. Alle Preise inklusive MwSt.</p>
       </div>
       <div class="h-plans">
-        <article class="h-plan reveal" aria-labelledby="h-plan-abo">
+        <article class="h-plan h-plan--petrol reveal" aria-labelledby="h-plan-abo">
           <h3 id="h-plan-abo">Abo-Paket</h3>
           <p class="h-plan__price"><strong>399&nbsp;€</strong> <span>einmalig</span></p>
           <p class="h-plan__extra">+ 119&nbsp;€ pro Monat für die Betreuung</p>
@@ -739,9 +739,9 @@ def main() -> None:
             <li><svg class="icon"><use href="#i-check"/></svg>Fortlaufende Betreuung und Unterstützung</li>
             <li><svg class="icon"><use href="#i-check"/></svg>Ersatz innerhalb von 84&nbsp;Stunden bei längeren Ausfällen</li>
           </ul>
-          <a class="btn btn--outline btn--block" href="pakete.html#abo">Details zum Abo-Paket</a>
+          <a class="btn btn--white btn--block" href="pakete.html#abo">Details zum Abo-Paket<svg class="icon"><use href="#i-arrow"/></svg></a>
         </article>
-        <article class="h-plan reveal" aria-labelledby="h-plan-einmal">
+        <article class="h-plan h-plan--gelb reveal" aria-labelledby="h-plan-einmal">
           <h3 id="h-plan-einmal">Paket für 899&nbsp;Euro</h3>
           <p class="h-plan__price"><strong>899&nbsp;€</strong> <span>einmalig</span></p>
           <p class="h-plan__extra">Ohne monatliche Gebühr</p>
@@ -749,7 +749,7 @@ def main() -> None:
             <li><svg class="icon"><use href="#i-check"/></svg>Suche nach qualifizierten Arbeitskräften</li>
             <li><svg class="icon"><use href="#i-check"/></svg>Austausch innerhalb von zwei Wochen, falls nötig</li>
           </ul>
-          <a class="btn btn--outline btn--block" href="pakete.html#einmal">Details zum 899-€-Paket</a>
+          <a class="btn btn--dark btn--block" href="pakete.html#einmal">Details zum 899-€-Paket<svg class="icon"><use href="#i-arrow"/></svg></a>
         </article>
       </div>
     </div>
