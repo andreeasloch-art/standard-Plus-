@@ -23,6 +23,7 @@ FOTOS = [
     ("branchen/pflege",         "pflege.jpg",                 3 / 2, .5,  (1600, 800)),  # Adobe Stock 338302872
     ("branchen/logistik",       "logistik.jpg",               3 / 2, .5,  (1600, 800)),  # Adobe Stock 298841166
     ("branchen/gastronomie",    "gastronomie.jpg",            3 / 2, .5,  (1600, 800)),  # Adobe Stock 280942529 (kostenlose Sammlung)
+    ("team",                    "team.jpg",                   1344 / 640, .5, (1344, 800)),  # von der Inhaberin geliefert
     ("beratung",                "1758518730384-be3d205838e8", 3 / 2, .5,  (2190, 1000)),
     ("beraterin",               "beraterin.jpg",              4 / 5, .66, (1000, 560)),  # Adobe Stock 308386473
 ]

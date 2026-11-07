@@ -573,7 +573,7 @@ def footer() -> str:
 def head(file: str, title: str, desc: str, robots: str, ld: list, og_title: str | None = None, preload_hero: bool = False) -> str:
     url = DOMAIN + "/" if file == "index.html" else f"{DOMAIN}/{file}"
     ld_json = json.dumps({"@context": "https://schema.org", "@graph": ld}, ensure_ascii=False, indent=2)
-    preload = ('\n  <link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/beratung-klein.webp 1000w, assets/img/beratung.webp 2190w" imagesizes="(max-width: 900px) 100vw, 55vw" fetchpriority="high">'
+    preload = ('\n  <link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/team-klein.webp 800w, assets/img/team.webp 1344w" imagesizes="(max-width: 1240px) calc(100vw - 32px), 1200px" fetchpriority="high">'
                if preload_hero else "")
     return f'''<head>
   <meta charset="utf-8">
@@ -691,20 +691,7 @@ def main() -> None:
           <li><svg class="icon"><use href="#i-clock"/></svg>An 6 Tagen pro Woche erreichbar</li>
         </ul>
       </div>
-      <div class="h-hero__media h-stack" aria-label="Unsere Mitarbeiter in allen Branchen">
-        <div class="h-stack__col">
-          <figure class="h-stack__card h-stack__card--tall">{picture("bau", "Bauarbeiter mit Schutzhelm auf einer Baustelle", lazy=False, sizes="(max-width: 900px) 46vw, 18vw")}<figcaption>Bau &amp; Handwerk</figcaption></figure>
-          <figure class="h-stack__card">{picture("pflege", "Pflegekraft hilft einer Seniorin", lazy=False, sizes="(max-width: 900px) 46vw, 18vw")}<figcaption>Pflege</figcaption></figure>
-        </div>
-        <div class="h-stack__col h-stack__col--down">
-          <figure class="h-stack__card">{picture("landwirtschaft", "Landwirt im Milchviehstall", lazy=False, sizes="(max-width: 900px) 46vw, 18vw")}<figcaption>Landwirtschaft</figcaption></figure>
-          <figure class="h-stack__card h-stack__card--tall">{picture("gastronomie", "Restaurant-Team mit Köchen und Kellnern", lazy=False, sizes="(max-width: 900px) 46vw, 18vw")}<figcaption>Gastronomie &amp; Hotel</figcaption></figure>
-        </div>
-        <div class="h-stack__col h-stack__col--wide">
-          <figure class="h-stack__card h-stack__card--tall">{picture("logistik", "Lagermitarbeiter mit Helm und Warnweste", lazy=False, sizes="(max-width: 900px) 46vw, 18vw")}<figcaption>Lager &amp; Logistik</figcaption></figure>
-          <figure class="h-stack__card">{picture("pferde", "Pferdepflegerin mit Pferd im Stall", lazy=False, sizes="(max-width: 900px) 46vw, 18vw")}<figcaption>Pferdebetriebe</figcaption></figure>
-        </div>
-      </div>
+      <figure class="h-team">{foto("team", "Zwölf Mitarbeiterinnen und Mitarbeiter aus verschiedenen Branchen stehen nebeneinander: Handwerk, Bau, Service, Küche, Landwirtschaft, Lager und Logistik, Pflege, Reinigung, Paketdienst, Einzelhandel und Sicherheitsdienst", 1344, 640, "(max-width: 1240px) calc(100vw - 32px), 1200px", lazy=False, gross=1344, klein=800)}</figure>
     </div>
   </section>
 

@@ -618,33 +618,22 @@ main { overflow-wrap: break-word; }
 /* Dunkler Abschnitt direkt vor dem Abschlussband: feine helle Trennlinie */
 main > section:last-child.section--dark + .cta-strip, main:has(> .section--dark:last-child) + .cta-strip { border-top: 1px solid rgba(255,255,255,.12); }
 
-/* Kopfbereich: versetzte Fotowand mit Mitarbeitern aller Branchen */
-.h-stack { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; background: none; border-radius: 0; overflow: visible; margin: clamp(32px, 4vw, 56px) var(--side) clamp(32px, 4vw, 56px) 0; align-content: center; }
-.h-stack__col { display: grid; gap: 14px; align-content: start; }
-.h-stack__col--down { margin-top: 56px; }
-.h-stack__col--wide { margin-top: 18px; }
-.h-stack__card { position: relative; margin: 0; border-radius: 22px; overflow: hidden; aspect-ratio: 4 / 4.2; background: var(--surface); box-shadow: 0 20px 40px -24px rgba(6,42,47,.45); }
-.h-stack__card--tall { aspect-ratio: 4 / 5.4; }
-.h-stack__card picture { display: contents; }
-.h-stack__card img { width: 100%; height: 100%; object-fit: cover; }
-.h-stack__card figcaption { position: absolute; left: 10px; bottom: 10px; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,.92); color: var(--brand-900); font-size: 13px; font-weight: 600; line-height: 1.2; }
-.h-hero__media.h-stack img { animation: none; }
-@media (prefers-reduced-motion: no-preference) {
-  .h-stack__card { animation: h-rise .8s var(--ease-out) both; }
-  .h-stack__col:nth-child(2) .h-stack__card { animation-delay: .08s; }
-  .h-stack__col:nth-child(3) .h-stack__card { animation-delay: .16s; }
-}
+/* Kopfbereich: Text oben, darunter das Teamfoto mit allen Branchen */
+.h-hero__grid { grid-template-columns: minmax(0, 1fr); min-height: 0; max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter) clamp(40px, 5vw, 72px); }
+.h-hero__text { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); column-gap: clamp(32px, 5vw, 80px); align-items: end; padding: clamp(48px, 6vw, 88px) 0 clamp(32px, 4vw, 48px); }
+.h-hero__title { grid-column: 1; grid-row: 1 / span 2; align-self: center; margin-bottom: 0; }
+@media (min-width: 1100px) { .h-hero__title { white-space: normal; font-size: clamp(44px, 4vw, 68px); } }
+.h-hero__lead { grid-column: 2; margin-bottom: 24px; }
+.h-hero__actions { grid-column: 2; margin-bottom: 0; }
+.h-facts { grid-column: 1 / -1; grid-template-columns: repeat(4, auto); justify-content: space-between; max-width: none; margin-top: clamp(32px, 4vw, 48px); }
+.h-team { margin: 0; border-radius: clamp(20px, 2.4vw, 32px); overflow: hidden; background: var(--surface); box-shadow: 0 30px 60px -36px rgba(6,42,47,.5); }
+.h-team picture { display: contents; }
+.h-team img { display: block; width: 100%; height: auto; }
+@media (prefers-reduced-motion: no-preference) { .h-team { animation: h-rise .8s var(--ease-out) .1s both; } }
 @media (max-width: 900px) {
-  .h-stack { order: -1; margin: 16px var(--gutter) 0; aspect-ratio: auto; border-radius: 0; gap: 10px; }
-  .h-stack__col { gap: 10px; }
-  .h-stack__col--down { margin-top: 32px; }
-  .h-stack__col--wide { margin-top: 12px; }
+  .h-hero__text { grid-template-columns: minmax(0, 1fr); padding: 36px 0 28px; }
+  .h-hero__title, .h-hero__lead, .h-hero__actions, .h-facts { grid-column: 1; grid-row: auto; }
+  .h-hero__title { margin-bottom: 20px; }
+  .h-facts { grid-template-columns: 1fr 1fr; justify-content: stretch; margin-top: 28px; }
 }
-@media (max-width: 560px) {
-  .h-stack { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
-  .h-stack__col { gap: 8px; }
-  .h-stack__card { border-radius: 14px; }
-  .h-stack__card figcaption { display: none; }
-  .h-stack__col:nth-child(3) .h-stack__card:last-child, .h-stack__col:nth-child(1) .h-stack__card:last-child, .h-stack__col:nth-child(2) .h-stack__card:first-child { display: none; }
-  .h-stack__col--down, .h-stack__col--wide { margin-top: 20px; }
-}
+@media (max-width: 560px) { .h-facts { grid-template-columns: 1fr; } .h-hero__text { padding-top: 28px; } }
