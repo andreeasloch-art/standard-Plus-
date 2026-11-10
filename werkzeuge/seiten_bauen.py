@@ -187,6 +187,20 @@ def picture(name: str, alt: str, lazy: bool = True, sizes: str = "(max-width: 86
     return foto("branchen/" + name, alt, 1600, 1067, sizes, lazy)
 
 
+# Team auf der Startseite: Bild-Datei (assets/img/team/), Name, Position
+TEAM = [
+    ("andreas-loch",        "Andreas Loch",        "Inhaber"),
+    ("arif-oezen",          "Arif Özen",           "Vertrieb"),
+    ("daniel-rusitschka",   "Daniel Rusitschka",   "Kundenservice"),
+    ("jasmin-loch",         "Jasmin Loch",         "Buchhaltung & Finanzen"),
+    ("patricia-rusitschka", "Patricia Rusitschka", "Recruiting"),
+    ("bahar-mirau",         "Bahar Mirau",         "CTO"),
+    ("tamara-doyle",        "Tamara Doyle",        "Vertrieb"),
+    ("bianca-archire",      "Bianca Archire",      "Recruiting"),
+    ("manuel-crenicianu",   "Manuel Crenicianu",   "Recruiting"),
+    ("patrick-danes",       "Patrick Danes",       "Recruiting"),
+]
+
 BERATERIN = foto("beraterin", "Beraterin von Standard Plus begrüßt einen Kunden am Schreibtisch mit Handschlag",
                  1000, 1250, "(max-width: 900px) 92vw, 520px", gross=1000, klein=560)
 
@@ -673,6 +687,11 @@ def main() -> None:
         for i, (_ic, h, kurz, _lang) in enumerate(STEPS, 1)
     )
 
+    team_html = "\n".join(
+        f'''        <li class="h-member reveal"><figure>{foto("team/" + bild, f"{name}, {rolle} bei Standard Plus", 720, 900, "(max-width: 560px) 46vw, (max-width: 900px) 30vw, 230px", gross=720, klein=400)}<figcaption><strong>{esc(name)}</strong><span>{esc(rolle)}</span></figcaption></figure></li>'''
+        for bild, name, rolle in TEAM
+    )
+
     # ---------- Start ----------
     start = f'''
   <section class="h-hero" aria-labelledby="h-titel">
@@ -768,6 +787,18 @@ def main() -> None:
         </ul>
         <a class="h-link" href="ueber-uns.html">Mehr über uns<svg class="icon"><use href="#i-arrow"/></svg></a>
       </div>
+    </div>
+  </section>
+
+  <section class="h-sec" id="team" aria-labelledby="h-team">
+    <div class="container">
+      <div class="h-head reveal">
+        <h2 id="h-team">Unser Team.</h2>
+        <p>Die Menschen hinter Standard Plus – persönlich für Sie da, vom ersten Gespräch bis nach dem Arbeitsbeginn.</p>
+      </div>
+      <ul class="h-crew" role="list">
+{team_html}
+      </ul>
     </div>
   </section>
 '''
