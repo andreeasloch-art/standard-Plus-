@@ -649,3 +649,10 @@ main > section:last-child.section--dark + .cta-strip, main:has(> .section--dark:
 .h-member span { font-size: 15px; font-weight: 600; color: var(--primary); }
 @media (max-width: 1000px) { .h-crew { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .h-crew { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 12px; } .h-member picture { border-radius: 16px; } .h-member strong { font-size: 15px; } .h-member span { font-size: 14px; } }
+
+/* Abschlussband „Personal gesucht?“ in den Logo-Farben: Petrol mit gelbem Hauptbutton */
+.cta-strip { background: linear-gradient(135deg, var(--primary) 0%, var(--brand) 100%); color: #fff; }
+.cta-strip__text p { color: rgba(255,255,255,.92); }
+.cta-strip .btn--line { box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.7); }
+.cta-strip .btn--wa { background: #fff; color: var(--brand); }
+.cta-strip .btn--wa:hover { background: #eaf4f4; color: var(--brand-900); }
