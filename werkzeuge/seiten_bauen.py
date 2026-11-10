@@ -562,6 +562,7 @@ def cta_strip() -> str:
       <a class="btn btn--yellow btn--lg" href="kontakt.html">Unverbindlich anfragen<svg class="icon"><use href="#i-arrow"/></svg></a>
       <a class="btn btn--line" href="{TEL_LINK}"><svg class="icon"><use href="#i-phone"/></svg>{TEL}</a>
       <a class="btn btn--wa" href="{WA_LINK}" target="_blank" rel="noopener"><svg class="icon"><use href="#i-whatsapp"/></svg>WhatsApp</a>
+      <a class="btn btn--line" href="mailto:{MAIL}?subject=Anfrage%20Personal"><svg class="icon"><use href="#i-mail"/></svg>{MAIL}</a>
     </div>
   </div>
 </section>'''
