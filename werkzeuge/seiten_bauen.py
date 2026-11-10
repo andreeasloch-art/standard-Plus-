@@ -307,39 +307,60 @@ def pakete(kompakt: bool = False) -> str:
       </div>
       <p class="swipe-hint">← Wischen, um beide Pakete zu sehen →</p>'''
     return f'''<div class="pricing">
-        <article class="plan reveal" id="abo">
+        <article class="plan reveal" id="abo6">
           <span class="plan__icon"><svg class="icon"><use href="#i-users"/></svg></span>
-          <h3>Abo-Paket</h3>
-          <div class="plan__price"><strong>399&nbsp;€</strong><span>einmalig</span><em>+ 119&nbsp;€ / Monat</em><small class="plan__tax">alle Preise inkl. MwSt.</small></div>
-          <p class="plan__desc">Das Abo-Paket umfasst eine einmalige Zahlung von 399&nbsp;Euro sowie eine monatliche Betreuungsgebühr von 119&nbsp;Euro. Mit diesem Paket übernehmen wir die Suche nach qualifizierten Arbeitskräften sowie die fortlaufende Betreuung. Ein wesentlicher Vorteil ist, dass Sie auch bei längeren Ausfällen nicht ohne Mitarbeiter dastehen. Innerhalb von 84&nbsp;Stunden sorgen wir für passenden Ersatz, der Ihre Anforderungen erfüllt.</p>
+          <h3>Betreuung 6&nbsp;Monate</h3>
+          <div class="plan__price"><strong>399&nbsp;€</strong><span>einmalig</span><em style="flex-basis:100%">+ 119&nbsp;€ / Monat</em><small class="plan__tax">alle Preise inkl. MwSt.</small></div>
+          <p class="plan__desc">Das Paket umfasst eine einmalige Vermittlungsgebühr von 399&nbsp;Euro sowie eine monatliche Betreuungsgebühr von 119&nbsp;Euro über eine Laufzeit von 6&nbsp;Monaten. Wir übernehmen die Suche nach qualifizierten Arbeitskräften sowie die fortlaufende Betreuung. Bei längeren Ausfällen sorgen wir innerhalb von 84&nbsp;Stunden für passenden Ersatz.</p>
           <ul class="plan__list">
-            <li>Einmalige Zahlung: 399&nbsp;Euro</li>
+            <li>Einmalige Vermittlungsgebühr: 399&nbsp;Euro</li>
             <li>Monatliche Betreuungsgebühr: 119&nbsp;Euro</li>
+            <li>Laufzeit: 6&nbsp;Monate</li>
             <li>Suche nach qualifizierten Arbeitskräften</li>
             <li>Fortlaufende Betreuung und Unterstützung</li>
             <li>Ersatz innerhalb von 84&nbsp;Stunden bei längeren Ausfällen</li>
           </ul>
-          <p class="plan__summary"><svg class="icon"><use href="#i-bulb"/></svg><span><b>Kurz zusammengefasst:</b> Transparente Betreuung mit schneller Ersatzlösung für Ihren Personalbedarf.</span></p>
-          <a class="btn btn--yellow btn--block" href="{kontakt_link("Anfrage Abo-Paket (399 € + 119 €/Monat)")}">Abo-Paket anfragen</a>
+          <p class="plan__summary"><svg class="icon"><use href="#i-bulb"/></svg><span><b>Kurz zusammengefasst:</b> 6 Monate Betreuung mit schneller Ersatzlösung für Ihren Personalbedarf.</span></p>
+          <a class="btn btn--yellow btn--block" href="kontakt.html?betreff=Anfrage%20Betreuung%206%20Monate%20%28399%20%E2%82%AC%20%2B%206%20%C3%97%20119%20%E2%82%AC%29">Betreuung 6 Monate anfragen</a>
+        </article>
+
+        <article class="plan reveal" id="abo12">
+          <span class="plan__icon"><svg class="icon"><use href="#i-users"/></svg></span>
+          <h3>Betreuung 12&nbsp;Monate</h3>
+          <div class="plan__price"><strong>399&nbsp;€</strong><span>einmalig</span><em style="flex-basis:100%">+ 99&nbsp;€ / Monat</em><small class="plan__tax">alle Preise inkl. MwSt.</small></div>
+          <p class="plan__desc">Das Paket umfasst eine einmalige Vermittlungsgebühr von 399&nbsp;Euro sowie eine monatliche Betreuungsgebühr von 99&nbsp;Euro über eine Laufzeit von 12&nbsp;Monaten. Wir übernehmen die Suche nach qualifizierten Arbeitskräften sowie die fortlaufende Betreuung. Bei längeren Ausfällen sorgen wir innerhalb von 84&nbsp;Stunden für passenden Ersatz.</p>
+          <ul class="plan__list">
+            <li>Einmalige Vermittlungsgebühr: 399&nbsp;Euro</li>
+            <li>Monatliche Betreuungsgebühr: 99&nbsp;Euro</li>
+            <li>Laufzeit: 12&nbsp;Monate</li>
+            <li>Suche nach qualifizierten Arbeitskräften</li>
+            <li>Fortlaufende Betreuung und Unterstützung</li>
+            <li>Ersatz innerhalb von 84&nbsp;Stunden bei längeren Ausfällen</li>
+          </ul>
+          <p class="plan__summary"><svg class="icon"><use href="#i-bulb"/></svg><span><b>Kurz zusammengefasst:</b> 12 Monate Betreuung mit schneller Ersatzlösung für Ihren Personalbedarf.</span></p>
+          <a class="btn btn--yellow btn--block" href="kontakt.html?betreff=Anfrage%20Betreuung%2012%20Monate%20%28399%20%E2%82%AC%20%2B%2012%20%C3%97%2099%20%E2%82%AC%29">Betreuung 12 Monate anfragen</a>
         </article>
 
         <article class="plan plan--featured reveal" id="einmal">
+          <span class="plan__badge">Beliebteste Wahl</span>
           <span class="plan__icon"><svg class="icon"><use href="#i-file"/></svg></span>
-          <h3>Paket für 899&nbsp;Euro</h3>
-          <div class="plan__price"><strong>899&nbsp;€</strong><span>einmalig</span><small class="plan__tax">inkl. MwSt.</small></div>
-          <p class="plan__desc">Dieses Paket beinhaltet ebenfalls die Suche nach qualifizierten Arbeitskräften, die Ihren Anforderungen entsprechen. Sollten die ausgewählten Mitarbeiter innerhalb von zwei Wochen nach Beginn ihrer Tätigkeit nicht Ihren Erwartungen entsprechen, bieten wir Ihnen einen Austausch an und suchen passende Ersatzkräfte für Sie.</p>
+          <h3>Übernahme-Paket</h3>
+          <div class="plan__price"><strong>899&nbsp;€</strong><span>einmalig</span><em>3 Monate Betreuung kostenlos</em><small class="plan__tax">alle Preise inkl. MwSt.</small></div>
+          <p class="plan__desc">Mit einer einmaligen Zahlung von 899&nbsp;Euro übernehmen wir die Suche nach qualifizierten Arbeitskräften, die Ihren Anforderungen entsprechen. Die ersten 3&nbsp;Monate betreuen wir kostenlos. Entspricht ein Mitarbeiter innerhalb von zwei Wochen nach Arbeitsbeginn nicht Ihren Erwartungen, bieten wir einen Austausch an. Danach fallen keine weiteren Gebühren an.</p>
           <ul class="plan__list">
             <li>Einmalige Zahlung: 899&nbsp;Euro</li>
             <li>Suche nach qualifizierten Arbeitskräften</li>
+            <li>3 Monate Betreuung kostenlos</li>
             <li>Austausch innerhalb von zwei Wochen, falls nötig</li>
+            <li>Danach keine weiteren Gebühren – der Mitarbeiter gehört ganz Ihnen</li>
           </ul>
-          <p class="plan__summary"><svg class="icon"><use href="#i-bulb"/></svg><span><b>Kurz zusammengefasst:</b> Einmaliges Paket mit passgenauer Suche und Austauschoption in den ersten zwei Wochen.</span></p>
-          <a class="btn btn--yellow btn--block" href="{kontakt_link("Anfrage Paket für 899 Euro")}">Paket für 899 € anfragen</a>
+          <p class="plan__summary"><svg class="icon"><use href="#i-bulb"/></svg><span><b>Kurz zusammengefasst:</b> Einmal zahlen, 3 Monate kostenlos betreut – danach gehört der Mitarbeiter ganz Ihnen.</span></p>
+          <a class="btn btn--yellow btn--block" href="kontakt.html?betreff=Anfrage%20%C3%9Cbernahme-Paket%20%28899%20%E2%82%AC%20einmalig%29">Übernahme-Paket anfragen</a>
         </article>
       </div>
-      <p class="swipe-hint">← Wischen, um beide Pakete zu sehen →</p>
+      <p class="swipe-hint">← Wischen, um alle Pakete zu sehen →</p>
 
-      <p class="pricing-foot reveal"><svg class="icon"><use href="#i-bulb"/></svg><span><b style="color:#fff">Kurz zusammengefasst:</b> Zwei transparente Pakete – individuell passend für Ihren Personalbedarf. Alle Preise sind Endpreise inkl. MwSt. Es gelten unsere <a href="agb.html">AGB</a>; Verbraucher haben ein <a href="widerruf.html">Widerrufsrecht</a>.</span></p>'''
+      <p class="pricing-foot reveal"><svg class="icon"><use href="#i-bulb"/></svg><span><b style="color:#fff">Kurz zusammengefasst:</b> Drei transparente Pakete – individuell passend für Ihren Personalbedarf. Alle Preise sind Endpreise inkl. MwSt. Es gelten unsere <a href="agb.html">AGB</a>; Verbraucher haben ein <a href="widerruf.html">Widerrufsrecht</a>.</span></p>'''
 
 
 FAQ = [
@@ -350,11 +371,11 @@ FAQ = [
     ("Wie läuft die Vermittlung ab?",
      "Anfrage, Auswahl, Vorstellung und Begleitung: Wir besprechen Ihren Bedarf, suchen gezielt passende Kandidaten, stellen Ihnen Vorschläge vor und betreuen Sie auch nach dem Start."),
     ("Was passiert, wenn ein Mitarbeiter nicht passt?",
-     "Beim Paket für 899 Euro bieten wir innerhalb von zwei Wochen nach Arbeitsbeginn einen Austausch an. Im Abo-Paket sorgen wir bei längeren Ausfällen innerhalb von 84 Stunden für Ersatz."),
+     "Beim Übernahme-Paket für 899 Euro bieten wir innerhalb von zwei Wochen nach Arbeitsbeginn einen Austausch an. In den Betreuungspaketen (6 oder 12 Monate) sorgen wir bei längeren Ausfällen innerhalb von 84 Stunden für Ersatz."),
     ("Gibt es eine Probezeit?",
      "Das hängt vom Einsatz und der Vereinbarung zwischen Ihnen und dem Mitarbeiter ab."),
     ("Was kostet die Personalvermittlung bei Standard Plus?",
-     "Es gibt zwei Pakete, alle Preise inklusive MwSt.: das Paket für 899 Euro (einmalige Zahlung, inklusive Austausch innerhalb von zwei Wochen) und das Abo-Paket mit einer einmaligen Zahlung von 399 Euro plus 119 Euro Betreuungsgebühr im Monat (inklusive Ersatz innerhalb von 84 Stunden bei längeren Ausfällen)."),
+     "Es gibt drei Pakete, alle Preise inklusive MwSt.: Betreuung 6 Monate für 399 Euro einmalig + 119 Euro pro Monat, Betreuung 12 Monate für 399 Euro einmalig + 99 Euro pro Monat, jeweils inklusive Ersatz innerhalb von 84 Stunden bei längeren Ausfällen, sowie das Übernahme-Paket für 899 Euro einmalig mit 3 Monaten kostenloser Betreuung und Austausch innerhalb von zwei Wochen – danach fallen keine weiteren Gebühren an."),
     ("Für welche Branchen vermitteln Sie Personal?",
      "Für Bau & Handwerk, Landwirtschaft (auch Milchvieh- und Pferdebetriebe), Pflege & Betreuung, Lager & Logistik sowie Gastronomie & Hotellerie."),
     ("Muss ich Geld im Voraus bezahlen?",
@@ -368,7 +389,7 @@ FAQ = [
 
 def faq_html() -> str:
     def answer(a: str) -> str:
-        a = esc(a).replace(" Euro", "&nbsp;Euro").replace(" Stunden", "&nbsp;Stunden")
+        a = re.sub(r"(\d) Monat", r"\1&nbsp;Monat", esc(a).replace(" Euro", "&nbsp;Euro").replace(" Stunden", "&nbsp;Stunden"))
         a = a.replace(TEL, f'<a href="{TEL_LINK}">{TEL}</a>').replace(MAIL, f'<a href="mailto:{MAIL}">{MAIL}</a>')
         return a
     items = "\n".join(
@@ -442,17 +463,24 @@ def catalog() -> dict:
     return {
         "@type": "OfferCatalog", "@id": DOMAIN + "/pakete.html#pakete", "name": "Pakete von Standard Plus",
         "itemListElement": [
-            {"@type": "Offer", "name": "Paket für 899 Euro", "url": DOMAIN + "/pakete.html#einmal",
-             "description": "Suche nach qualifizierten Arbeitskräften; Austausch innerhalb von zwei Wochen nach Arbeitsbeginn, falls nötig.",
-             "price": "899", "priceCurrency": "EUR", "seller": {"@id": ORG_ID},
-             "priceSpecification": {"@type": "PriceSpecification", "price": "899", "priceCurrency": "EUR", "valueAddedTaxIncluded": True}},
-            {"@type": "Offer", "name": "Abo-Paket", "url": DOMAIN + "/pakete.html#abo",
-             "description": "Suche nach qualifizierten Arbeitskräften, fortlaufende Betreuung und Ersatz innerhalb von 84 Stunden bei längeren Ausfällen.",
+            {"@type": "Offer", "name": "Betreuung 6 Monate", "url": DOMAIN + "/pakete.html#abo6",
+             "description": "Suche nach qualifizierten Arbeitskräften, fortlaufende Betreuung über 6 Monate und Ersatz innerhalb von 84 Stunden bei längeren Ausfällen. 399 Euro einmalig + 119 Euro pro Monat.",
              "priceCurrency": "EUR", "seller": {"@id": ORG_ID},
              "priceSpecification": [
-                 {"@type": "UnitPriceSpecification", "name": "Einmalige Zahlung", "price": "399", "priceCurrency": "EUR", "valueAddedTaxIncluded": True},
+                 {"@type": "UnitPriceSpecification", "name": "Einmalige Vermittlungsgebühr", "price": "399", "priceCurrency": "EUR", "valueAddedTaxIncluded": True},
                  {"@type": "UnitPriceSpecification", "name": "Monatliche Betreuungsgebühr", "price": "119", "priceCurrency": "EUR", "valueAddedTaxIncluded": True,
-                  "referenceQuantity": {"@type": "QuantitativeValue", "value": 1, "unitCode": "MON"}}]},
+                  "billingDuration": 6, "referenceQuantity": {"@type": "QuantitativeValue", "value": 1, "unitCode": "MON"}}]},
+            {"@type": "Offer", "name": "Betreuung 12 Monate", "url": DOMAIN + "/pakete.html#abo12",
+             "description": "Suche nach qualifizierten Arbeitskräften, fortlaufende Betreuung über 12 Monate und Ersatz innerhalb von 84 Stunden bei längeren Ausfällen. 399 Euro einmalig + 99 Euro pro Monat.",
+             "priceCurrency": "EUR", "seller": {"@id": ORG_ID},
+             "priceSpecification": [
+                 {"@type": "UnitPriceSpecification", "name": "Einmalige Vermittlungsgebühr", "price": "399", "priceCurrency": "EUR", "valueAddedTaxIncluded": True},
+                 {"@type": "UnitPriceSpecification", "name": "Monatliche Betreuungsgebühr", "price": "99", "priceCurrency": "EUR", "valueAddedTaxIncluded": True,
+                  "billingDuration": 12, "referenceQuantity": {"@type": "QuantitativeValue", "value": 1, "unitCode": "MON"}}]},
+            {"@type": "Offer", "name": "Übernahme-Paket", "url": DOMAIN + "/pakete.html#einmal",
+             "description": "Einmalige Zahlung von 899 Euro: Suche nach qualifizierten Arbeitskräften, 3 Monate Betreuung kostenlos, Austausch innerhalb von zwei Wochen, falls nötig. Danach keine weiteren Gebühren.",
+             "price": "899", "priceCurrency": "EUR", "seller": {"@id": ORG_ID},
+             "priceSpecification": {"@type": "PriceSpecification", "price": "899", "priceCurrency": "EUR", "valueAddedTaxIncluded": True}},
         ],
     }
 
@@ -743,30 +771,42 @@ def main() -> None:
   <section class="h-sec" aria-labelledby="h-pakete">
     <div class="container">
       <div class="h-head reveal">
-        <h2 id="h-pakete">Zwei transparente Pakete.</h2>
+        <h2 id="h-pakete">Drei transparente Pakete.</h2>
         <p>Qualifizierte Fachkräfte. Zuverlässig. Persönlich. Schnell. Alle Preise inklusive MwSt.</p>
       </div>
       <div class="h-plans">
-        <article class="h-plan h-plan--petrol reveal" aria-labelledby="h-plan-abo">
-          <h3 id="h-plan-abo">Abo-Paket</h3>
+        <article class="h-plan h-plan--petrol reveal" aria-labelledby="h-plan-abo6">
+          <h3 id="h-plan-abo6">Betreuung 6&nbsp;Monate</h3>
           <p class="h-plan__price"><strong>399&nbsp;€</strong> <span>einmalig</span></p>
-          <p class="h-plan__extra">+ 119&nbsp;€ pro Monat für die Betreuung</p>
+          <p class="h-plan__extra">+ 119&nbsp;€ / Monat</p>
           <ul class="h-checks">
             <li><svg class="icon"><use href="#i-check"/></svg>Suche nach qualifizierten Arbeitskräften</li>
             <li><svg class="icon"><use href="#i-check"/></svg>Fortlaufende Betreuung und Unterstützung</li>
             <li><svg class="icon"><use href="#i-check"/></svg>Ersatz innerhalb von 84&nbsp;Stunden bei längeren Ausfällen</li>
           </ul>
-          <a class="btn btn--white btn--block" href="pakete.html#abo">Details zum Abo-Paket<svg class="icon"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--white btn--block" href="pakete.html#abo6">Details zu 6 Monaten<svg class="icon"><use href="#i-arrow"/></svg></a>
         </article>
-        <article class="h-plan h-plan--petrol reveal" aria-labelledby="h-plan-einmal">
-          <h3 id="h-plan-einmal">Paket für 899&nbsp;Euro</h3>
+        <article class="h-plan h-plan--petrol reveal" aria-labelledby="h-plan-abo12">
+          <h3 id="h-plan-abo12">Betreuung 12&nbsp;Monate</h3>
+          <p class="h-plan__price"><strong>399&nbsp;€</strong> <span>einmalig</span></p>
+          <p class="h-plan__extra">+ 99&nbsp;€ / Monat</p>
+          <ul class="h-checks">
+            <li><svg class="icon"><use href="#i-check"/></svg>Suche nach qualifizierten Arbeitskräften</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Fortlaufende Betreuung und Unterstützung</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Ersatz innerhalb von 84&nbsp;Stunden bei längeren Ausfällen</li>
+          </ul>
+          <a class="btn btn--white btn--block" href="pakete.html#abo12">Details zu 12 Monaten<svg class="icon"><use href="#i-arrow"/></svg></a>
+        </article>
+        <article class="h-plan h-plan--gelb reveal" aria-labelledby="h-plan-einmal">
+          <h3 id="h-plan-einmal">Übernahme-Paket · Beliebteste Wahl</h3>
           <p class="h-plan__price"><strong>899&nbsp;€</strong> <span>einmalig</span></p>
-          <p class="h-plan__extra">Ohne monatliche Gebühr</p>
+          <p class="h-plan__extra">3 Monate Betreuung kostenlos</p>
           <ul class="h-checks">
             <li><svg class="icon"><use href="#i-check"/></svg>Suche nach qualifizierten Arbeitskräften</li>
             <li><svg class="icon"><use href="#i-check"/></svg>Austausch innerhalb von zwei Wochen, falls nötig</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Danach keine weiteren Gebühren – der Mitarbeiter gehört ganz Ihnen</li>
           </ul>
-          <a class="btn btn--white btn--block" href="pakete.html#einmal">Details zum 899-€-Paket<svg class="icon"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--dark btn--block" href="pakete.html#einmal">Details zum Übernahme-Paket<svg class="icon"><use href="#i-arrow"/></svg></a>
         </article>
       </div>
     </div>
@@ -862,7 +902,7 @@ def main() -> None:
         <div><dt>Unternehmen</dt><dd>Standard Plus Personalvermittlung</dd></div>
         <div><dt>Leistung</dt><dd>Vermittlung von Hilfs- und Fachkräften aus ganz Europa – mit Betreuung vor, während und nach dem Arbeitsbeginn</dd></div>
         <div><dt>Branchen</dt><dd><a href="branchen.html">Bau &amp; Handwerk, Landwirtschaft &amp; Milchvieh, Pferdebetriebe, Pflege &amp; Betreuung, Lager &amp; Logistik, Gastronomie &amp; Hotellerie</a></dd></div>
-        <div><dt>Pakete</dt><dd><a href="pakete.html">Paket für 899&nbsp;€ einmalig · Abo-Paket 399&nbsp;€ einmalig + 119&nbsp;€ monatlich</a></dd></div>
+        <div><dt>Pakete</dt><dd><a href="pakete.html">Betreuung 6&nbsp;Monate 399&nbsp;€ + 119&nbsp;€/Monat · Betreuung 12&nbsp;Monate 399&nbsp;€ + 99&nbsp;€/Monat · Übernahme-Paket 899&nbsp;€ einmalig</a></dd></div>
         <div><dt>Service</dt><dd>Fester, deutschsprachiger Ansprechpartner · erreichbar an 6 Tagen pro Woche · kein Geld im Voraus</dd></div>
         <div><dt>Sitz</dt><dd>Heilbronner Straße 142, 71634 Ludwigsburg, Deutschland</dd></div>
         <div><dt>Kontakt</dt><dd><a href="tel:+4915228986993">0152 28986993</a> · <a href="mailto:info@standard-plus.net">info@standard-plus.net</a></dd></div>
@@ -932,7 +972,7 @@ def main() -> None:
               "step": [{"@type": "HowToStep", "position": i, "name": h, "text": lang} for i, (_, h, _k, lang) in enumerate(STEPS, 1)]}])
 
     # ---------- Pakete ----------
-    body = page_hero("Pakete", "Zwei transparente Pakete.",
+    body = page_hero("Pakete", "Drei transparente Pakete.",
                      "Qualifizierte Fachkräfte. Zuverlässig. Persönlich. Schnell. Wählen Sie das Paket, das zu Ihrem Personalbedarf passt.",
                      "Pakete") + f'''
 
@@ -942,8 +982,8 @@ def main() -> None:
     </div>
   </section>
 '''
-    build("pakete.html", "Pakete & Preise: 899 € oder Abo | Standard Plus",
-          "Zwei transparente Pakete: einmalig 899 € inkl. Austausch in zwei Wochen oder Abo mit 399 € + 119 € monatlich inkl. Ersatz in 84 Stunden.",
+    build("pakete.html", "Pakete & Preise: 6 Monate, 12 Monate oder 899 € | Standard Plus",
+          "Drei transparente Pakete: Betreuung 6 Monate (399 € + 119 €/Monat), Betreuung 12 Monate (399 € + 99 €/Monat) oder Übernahme-Paket 899 € einmalig inkl. 3 Monate Betreuung.",
           body, sub("pakete.html", "Pakete") + [catalog()])
 
     # ---------- Fragen ----------
