@@ -41,6 +41,21 @@
     counts.forEach(function (el) { co.observe(el); });
   }
 
+  /* ---------- „Jetzt anfragen“: Auswahl anrufen / WhatsApp / Formular ---------- */
+  var wahl = document.getElementById('anfrage-wahl');
+  if (wahl && typeof wahl.showModal === 'function') {
+    var ausloeser = document.querySelectorAll('[data-anfrage], .site-header .header-cta .btn');
+    ausloeser.forEach(function (btn) {
+      btn.addEventListener('click', function (e) { e.preventDefault(); wahl.showModal(); });
+    });
+    wahl.addEventListener('click', function (e) {
+      if (e.target === wahl || e.target.closest('[data-ask-close]')) wahl.close();   /* Klick daneben oder auf Schließen */
+    });
+    wahl.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { wahl.close(); });
+    });
+  }
+
   /* ---------- Paket-Button: Paket ins Formular übernehmen ---------- */
   var form = document.getElementById('anfrage');
   if (!form) return;

@@ -33,7 +33,7 @@
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css?v=f6bdde69">
-  <link rel="stylesheet" href="assets/css/start.css?v=678ca6c8">
+  <link rel="stylesheet" href="assets/css/start.css?v=3f0c29b5">
   <script>document.documentElement.classList.remove('no-js');</script>
   <!-- Strukturierte Daten (schema.org) – erzeugt von werkzeuge/seiten_bauen.py -->
   <script type="application/ld+json">
@@ -146,7 +146,7 @@
           "@type": "Offer",
           "name": "Betreuung 6 Monate",
           "url": "https://standard-plus.net/pakete.html#abo6",
-          "description": "Suche nach qualifizierten Arbeitskräften, fortlaufende Betreuung über 6 Monate und Ersatz innerhalb von 84 Stunden bei längeren Ausfällen. 399 Euro einmalig + 119 Euro pro Monat. Gesamtpreis über die Laufzeit: 1113 Euro inkl. MwSt.",
+          "description": "Suche nach qualifizierten Arbeitskräften, fortlaufende Betreuung über 6 Monate und Ersatz innerhalb von 84 Stunden bei längeren Ausfällen. 399 Euro einmalig + 119 Euro pro Monat.",
           "priceCurrency": "EUR",
           "seller": {
             "@id": "https://standard-plus.net/#organisation"
@@ -172,14 +172,13 @@
                 "unitCode": "MON"
               }
             }
-          ],
-          "price": "1113"
+          ]
         },
         {
           "@type": "Offer",
           "name": "Betreuung 12 Monate",
           "url": "https://standard-plus.net/pakete.html#abo12",
-          "description": "Suche nach qualifizierten Arbeitskräften, fortlaufende Betreuung über 12 Monate und Ersatz innerhalb von 84 Stunden bei längeren Ausfällen. 399 Euro einmalig + 99 Euro pro Monat. Gesamtpreis über die Laufzeit: 1587 Euro inkl. MwSt.",
+          "description": "Suche nach qualifizierten Arbeitskräften, fortlaufende Betreuung über 12 Monate und Ersatz innerhalb von 84 Stunden bei längeren Ausfällen. 399 Euro einmalig + 99 Euro pro Monat.",
           "priceCurrency": "EUR",
           "seller": {
             "@id": "https://standard-plus.net/#organisation"
@@ -205,8 +204,7 @@
                 "unitCode": "MON"
               }
             }
-          ],
-          "price": "1587"
+          ]
         },
         {
           "@type": "Offer",
@@ -313,7 +311,7 @@
         <h1 id="n-titel">Gute Arbeitskräfte. <span>Fester Preis.</span></h1>
         <p class="n-hero__lead">Wir suchen und prüfen Ihre neuen Mitarbeiter selbst – und betreuen Sie auch nach dem Start.</p>
         <div class="n-hero__actions">
-          <a class="btn btn--primary btn--lg" href="#kontakt">Jetzt anfragen<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--primary btn--lg" href="#kontakt" data-anfrage>Jetzt anfragen<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           <a class="btn btn--outline btn--lg" href="#pakete">Pakete ansehen</a>
         </div>
         <ul class="n-facts">
@@ -385,29 +383,29 @@
         <p>Drei Pakete mit festem Preis. Keine versteckten Kosten.</p>
       </div>
       <div class="n-plans">
-        <div class="n-plan-wrap reveal" style="--i:0"><article class="n-plan" aria-labelledby="n-plan-6">
+        <div class="n-plan-wrap reveal" style="--i:0"><article class="n-plan n-plan--petrol" aria-labelledby="n-plan-6">
           <h3 id="n-plan-6">Betreuung 6&nbsp;Monate</h3>
-          <p class="n-plan__price"><strong><span data-count="1113">1.113</span>&nbsp;€</strong> <span>gesamt</span></p>
-          <p class="n-plan__sub">399&nbsp;€ einmalig + 119&nbsp;€ / Monat<br>Laufzeit 6&nbsp;Monate</p>
+          <p class="n-plan__price"><strong><span data-count="399">399</span>&nbsp;€</strong> <span>einmalig</span></p>
+          <p class="n-plan__sub"><b>+ 119&nbsp;€ / Monat</b><br>Laufzeit 6&nbsp;Monate</p>
           <ul class="n-checks">
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Suche nach qualifizierten Arbeitskräften</li>
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Fortlaufende Betreuung</li>
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Ersatz innerhalb von 84&nbsp;Stunden bei längeren Ausfällen</li>
           </ul>
-          <a class="btn btn--outline btn--block" href="#kontakt" data-paket="Betreuung 6 Monate (1.113 € gesamt)">6 Monate anfragen</a>
+          <a class="btn btn--white btn--block" href="#kontakt" data-paket="Betreuung 6 Monate (399 € + 119 € / Monat)">6 Monate anfragen</a>
         </article></div>
-        <div class="n-plan-wrap reveal" style="--i:1"><article class="n-plan" aria-labelledby="n-plan-12">
+        <div class="n-plan-wrap reveal" style="--i:1"><article class="n-plan n-plan--petrol" aria-labelledby="n-plan-12">
           <h3 id="n-plan-12">Betreuung 12&nbsp;Monate</h3>
-          <p class="n-plan__price"><strong><span data-count="1587">1.587</span>&nbsp;€</strong> <span>gesamt</span></p>
-          <p class="n-plan__sub">399&nbsp;€ einmalig + 99&nbsp;€ / Monat<br>Laufzeit 12&nbsp;Monate</p>
+          <p class="n-plan__price"><strong><span data-count="399">399</span>&nbsp;€</strong> <span>einmalig</span></p>
+          <p class="n-plan__sub"><b>+ 99&nbsp;€ / Monat</b><br>Laufzeit 12&nbsp;Monate</p>
           <ul class="n-checks">
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Suche nach qualifizierten Arbeitskräften</li>
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Fortlaufende Betreuung</li>
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Ersatz innerhalb von 84&nbsp;Stunden bei längeren Ausfällen</li>
           </ul>
-          <a class="btn btn--outline btn--block" href="#kontakt" data-paket="Betreuung 12 Monate (1.587 € gesamt)">12 Monate anfragen</a>
+          <a class="btn btn--white btn--block" href="#kontakt" data-paket="Betreuung 12 Monate (399 € + 99 € / Monat)">12 Monate anfragen</a>
         </article></div>
-        <div class="n-plan-wrap reveal" style="--i:2"><article class="n-plan n-plan--top" aria-labelledby="n-plan-u">
+        <div class="n-plan-wrap reveal" style="--i:2"><article class="n-plan n-plan--gelb" aria-labelledby="n-plan-u">
           <p class="n-plan__badge">Beliebteste Wahl</p>
           <h3 id="n-plan-u">Übernahme-Paket</h3>
           <p class="n-plan__price"><strong><span data-count="899">899</span>&nbsp;€</strong> <span>einmalig</span></p>
@@ -418,7 +416,7 @@
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Austausch innerhalb von zwei Wochen, falls nötig</li>
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Danach keine weiteren Gebühren</li>
           </ul>
-          <a class="btn btn--yellow btn--block" href="#kontakt" data-paket="Übernahme-Paket (899 € einmalig)">Übernahme-Paket anfragen</a>
+          <a class="btn btn--dark btn--block" href="#kontakt" data-paket="Übernahme-Paket (899 € einmalig)">Übernahme-Paket anfragen</a>
         </article></div>
       </div>
       <p class="n-note reveal">Alle Preise inkl. MwSt. Es gelten unsere <a href="agb.html">AGB</a>. <a href="pakete.html">Alle Details zu den Paketen</a></p>
@@ -460,7 +458,7 @@
         </details>
         <details>
           <summary>Was kostet die Vermittlung?</summary>
-          <div class="answer"><p>Es gibt drei Pakete: Betreuung 6&nbsp;Monate für 1.113&nbsp;Euro gesamt, Betreuung 12&nbsp;Monate für 1.587&nbsp;Euro gesamt und das Übernahme-Paket für 899&nbsp;Euro einmalig. Alle Preise sind inklusive MwSt.</p></div>
+          <div class="answer"><p>Es gibt drei Pakete: Betreuung 6&nbsp;Monate für 399&nbsp;Euro einmalig plus 119&nbsp;Euro pro Monat, Betreuung 12&nbsp;Monate für 399&nbsp;Euro einmalig plus 99&nbsp;Euro pro Monat und das Übernahme-Paket für 899&nbsp;Euro einmalig. Alle Preise sind inklusive MwSt.</p></div>
         </details>
         <details>
           <summary>Muss ich Geld im Voraus bezahlen?</summary>
@@ -548,6 +546,16 @@
     </div>
   </section>
 
+  <dialog class="n-ask" id="anfrage-wahl" aria-labelledby="n-ask-titel">
+    <div class="n-ask__head">
+      <h2 id="n-ask-titel">Wie möchten Sie uns erreichen?</h2>
+      <button class="n-ask__close" type="button" data-ask-close aria-label="Schließen"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+    <a class="n-ask__opt n-ask__opt--main" href="tel:+4915228986993"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span><strong>Jetzt anrufen</strong><small>0152 28986993</small></span></a>
+    <a class="n-ask__opt" href="https://wa.me/4917645258501?text=Guten%20Tag%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Personal%20von%20Standard%20Plus." target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg><span><strong>WhatsApp schreiben</strong><small>0176 45258501</small></span></a>
+    <a class="n-ask__opt" href="#kontakt" data-ask-close><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span><strong>Formular ausfüllen</strong><small>Wir melden uns bei Ihnen</small></span></a>
+  </dialog>
+
 </main>
 
 <footer class="site-footer">
@@ -602,6 +610,6 @@
 <a class="fab" href="tel:+4915228986993" aria-label="Standard Plus anrufen"><svg class="icon"><use href="#i-phone"/></svg></a>
 
 <script src="assets/js/main.js?v=54c96cb6" defer></script>
-<script src="assets/js/start.js?v=224adba7" defer></script>
+<script src="assets/js/start.js?v=c77166db" defer></script>
 </body>
 </html>

@@ -25,6 +25,7 @@ TEL_LINK = "tel:+4915228986993"
 # WhatsApp läuft über eine eigene Nummer; sie wird nirgends angezeigt, nur verlinkt.
 WA_LINK = "https://wa.me/4917645258501?text=" + "Guten%20Tag%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Personal%20von%20Standard%20Plus."
 MAIL = "info@standard-plus.net"
+WA_NUMMER = "0176 45258501"
 STAND = "2026-11-03"
 
 # ---------------------------------------------------------------------------
@@ -773,7 +774,7 @@ def main() -> None:
         ("Wie läuft eine Vermittlung ab?",
          "Sie fragen an, wir klären Ihren Bedarf. Dann suchen und prüfen wir passende Kandidaten. Sie entscheiden, wer bei Ihnen anfängt. Nach dem Start bleiben wir Ihr Ansprechpartner."),
         ("Was kostet die Vermittlung?",
-         "Es gibt drei Pakete: Betreuung 6 Monate für 1.113 Euro gesamt, Betreuung 12 Monate für 1.587 Euro gesamt und das Übernahme-Paket für 899 Euro einmalig. Alle Preise sind inklusive MwSt."),
+         "Es gibt drei Pakete: Betreuung 6 Monate für 399 Euro einmalig plus 119 Euro pro Monat, Betreuung 12 Monate für 399 Euro einmalig plus 99 Euro pro Monat und das Übernahme-Paket für 899 Euro einmalig. Alle Preise sind inklusive MwSt."),
         ("Muss ich Geld im Voraus bezahlen?",
          "Nein. Wir verlangen kein Geld im Voraus und arbeiten mit klaren Verträgen und Rechnungen."),
         ("Was passiert, wenn ein Mitarbeiter ausfällt oder nicht passt?",
@@ -805,7 +806,7 @@ def main() -> None:
         <h1 id="n-titel">Gute Arbeitskräfte. <span>Fester Preis.</span></h1>
         <p class="n-hero__lead">Wir suchen und prüfen Ihre neuen Mitarbeiter selbst – und betreuen Sie auch nach dem Start.</p>
         <div class="n-hero__actions">
-          <a class="btn btn--primary btn--lg" href="#kontakt">Jetzt anfragen<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--primary btn--lg" href="#kontakt" data-anfrage>Jetzt anfragen<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           <a class="btn btn--outline btn--lg" href="#pakete">Pakete ansehen</a>
         </div>
         <ul class="n-facts">
@@ -849,25 +850,25 @@ def main() -> None:
         <p>Drei Pakete mit festem Preis. Keine versteckten Kosten.</p>
       </div>
       <div class="n-plans">
-        <div class="n-plan-wrap reveal" style="--i:0"><article class="n-plan" aria-labelledby="n-plan-6">
+        <div class="n-plan-wrap reveal" style="--i:0"><article class="n-plan n-plan--petrol" aria-labelledby="n-plan-6">
           <h3 id="n-plan-6">Betreuung 6&nbsp;Monate</h3>
-          <p class="n-plan__price"><strong><span data-count="1113">1.113</span>&nbsp;€</strong> <span>gesamt</span></p>
-          <p class="n-plan__sub">399&nbsp;€ einmalig + 119&nbsp;€ / Monat<br>Laufzeit 6&nbsp;Monate</p>
+          <p class="n-plan__price"><strong><span data-count="399">399</span>&nbsp;€</strong> <span>einmalig</span></p>
+          <p class="n-plan__sub"><b>+ 119&nbsp;€ / Monat</b><br>Laufzeit 6&nbsp;Monate</p>
           <ul class="n-checks">
 {n_checks(betreuung)}
           </ul>
-          <a class="btn btn--outline btn--block" href="#kontakt" data-paket="Betreuung 6 Monate (1.113 € gesamt)">6 Monate anfragen</a>
+          <a class="btn btn--white btn--block" href="#kontakt" data-paket="Betreuung 6 Monate (399 € + 119 € / Monat)">6 Monate anfragen</a>
         </article></div>
-        <div class="n-plan-wrap reveal" style="--i:1"><article class="n-plan" aria-labelledby="n-plan-12">
+        <div class="n-plan-wrap reveal" style="--i:1"><article class="n-plan n-plan--petrol" aria-labelledby="n-plan-12">
           <h3 id="n-plan-12">Betreuung 12&nbsp;Monate</h3>
-          <p class="n-plan__price"><strong><span data-count="1587">1.587</span>&nbsp;€</strong> <span>gesamt</span></p>
-          <p class="n-plan__sub">399&nbsp;€ einmalig + 99&nbsp;€ / Monat<br>Laufzeit 12&nbsp;Monate</p>
+          <p class="n-plan__price"><strong><span data-count="399">399</span>&nbsp;€</strong> <span>einmalig</span></p>
+          <p class="n-plan__sub"><b>+ 99&nbsp;€ / Monat</b><br>Laufzeit 12&nbsp;Monate</p>
           <ul class="n-checks">
 {n_checks(betreuung)}
           </ul>
-          <a class="btn btn--outline btn--block" href="#kontakt" data-paket="Betreuung 12 Monate (1.587 € gesamt)">12 Monate anfragen</a>
+          <a class="btn btn--white btn--block" href="#kontakt" data-paket="Betreuung 12 Monate (399 € + 99 € / Monat)">12 Monate anfragen</a>
         </article></div>
-        <div class="n-plan-wrap reveal" style="--i:2"><article class="n-plan n-plan--top" aria-labelledby="n-plan-u">
+        <div class="n-plan-wrap reveal" style="--i:2"><article class="n-plan n-plan--gelb" aria-labelledby="n-plan-u">
           <p class="n-plan__badge">Beliebteste Wahl</p>
           <h3 id="n-plan-u">Übernahme-Paket</h3>
           <p class="n-plan__price"><strong><span data-count="899">899</span>&nbsp;€</strong> <span>einmalig</span></p>
@@ -875,7 +876,7 @@ def main() -> None:
           <ul class="n-checks">
 {n_checks(["Suche nach qualifizierten Arbeitskräften", "3&nbsp;Monate Betreuung kostenlos", "Austausch innerhalb von zwei Wochen, falls nötig", "Danach keine weiteren Gebühren"])}
           </ul>
-          <a class="btn btn--yellow btn--block" href="#kontakt" data-paket="Übernahme-Paket (899 € einmalig)">Übernahme-Paket anfragen</a>
+          <a class="btn btn--dark btn--block" href="#kontakt" data-paket="Übernahme-Paket (899 € einmalig)">Übernahme-Paket anfragen</a>
         </article></div>
       </div>
       <p class="n-note reveal">Alle Preise inkl. MwSt. Es gelten unsere <a href="agb.html">AGB</a>. <a href="pakete.html">Alle Details zu den Paketen</a></p>
@@ -968,9 +969,19 @@ def main() -> None:
       </form>
     </div>
   </section>
+
+  <dialog class="n-ask" id="anfrage-wahl" aria-labelledby="n-ask-titel">
+    <div class="n-ask__head">
+      <h2 id="n-ask-titel">Wie möchten Sie uns erreichen?</h2>
+      <button class="n-ask__close" type="button" data-ask-close aria-label="Schließen"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+    <a class="n-ask__opt n-ask__opt--main" href="{TEL_LINK}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span><strong>Jetzt anrufen</strong><small>{TEL}</small></span></a>
+    <a class="n-ask__opt" href="{WA_LINK}" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg><span><strong>WhatsApp schreiben</strong><small>{WA_NUMMER}</small></span></a>
+    <a class="n-ask__opt" href="#kontakt" data-ask-close><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span><strong>Formular ausfüllen</strong><small>Wir melden uns bei Ihnen</small></span></a>
+  </dialog>
 '''
     titel = "Personalvermittlung Raum Stuttgart – ab 899 € | Standard Plus"
-    ld = org_graph() + [webpage(DOMAIN + "/", titel), catalog(gesamt=True)]
+    ld = org_graph() + [webpage(DOMAIN + "/", titel), catalog()]
     build("index.html", titel,
           "Standard Plus vermittelt Arbeitskräfte für Landwirtschaft, häusliche Pflege, Bau, Gastronomie und Lager. Feste Preise ab 899 €, Betreuung und Ersatz inklusive.",
           start, ld, strip=False, preload_hero=True, nav=start_nav, cta="#kontakt",

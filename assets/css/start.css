@@ -114,19 +114,28 @@
 .n-checks li { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 10px; font-size: 15.5px; line-height: 1.45; color: var(--ink-2); }
 .n-checks .icon { width: 20px; height: 20px; margin-top: 1px; color: var(--primary); stroke-width: 2.4; }
 .n-plan .btn { margin-top: auto; }
-.n-plan--top { background: linear-gradient(160deg, var(--primary), var(--brand)); color: #fff; box-shadow: 0 30px 60px -34px rgba(6,42,47,.7); }
-.n-plan--top h3, .n-plan--top .n-plan__price strong { color: #fff; }
-.n-plan--top .n-plan__price > span, .n-plan--top .n-plan__sub { color: rgba(255,255,255,.9); }
-.n-plan--top .n-checks { border-color: rgba(255,255,255,.22); }
-.n-plan--top .n-checks li { color: #fff; }
-.n-plan--top .n-checks .icon { color: var(--yellow); }
-.n-plan--top :focus-visible { outline-color: var(--yellow); }
-.n-plan__badge { align-self: flex-start; margin: 0 0 14px; padding: 6px 12px; border-radius: 999px; background: var(--yellow); color: var(--brand-900); font-size: 13px; font-weight: 700; letter-spacing: .01em; }
+/* Alle Pakete farbig: Betreuung in Petrol, Übernahme-Paket in Gelb (beides Logo-Farben) */
+.n-plan--petrol { background: linear-gradient(160deg, var(--primary), var(--brand)); box-shadow: 0 26px 50px -34px rgba(6,42,47,.7); }
+.n-plan--petrol h3, .n-plan--petrol .n-plan__price strong, .n-plan--petrol .n-checks li, .n-plan--petrol .n-plan__sub { color: #fff; }
+.n-plan--petrol .n-plan__price > span { color: rgba(255,255,255,.9); }
+.n-plan--petrol .n-checks { border-color: rgba(255,255,255,.22); }
+.n-plan--petrol .n-checks .icon { color: var(--yellow); }
+.n-plan--petrol :focus-visible { outline-color: var(--yellow); }
+.n-plan--gelb { background: var(--yellow); box-shadow: 0 26px 50px -34px rgba(120,84,0,.75); }
+.n-plan--gelb h3, .n-plan--gelb .n-plan__price strong, .n-plan--gelb .n-checks li, .n-plan--gelb .n-plan__sub, .n-plan--gelb .n-plan__price > span { color: var(--brand-900); }
+.n-plan--gelb .n-checks { border-color: rgba(6,42,47,.22); }
+.n-plan--gelb .n-checks .icon { color: var(--brand-900); }
+.n-plan--gelb .btn--dark { background: var(--brand-900); color: #fff; }
+.n-plan--gelb :focus-visible { outline-color: var(--brand-900); }
+.n-plan__sub b { font-size: 19px; font-weight: 700; }
+.n-plan__badge { align-self: flex-start; margin: 0 0 14px; padding: 6px 12px; border-radius: 999px; background: var(--brand-900); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .01em; }
 .n-note { margin: 22px 0 0; font-size: 15px; color: var(--ink-3); }
 .n-note a { color: var(--primary); font-weight: 600; }
 @media (hover: hover) and (pointer: fine) {
-  .n-plan:hover { transform: translateY(-4px); box-shadow: inset 0 0 0 1px var(--line), 0 26px 44px -30px rgba(6,42,47,.5); }
-  .n-plan--top:hover { box-shadow: 0 36px 64px -32px rgba(6,42,47,.8); }
+  .n-plan:hover { transform: translateY(-4px); }
+  .n-plan--petrol:hover { box-shadow: 0 34px 56px -32px rgba(6,42,47,.8); }
+  .n-plan--gelb:hover { box-shadow: 0 34px 56px -32px rgba(120,84,0,.85); }
+  .n-plan--gelb .btn--dark:hover { background: var(--ink); }
 }
 @media (min-width: 900px) { .n-plans { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; } }
 
@@ -185,6 +194,34 @@
 .n-form .req { color: #b6461f; }
 @media (min-width: 560px) { .n-form__grid { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 900px) { .n-contact__grid { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); } }
+
+/* ---------- Auswahl bei „Jetzt anfragen“: anrufen, WhatsApp oder Formular ---------- */
+.n-ask { width: min(420px, calc(100vw - 24px)); margin: auto; padding: 20px; border: 0; border-radius: 26px; background: #fff; color: var(--ink); box-shadow: 0 40px 90px -30px rgba(6,42,47,.6); }
+.n-ask::backdrop { background: rgba(6,42,47,.5); }
+.n-ask__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.n-ask h2 { font-size: 21px; letter-spacing: -.02em; line-height: 1.2; margin: 6px 0 0 4px; }
+.n-ask__close { flex: none; width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--surface); color: var(--ink); display: grid; place-items: center; cursor: pointer; transition: transform .16s var(--n-ease), background-color .2s ease; }
+.n-ask__close:active { transform: scale(.94); }
+.n-ask__close .icon { width: 20px; height: 20px; }
+.n-ask__opt { display: grid; grid-template-columns: 48px minmax(0, 1fr); align-items: center; gap: 14px; padding: 14px; margin-top: 8px; border-radius: 18px; background: var(--surface); color: var(--ink); text-decoration: none !important; transition: transform .16s var(--n-ease), background-color .2s ease; }
+.n-ask__opt .icon { width: 48px; height: 48px; padding: 12px; border-radius: 14px; background: #fff; color: var(--primary); }
+.n-ask__opt strong { display: block; font-size: 17px; font-weight: 600; }
+.n-ask__opt small { display: block; font-size: 14px; color: var(--ink-3); }
+.n-ask__opt--main { background: var(--primary); color: #fff; }
+.n-ask__opt--main small { color: rgba(255,255,255,.9); }
+.n-ask__opt:active { transform: scale(.98); }
+@media (hover: hover) and (pointer: fine) {
+  .n-ask__opt:hover { background: var(--brand-tint); }
+  .n-ask__opt--main:hover { background: var(--brand); color: #fff; }
+  .n-ask__close:hover { background: var(--brand-tint); }
+}
+@media (max-width: 560px) { .n-ask { margin: auto auto 12px; } }
+@media (prefers-reduced-motion: no-preference) {
+  .n-ask[open] { animation: n-ask-in .22s var(--n-ease) both; }
+  .n-ask[open]::backdrop { animation: n-fade .22s ease both; }
+}
+@keyframes n-ask-in { from { opacity: 0; transform: translateY(14px) scale(.97); } to { opacity: 1; transform: none; } }
+@keyframes n-fade { from { opacity: 0; } to { opacity: 1; } }
 
 /* ---------- Weniger Bewegung gewünscht ---------- */
 @media (prefers-reduced-motion: reduce) {
