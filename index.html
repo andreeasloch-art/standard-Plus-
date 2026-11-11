@@ -33,7 +33,7 @@
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css?v=f6bdde69">
-  <link rel="stylesheet" href="assets/css/start.css?v=3f0c29b5">
+  <link rel="stylesheet" href="assets/css/start.css?v=5f23eadf">
   <script>document.documentElement.classList.remove('no-js');</script>
   <!-- Strukturierte Daten (schema.org) – erzeugt von werkzeuge/seiten_bauen.py -->
   <script type="application/ld+json">
@@ -484,7 +484,7 @@
     <div class="container n-contact__grid">
       <div class="n-contact__info reveal">
         <h2 id="n-kontakt">Jetzt anfragen</h2>
-        <p>Sagen Sie uns kurz, wen Sie suchen. Wir melden uns schnellstmöglich bei Ihnen.</p>
+        <p>Sagen Sie uns, wen Sie suchen. Wir senden Ihnen passende Profile an Ihre E-Mail-Adresse.</p>
         <ul class="n-ways">
           <li><a href="tel:+4915228986993"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span><small>Telefon</small>0152 28986993</span></a></li>
           <li><a href="https://wa.me/4917645258501?text=Guten%20Tag%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Personal%20von%20Standard%20Plus." target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg><span><small>WhatsApp</small>Nachricht schreiben</span></a></li>
@@ -506,8 +506,19 @@
             <span class="field__error"></span>
           </div>
           <div class="field">
-            <label for="a-branche">Branche</label>
-            <select id="a-branche" name="branche">
+            <label for="a-tel">Telefon <span class="req">*</span></label>
+            <input id="a-tel" name="telefon" type="tel" autocomplete="tel" inputmode="tel" required>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="a-email">E-Mail <span class="req">*</span></label>
+            <input id="a-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="a-email-hinweis">
+            <span class="field__hint" id="a-email-hinweis">Hierhin senden wir Ihnen passende Profile.</span>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="a-branche">Branche <span class="req">*</span></label>
+            <select id="a-branche" name="branche" required>
                 <option value="">Bitte wählen</option>
                 <option>Landwirtschaft</option>
                 <option>Häusliche Pflege</option>
@@ -516,17 +527,17 @@
                 <option>Lager und Logistik</option>
                 <option>Andere Branche</option>
             </select>
-            <span class="field__error"></span>
+            <span class="field__error" aria-live="polite"></span>
           </div>
           <div class="field">
-            <label for="a-tel">Telefon <span class="req">*</span></label>
-            <input id="a-tel" name="telefon" type="tel" autocomplete="tel" inputmode="tel" required>
+            <label for="a-gesucht">Wen suchen Sie? <span class="req">*</span></label>
+            <input id="a-gesucht" name="gesucht" type="text" required placeholder="z. B. Küchenhilfe, Bauhelfer">
             <span class="field__error" aria-live="polite"></span>
           </div>
           <div class="field field--full">
-            <label for="a-nachricht">Nachricht <span class="req">*</span></label>
-            <textarea id="a-nachricht" name="nachricht" required placeholder="Wen suchen Sie? Anzahl, Aufgaben, Zeitraum, Ort …"></textarea>
-            <span class="field__error" aria-live="polite"></span>
+            <label for="a-nachricht">Nachricht</label>
+            <textarea id="a-nachricht" name="nachricht" placeholder="Wie viele Personen? Ab wann und wie lange? Wo ist der Einsatzort? Welche Aufgaben?"></textarea>
+            <span class="field__error"></span>
           </div>
           <div class="hp" aria-hidden="true">
             <label for="a-website">Bitte leer lassen</label>
@@ -610,6 +621,6 @@
 <a class="fab" href="tel:+4915228986993" aria-label="Standard Plus anrufen"><svg class="icon"><use href="#i-phone"/></svg></a>
 
 <script src="assets/js/main.js?v=54c96cb6" defer></script>
-<script src="assets/js/start.js?v=c77166db" defer></script>
+<script src="assets/js/start.js?v=ca6fc1d7" defer></script>
 </body>
 </html>

@@ -72,6 +72,23 @@
     });
   });
 
+  /* ---------- Beispiele im Feld „Wen suchen Sie?“ passend zur Branche ---------- */
+  var branche = form.querySelector('#a-branche');
+  var gesucht = form.querySelector('#a-gesucht');
+  var beispiele = {
+    'Landwirtschaft': 'z. B. Erntehelfer, Melker',
+    'Häusliche Pflege': 'z. B. Betreuungskraft, Alltagshilfe',
+    'Bau': 'z. B. Bauhelfer, Maurer',
+    'Gastronomie': 'z. B. Küchenhilfe, Servicekraft',
+    'Lager und Logistik': 'z. B. Lagerhelfer, Kommissionierer'
+  };
+  if (branche && gesucht) {
+    var standard = gesucht.getAttribute('placeholder');
+    branche.addEventListener('change', function () {
+      gesucht.setAttribute('placeholder', beispiele[branche.value] || standard);
+    });
+  }
+
   /* ---------- Anfrageformular ---------- */
   var status = form.querySelector('.form-status');
   function fieldOf(input) { return input.closest('.field'); }
@@ -90,6 +107,8 @@
       msg = input.type === 'checkbox' ? 'Bitte bestätigen Sie die Datenschutzerklärung.' : 'Bitte füllen Sie dieses Feld aus.';
     } else if (input.type === 'tel' && v && v.replace(/\D/g, '').length < 6) {
       msg = 'Bitte geben Sie eine gültige Telefonnummer ein.';
+    } else if (input.type === 'email' && v && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) {
+      msg = 'Bitte geben Sie eine gültige E-Mail-Adresse ein.';
     }
     setError(input, msg);
     return !msg;
@@ -118,15 +137,19 @@
     var lines = [
       'Name: ' + get('name'),
       'Firma: ' + (get('firma') || '–'),
-      'Branche: ' + (get('branche') || '–'),
       'Telefon: ' + get('telefon'),
+      'E-Mail: ' + get('email'),
+      'Branche: ' + get('branche'),
+      'Gesucht: ' + get('gesucht'),
       'Paket: ' + (paket || '–'),
       '',
       'Nachricht:',
-      get('nachricht')
+      get('nachricht') || '–',
+      '',
+      'Bitte senden Sie mir passende Profile an meine E-Mail-Adresse.'
     ];
     window.location.href = 'mailto:' + to +
-      '?subject=' + encodeURIComponent('Anfrage über die Website' + (paket ? ': ' + paket : '')) +
+      '?subject=' + encodeURIComponent('Anfrage: ' + get('gesucht') + ' (' + get('branche') + ')' + (paket ? ' – ' + paket : '')) +
       '&body=' + encodeURIComponent(lines.join('\n'));
     show('ok', 'Ihr E-Mail-Programm wurde mit Ihrer Anfrage geöffnet – bitte dort nur noch auf „Senden“ klicken. Falls sich nichts öffnet, schreiben Sie uns an ' + to + ' oder rufen Sie an: 0152 28986993.');
   });

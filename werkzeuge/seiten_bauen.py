@@ -912,7 +912,7 @@ def main() -> None:
     <div class="container n-contact__grid">
       <div class="n-contact__info reveal">
         <h2 id="n-kontakt">Jetzt anfragen</h2>
-        <p>Sagen Sie uns kurz, wen Sie suchen. Wir melden uns schnellstmöglich bei Ihnen.</p>
+        <p>Sagen Sie uns, wen Sie suchen. Wir senden Ihnen passende Profile an Ihre E-Mail-Adresse.</p>
         <ul class="n-ways">
           <li><a href="{TEL_LINK}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span><small>Telefon</small>{TEL}</span></a></li>
           <li><a href="{WA_LINK}" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg><span><small>WhatsApp</small>Nachricht schreiben</span></a></li>
@@ -934,23 +934,34 @@ def main() -> None:
             <span class="field__error"></span>
           </div>
           <div class="field">
-            <label for="a-branche">Branche</label>
-            <select id="a-branche" name="branche">
-                <option value="">Bitte wählen</option>
-{n_optionen}
-                <option>Andere Branche</option>
-            </select>
-            <span class="field__error"></span>
-          </div>
-          <div class="field">
             <label for="a-tel">Telefon <span class="req">*</span></label>
             <input id="a-tel" name="telefon" type="tel" autocomplete="tel" inputmode="tel" required>
             <span class="field__error" aria-live="polite"></span>
           </div>
-          <div class="field field--full">
-            <label for="a-nachricht">Nachricht <span class="req">*</span></label>
-            <textarea id="a-nachricht" name="nachricht" required placeholder="Wen suchen Sie? Anzahl, Aufgaben, Zeitraum, Ort …"></textarea>
+          <div class="field">
+            <label for="a-email">E-Mail <span class="req">*</span></label>
+            <input id="a-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="a-email-hinweis">
+            <span class="field__hint" id="a-email-hinweis">Hierhin senden wir Ihnen passende Profile.</span>
             <span class="field__error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="a-branche">Branche <span class="req">*</span></label>
+            <select id="a-branche" name="branche" required>
+                <option value="">Bitte wählen</option>
+{n_optionen}
+                <option>Andere Branche</option>
+            </select>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="a-gesucht">Wen suchen Sie? <span class="req">*</span></label>
+            <input id="a-gesucht" name="gesucht" type="text" required placeholder="z. B. Küchenhilfe, Bauhelfer">
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+          <div class="field field--full">
+            <label for="a-nachricht">Nachricht</label>
+            <textarea id="a-nachricht" name="nachricht" placeholder="Wie viele Personen? Ab wann und wie lange? Wo ist der Einsatzort? Welche Aufgaben?"></textarea>
+            <span class="field__error"></span>
           </div>
           <div class="hp" aria-hidden="true">
             <label for="a-website">Bitte leer lassen</label>
