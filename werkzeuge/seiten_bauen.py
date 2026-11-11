@@ -946,16 +946,18 @@ def main() -> None:
           </div>
           <div class="field">
             <label for="a-branche">Branche <span class="req">*</span></label>
-            <select id="a-branche" name="branche" required>
-                <option value="">Bitte wählen</option>
-{n_optionen}
-                <option>Andere Branche</option>
-            </select>
+            <div class="n-combo">
+              <input id="a-branche" name="branche" type="text" required autocomplete="off" placeholder="Tippen oder auswählen" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="a-branche-liste">
+              <ul class="n-combo__list" id="a-branche-liste" role="listbox" aria-label="Branchen" hidden></ul>
+            </div>
             <span class="field__error" aria-live="polite"></span>
           </div>
           <div class="field">
             <label for="a-gesucht">Wen suchen Sie? <span class="req">*</span></label>
-            <input id="a-gesucht" name="gesucht" type="text" required placeholder="z. B. Küchenhilfe, Bauhelfer">
+            <div class="n-combo">
+              <input id="a-gesucht" name="gesucht" type="text" required autocomplete="off" placeholder="z. B. Küchenhilfe, Bauhelfer" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="a-gesucht-liste">
+              <ul class="n-combo__list" id="a-gesucht-liste" role="listbox" aria-label="Berufe" hidden></ul>
+            </div>
             <span class="field__error" aria-live="polite"></span>
           </div>
           <div class="field field--full">

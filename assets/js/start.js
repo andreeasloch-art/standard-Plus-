@@ -72,20 +72,93 @@
     });
   });
 
-  /* ---------- Beispiele im Feld „Wen suchen Sie?“ passend zur Branche ---------- */
+  /* ---------- Vorschläge beim Tippen: Branche und gesuchter Beruf ---------- */
+  var BERUFE = {
+    'Landwirtschaft': ['Erntehelfer', 'Saisonarbeiter', 'Landwirtschaftshelfer', 'Hofhelfer', 'Stallhelfer', 'Melker', 'Tierpfleger', 'Herdenmanager', 'Schweinepfleger', 'Geflügelhelfer', 'Pferdepfleger', 'Traktorfahrer', 'Landmaschinenführer', 'Obstpflücker', 'Erdbeerpflücker', 'Spargelstecher', 'Gemüseerntehelfer', 'Weinlesehelfer', 'Gewächshaushelfer', 'Gärtner', 'Gartenbauhelfer', 'Baumschulhelfer', 'Sortierer und Verpacker', 'Forsthelfer', 'Landwirt (Fachkraft)'],
+    'Häusliche Pflege': ['Betreuungskraft', '24-Stunden-Betreuung', 'Seniorenbetreuer', 'Alltagsbegleiter', 'Alltagshilfe', 'Haushaltshilfe', 'Haushälterin', 'Pflegehelfer', 'Pflegeassistent', 'Altenpflegehelfer', 'Altenpfleger', 'Krankenpflegehelfer', 'Pflegefachkraft', 'Demenzbetreuung', 'Nachtbetreuung', 'Einkaufshilfe', 'Begleitung zu Arztterminen', 'Kinderbetreuung'],
+    'Bau': ['Bauhelfer', 'Maurer', 'Betonbauer', 'Eisenflechter', 'Schalungsbauer', 'Zimmerer', 'Dachdecker', 'Trockenbauer', 'Verputzer', 'Maler und Lackierer', 'Fliesenleger', 'Estrichleger', 'Bodenleger', 'Fassadenbauer', 'Isolierer', 'Fensterbauer', 'Tischler / Schreiner', 'Elektriker', 'Elektrohelfer', 'Anlagenmechaniker Sanitär und Heizung', 'Installateurhelfer', 'Schweißer', 'Schlosser', 'Gerüstbauer', 'Straßenbauer', 'Tiefbauhelfer', 'Pflasterer', 'Garten- und Landschaftsbauer', 'Baggerfahrer', 'Kranführer', 'Baumaschinenführer', 'Abbruchhelfer', 'Vorarbeiter', 'Polier'],
+    'Gastronomie': ['Küchenhilfe', 'Spüler', 'Koch', 'Beikoch', 'Küchenchef', 'Pizzabäcker', 'Konditor', 'Bäcker', 'Servicekraft', 'Kellner', 'Runner', 'Barkeeper', 'Thekenkraft', 'Buffetkraft', 'Frühstücksservice', 'Bankettservice', 'Catering-Mitarbeiter', 'Imbissverkäufer', 'Restaurantleiter', 'Housekeeping', 'Zimmerreinigung', 'Reinigungskraft', 'Hausdame', 'Rezeptionist', 'Nachtportier', 'Hausmeister', 'Lieferfahrer'],
+    'Lager und Logistik': ['Lagerhelfer', 'Kommissionierer', 'Verpacker', 'Sortierer', 'Versandmitarbeiter', 'Mitarbeiter Wareneingang', 'Mitarbeiter Warenausgang', 'Be- und Entlader', 'Staplerfahrer', 'Hochregalstaplerfahrer', 'Fachlagerist', 'Fachkraft für Lagerlogistik', 'Inventurhelfer', 'Produktionshelfer', 'Maschinenbediener', 'Schichtleiter Lager', 'Disponent', 'Paketzusteller', 'Kurierfahrer', 'Auslieferungsfahrer', 'Lkw-Fahrer', 'Berufskraftfahrer', 'Umzugshelfer']
+  };
+  var BRANCHEN = Object.keys(BERUFE).concat(['Andere Branche']);
   var branche = form.querySelector('#a-branche');
   var gesucht = form.querySelector('#a-gesucht');
-  var beispiele = {
-    'Landwirtschaft': 'z. B. Erntehelfer, Melker',
-    'Häusliche Pflege': 'z. B. Betreuungskraft, Alltagshilfe',
-    'Bau': 'z. B. Bauhelfer, Maurer',
-    'Gastronomie': 'z. B. Küchenhilfe, Servicekraft',
-    'Lager und Logistik': 'z. B. Lagerhelfer, Kommissionierer'
-  };
+
+  function norm(t) { return t.toLowerCase().replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u').replace(/ß/g, 'ss'); }
+
+  function combo(input, quelle) {
+    var list = document.getElementById(input.getAttribute('aria-controls'));
+    if (!list) return;
+    var aktiv = -1, treffer = [];
+    function schliessen() {
+      list.hidden = true; aktiv = -1;
+      input.setAttribute('aria-expanded', 'false');
+      input.removeAttribute('aria-activedescendant');
+    }
+    function markieren(i) {
+      aktiv = i;
+      Array.prototype.forEach.call(list.children, function (li, n) {
+        li.setAttribute('aria-selected', n === i ? 'true' : 'false');
+        if (n === i) { input.setAttribute('aria-activedescendant', li.id); li.scrollIntoView({ block: 'nearest' }); }
+      });
+    }
+    function waehlen(text) {
+      input.value = text;
+      schliessen();
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+      input.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+    function zeigen() {
+      var q = norm(input.value.trim());
+      var alle = quelle();
+      var vorn = alle.filter(function (t) { return norm(t).indexOf(q) === 0; });
+      var mitte = alle.filter(function (t) { var i = norm(t).indexOf(q); return i > 0; });
+      treffer = q ? vorn.concat(mitte) : alle;
+      if (treffer.length === 1 && norm(treffer[0]) === q) treffer = [];      /* schon genau gewählt */
+      list.textContent = '';
+      treffer.forEach(function (t, n) {
+        var li = document.createElement('li');
+        li.id = list.id + '-' + n; li.setAttribute('role', 'option'); li.setAttribute('aria-selected', 'false');
+        li.textContent = t;
+        list.appendChild(li);
+      });
+      aktiv = -1;
+      list.hidden = !treffer.length;
+      input.setAttribute('aria-expanded', String(!!treffer.length));
+      input.removeAttribute('aria-activedescendant');
+    }
+    input.addEventListener('focus', zeigen);
+    input.addEventListener('input', function (e) { if (e.isTrusted) zeigen(); });
+    input.addEventListener('blur', schliessen);
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { if (!list.hidden) { e.preventDefault(); schliessen(); } return; }
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        if (list.hidden) { zeigen(); if (list.hidden) return; }
+        e.preventDefault();
+        var n = treffer.length;
+        markieren(e.key === 'ArrowDown' ? (aktiv + 1) % n : (aktiv - 1 + n) % n);
+      } else if (e.key === 'Enter' && !list.hidden && aktiv > -1) {
+        e.preventDefault(); waehlen(treffer[aktiv]);
+      }
+    });
+    list.addEventListener('mousedown', function (e) { e.preventDefault(); });   /* Feld behält den Fokus */
+    list.addEventListener('click', function (e) {
+      var li = e.target.closest('[role="option"]');
+      if (li) waehlen(li.textContent);
+    });
+  }
+
   if (branche && gesucht) {
     var standard = gesucht.getAttribute('placeholder');
+    combo(branche, function () { return BRANCHEN; });
+    combo(gesucht, function () {
+      var eigene = BERUFE[branche.value.trim()];
+      if (eigene) return eigene;
+      return [].concat.apply([], Object.keys(BERUFE).map(function (k) { return BERUFE[k]; }));   /* keine Branche: alle Berufe */
+    });
     branche.addEventListener('change', function () {
-      gesucht.setAttribute('placeholder', beispiele[branche.value] || standard);
+      var eigene = BERUFE[branche.value.trim()];
+      gesucht.setAttribute('placeholder', eigene ? 'z. B. ' + eigene[0] + ', ' + eigene[1] : standard);
     });
   }
 
