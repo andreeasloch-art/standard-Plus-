@@ -656,3 +656,8 @@ main > section:last-child.section--dark + .cta-strip, main:has(> .section--dark:
 .cta-strip .btn--line { box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.7); }
 .cta-strip .btn--wa { background: #fff; color: var(--brand); }
 .cta-strip .btn--wa:hover { background: #eaf4f4; color: var(--brand-900); }
+/* Team-Kacheln etwas kleiner */
+.h-crew { max-width: 1000px; margin-inline: auto; }
+@media (max-width: 1000px) { .h-crew { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .h-crew { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .h-crew { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 330px; } }
