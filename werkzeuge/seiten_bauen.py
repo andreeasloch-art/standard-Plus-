@@ -459,8 +459,8 @@ def breadcrumb(url: str, name: str) -> dict:
         {"@type": "ListItem", "position": 2, "name": name, "item": url}]}
 
 
-def catalog() -> dict:
-    return {
+def catalog(gesamt: bool = False) -> dict:
+    daten = {
         "@type": "OfferCatalog", "@id": DOMAIN + "/pakete.html#pakete", "name": "Pakete von Standard Plus",
         "itemListElement": [
             {"@type": "Offer", "name": "Betreuung 6 Monate", "url": DOMAIN + "/pakete.html#abo6",
@@ -483,6 +483,11 @@ def catalog() -> dict:
              "priceSpecification": {"@type": "PriceSpecification", "price": "899", "priceCurrency": "EUR", "valueAddedTaxIncluded": True}},
         ],
     }
+    if gesamt:
+        for angebot, summe in zip(daten["itemListElement"], ("1113", "1587")):
+            angebot["price"] = summe
+            angebot["description"] += f" Gesamtpreis über die Laufzeit: {summe} Euro inkl. MwSt."
+    return daten
 
 
 def services() -> list:
@@ -527,9 +532,9 @@ LOGO = '''<span class="logo__row">
 CUR = ' aria-current="page"'
 
 
-def header(active: str) -> str:
+def header(active: str, nav: list | None = None, cta: str = "kontakt.html") -> str:
     links = "\n".join(
-        f'      <a href="{href}"{CUR if href == active else ""}>{label}</a>' for href, label in NAV
+        f'      <a href="{href}"{CUR if href == active else ""}>{label}</a>' for href, label in (nav or NAV)
     )
     return f'''<header class="site-header">
   <div class="container">
@@ -541,7 +546,7 @@ def header(active: str) -> str:
     </nav>
     <div class="header-cta">
       <a class="header-tel" href="{TEL_LINK}"><svg class="icon"><use href="#i-phone"/></svg>{TEL}</a>
-      <a class="btn btn--primary" href="kontakt.html">Anfragen</a>
+      <a class="btn btn--primary" href="{cta}">Anfragen</a>
       <button class="nav-toggle" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menü öffnen">
         <svg class="icon"><use href="#i-menu"/></svg>
       </button>
@@ -613,10 +618,12 @@ def footer() -> str:
 <a class="fab" href="{TEL_LINK}" aria-label="Standard Plus anrufen"><svg class="icon"><use href="#i-phone"/></svg></a>'''
 
 
-def head(file: str, title: str, desc: str, robots: str, ld: list, og_title: str | None = None, preload_hero: bool = False) -> str:
+def head(file: str, title: str, desc: str, robots: str, ld: list, og_title: str | None = None, preload_hero: bool = False,
+         css: tuple = ()) -> str:
+    mehr_css = "".join(f'\n  <link rel="stylesheet" href="{c}?v={version(c)}">' for c in css)
     url = DOMAIN + "/" if file == "index.html" else f"{DOMAIN}/{file}"
     ld_json = json.dumps({"@context": "https://schema.org", "@graph": ld}, ensure_ascii=False, indent=2)
-    preload = ('\n  <link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/team-klein.webp 800w, assets/img/team.webp 1344w" imagesizes="(max-width: 1240px) calc(100vw - 32px), 1200px" fetchpriority="high">'
+    preload = ('\n  <link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/team-klein.webp 800w, assets/img/team.webp 1344w" imagesizes="(max-width: 900px) calc(100vw - 32px), 560px" fetchpriority="high">'
                if preload_hero else "")
     return f'''<head>
   <meta charset="utf-8">
@@ -649,7 +656,7 @@ def head(file: str, title: str, desc: str, robots: str, ld: list, og_title: str 
   <link rel="alternate" type="text/markdown" href="llms.txt" title="Standard Plus – Zusammenfassung für KI-Assistenten">{preload}
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css?v={version("assets/css/style.css")}">
+  <link rel="stylesheet" href="assets/css/style.css?v={version("assets/css/style.css")}">{mehr_css}
   <script>document.documentElement.classList.remove('no-js');</script>
   <!-- Strukturierte Daten (schema.org) – erzeugt von werkzeuge/seiten_bauen.py -->
   <script type="application/ld+json">
@@ -659,17 +666,19 @@ def head(file: str, title: str, desc: str, robots: str, ld: list, og_title: str 
 
 
 def build(file: str, title: str, desc: str, body: str, ld: list, robots: str = "index, follow, max-image-preview:large, max-snippet:-1",
-          strip: bool = True, og_title: str | None = None, preload_hero: bool = False) -> None:
+          strip: bool = True, og_title: str | None = None, preload_hero: bool = False,
+          nav: list | None = None, cta: str = "kontakt.html", css: tuple = (), js: tuple = ()) -> None:
+    mehr_js = "".join(f'\n<script src="{j}?v={version(j)}" defer></script>' for j in js)
     page = f'''<!doctype html>
 <html lang="de" class="no-js">
-{head(file, title, desc, robots, ld, og_title, preload_hero)}
+{head(file, title, desc, robots, ld, og_title, preload_hero, css)}
 <body>
 
 {sprite()}
 
 <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 
-{header(file)}
+{header(file, nav, cta)}
 
 <main id="inhalt">
 {body}
@@ -679,7 +688,7 @@ def build(file: str, title: str, desc: str, body: str, ld: list, robots: str = "
 
 {footer()}
 
-<script src="assets/js/main.js?v={version("assets/js/main.js")}" defer></script>
+<script src="assets/js/main.js?v={version("assets/js/main.js")}" defer></script>{mehr_js}
 </body>
 </html>
 '''
@@ -704,149 +713,268 @@ def main() -> None:
         for i in range(12)
     )
 
-    tiles = "\n".join(
-        f"""        <li><a class="h-tile reveal" href="branchen.html#{b["id"]}">
-          {picture(b["id"], b["alt"], sizes="(max-width: 1000px) 46vw, 400px")}
-          <span class="h-tile__text"><strong>{esc(b["name"])}</strong><span>{esc(b["kurz"])}</span></span>
-        </a></li>"""
-        for b in BRANCHEN
-    )
-    timeline = "\n".join(
-        f"""        <li class="h-step reveal"><span class="h-step__no" aria-hidden="true">{i}</span><h3>{esc(h)}</h3><p>{esc(kurz)}</p></li>"""
-        for i, (_ic, h, kurz, _lang) in enumerate(STEPS, 1)
+    # ---------- Start (neue Fassung: alles auf einer Seite) ----------
+    start_nav = [("#branchen", "Branchen"), ("#ablauf", "Ablauf"), ("#pakete", "Pakete"),
+                 ("#team", "Team"), ("#fragen", "Fragen"), ("#kontakt", "Kontakt")]
+
+    start_branchen = [
+        ("landwirtschaft", "s-agrar", "Landwirtschaft", "Erntehelfer, Stallhelfer und Melker für Ihren Hof."),
+        ("pflege", "s-pflege", "Häusliche Pflege", "Betreuungskräfte, die im Alltag zu Hause helfen."),
+        ("bau", "s-bau", "Bau", "Helfer und Fachkräfte für Baustelle und Handwerk."),
+        ("gastronomie", "s-gastro", "Gastronomie", "Personal für Küche, Service und Housekeeping."),
+        ("logistik", "s-logistik", "Lager und Logistik", "Lagerhelfer und Kommissionierer für Lager und Versand."),
+    ]
+    n_tiles = "\n".join(
+        f'''        <li class="reveal" style="--i:{i}"><a class="n-tile" href="branchen.html#{bid}">
+          <span class="n-tile__icon"><svg class="icon" aria-hidden="true"><use href="#{icon}"/></svg></span>
+          <span class="n-tile__text"><strong>{esc(name)}</strong><span>{esc(satz)}</span></span>
+          <svg class="icon n-tile__go" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a></li>'''
+        for i, (bid, icon, name, satz) in enumerate(start_branchen)
     )
 
-    team_html = "\n".join(
-        f'''        <li class="h-member reveal"><figure>{foto("team/" + bild, f"{name}, {rolle} bei Standard Plus", 720, 900, "(max-width: 560px) 46vw, (max-width: 900px) 30vw, 230px", gross=720, klein=400)}<figcaption><strong>{esc(name)}</strong><span>{esc(rolle)}</span></figcaption></figure></li>'''
-        for bild, name, rolle in TEAM
+    start_schritte = [
+        ("Anfrage", "Sie rufen an oder schreiben uns. Ganz unverbindlich."),
+        ("Bedarf klären", "Wir besprechen, wen Sie brauchen: Aufgaben, Anzahl, Zeitraum."),
+        ("Suchen und prüfen", "Wir suchen passende Kandidaten und prüfen sie selbst."),
+        ("Arbeitskraft startet", "Sie entscheiden. Dann beginnt Ihr neuer Mitarbeiter."),
+        ("Betreuung und Ersatz", "Wir bleiben für Sie da. Fällt jemand aus, kümmern wir uns um Ersatz."),
+    ]
+    n_steps = "\n".join(
+        f'''        <li class="n-step" style="--i:{i}"><span class="n-step__no" aria-hidden="true">{i + 1}</span><div><h3>{esc(h)}</h3><p>{esc(t)}</p></div></li>'''
+        for i, (h, t) in enumerate(start_schritte)
     )
 
-    # ---------- Start ----------
+    def n_checks(punkte: list) -> str:
+        return "\n".join(f'            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>{pkt}</li>' for pkt in punkte)
+
+    betreuung = ["Suche nach qualifizierten Arbeitskräften", "Fortlaufende Betreuung",
+                 "Ersatz innerhalb von 84&nbsp;Stunden bei längeren Ausfällen"]
+
+    # Persönliche Sätze: vorläufig aus der Rolle abgeleitet – bitte durch eigene Sätze der Mitarbeiter ersetzen
+    team_saetze = {
+        "andreas-loch": "Leitet Standard Plus und steht für jede Vermittlung persönlich ein.",
+        "arif-oezen": "Berät Sie zu den Paketen und findet die passende Lösung für Ihren Betrieb.",
+        "daniel-rusitschka": "Hilft Ihnen weiter, wenn im Alltag Fragen auftauchen.",
+        "jasmin-loch": "Sorgt für klare Verträge und saubere Rechnungen.",
+        "patricia-rusitschka": "Sucht Arbeitskräfte, die zu Ihren Aufgaben passen.",
+        "bahar-mirau": "Verantwortet Technik und Abläufe im Hintergrund.",
+        "tamara-doyle": "Nimmt Ihre Anfrage auf und klärt mit Ihnen den Bedarf.",
+        "bianca-archire": "Spricht mit Bewerbern und prüft, wer wirklich passt.",
+        "manuel-crenicianu": "Begleitet Bewerber von der ersten Nachricht bis zum Arbeitsbeginn.",
+        "patrick-danes": "Hält Kontakt zu den Arbeitskräften, auch nach dem Start.",
+    }
+    n_team = "\n".join(
+        f'''        <li class="n-member reveal" style="--i:{i % 5}"><figure>{foto("team/" + bild, f"{name}, {rolle} bei Standard Plus", 720, 900, "(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px", gross=720, klein=400)}<figcaption><strong>{esc(name)}</strong><span class="n-member__rolle">{esc(rolle)}</span><span class="n-member__satz">{esc(team_saetze[bild])}</span></figcaption></figure></li>'''
+        for i, (bild, name, rolle) in enumerate(TEAM)
+    )
+
+    start_faq = [
+        ("Wie läuft eine Vermittlung ab?",
+         "Sie fragen an, wir klären Ihren Bedarf. Dann suchen und prüfen wir passende Kandidaten. Sie entscheiden, wer bei Ihnen anfängt. Nach dem Start bleiben wir Ihr Ansprechpartner."),
+        ("Was kostet die Vermittlung?",
+         "Es gibt drei Pakete: Betreuung 6 Monate für 1.113 Euro gesamt, Betreuung 12 Monate für 1.587 Euro gesamt und das Übernahme-Paket für 899 Euro einmalig. Alle Preise sind inklusive MwSt."),
+        ("Muss ich Geld im Voraus bezahlen?",
+         "Nein. Wir verlangen kein Geld im Voraus und arbeiten mit klaren Verträgen und Rechnungen."),
+        ("Was passiert, wenn ein Mitarbeiter ausfällt oder nicht passt?",
+         "In den Betreuungspaketen sorgen wir bei längeren Ausfällen innerhalb von 84 Stunden für Ersatz. Beim Übernahme-Paket tauschen wir innerhalb von zwei Wochen nach Arbeitsbeginn aus, falls nötig."),
+        ("Wie schnell sind Mitarbeiter verfügbar?",
+         "Je nach Bedarf oft auch kurzfristig. Sprechen Sie uns an – wir sagen Ihnen ehrlich, was realistisch ist."),
+        ("Wann erreiche ich Sie?",
+         f"An 6 Tagen pro Woche – telefonisch unter {TEL} oder per E-Mail an {MAIL}."),
+    ]
+
+    def n_antwort(a: str) -> str:
+        a = re.sub(r"(\d) Monat", r"\1&nbsp;Monat", esc(a).replace(" Euro", "&nbsp;Euro").replace(" Stunden", "&nbsp;Stunden"))
+        return a.replace(TEL, f'<a href="{TEL_LINK}">{TEL}</a>').replace(MAIL, f'<a href="mailto:{MAIL}">{MAIL}</a>')
+
+    n_faq = "\n".join(
+        f'''        <details>
+          <summary>{esc(q)}</summary>
+          <div class="answer"><p>{n_antwort(a)}</p></div>
+        </details>'''
+        for q, a in start_faq
+    )
+    n_optionen = "\n".join(f'                <option>{esc(name)}</option>' for _b, _i, name, _s in start_branchen)
+
     start = f'''
-  <section class="h-hero" aria-labelledby="h-titel">
-    <div class="h-hero__grid">
-      <div class="h-hero__text">
-        <h1 id="h-titel" class="h-hero__title">Passende Mitarbeiter. <span>Persönlich vermittelt.</span></h1>
-        <p class="h-hero__lead">Standard Plus ist Ihre Personalvermittlung für zuverlässige Arbeitskräfte aus ganz Europa – und wir bleiben auch nach dem Arbeitsbeginn an Ihrer Seite.</p>
-        <div class="h-hero__actions">
-          <a class="btn btn--primary btn--lg" href="kontakt.html">Unverbindlich anfragen<svg class="icon"><use href="#i-arrow"/></svg></a>
-          <a class="h-hero__tel" href="{TEL_LINK}"><svg class="icon"><use href="#i-phone"/></svg>{TEL}</a>
+  <section class="n-hero" aria-labelledby="n-titel">
+    <div class="container n-hero__grid">
+      <div class="n-hero__text">
+        <p class="n-eyebrow">Personalvermittlung im Raum Stuttgart</p>
+        <h1 id="n-titel">Gute Arbeitskräfte. <span>Fester Preis.</span></h1>
+        <p class="n-hero__lead">Wir suchen und prüfen Ihre neuen Mitarbeiter selbst – und betreuen Sie auch nach dem Start.</p>
+        <div class="n-hero__actions">
+          <a class="btn btn--primary btn--lg" href="#kontakt">Jetzt anfragen<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--outline btn--lg" href="#pakete">Pakete ansehen</a>
         </div>
-        <ul class="h-facts">
-          <li><span class="h-facts__eu"><svg viewBox="0 0 20 20" aria-hidden="true">{eu}</svg></span>Arbeitskräfte aus ganz Europa</li>
-          <li><svg class="icon"><use href="#i-nomoney"/></svg>Kein Geld im Voraus</li>
-          <li><svg class="icon"><use href="#i-user"/></svg>Fester, deutschsprachiger Ansprechpartner</li>
-          <li><svg class="icon"><use href="#i-clock"/></svg>An 6 Tagen pro Woche erreichbar</li>
+        <ul class="n-facts">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Kein Geld im Voraus</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Feste Preise inkl. MwSt.</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Ersatz bei Ausfall</li>
         </ul>
       </div>
-      <figure class="h-team">{foto("team", "Zwölf Mitarbeiterinnen und Mitarbeiter aus verschiedenen Branchen stehen nebeneinander: Handwerk, Bau, Service, Küche, Landwirtschaft, Lager und Logistik, Pflege, Reinigung, Paketdienst, Einzelhandel und Sicherheitsdienst", 1344, 640, "(max-width: 1240px) calc(100vw - 32px), 1200px", lazy=False, gross=1344, klein=800)}</figure>
+      <figure class="n-hero__media">{foto("team", "Arbeitskräfte aus verschiedenen Branchen stehen nebeneinander: Handwerk, Bau, Service, Küche, Landwirtschaft, Lager, Pflege und Reinigung", 1344, 640, "(max-width: 900px) calc(100vw - 32px), 560px", lazy=False, gross=1344, klein=800)}</figure>
     </div>
   </section>
 
-  <section class="h-sec" aria-labelledby="h-branchen">
+  <section class="n-sec" id="branchen" aria-labelledby="n-branchen">
     <div class="container">
-      <div class="h-head reveal">
-        <h2 id="h-branchen">Arbeitskräfte für Ihre Branche.</h2>
-        <p>Wir vermitteln Hilfs- und Fachkräfte aus ganz Europa – für Betriebe und Privathaushalte.</p>
+      <div class="n-head reveal">
+        <h2 id="n-branchen">Für diese Branchen</h2>
+        <p>Wir vermitteln Hilfs- und Fachkräfte in fünf Bereichen.</p>
       </div>
-      <ul class="h-tiles" role="list">
-{tiles}
+      <ul class="n-tiles" role="list">
+{n_tiles}
       </ul>
-      <p class="h-more reveal"><a class="h-link" href="branchen.html">Alle Branchen im Detail<svg class="icon"><use href="#i-arrow"/></svg></a></p>
     </div>
   </section>
 
-  <section class="h-sec h-sec--tint" aria-labelledby="h-ablauf">
+  <section class="n-sec n-sec--tint" id="ablauf" aria-labelledby="n-ablauf">
     <div class="container">
-      <div class="h-head reveal">
-        <h2 id="h-ablauf">In 4 Schritten zum passenden Mitarbeiter.</h2>
-        <p>Klar geregelt, persönlich begleitet – vom ersten Gespräch bis nach dem Arbeitsbeginn.</p>
+      <div class="n-head reveal">
+        <h2 id="n-ablauf">So läuft eine Vermittlung ab</h2>
+        <p>Fünf Schritte – von Ihrer Anfrage bis zur laufenden Betreuung.</p>
       </div>
-      <ol class="h-steps">
-{timeline}
+      <ol class="n-steps" data-steps>
+{n_steps}
       </ol>
-      <p class="h-more reveal"><a class="h-link" href="ablauf.html">Ablauf im Detail<svg class="icon"><use href="#i-arrow"/></svg></a></p>
     </div>
   </section>
 
-  <section class="h-sec" aria-labelledby="h-pakete">
+  <section class="n-sec" id="pakete" aria-labelledby="n-pakete">
     <div class="container">
-      <div class="h-head reveal">
-        <h2 id="h-pakete">Drei transparente Pakete.</h2>
-        <p>Qualifizierte Fachkräfte. Zuverlässig. Persönlich. Schnell. Alle Preise inklusive MwSt.</p>
+      <div class="n-head reveal">
+        <h2 id="n-pakete">Was es kostet</h2>
+        <p>Drei Pakete mit festem Preis. Keine versteckten Kosten.</p>
       </div>
-      <div class="h-plans">
-        <article class="h-plan h-plan--petrol reveal" aria-labelledby="h-plan-abo6">
-          <h3 id="h-plan-abo6">Betreuung 6&nbsp;Monate</h3>
-          <p class="h-plan__price"><strong>399&nbsp;€</strong> <span>einmalig</span></p>
-          <p class="h-plan__extra">+ 119&nbsp;€ / Monat</p>
-          <ul class="h-checks">
-            <li><svg class="icon"><use href="#i-check"/></svg>Suche nach qualifizierten Arbeitskräften</li>
-            <li><svg class="icon"><use href="#i-check"/></svg>Fortlaufende Betreuung und Unterstützung</li>
-            <li><svg class="icon"><use href="#i-check"/></svg>Ersatz innerhalb von 84&nbsp;Stunden bei längeren Ausfällen</li>
+      <div class="n-plans">
+        <div class="n-plan-wrap reveal" style="--i:0"><article class="n-plan" aria-labelledby="n-plan-6">
+          <h3 id="n-plan-6">Betreuung 6&nbsp;Monate</h3>
+          <p class="n-plan__price"><strong><span data-count="1113">1.113</span>&nbsp;€</strong> <span>gesamt</span></p>
+          <p class="n-plan__sub">399&nbsp;€ einmalig + 119&nbsp;€ / Monat<br>Laufzeit 6&nbsp;Monate</p>
+          <ul class="n-checks">
+{n_checks(betreuung)}
           </ul>
-          <a class="btn btn--white btn--block" href="pakete.html#abo6">Details zu 6 Monaten<svg class="icon"><use href="#i-arrow"/></svg></a>
-        </article>
-        <article class="h-plan h-plan--petrol reveal" aria-labelledby="h-plan-abo12">
-          <h3 id="h-plan-abo12">Betreuung 12&nbsp;Monate</h3>
-          <p class="h-plan__price"><strong>399&nbsp;€</strong> <span>einmalig</span></p>
-          <p class="h-plan__extra">+ 99&nbsp;€ / Monat</p>
-          <ul class="h-checks">
-            <li><svg class="icon"><use href="#i-check"/></svg>Suche nach qualifizierten Arbeitskräften</li>
-            <li><svg class="icon"><use href="#i-check"/></svg>Fortlaufende Betreuung und Unterstützung</li>
-            <li><svg class="icon"><use href="#i-check"/></svg>Ersatz innerhalb von 84&nbsp;Stunden bei längeren Ausfällen</li>
+          <a class="btn btn--outline btn--block" href="#kontakt" data-paket="Betreuung 6 Monate (1.113 € gesamt)">6 Monate anfragen</a>
+        </article></div>
+        <div class="n-plan-wrap reveal" style="--i:1"><article class="n-plan" aria-labelledby="n-plan-12">
+          <h3 id="n-plan-12">Betreuung 12&nbsp;Monate</h3>
+          <p class="n-plan__price"><strong><span data-count="1587">1.587</span>&nbsp;€</strong> <span>gesamt</span></p>
+          <p class="n-plan__sub">399&nbsp;€ einmalig + 99&nbsp;€ / Monat<br>Laufzeit 12&nbsp;Monate</p>
+          <ul class="n-checks">
+{n_checks(betreuung)}
           </ul>
-          <a class="btn btn--white btn--block" href="pakete.html#abo12">Details zu 12 Monaten<svg class="icon"><use href="#i-arrow"/></svg></a>
-        </article>
-        <article class="h-plan h-plan--gelb reveal" aria-labelledby="h-plan-einmal">
-          <h3 id="h-plan-einmal">Übernahme-Paket · Beliebteste Wahl</h3>
-          <p class="h-plan__price"><strong>899&nbsp;€</strong> <span>einmalig</span></p>
-          <p class="h-plan__extra">3 Monate Betreuung kostenlos</p>
-          <ul class="h-checks">
-            <li><svg class="icon"><use href="#i-check"/></svg>Suche nach qualifizierten Arbeitskräften</li>
-            <li><svg class="icon"><use href="#i-check"/></svg>Austausch innerhalb von zwei Wochen, falls nötig</li>
-            <li><svg class="icon"><use href="#i-check"/></svg>Danach keine weiteren Gebühren – der Mitarbeiter gehört ganz Ihnen</li>
+          <a class="btn btn--outline btn--block" href="#kontakt" data-paket="Betreuung 12 Monate (1.587 € gesamt)">12 Monate anfragen</a>
+        </article></div>
+        <div class="n-plan-wrap reveal" style="--i:2"><article class="n-plan n-plan--top" aria-labelledby="n-plan-u">
+          <p class="n-plan__badge">Beliebteste Wahl</p>
+          <h3 id="n-plan-u">Übernahme-Paket</h3>
+          <p class="n-plan__price"><strong><span data-count="899">899</span>&nbsp;€</strong> <span>einmalig</span></p>
+          <p class="n-plan__sub">3&nbsp;Monate Betreuung kostenlos<br>(im Wert von 357&nbsp;€)</p>
+          <ul class="n-checks">
+{n_checks(["Suche nach qualifizierten Arbeitskräften", "3&nbsp;Monate Betreuung kostenlos", "Austausch innerhalb von zwei Wochen, falls nötig", "Danach keine weiteren Gebühren"])}
           </ul>
-          <a class="btn btn--dark btn--block" href="pakete.html#einmal">Details zum Übernahme-Paket<svg class="icon"><use href="#i-arrow"/></svg></a>
-        </article>
+          <a class="btn btn--yellow btn--block" href="#kontakt" data-paket="Übernahme-Paket (899 € einmalig)">Übernahme-Paket anfragen</a>
+        </article></div>
       </div>
+      <p class="n-note reveal">Alle Preise inkl. MwSt. Es gelten unsere <a href="agb.html">AGB</a>. <a href="pakete.html">Alle Details zu den Paketen</a></p>
     </div>
   </section>
 
-  <section class="h-sec h-sec--tint" aria-labelledby="h-ueber">
-    <div class="container h-about">
-      <div class="h-about__media reveal">
-        {BERATERIN}
-      </div>
-      <div class="h-about__text reveal">
-        <h2 id="h-ueber">Mehr als Vermittlung.</h2>
-        <p class="h-about__lead">Bei Standard Plus endet unsere Arbeit nicht mit der Besetzung einer Stelle. Wir begleiten Sie vor, während und nach dem Arbeitsbeginn – auch nach der Vermittlung werden Sie nicht allein gelassen.</p>
-        <ul class="h-checks h-checks--lg">
-          <li><svg class="icon"><use href="#i-check"/></svg>Kein Geld im Voraus</li>
-          <li><svg class="icon"><use href="#i-check"/></svg>Arbeit mit Verträgen und Rechnungen</li>
-          <li><svg class="icon"><use href="#i-check"/></svg>Deutschsprachiger Ansprechpartner</li>
-        </ul>
-        <a class="h-link" href="ueber-uns.html">Mehr über uns<svg class="icon"><use href="#i-arrow"/></svg></a>
-      </div>
-    </div>
-  </section>
-
-  <section class="h-sec" id="team" aria-labelledby="h-team">
+  <section class="n-sec n-sec--tint" id="team" aria-labelledby="n-team">
     <div class="container">
-      <div class="h-head reveal">
-        <h2 id="h-team">Unser Team.</h2>
-        <p>Die Menschen hinter Standard Plus – persönlich für Sie da, vom ersten Gespräch bis nach dem Arbeitsbeginn.</p>
+      <div class="n-head reveal">
+        <h2 id="n-team">Unser Team</h2>
+        <p>Die Menschen, mit denen Sie bei Standard Plus sprechen.</p>
       </div>
-      <ul class="h-crew" role="list">
-{team_html}
+      <ul class="n-crew" role="list" tabindex="0" aria-label="Team von Standard Plus">
+{n_team}
       </ul>
+      <p class="n-swipe" aria-hidden="true">← Wischen, um alle zu sehen →</p>
+    </div>
+  </section>
+
+  <section class="n-sec" id="fragen" aria-labelledby="n-fragen">
+    <div class="container">
+      <div class="n-head reveal">
+        <h2 id="n-fragen">Häufige Fragen</h2>
+        <p>Kurz beantwortet. Alles Weitere klären wir gern am Telefon.</p>
+      </div>
+      <div class="faq n-faq reveal">
+{n_faq}
+      </div>
+    </div>
+  </section>
+
+  <section class="n-sec n-contact" id="kontakt" aria-labelledby="n-kontakt">
+    <div class="container n-contact__grid">
+      <div class="n-contact__info reveal">
+        <h2 id="n-kontakt">Jetzt anfragen</h2>
+        <p>Sagen Sie uns kurz, wen Sie suchen. Wir melden uns schnellstmöglich bei Ihnen.</p>
+        <ul class="n-ways">
+          <li><a href="{TEL_LINK}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span><small>Telefon</small>{TEL}</span></a></li>
+          <li><a href="{WA_LINK}" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg><span><small>WhatsApp</small>Nachricht schreiben</span></a></li>
+          <li><a href="mailto:{MAIL}"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span><small>E-Mail</small>{MAIL}</span></a></li>
+          <li><span class="n-ways__plain"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span><small>Adresse</small>Heilbronner Straße 142, 71634 Ludwigsburg</span></span></li>
+          <li><span class="n-ways__plain"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span><small>Erreichbar</small>An 6 Tagen pro Woche</span></span></li>
+        </ul>
+      </div>
+      <form class="n-form reveal" id="anfrage" novalidate data-mailto="{MAIL}">
+        <div class="n-form__grid">
+          <div class="field">
+            <label for="a-name">Name <span class="req">*</span></label>
+            <input id="a-name" name="name" type="text" autocomplete="name" required>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="a-firma">Firma</label>
+            <input id="a-firma" name="firma" type="text" autocomplete="organization">
+            <span class="field__error"></span>
+          </div>
+          <div class="field">
+            <label for="a-branche">Branche</label>
+            <select id="a-branche" name="branche">
+                <option value="">Bitte wählen</option>
+{n_optionen}
+                <option>Andere Branche</option>
+            </select>
+            <span class="field__error"></span>
+          </div>
+          <div class="field">
+            <label for="a-tel">Telefon <span class="req">*</span></label>
+            <input id="a-tel" name="telefon" type="tel" autocomplete="tel" inputmode="tel" required>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+          <div class="field field--full">
+            <label for="a-nachricht">Nachricht <span class="req">*</span></label>
+            <textarea id="a-nachricht" name="nachricht" required placeholder="Wen suchen Sie? Anzahl, Aufgaben, Zeitraum, Ort …"></textarea>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+          <div class="hp" aria-hidden="true">
+            <label for="a-website">Bitte leer lassen</label>
+            <input id="a-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="field field--full">
+            <label class="consent">
+              <input type="checkbox" name="datenschutz" required>
+              <span>Ich bin mit der Verarbeitung meiner Angaben gemäß <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a> einverstanden. <span class="req">*</span></span>
+            </label>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+        </div>
+        <button class="btn btn--primary btn--lg btn--block" type="submit">Anfrage senden<svg class="icon" aria-hidden="true"><use href="#i-send"/></svg></button>
+        <div class="form-status" role="status" aria-live="polite"></div>
+      </form>
     </div>
   </section>
 '''
-    ld = org_graph() + [webpage(DOMAIN + "/", "Personalvermittlung europaweit | Standard Plus")]
-    build("index.html", "Personalvermittlung europaweit | Standard Plus",
-          "Standard Plus vermittelt zuverlässige Arbeitskräfte aus ganz Europa – für Bau, Landwirtschaft, Pflege, Logistik & Gastronomie. Kein Geld im Voraus.",
-          start, ld, preload_hero=True)
+    titel = "Personalvermittlung Raum Stuttgart – ab 899 € | Standard Plus"
+    ld = org_graph() + [webpage(DOMAIN + "/", titel), catalog(gesamt=True)]
+    build("index.html", titel,
+          "Standard Plus vermittelt Arbeitskräfte für Landwirtschaft, häusliche Pflege, Bau, Gastronomie und Lager. Feste Preise ab 899 €, Betreuung und Ersatz inklusive.",
+          start, ld, strip=False, preload_hero=True, nav=start_nav, cta="#kontakt",
+          css=("assets/css/start.css",), js=("assets/js/start.js",))
 
     # ---------- Über uns ----------
     body = page_hero("Über uns", "Mehr als Vermittlung.",
