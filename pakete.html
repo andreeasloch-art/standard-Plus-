@@ -32,6 +32,7 @@
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css?v=f6bdde69">
+  <link rel="stylesheet" href="assets/css/start.css?v=753e300d">
   <script>document.documentElement.classList.remove('no-js');</script>
   <!-- Strukturierte Daten (schema.org) – erzeugt von werkzeuge/seiten_bauen.py -->
   <script type="application/ld+json">
@@ -309,7 +310,7 @@
     </nav>
     <div class="header-cta">
       <a class="header-tel" href="tel:+4915228986993"><svg class="icon"><use href="#i-phone"/></svg>0152 28986993</a>
-      <a class="btn btn--primary" href="kontakt.html">Anfragen</a>
+      <a class="btn btn--primary" href="kontakt.html#kontakt">Anfragen</a>
       <button class="nav-toggle" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menü öffnen">
         <svg class="icon"><use href="#i-menu"/></svg>
       </button>
@@ -321,69 +322,55 @@
   <section class="page-hero">
     <div class="container">
       <p class="crumb"><a href="index.html">Start</a> <span aria-hidden="true">›</span> <span aria-current="page">Pakete</span></p>
-      <span class="kicker">Pakete</span>
+      <p class="n-eyebrow">Pakete</p>
       <h1>Drei transparente Pakete.</h1>
       <p class="page-hero__lead">Qualifizierte Fachkräfte. Zuverlässig. Persönlich. Schnell. Wählen Sie das Paket, das zu Ihrem Personalbedarf passt.</p>
     </div>
   </section>
 
-  <section class="section section--dark">
+  <section class="n-sec n-sec--first" id="pakete">
     <div class="container">
-      <div class="pricing">
-        <article class="plan reveal" id="abo6">
-          <span class="plan__icon"><svg class="icon"><use href="#i-users"/></svg></span>
-          <h3>Betreuung 6&nbsp;Monate</h3>
-          <div class="plan__price"><strong>399&nbsp;€</strong><span>einmalig</span><em style="flex-basis:100%">+ 119&nbsp;€ / Monat</em><small class="plan__tax">alle Preise inkl. MwSt.</small></div>
-          <p class="plan__desc">Das Paket umfasst eine einmalige Vermittlungsgebühr von 399&nbsp;Euro sowie eine monatliche Betreuungsgebühr von 119&nbsp;Euro über eine Laufzeit von 6&nbsp;Monaten. Wir übernehmen die Suche nach qualifizierten Arbeitskräften sowie die fortlaufende Betreuung. Bei längeren Ausfällen sorgen wir innerhalb von 84&nbsp;Stunden für passenden Ersatz.</p>
-          <ul class="plan__list">
-            <li>Einmalige Vermittlungsgebühr: 399&nbsp;Euro</li>
-            <li>Monatliche Betreuungsgebühr: 119&nbsp;Euro</li>
-            <li>Laufzeit: 6&nbsp;Monate</li>
-            <li>Suche nach qualifizierten Arbeitskräften</li>
-            <li>Fortlaufende Betreuung und Unterstützung</li>
-            <li>Ersatz innerhalb von 84&nbsp;Stunden bei längeren Ausfällen</li>
+      <div class="n-plans">
+        <div class="n-plan-wrap reveal" style="--i:0" id="abo6"><article class="n-plan n-plan--petrol" aria-labelledby="n-plan-abo6">
+          <h3 id="n-plan-abo6">Betreuung 6&nbsp;Monate</h3>
+          <p class="n-plan__price"><strong><span data-count="399">399</span>&nbsp;€</strong> <span>einmalig</span></p>
+          <p class="n-plan__sub"><b>+ 119&nbsp;€ / Monat</b><br>Laufzeit 6&nbsp;Monate</p>
+          <p class="n-plan__text">Das Paket umfasst eine einmalige Vermittlungsgebühr von 399&nbsp;Euro sowie eine monatliche Betreuungsgebühr von 119&nbsp;Euro über eine Laufzeit von 6&nbsp;Monaten. Wir übernehmen die Suche nach qualifizierten Arbeitskräften sowie die fortlaufende Betreuung. Bei längeren Ausfällen sorgen wir innerhalb von 84&nbsp;Stunden für passenden Ersatz.</p>
+          <ul class="n-checks">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Suche nach qualifizierten Arbeitskräften</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Fortlaufende Betreuung</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Ersatz innerhalb von 84&nbsp;Stunden bei längeren Ausfällen</li>
           </ul>
-          <p class="plan__summary"><svg class="icon"><use href="#i-bulb"/></svg><span><b>Kurz zusammengefasst:</b> 6 Monate Betreuung mit schneller Ersatzlösung für Ihren Personalbedarf.</span></p>
-          <a class="btn btn--yellow btn--block" href="kontakt.html?betreff=Anfrage%20Betreuung%206%20Monate%20%28399%20%E2%82%AC%20%2B%206%20%C3%97%20119%20%E2%82%AC%29">Betreuung 6 Monate anfragen</a>
-        </article>
-
-        <article class="plan reveal" id="abo12">
-          <span class="plan__icon"><svg class="icon"><use href="#i-users"/></svg></span>
-          <h3>Betreuung 12&nbsp;Monate</h3>
-          <div class="plan__price"><strong>399&nbsp;€</strong><span>einmalig</span><em style="flex-basis:100%">+ 99&nbsp;€ / Monat</em><small class="plan__tax">alle Preise inkl. MwSt.</small></div>
-          <p class="plan__desc">Das Paket umfasst eine einmalige Vermittlungsgebühr von 399&nbsp;Euro sowie eine monatliche Betreuungsgebühr von 99&nbsp;Euro über eine Laufzeit von 12&nbsp;Monaten. Wir übernehmen die Suche nach qualifizierten Arbeitskräften sowie die fortlaufende Betreuung. Bei längeren Ausfällen sorgen wir innerhalb von 84&nbsp;Stunden für passenden Ersatz.</p>
-          <ul class="plan__list">
-            <li>Einmalige Vermittlungsgebühr: 399&nbsp;Euro</li>
-            <li>Monatliche Betreuungsgebühr: 99&nbsp;Euro</li>
-            <li>Laufzeit: 12&nbsp;Monate</li>
-            <li>Suche nach qualifizierten Arbeitskräften</li>
-            <li>Fortlaufende Betreuung und Unterstützung</li>
-            <li>Ersatz innerhalb von 84&nbsp;Stunden bei längeren Ausfällen</li>
+          <a class="btn btn--white btn--block" href="kontakt.html?paket=Betreuung%206%20Monate%20%28399%20%E2%82%AC%20%2B%20119%20%E2%82%AC%20/%20Monat%29#kontakt" data-paket="Betreuung 6 Monate (399 € + 119 € / Monat)">6 Monate anfragen</a>
+        </article></div>
+        <div class="n-plan-wrap reveal" style="--i:1" id="abo12"><article class="n-plan n-plan--petrol" aria-labelledby="n-plan-abo12">
+          <h3 id="n-plan-abo12">Betreuung 12&nbsp;Monate</h3>
+          <p class="n-plan__price"><strong><span data-count="399">399</span>&nbsp;€</strong> <span>einmalig</span></p>
+          <p class="n-plan__sub"><b>+ 99&nbsp;€ / Monat</b><br>Laufzeit 12&nbsp;Monate</p>
+          <p class="n-plan__text">Das Paket umfasst eine einmalige Vermittlungsgebühr von 399&nbsp;Euro sowie eine monatliche Betreuungsgebühr von 99&nbsp;Euro über eine Laufzeit von 12&nbsp;Monaten. Wir übernehmen die Suche nach qualifizierten Arbeitskräften sowie die fortlaufende Betreuung. Bei längeren Ausfällen sorgen wir innerhalb von 84&nbsp;Stunden für passenden Ersatz.</p>
+          <ul class="n-checks">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Suche nach qualifizierten Arbeitskräften</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Fortlaufende Betreuung</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Ersatz innerhalb von 84&nbsp;Stunden bei längeren Ausfällen</li>
           </ul>
-          <p class="plan__summary"><svg class="icon"><use href="#i-bulb"/></svg><span><b>Kurz zusammengefasst:</b> 12 Monate Betreuung mit schneller Ersatzlösung für Ihren Personalbedarf.</span></p>
-          <a class="btn btn--yellow btn--block" href="kontakt.html?betreff=Anfrage%20Betreuung%2012%20Monate%20%28399%20%E2%82%AC%20%2B%2012%20%C3%97%2099%20%E2%82%AC%29">Betreuung 12 Monate anfragen</a>
-        </article>
-
-        <article class="plan plan--featured reveal" id="einmal">
-          <span class="plan__badge">Beliebteste Wahl</span>
-          <span class="plan__icon"><svg class="icon"><use href="#i-file"/></svg></span>
-          <h3>Übernahme-Paket</h3>
-          <div class="plan__price"><strong>899&nbsp;€</strong><span>einmalig</span><em>3 Monate Betreuung kostenlos</em><small class="plan__tax">alle Preise inkl. MwSt.</small></div>
-          <p class="plan__desc">Mit einer einmaligen Zahlung von 899&nbsp;Euro übernehmen wir die Suche nach qualifizierten Arbeitskräften, die Ihren Anforderungen entsprechen. Die ersten 3&nbsp;Monate betreuen wir kostenlos. Entspricht ein Mitarbeiter innerhalb von zwei Wochen nach Arbeitsbeginn nicht Ihren Erwartungen, bieten wir einen Austausch an. Danach fallen keine weiteren Gebühren an.</p>
-          <ul class="plan__list">
-            <li>Einmalige Zahlung: 899&nbsp;Euro</li>
-            <li>Suche nach qualifizierten Arbeitskräften</li>
-            <li>3 Monate Betreuung kostenlos</li>
-            <li>Austausch innerhalb von zwei Wochen, falls nötig</li>
-            <li>Danach keine weiteren Gebühren – der Mitarbeiter gehört ganz Ihnen</li>
+          <a class="btn btn--white btn--block" href="kontakt.html?paket=Betreuung%2012%20Monate%20%28399%20%E2%82%AC%20%2B%2099%20%E2%82%AC%20/%20Monat%29#kontakt" data-paket="Betreuung 12 Monate (399 € + 99 € / Monat)">12 Monate anfragen</a>
+        </article></div>
+        <div class="n-plan-wrap reveal" style="--i:2" id="einmal"><article class="n-plan n-plan--gelb" aria-labelledby="n-plan-einmal">
+          <p class="n-plan__badge">Beliebteste Wahl</p>
+          <h3 id="n-plan-einmal">Übernahme-Paket</h3>
+          <p class="n-plan__price"><strong><span data-count="899">899</span>&nbsp;€</strong> <span>einmalig</span></p>
+          <p class="n-plan__sub">3&nbsp;Monate Betreuung kostenlos<br>(im Wert von 357&nbsp;€)</p>
+          <p class="n-plan__text">Mit einer einmaligen Zahlung von 899&nbsp;Euro übernehmen wir die Suche nach qualifizierten Arbeitskräften, die Ihren Anforderungen entsprechen. Die ersten 3&nbsp;Monate betreuen wir kostenlos. Entspricht ein Mitarbeiter innerhalb von zwei Wochen nach Arbeitsbeginn nicht Ihren Erwartungen, bieten wir einen Austausch an. Danach fallen keine weiteren Gebühren an.</p>
+          <ul class="n-checks">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Suche nach qualifizierten Arbeitskräften</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>3&nbsp;Monate Betreuung kostenlos</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Austausch innerhalb von zwei Wochen, falls nötig</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Danach keine weiteren Gebühren</li>
           </ul>
-          <p class="plan__summary"><svg class="icon"><use href="#i-bulb"/></svg><span><b>Kurz zusammengefasst:</b> Einmal zahlen, 3 Monate kostenlos betreut – danach gehört der Mitarbeiter ganz Ihnen.</span></p>
-          <a class="btn btn--yellow btn--block" href="kontakt.html?betreff=Anfrage%20%C3%9Cbernahme-Paket%20%28899%20%E2%82%AC%20einmalig%29">Übernahme-Paket anfragen</a>
-        </article>
+          <a class="btn btn--dark btn--block" href="kontakt.html?paket=%C3%9Cbernahme-Paket%20%28899%20%E2%82%AC%20einmalig%29#kontakt" data-paket="Übernahme-Paket (899 € einmalig)">Übernahme-Paket anfragen</a>
+        </article></div>
       </div>
-      <p class="swipe-hint">← Wischen, um alle Pakete zu sehen →</p>
-
-      <p class="pricing-foot reveal"><svg class="icon"><use href="#i-bulb"/></svg><span><b style="color:#fff">Kurz zusammengefasst:</b> Drei transparente Pakete – individuell passend für Ihren Personalbedarf. Alle Preise sind Endpreise inkl. MwSt. Es gelten unsere <a href="agb.html">AGB</a>; Verbraucher haben ein <a href="widerruf.html">Widerrufsrecht</a>.</span></p>
+      <p class="n-note reveal">Alle Preise sind Endpreise inkl. MwSt. Es gelten unsere <a href="agb.html">AGB</a>. Verbraucher haben ein <a href="widerruf.html">Widerrufsrecht</a>.</p>
     </div>
   </section>
 
@@ -397,7 +384,7 @@
       <p>Persönlich. Erreichbar. Zuverlässig. Wir melden uns schnellstmöglich bei Ihnen.</p>
     </div>
     <div class="cta-strip__actions">
-      <a class="btn btn--yellow btn--lg" href="kontakt.html">Unverbindlich anfragen<svg class="icon"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn--yellow btn--lg" href="kontakt.html#kontakt" data-anfrage>Unverbindlich anfragen<svg class="icon"><use href="#i-arrow"/></svg></a>
       <a class="btn btn--line" href="tel:+4915228986993"><svg class="icon"><use href="#i-phone"/></svg>0152 28986993</a>
       <a class="btn btn--wa" href="https://wa.me/4917645258501?text=Guten%20Tag%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Personal%20von%20Standard%20Plus." target="_blank" rel="noopener"><svg class="icon"><use href="#i-whatsapp"/></svg>WhatsApp</a>
       <a class="btn btn--line" href="mailto:info@standard-plus.net?subject=Anfrage%20Personal"><svg class="icon"><use href="#i-mail"/></svg>info@standard-plus.net</a>
@@ -456,6 +443,17 @@
 
 <a class="fab" href="tel:+4915228986993" aria-label="Standard Plus anrufen"><svg class="icon"><use href="#i-phone"/></svg></a>
 
+  <dialog class="n-ask" id="anfrage-wahl" aria-labelledby="n-ask-titel">
+    <div class="n-ask__head">
+      <h2 id="n-ask-titel">Wie möchten Sie uns erreichen?</h2>
+      <button class="n-ask__close" type="button" data-ask-close aria-label="Schließen"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+    <a class="n-ask__opt n-ask__opt--main" href="tel:+4915228986993"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span><strong>Jetzt anrufen</strong><small>0152 28986993</small></span></a>
+    <a class="n-ask__opt" href="https://wa.me/4917645258501?text=Guten%20Tag%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Personal%20von%20Standard%20Plus." target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg><span><strong>WhatsApp schreiben</strong><small>0176 45258501</small></span></a>
+    <a class="n-ask__opt" href="kontakt.html#kontakt" data-ask-close><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span><strong>Formular ausfüllen</strong><small>Wir melden uns bei Ihnen</small></span></a>
+  </dialog>
+
 <script src="assets/js/main.js?v=54c96cb6" defer></script>
+<script src="assets/js/start.js?v=2cf4db5f" defer></script>
 </body>
 </html>

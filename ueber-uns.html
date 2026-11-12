@@ -32,6 +32,7 @@
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css?v=f6bdde69">
+  <link rel="stylesheet" href="assets/css/start.css?v=753e300d">
   <script>document.documentElement.classList.remove('no-js');</script>
   <!-- Strukturierte Daten (schema.org) – erzeugt von werkzeuge/seiten_bauen.py -->
   <script type="application/ld+json">
@@ -228,7 +229,7 @@
     </nav>
     <div class="header-cta">
       <a class="header-tel" href="tel:+4915228986993"><svg class="icon"><use href="#i-phone"/></svg>0152 28986993</a>
-      <a class="btn btn--primary" href="kontakt.html">Anfragen</a>
+      <a class="btn btn--primary" href="kontakt.html#kontakt">Anfragen</a>
       <button class="nav-toggle" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menü öffnen">
         <svg class="icon"><use href="#i-menu"/></svg>
       </button>
@@ -240,7 +241,7 @@
   <section class="page-hero">
     <div class="container">
       <p class="crumb"><a href="index.html">Start</a> <span aria-hidden="true">›</span> <span aria-current="page">Über uns</span></p>
-      <span class="kicker">Über uns</span>
+      <p class="n-eyebrow">Über uns</p>
       <h1>Mehr als Vermittlung.</h1>
       <p class="page-hero__lead">Standard Plus ist eine Personalvermittlung aus Ludwigsburg. Wir vermitteln zuverlässige Arbeitskräfte aus ganz Europa – und begleiten Sie vor, während und nach dem Arbeitsbeginn.</p>
     </div>
@@ -286,7 +287,29 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="n-sec" id="team" aria-labelledby="n-team">
+    <div class="container">
+      <div class="n-head reveal">
+        <h2 id="n-team">Unser Team</h2>
+        <p>Die Menschen, mit denen Sie bei Standard Plus sprechen.</p>
+      </div>
+      <ul class="n-crew" role="list" tabindex="0" aria-label="Team von Standard Plus">
+        <li class="n-member reveal" style="--i:0"><figure><picture><source type="image/webp" srcset="assets/img/team/andreas-loch-klein.webp 400w, assets/img/team/andreas-loch.webp 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px"><img src="assets/img/team/andreas-loch.jpg" srcset="assets/img/team/andreas-loch-klein.jpg 400w, assets/img/team/andreas-loch.jpg 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px" width="720" height="900" loading="lazy" decoding="async" alt="Andreas Loch, Inhaber bei Standard Plus"></picture><figcaption><strong>Andreas Loch</strong><span class="n-member__rolle">Inhaber</span><span class="n-member__satz">Leitet Standard Plus und steht für jede Vermittlung persönlich ein.</span></figcaption></figure></li>
+        <li class="n-member reveal" style="--i:1"><figure><picture><source type="image/webp" srcset="assets/img/team/arif-oezen-klein.webp 400w, assets/img/team/arif-oezen.webp 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px"><img src="assets/img/team/arif-oezen.jpg" srcset="assets/img/team/arif-oezen-klein.jpg 400w, assets/img/team/arif-oezen.jpg 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px" width="720" height="900" loading="lazy" decoding="async" alt="Arif Özen, Vertrieb bei Standard Plus"></picture><figcaption><strong>Arif Özen</strong><span class="n-member__rolle">Vertrieb</span><span class="n-member__satz">Berät Sie zu den Paketen und findet die passende Lösung für Ihren Betrieb.</span></figcaption></figure></li>
+        <li class="n-member reveal" style="--i:2"><figure><picture><source type="image/webp" srcset="assets/img/team/daniel-rusitschka-klein.webp 400w, assets/img/team/daniel-rusitschka.webp 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px"><img src="assets/img/team/daniel-rusitschka.jpg" srcset="assets/img/team/daniel-rusitschka-klein.jpg 400w, assets/img/team/daniel-rusitschka.jpg 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px" width="720" height="900" loading="lazy" decoding="async" alt="Daniel Rusitschka, Kundenservice bei Standard Plus"></picture><figcaption><strong>Daniel Rusitschka</strong><span class="n-member__rolle">Kundenservice</span><span class="n-member__satz">Hilft Ihnen weiter, wenn im Alltag Fragen auftauchen.</span></figcaption></figure></li>
+        <li class="n-member reveal" style="--i:3"><figure><picture><source type="image/webp" srcset="assets/img/team/jasmin-loch-klein.webp 400w, assets/img/team/jasmin-loch.webp 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px"><img src="assets/img/team/jasmin-loch.jpg" srcset="assets/img/team/jasmin-loch-klein.jpg 400w, assets/img/team/jasmin-loch.jpg 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px" width="720" height="900" loading="lazy" decoding="async" alt="Jasmin Loch, Buchhaltung &amp; Finanzen bei Standard Plus"></picture><figcaption><strong>Jasmin Loch</strong><span class="n-member__rolle">Buchhaltung &amp; Finanzen</span><span class="n-member__satz">Sorgt für klare Verträge und saubere Rechnungen.</span></figcaption></figure></li>
+        <li class="n-member reveal" style="--i:4"><figure><picture><source type="image/webp" srcset="assets/img/team/patricia-rusitschka-klein.webp 400w, assets/img/team/patricia-rusitschka.webp 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px"><img src="assets/img/team/patricia-rusitschka.jpg" srcset="assets/img/team/patricia-rusitschka-klein.jpg 400w, assets/img/team/patricia-rusitschka.jpg 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px" width="720" height="900" loading="lazy" decoding="async" alt="Patricia Rusitschka, Recruiting bei Standard Plus"></picture><figcaption><strong>Patricia Rusitschka</strong><span class="n-member__rolle">Recruiting</span><span class="n-member__satz">Sucht Arbeitskräfte, die zu Ihren Aufgaben passen.</span></figcaption></figure></li>
+        <li class="n-member reveal" style="--i:0"><figure><picture><source type="image/webp" srcset="assets/img/team/bahar-mirau-klein.webp 400w, assets/img/team/bahar-mirau.webp 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px"><img src="assets/img/team/bahar-mirau.jpg" srcset="assets/img/team/bahar-mirau-klein.jpg 400w, assets/img/team/bahar-mirau.jpg 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px" width="720" height="900" loading="lazy" decoding="async" alt="Bahar Mirau, CTO bei Standard Plus"></picture><figcaption><strong>Bahar Mirau</strong><span class="n-member__rolle">CTO</span><span class="n-member__satz">Verantwortet Technik und Abläufe im Hintergrund.</span></figcaption></figure></li>
+        <li class="n-member reveal" style="--i:1"><figure><picture><source type="image/webp" srcset="assets/img/team/tamara-doyle-klein.webp 400w, assets/img/team/tamara-doyle.webp 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px"><img src="assets/img/team/tamara-doyle.jpg" srcset="assets/img/team/tamara-doyle-klein.jpg 400w, assets/img/team/tamara-doyle.jpg 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px" width="720" height="900" loading="lazy" decoding="async" alt="Tamara Doyle, Vertrieb bei Standard Plus"></picture><figcaption><strong>Tamara Doyle</strong><span class="n-member__rolle">Vertrieb</span><span class="n-member__satz">Nimmt Ihre Anfrage auf und klärt mit Ihnen den Bedarf.</span></figcaption></figure></li>
+        <li class="n-member reveal" style="--i:2"><figure><picture><source type="image/webp" srcset="assets/img/team/bianca-archire-klein.webp 400w, assets/img/team/bianca-archire.webp 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px"><img src="assets/img/team/bianca-archire.jpg" srcset="assets/img/team/bianca-archire-klein.jpg 400w, assets/img/team/bianca-archire.jpg 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px" width="720" height="900" loading="lazy" decoding="async" alt="Bianca Archire, Recruiting bei Standard Plus"></picture><figcaption><strong>Bianca Archire</strong><span class="n-member__rolle">Recruiting</span><span class="n-member__satz">Spricht mit Bewerbern und prüft, wer wirklich passt.</span></figcaption></figure></li>
+        <li class="n-member reveal" style="--i:3"><figure><picture><source type="image/webp" srcset="assets/img/team/manuel-crenicianu-klein.webp 400w, assets/img/team/manuel-crenicianu.webp 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px"><img src="assets/img/team/manuel-crenicianu.jpg" srcset="assets/img/team/manuel-crenicianu-klein.jpg 400w, assets/img/team/manuel-crenicianu.jpg 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px" width="720" height="900" loading="lazy" decoding="async" alt="Manuel Crenicianu, Recruiting bei Standard Plus"></picture><figcaption><strong>Manuel Crenicianu</strong><span class="n-member__rolle">Recruiting</span><span class="n-member__satz">Begleitet Bewerber von der ersten Nachricht bis zum Arbeitsbeginn.</span></figcaption></figure></li>
+        <li class="n-member reveal" style="--i:4"><figure><picture><source type="image/webp" srcset="assets/img/team/patrick-danes-klein.webp 400w, assets/img/team/patrick-danes.webp 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px"><img src="assets/img/team/patrick-danes.jpg" srcset="assets/img/team/patrick-danes-klein.jpg 400w, assets/img/team/patrick-danes.jpg 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px" width="720" height="900" loading="lazy" decoding="async" alt="Patrick Danes, Recruiting bei Standard Plus"></picture><figcaption><strong>Patrick Danes</strong><span class="n-member__rolle">Recruiting</span><span class="n-member__satz">Hält Kontakt zu den Arbeitskräften, auch nach dem Start.</span></figcaption></figure></li>
+      </ul>
+      <p class="n-swipe" aria-hidden="true">← Wischen, um alle zu sehen →</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
     <div class="container">
       <div class="section-head reveal">
         <span class="kicker">Auf einen Blick</span>
@@ -314,7 +337,7 @@
       <p>Persönlich. Erreichbar. Zuverlässig. Wir melden uns schnellstmöglich bei Ihnen.</p>
     </div>
     <div class="cta-strip__actions">
-      <a class="btn btn--yellow btn--lg" href="kontakt.html">Unverbindlich anfragen<svg class="icon"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn--yellow btn--lg" href="kontakt.html#kontakt" data-anfrage>Unverbindlich anfragen<svg class="icon"><use href="#i-arrow"/></svg></a>
       <a class="btn btn--line" href="tel:+4915228986993"><svg class="icon"><use href="#i-phone"/></svg>0152 28986993</a>
       <a class="btn btn--wa" href="https://wa.me/4917645258501?text=Guten%20Tag%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Personal%20von%20Standard%20Plus." target="_blank" rel="noopener"><svg class="icon"><use href="#i-whatsapp"/></svg>WhatsApp</a>
       <a class="btn btn--line" href="mailto:info@standard-plus.net?subject=Anfrage%20Personal"><svg class="icon"><use href="#i-mail"/></svg>info@standard-plus.net</a>
@@ -373,6 +396,17 @@
 
 <a class="fab" href="tel:+4915228986993" aria-label="Standard Plus anrufen"><svg class="icon"><use href="#i-phone"/></svg></a>
 
+  <dialog class="n-ask" id="anfrage-wahl" aria-labelledby="n-ask-titel">
+    <div class="n-ask__head">
+      <h2 id="n-ask-titel">Wie möchten Sie uns erreichen?</h2>
+      <button class="n-ask__close" type="button" data-ask-close aria-label="Schließen"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+    <a class="n-ask__opt n-ask__opt--main" href="tel:+4915228986993"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span><strong>Jetzt anrufen</strong><small>0152 28986993</small></span></a>
+    <a class="n-ask__opt" href="https://wa.me/4917645258501?text=Guten%20Tag%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Personal%20von%20Standard%20Plus." target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg><span><strong>WhatsApp schreiben</strong><small>0176 45258501</small></span></a>
+    <a class="n-ask__opt" href="kontakt.html#kontakt" data-ask-close><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span><strong>Formular ausfüllen</strong><small>Wir melden uns bei Ihnen</small></span></a>
+  </dialog>
+
 <script src="assets/js/main.js?v=54c96cb6" defer></script>
+<script src="assets/js/start.js?v=2cf4db5f" defer></script>
 </body>
 </html>

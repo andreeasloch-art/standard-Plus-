@@ -63,14 +63,16 @@
   var paket = '';
   var vorlage = '';
   document.querySelectorAll('[data-paket]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      paket = btn.getAttribute('data-paket');
-      if (!nachricht.value.trim() || nachricht.value === vorlage) {
-        vorlage = 'Ich interessiere mich für: ' + paket + '.\n';
-        nachricht.value = vorlage;
-      }
-    });
+    btn.addEventListener('click', function () { paketSetzen(btn.getAttribute('data-paket')); });
   });
+
+  function paketSetzen(name) {
+    paket = name;
+    if (!nachricht.value.trim() || nachricht.value === vorlage) {
+      vorlage = 'Ich interessiere mich für: ' + paket + '.\n';
+      nachricht.value = vorlage;
+    }
+  }
 
   /* ---------- Vorschläge beim Tippen: Branche und gesuchter Beruf ---------- */
   var BERUFE = {
@@ -161,6 +163,15 @@
       gesucht.setAttribute('placeholder', eigene ? 'z. B. ' + eigene[0] + ', ' + eigene[1] : standard);
     });
   }
+
+  /* ---------- Vorauswahl aus der Adresse: kontakt.html?paket=…&branche=… ---------- */
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var pPaket = (params.get('paket') || params.get('betreff') || '').slice(0, 120);
+    var pBranche = (params.get('branche') || '').slice(0, 60);
+    if (pPaket) paketSetzen(pPaket);
+    if (pBranche && branche) { branche.value = pBranche; branche.dispatchEvent(new Event('change', { bubbles: true })); }
+  } catch (e) { /* ältere Browser: Felder bleiben leer */ }
 
   /* ---------- Anfrageformular ---------- */
   var status = form.querySelector('.form-status');

@@ -32,6 +32,7 @@
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css?v=f6bdde69">
+  <link rel="stylesheet" href="assets/css/start.css?v=753e300d">
   <script>document.documentElement.classList.remove('no-js');</script>
   <!-- Strukturierte Daten (schema.org) – erzeugt von werkzeuge/seiten_bauen.py -->
   <script type="application/ld+json">
@@ -221,7 +222,7 @@
     </nav>
     <div class="header-cta">
       <a class="header-tel" href="tel:+4915228986993"><svg class="icon"><use href="#i-phone"/></svg>0152 28986993</a>
-      <a class="btn btn--primary" href="kontakt.html">Anfragen</a>
+      <a class="btn btn--primary" href="kontakt.html#kontakt">Anfragen</a>
       <button class="nav-toggle" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menü öffnen">
         <svg class="icon"><use href="#i-menu"/></svg>
       </button>
@@ -322,7 +323,7 @@
       <p>Persönlich. Erreichbar. Zuverlässig. Wir melden uns schnellstmöglich bei Ihnen.</p>
     </div>
     <div class="cta-strip__actions">
-      <a class="btn btn--yellow btn--lg" href="kontakt.html">Unverbindlich anfragen<svg class="icon"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn--yellow btn--lg" href="kontakt.html#kontakt" data-anfrage>Unverbindlich anfragen<svg class="icon"><use href="#i-arrow"/></svg></a>
       <a class="btn btn--line" href="tel:+4915228986993"><svg class="icon"><use href="#i-phone"/></svg>0152 28986993</a>
       <a class="btn btn--wa" href="https://wa.me/4917645258501?text=Guten%20Tag%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Personal%20von%20Standard%20Plus." target="_blank" rel="noopener"><svg class="icon"><use href="#i-whatsapp"/></svg>WhatsApp</a>
       <a class="btn btn--line" href="mailto:info@standard-plus.net?subject=Anfrage%20Personal"><svg class="icon"><use href="#i-mail"/></svg>info@standard-plus.net</a>
@@ -381,6 +382,17 @@
 
 <a class="fab" href="tel:+4915228986993" aria-label="Standard Plus anrufen"><svg class="icon"><use href="#i-phone"/></svg></a>
 
+  <dialog class="n-ask" id="anfrage-wahl" aria-labelledby="n-ask-titel">
+    <div class="n-ask__head">
+      <h2 id="n-ask-titel">Wie möchten Sie uns erreichen?</h2>
+      <button class="n-ask__close" type="button" data-ask-close aria-label="Schließen"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+    <a class="n-ask__opt n-ask__opt--main" href="tel:+4915228986993"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span><strong>Jetzt anrufen</strong><small>0152 28986993</small></span></a>
+    <a class="n-ask__opt" href="https://wa.me/4917645258501?text=Guten%20Tag%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Personal%20von%20Standard%20Plus." target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg><span><strong>WhatsApp schreiben</strong><small>0176 45258501</small></span></a>
+    <a class="n-ask__opt" href="kontakt.html#kontakt" data-ask-close><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span><strong>Formular ausfüllen</strong><small>Wir melden uns bei Ihnen</small></span></a>
+  </dialog>
+
 <script src="assets/js/main.js?v=54c96cb6" defer></script>
+<script src="assets/js/start.js?v=2cf4db5f" defer></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kontakt – Personal anfragen | Standard Plus</title>
-  <meta name="description" content="Personal anfragen bei Standard Plus: Telefon 0152 28986993, WhatsApp, E-Mail info@standard-plus.net oder Kontaktformular. Heilbronner Straße 142, Ludwigsburg.">
+  <meta name="description" content="Personal anfragen bei Standard Plus: Telefon 0152 28986993, WhatsApp, E-Mail info@standard-plus.net oder Anfrageformular. Heilbronner Straße 142, Ludwigsburg.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="https://standard-plus.net/kontakt.html">
   <link rel="alternate" hreflang="de" href="https://standard-plus.net/kontakt.html">
@@ -16,7 +16,7 @@
   <meta property="og:locale" content="de_DE">
   <meta property="og:url" content="https://standard-plus.net/kontakt.html">
   <meta property="og:title" content="Kontakt – Personal anfragen | Standard Plus">
-  <meta property="og:description" content="Personal anfragen bei Standard Plus: Telefon 0152 28986993, WhatsApp, E-Mail info@standard-plus.net oder Kontaktformular. Heilbronner Straße 142, Ludwigsburg.">
+  <meta property="og:description" content="Personal anfragen bei Standard Plus: Telefon 0152 28986993, WhatsApp, E-Mail info@standard-plus.net oder Anfrageformular. Heilbronner Straße 142, Ludwigsburg.">
   <meta property="og:image" content="https://standard-plus.net/assets/img/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -32,6 +32,7 @@
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css?v=f6bdde69">
+  <link rel="stylesheet" href="assets/css/start.css?v=753e300d">
   <script>document.documentElement.classList.remove('no-js');</script>
   <!-- Strukturierte Daten (schema.org) – erzeugt von werkzeuge/seiten_bauen.py -->
   <script type="application/ld+json">
@@ -228,7 +229,7 @@
     </nav>
     <div class="header-cta">
       <a class="header-tel" href="tel:+4915228986993"><svg class="icon"><use href="#i-phone"/></svg>0152 28986993</a>
-      <a class="btn btn--primary" href="kontakt.html">Anfragen</a>
+      <a class="btn btn--primary" href="#kontakt">Anfragen</a>
       <button class="nav-toggle" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menü öffnen">
         <svg class="icon"><use href="#i-menu"/></svg>
       </button>
@@ -240,67 +241,72 @@
   <section class="page-hero">
     <div class="container">
       <p class="crumb"><a href="index.html">Start</a> <span aria-hidden="true">›</span> <span aria-current="page">Kontakt</span></p>
-      <span class="kicker">Kontakt</span>
+      <p class="n-eyebrow">Kontakt</p>
       <h1>Sprechen Sie mit uns.</h1>
       <p class="page-hero__lead">Unverbindlich und kostenlos – wir melden uns schnellstmöglich persönlich bei Ihnen.</p>
     </div>
   </section>
 
-  <section class="section section--tight" id="kontakt">
-    <div class="container contact">
-      <aside class="contact__info reveal">
-        <span class="kicker">Direkter Draht</span>
-        <h2>So erreichen Sie uns.</h2>
-        <p>Rufen Sie an, schreiben Sie per WhatsApp oder E-Mail – oder nutzen Sie das Formular. Unser Team ist an sechs Tagen pro Woche für Sie da.</p>
-        <ul class="contact-list">
-          <li><a href="tel:+4915228986993"><span class="icon-wrap"><svg class="icon"><use href="#i-phone"/></svg></span><span><small>Telefon</small><b>0152 28986993</b></span></a></li>
-          <li><a href="https://wa.me/4917645258501?text=Guten%20Tag%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Personal%20von%20Standard%20Plus." target="_blank" rel="noopener"><span class="icon-wrap"><svg class="icon"><use href="#i-whatsapp"/></svg></span><span><small>WhatsApp</small><b>Nachricht senden</b></span></a></li>
-          <li><a href="mailto:info@standard-plus.net"><span class="icon-wrap"><svg class="icon"><use href="#i-mail"/></svg></span><span><small>E-Mail</small><b>info@standard-plus.net</b></span></a></li>
-          <li><div><span class="icon-wrap"><svg class="icon"><use href="#i-pin"/></svg></span><span><small>Adresse</small><b>Heilbronner Straße 142, 71634 Ludwigsburg</b></span></div></li>
+  <section class="n-sec n-contact" id="kontakt" aria-labelledby="n-kontakt">
+    <div class="container n-contact__grid">
+      <div class="n-contact__info reveal">
+        <h2 id="n-kontakt">Anfrage senden</h2>
+        <p>Sagen Sie uns, wen Sie suchen. Wir senden Ihnen passende Profile an Ihre E-Mail-Adresse.</p>
+        <ul class="n-ways">
+          <li><a href="tel:+4915228986993"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span><small>Telefon</small>0152 28986993</span></a></li>
+          <li><a href="https://wa.me/4917645258501?text=Guten%20Tag%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Personal%20von%20Standard%20Plus." target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg><span><small>WhatsApp</small>Nachricht schreiben</span></a></li>
+          <li><a href="mailto:info@standard-plus.net"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span><small>E-Mail</small>info@standard-plus.net</span></a></li>
+          <li><span class="n-ways__plain"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span><small>Adresse</small>Heilbronner Straße 142, 71634 Ludwigsburg</span></span></li>
+          <li><span class="n-ways__plain"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span><small>Erreichbar</small>An 6 Tagen pro Woche</span></span></li>
         </ul>
-      </aside>
-
-      <!--
-        Kontaktformular: Ohne Server öffnet es das E-Mail-Programm mit einer fertigen
-        Nachricht an info@standard-plus.net. Für direkten Versand die Adresse eines
-        Formular-Dienstes in data-endpoint eintragen (und in der Datenschutzerklärung nennen).
-      -->
-      <form class="form reveal" id="kontaktformular" novalidate data-endpoint="" data-mailto="info@standard-plus.net">
-        <h3>Anfrage senden</h3>
-        <div class="form__grid">
+      </div>
+      <form class="n-form reveal" id="anfrage" novalidate data-mailto="info@standard-plus.net">
+        <div class="n-form__grid">
           <div class="field">
-            <label for="f-name">Name <span class="req">*</span></label>
-            <input id="f-name" name="name" type="text" autocomplete="name" required>
+            <label for="a-name">Name <span class="req">*</span></label>
+            <input id="a-name" name="name" type="text" autocomplete="name" required>
             <span class="field__error" aria-live="polite"></span>
           </div>
           <div class="field">
-            <label for="f-tel">Telefon</label>
-            <input id="f-tel" name="telefon" type="tel" autocomplete="tel">
+            <label for="a-firma">Firma</label>
+            <input id="a-firma" name="firma" type="text" autocomplete="organization">
             <span class="field__error"></span>
           </div>
           <div class="field">
-            <label for="f-email">E-Mail <span class="req">*</span></label>
-            <input id="f-email" name="email" type="email" autocomplete="email" required>
+            <label for="a-tel">Telefon <span class="req">*</span></label>
+            <input id="a-tel" name="telefon" type="tel" autocomplete="tel" inputmode="tel" required>
             <span class="field__error" aria-live="polite"></span>
           </div>
           <div class="field">
-            <label for="f-adresse">Adresse</label>
-            <input id="f-adresse" name="adresse" type="text" autocomplete="street-address">
+            <label for="a-email">E-Mail <span class="req">*</span></label>
+            <input id="a-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="a-email-hinweis">
+            <span class="field__hint" id="a-email-hinweis">Hierhin senden wir Ihnen passende Profile.</span>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="a-branche">Branche <span class="req">*</span></label>
+            <div class="n-combo">
+              <input id="a-branche" name="branche" type="text" required autocomplete="off" placeholder="Tippen oder auswählen" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="a-branche-liste">
+              <ul class="n-combo__list" id="a-branche-liste" role="listbox" aria-label="Branchen" hidden></ul>
+            </div>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="a-gesucht">Wen suchen Sie? <span class="req">*</span></label>
+            <div class="n-combo">
+              <input id="a-gesucht" name="gesucht" type="text" required autocomplete="off" placeholder="z. B. Küchenhilfe, Bauhelfer" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="a-gesucht-liste">
+              <ul class="n-combo__list" id="a-gesucht-liste" role="listbox" aria-label="Berufe" hidden></ul>
+            </div>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+          <div class="field field--full">
+            <label for="a-nachricht">Nachricht</label>
+            <textarea id="a-nachricht" name="nachricht" placeholder="Wie viele Personen? Ab wann und wie lange? Wo ist der Einsatzort? Welche Aufgaben?"></textarea>
             <span class="field__error"></span>
-          </div>
-          <div class="field field--full">
-            <label for="f-betreff">Betreff <span class="req">*</span></label>
-            <input id="f-betreff" name="betreff" type="text" required>
-            <span class="field__error" aria-live="polite"></span>
-          </div>
-          <div class="field field--full">
-            <label for="f-nachricht">Nachricht <span class="req">*</span></label>
-            <textarea id="f-nachricht" name="nachricht" required placeholder="Wen suchen Sie? Anzahl, Aufgaben, Zeitraum, Ort …"></textarea>
-            <span class="field__error" aria-live="polite"></span>
           </div>
           <div class="hp" aria-hidden="true">
-            <label for="f-website">Bitte leer lassen</label>
-            <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+            <label for="a-website">Bitte leer lassen</label>
+            <input id="a-website" name="website" type="text" tabindex="-1" autocomplete="off">
           </div>
           <div class="field field--full">
             <label class="consent">
@@ -310,29 +316,13 @@
             <span class="field__error" aria-live="polite"></span>
           </div>
         </div>
-        <button class="btn btn--primary btn--block" type="submit"><svg class="icon"><use href="#i-send"/></svg>Anfrage senden</button>
+        <button class="btn btn--primary btn--lg btn--block" type="submit">Anfrage senden<svg class="icon" aria-hidden="true"><use href="#i-send"/></svg></button>
         <div class="form-status" role="status" aria-live="polite"></div>
       </form>
     </div>
   </section>
 
 </main>
-
-<!-- ================= Abschluss (Balken unten) ================= -->
-<section class="cta-strip" aria-labelledby="cta-titel">
-  <div class="container">
-    <div class="cta-strip__text">
-      <h2 id="cta-titel">Personal gesucht?</h2>
-      <p>Persönlich. Erreichbar. Zuverlässig. Wir melden uns schnellstmöglich bei Ihnen.</p>
-    </div>
-    <div class="cta-strip__actions">
-      <a class="btn btn--yellow btn--lg" href="kontakt.html">Unverbindlich anfragen<svg class="icon"><use href="#i-arrow"/></svg></a>
-      <a class="btn btn--line" href="tel:+4915228986993"><svg class="icon"><use href="#i-phone"/></svg>0152 28986993</a>
-      <a class="btn btn--wa" href="https://wa.me/4917645258501?text=Guten%20Tag%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Personal%20von%20Standard%20Plus." target="_blank" rel="noopener"><svg class="icon"><use href="#i-whatsapp"/></svg>WhatsApp</a>
-      <a class="btn btn--line" href="mailto:info@standard-plus.net?subject=Anfrage%20Personal"><svg class="icon"><use href="#i-mail"/></svg>info@standard-plus.net</a>
-    </div>
-  </div>
-</section>
 
 <footer class="site-footer">
   <div class="container">
@@ -385,6 +375,17 @@
 
 <a class="fab" href="tel:+4915228986993" aria-label="Standard Plus anrufen"><svg class="icon"><use href="#i-phone"/></svg></a>
 
+  <dialog class="n-ask" id="anfrage-wahl" aria-labelledby="n-ask-titel">
+    <div class="n-ask__head">
+      <h2 id="n-ask-titel">Wie möchten Sie uns erreichen?</h2>
+      <button class="n-ask__close" type="button" data-ask-close aria-label="Schließen"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+    <a class="n-ask__opt n-ask__opt--main" href="tel:+4915228986993"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span><strong>Jetzt anrufen</strong><small>0152 28986993</small></span></a>
+    <a class="n-ask__opt" href="https://wa.me/4917645258501?text=Guten%20Tag%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Personal%20von%20Standard%20Plus." target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg><span><strong>WhatsApp schreiben</strong><small>0176 45258501</small></span></a>
+    <a class="n-ask__opt" href="#kontakt" data-ask-close><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span><strong>Formular ausfüllen</strong><small>Wir melden uns bei Ihnen</small></span></a>
+  </dialog>
+
 <script src="assets/js/main.js?v=54c96cb6" defer></script>
+<script src="assets/js/start.js?v=2cf4db5f" defer></script>
 </body>
 </html>
