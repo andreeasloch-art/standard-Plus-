@@ -442,7 +442,8 @@ def org_graph() -> list:
         "email": MAIL,
         "address": {"@type": "PostalAddress", "streetAddress": "Heilbronner Straße 142", "postalCode": "71634",
                     "addressLocality": "Ludwigsburg", "addressRegion": "Baden-Württemberg", "addressCountry": "DE"},
-        "areaServed": [{"@type": "Place", "name": "Europa"}, {"@type": "Country", "name": "Deutschland"}],
+        "areaServed": [{"@type": "City", "name": "Ludwigsburg"}, {"@type": "City", "name": "Stuttgart"},
+                       {"@type": "State", "name": "Baden-Württemberg"}, {"@type": "Country", "name": "Deutschland"}],
         "knowsLanguage": ["de"],
         "knowsAbout": ["Personalvermittlung", "Arbeitsvermittlung", "Arbeitskräfte aus Europa", "Erntehelfer", "Pferdepfleger",
                        "Melker", "Bauhelfer", "Pflegekräfte", "Betreuungskräfte", "Lagerhelfer", "Kommissionierer",
@@ -961,7 +962,7 @@ def main() -> None:
   <section class="n-hero" aria-labelledby="n-titel">
     <div class="container n-hero__grid">
       <div class="n-hero__text">
-        <p class="n-eyebrow">Personalvermittlung im Raum Stuttgart</p>
+        <p class="n-eyebrow">Personalvermittlung Ludwigsburg · Raum Stuttgart</p>
         <h1 id="n-titel">Gute Arbeitskräfte. <span>Fester Preis.</span></h1>
         <p class="n-hero__lead">Wir suchen und prüfen Ihre neuen Mitarbeiter selbst – und betreuen Sie auch nach dem Start.</p>
         <div class="n-hero__actions">
@@ -1041,10 +1042,10 @@ def main() -> None:
 {kontakt_block()}
 
 '''
-    titel = "Personalvermittlung Raum Stuttgart – ab 899 € | Standard Plus"
+    titel = "Standard Plus – Personalvermittlung Ludwigsburg & Stuttgart"
     ld = org_graph() + [webpage(DOMAIN + "/", titel), catalog()]
     build("index.html", titel,
-          "Standard Plus vermittelt Arbeitskräfte für Landwirtschaft, häusliche Pflege, Bau, Gastronomie und Lager. Feste Preise ab 899 €, Betreuung und Ersatz inklusive.",
+          "Standard Plus Personalvermittlung aus Ludwigsburg: Arbeitskräfte für Landwirtschaft, häusliche Pflege, Bau, Gastronomie und Lager im Raum Stuttgart. Feste Preise ab 899 €, Betreuung und Ersatz inklusive.",
           start, ld, strip=False, preload_hero=True, nav=start_nav, cta="#kontakt")
 
     # ---------- Über uns ----------
@@ -1142,7 +1143,7 @@ def main() -> None:
     </div>
   </section>
 '''
-    build("branchen.html", "Branchen: Bau, Landwirtschaft, Pflege & mehr | Standard Plus",
+    build("branchen.html", "Personal für Bau, Landwirtschaft, Pflege, Gastronomie & Lager | Standard Plus",
           "Welche Arbeitskräfte vermittelt Standard Plus? Bau & Handwerk, Landwirtschaft & Milchvieh, Pferdebetriebe, Pflege, Lager & Logistik, Gastronomie & Hotellerie.",
           body, sub("branchen.html", "Branchen") + services())
 
@@ -1217,7 +1218,7 @@ def main() -> None:
     body = page_hero("Kontakt", "Sprechen Sie mit uns.",
                      "Unverbindlich und kostenlos – wir melden uns schnellstmöglich persönlich bei Ihnen.",
                      "Kontakt") + "\n\n" + kontakt_block(titel="Anfrage senden")
-    build("kontakt.html", "Kontakt – Personal anfragen | Standard Plus",
+    build("kontakt.html", "Kontakt – Personal anfragen in Ludwigsburg | Standard Plus",
           "Personal anfragen bei Standard Plus: Telefon 0152 28986993, WhatsApp, E-Mail info@standard-plus.net oder Anfrageformular. Heilbronner Straße 142, Ludwigsburg.",
           body, sub("kontakt.html", "Kontakt") + [{"@type": "ContactPage", "url": DOMAIN + "/kontakt.html", "about": {"@id": ORG_ID}}],
           strip=False, cta="#kontakt")
