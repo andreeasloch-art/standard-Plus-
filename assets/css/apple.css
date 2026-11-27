@@ -20,24 +20,16 @@ h1, h2, h3, h4 { font-family: "Inter", -apple-system, BlinkMacSystemFont, "SF Pr
 .a-visually { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* ---------- Kopfzeile: schmal, kleine Schrift ---------- */
-.site-header { height: 52px; background: rgba(251,253,253,.8); }
+.site-header, .site-header.is-scrolled { height: 52px; background: #fff; }
 :root { --header-h: 52px; }
 .nav a { font-size: 13px; font-weight: 400; color: var(--a-ink); padding: 8px 14px; }
 .nav a:hover { background: none; color: var(--a-t1); }
 .nav a[aria-current="page"] { background: none; color: var(--a-t1); font-weight: 600; }
 .header-cta .btn { padding: 8px 15px; font-size: 13px; }
 .header-tel { font-size: 13px; }
-/* über dem Startbild: durchsichtig, weiße Schrift, Logo auf weißem Feld */
-.site-header--over { position: fixed; left: 0; right: 0; background: rgba(19,115,123,.18); border-bottom-color: rgba(255,255,255,.18); transition: background-color .3s var(--a-ease), border-color .3s var(--a-ease); }
-.site-header .logo { transform: scale(.86); transform-origin: left center; }
-.site-header--over .logo { background: #fff; padding: 4px 8px; border-radius: 8px; }
-@media (min-width: 901px) {
-  .site-header--over:not(.is-scrolled) .nav a, .site-header--over:not(.is-scrolled) .header-tel { color: #fff; }
-  .site-header--over:not(.is-scrolled) .header-tel .icon { color: #fff; }
-}
-.site-header--over:not(.is-scrolled) .nav-toggle { color: #fff; }
-.site-header--over:not(.is-scrolled) .header-cta .btn { background: #fff; color: var(--a-t1); }
-.site-header--over.is-scrolled { background: rgba(251,253,253,.86); border-bottom-color: rgba(0,0,0,.08); }
+/* Startseite: Kopfzeile liegt über dem Startbild, bleibt aber immer weiß */
+.site-header--over { position: fixed; left: 0; right: 0; background: #fff; border-bottom-color: rgba(0,0,0,.08); }
+.site-header--over.is-scrolled { background: #fff; }
 
 /* ---------- Bausteine ---------- */
 .a-links { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 14px 26px; margin-top: 30px; }
