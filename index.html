@@ -29,11 +29,12 @@
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="alternate" type="text/markdown" href="llms.txt" title="Standard Plus – Zusammenfassung für KI-Assistenten">
-  <link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/team-klein.webp 800w, assets/img/team.webp 1344w" imagesizes="(max-width: 900px) calc(100vw - 32px), 560px" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/team-klein.webp 800w, assets/img/team.webp 1344w" imagesizes="100vw" fetchpriority="high">
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css?v=f6bdde69">
   <link rel="stylesheet" href="assets/css/start.css?v=753e300d">
+  <link rel="stylesheet" href="assets/css/apple.css?v=c83b6a31">
   <script>document.documentElement.classList.remove('no-js');</script>
   <!-- Strukturierte Daten (schema.org) – erzeugt von werkzeuge/seiten_bauen.py -->
   <script type="application/ld+json">
@@ -237,7 +238,7 @@
 }
   </script>
 </head>
-<body>
+<body class="is-start">
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -283,7 +284,7 @@
 
 <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 
-<header class="site-header">
+<header class="site-header site-header--over">
   <div class="container">
     <a class="logo" href="index.html" aria-label="Standard Plus Personalvermittlung – zur Startseite">
       <span class="logo__row">
@@ -312,154 +313,159 @@
 
 <main id="inhalt">
 
-  <section class="n-hero" aria-labelledby="n-titel">
-    <div class="container n-hero__grid">
-      <div class="n-hero__text">
-        <p class="n-eyebrow">Personalvermittlung Ludwigsburg · Raum Stuttgart</p>
-        <h1 id="n-titel">Gute Arbeitskräfte. <span>Fester Preis.</span></h1>
-        <p class="n-hero__lead">Wir suchen und prüfen Ihre neuen Mitarbeiter selbst – und betreuen Sie auch nach dem Start.</p>
-        <div class="n-hero__actions">
-          <a class="btn btn--primary btn--lg" href="#kontakt" data-anfrage>Jetzt anfragen<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          <a class="btn btn--outline btn--lg" href="#pakete">Pakete ansehen</a>
+  <section class="a-hero" aria-labelledby="a-titel">
+    <picture><source type="image/webp" srcset="assets/img/team-klein.webp 800w, assets/img/team.webp 1344w" sizes="100vw"><img src="assets/img/team.jpg" srcset="assets/img/team-klein.jpg 800w, assets/img/team.jpg 1344w" sizes="100vw" width="1344" height="640" fetchpriority="high" decoding="async" alt="Arbeitskräfte aus verschiedenen Branchen stehen nebeneinander: Handwerk, Bau, Service, Küche, Landwirtschaft, Lager, Pflege und Reinigung"></picture>
+    <div class="a-hero__txt">
+      <p class="a-eye">Personalvermittlung Ludwigsburg · Raum Stuttgart</p>
+      <h1 id="a-titel">Gute Leute.<br>Fester Preis.</h1>
+      <p class="a-sub">Wir suchen, prüfen und betreuen Ihre neuen Mitarbeiter.</p>
+      <div class="a-links"><a class="a-btn a-btn--white" href="#kontakt" data-anfrage>Jetzt anfragen</a><a class="a-lnk a-lnk--white" href="#pakete">Pakete ansehen<span aria-hidden="true">&nbsp;›</span></a></div>
+    </div>
+  </section>
+
+  <section class="a-stats" aria-labelledby="a-einfach">
+    <h2 id="a-einfach" class="reveal">Personal finden war noch nie so <span class="a-grad">einfach.</span></h2>
+    <dl class="a-stats__row">
+      <div class="reveal" style="--i:0"><dt><span data-count="0">0</span>&nbsp;€</dt><dd>Kein Geld<br>im Voraus</dd></div>
+      <div class="reveal" style="--i:1"><dt><span data-count="84">84</span>&nbsp;h</dt><dd>Ersatz bei<br>längerem Ausfall</dd></div>
+      <div class="reveal" style="--i:2"><dt><span data-count="6">6</span></dt><dd>Tage pro Woche<br>erreichbar</dd></div>
+      <div class="reveal" style="--i:3"><dt><span data-count="5">5</span></dt><dd>Branchen,<br>ein Ansprechpartner</dd></div>
+    </dl>
+  </section>
+
+  <section class="a-stage" aria-labelledby="a-uebernahme">
+    <p class="a-eye reveal">Übernahme-Paket</p>
+    <h2 id="a-uebernahme" class="reveal">Einmal zahlen.<br>Ganz Ihrer.</h2>
+    <p class="a-sub reveal">3&nbsp;Monate Betreuung inklusive. Danach keine Gebühren.</p>
+    <p class="a-stage__preis reveal"><span data-count="899">899</span>&nbsp;€<small>einmalig · inkl. MwSt.</small></p>
+    <div class="a-links reveal"><a class="a-btn a-btn--gelb" href="#kontakt" data-paket="Übernahme-Paket (899 € einmalig)">Übernahme-Paket anfragen</a><a class="a-lnk a-lnk--white" href="pakete.html#einmal">Mehr erfahren<span aria-hidden="true">&nbsp;›</span></a></div>
+    <dl class="a-stage__band">
+      <div><dt>3 Monate</dt><dd>Betreuung kostenlos (im Wert von 357&nbsp;€)</dd></div>
+      <div><dt>2 Wochen</dt><dd>Austausch, falls nötig</dd></div>
+      <div><dt>0&nbsp;€</dt><dd>Danach keine Gebühren</dd></div>
+    </dl>
+  </section>
+
+  <section class="a-cmp" id="pakete" aria-labelledby="a-pakete">
+    <h2 id="a-pakete" class="reveal">Welches Paket passt zu Ihnen?</h2>
+    <p class="a-sub reveal">Drei Pakete. Feste Preise. Keine versteckten Kosten.</p>
+    <div class="a-cmp__grid">
+        <article class="a-col reveal" aria-labelledby="a-p-abo6">
+          <h3 id="a-p-abo6">Betreuung 6&nbsp;Monate</h3>
+          <p class="a-col__preis"><span data-count="399">399</span>&nbsp;€ <small>einmalig</small></p>
+          <p class="a-col__monat">+ 119&nbsp;€ / Monat</p>
+          <ul>
+            <li>Suche nach qualifizierten Arbeitskräften</li>
+            <li>Fortlaufende Betreuung</li>
+            <li>Ersatz innerhalb von 84&nbsp;Stunden bei längeren Ausfällen</li>
+            <li>Laufzeit 6&nbsp;Monate</li>
+          </ul>
+          <a class="a-btn" href="#kontakt" data-paket="Betreuung 6 Monate (399 € + 119 € / Monat)">6 Monate anfragen</a>
+        </article>
+        <article class="a-col a-col--hi reveal" aria-labelledby="a-p-einmal"><p class="a-col__badge">Beliebteste Wahl</p>
+          <h3 id="a-p-einmal">Übernahme-Paket</h3>
+          <p class="a-col__preis"><span data-count="899">899</span>&nbsp;€ <small>einmalig</small></p>
+          <p class="a-col__monat">3&nbsp;Monate Betreuung gratis</p>
+          <ul>
+            <li>Suche nach qualifizierten Arbeitskräften</li>
+            <li>3&nbsp;Monate Betreuung kostenlos</li>
+            <li>Austausch innerhalb von zwei Wochen, falls nötig</li>
+            <li>Danach keine weiteren Gebühren</li>
+          </ul>
+          <a class="a-btn a-btn--gelb" href="#kontakt" data-paket="Übernahme-Paket (899 € einmalig)">Übernahme-Paket anfragen</a>
+        </article>
+        <article class="a-col reveal" aria-labelledby="a-p-abo12">
+          <h3 id="a-p-abo12">Betreuung 12&nbsp;Monate</h3>
+          <p class="a-col__preis"><span data-count="399">399</span>&nbsp;€ <small>einmalig</small></p>
+          <p class="a-col__monat">+ 99&nbsp;€ / Monat</p>
+          <ul>
+            <li>Suche nach qualifizierten Arbeitskräften</li>
+            <li>Fortlaufende Betreuung</li>
+            <li>Ersatz innerhalb von 84&nbsp;Stunden bei längeren Ausfällen</li>
+            <li>Laufzeit 12&nbsp;Monate</li>
+          </ul>
+          <a class="a-btn" href="#kontakt" data-paket="Betreuung 12 Monate (399 € + 99 € / Monat)">12 Monate anfragen</a>
+        </article>
+    </div>
+    <p class="a-cmp__note reveal">Alle Preise inkl. MwSt. Es gelten unsere <a href="agb.html">AGB</a>. <a href="pakete.html">Alle Details zu den Paketen<span aria-hidden="true">&nbsp;›</span></a></p>
+  </section>
+
+  <section class="a-tiles" id="branchen" aria-labelledby="a-branchen">
+    <h2 id="a-branchen" class="a-visually">Branchen</h2>
+      <article class="a-tile reveal" aria-labelledby="a-b-landwirtschaft">
+        <picture><source type="image/webp" srcset="assets/img/branchen/landwirtschaft-klein.webp 800w, assets/img/branchen/landwirtschaft.webp 1600w" sizes="(max-width: 734px) 100vw, 50vw"><img src="assets/img/branchen/landwirtschaft.jpg" srcset="assets/img/branchen/landwirtschaft-klein.jpg 800w, assets/img/branchen/landwirtschaft.jpg 1600w" sizes="(max-width: 734px) 100vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="Lächelnder Landwirt im Milchviehstall vor seinen Kühen"></picture>
+        <div class="a-tile__txt">
+          <h3 id="a-b-landwirtschaft">Landwirtschaft</h3>
+          <p>Erntehelfer. Stallhelfer. Melker.</p>
+          <div class="a-links"><a class="a-btn a-btn--white" href="kontakt.html?branche=Landwirtschaft#kontakt">Anfragen</a><a class="a-lnk a-lnk--white" href="branchen.html#landwirtschaft">Mehr erfahren<span aria-hidden="true">&nbsp;›</span></a></div>
         </div>
-        <ul class="n-facts">
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Kein Geld im Voraus</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Feste Preise inkl. MwSt.</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Ersatz bei Ausfall</li>
-        </ul>
-      </div>
-      <figure class="n-hero__media"><picture><source type="image/webp" srcset="assets/img/team-klein.webp 800w, assets/img/team.webp 1344w" sizes="(max-width: 900px) calc(100vw - 32px), 560px"><img src="assets/img/team.jpg" srcset="assets/img/team-klein.jpg 800w, assets/img/team.jpg 1344w" sizes="(max-width: 900px) calc(100vw - 32px), 560px" width="1344" height="640" fetchpriority="high" decoding="async" alt="Arbeitskräfte aus verschiedenen Branchen stehen nebeneinander: Handwerk, Bau, Service, Küche, Landwirtschaft, Lager, Pflege und Reinigung"></picture></figure>
-    </div>
+      </article>
+      <article class="a-tile reveal" aria-labelledby="a-b-pflege">
+        <picture><source type="image/webp" srcset="assets/img/branchen/pflege-klein.webp 800w, assets/img/branchen/pflege.webp 1600w" sizes="(max-width: 734px) 100vw, 50vw"><img src="assets/img/branchen/pflege.jpg" srcset="assets/img/branchen/pflege-klein.jpg 800w, assets/img/branchen/pflege.jpg 1600w" sizes="(max-width: 734px) 100vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="Pflegekraft hilft einer lächelnden Seniorin beim Gehen"></picture>
+        <div class="a-tile__txt">
+          <h3 id="a-b-pflege">Häusliche Pflege</h3>
+          <p>Hilfe im Alltag. Zu Hause.</p>
+          <div class="a-links"><a class="a-btn a-btn--white" href="kontakt.html?branche=H%C3%A4usliche%20Pflege#kontakt">Anfragen</a><a class="a-lnk a-lnk--white" href="branchen.html#pflege">Mehr erfahren<span aria-hidden="true">&nbsp;›</span></a></div>
+        </div>
+      </article>
+      <article class="a-tile reveal" aria-labelledby="a-b-bau">
+        <picture><source type="image/webp" srcset="assets/img/branchen/bau-klein.webp 800w, assets/img/branchen/bau.webp 1600w" sizes="(max-width: 734px) 100vw, 50vw"><img src="assets/img/branchen/bau.jpg" srcset="assets/img/branchen/bau-klein.jpg 800w, assets/img/branchen/bau.jpg 1600w" sizes="(max-width: 734px) 100vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="Bauarbeiter mit Schutzhelm geben sich auf der Baustelle die Hand"></picture>
+        <div class="a-tile__txt">
+          <h3 id="a-b-bau">Bau</h3>
+          <p>Helfer und Fachkräfte für jede Baustelle.</p>
+          <div class="a-links"><a class="a-btn a-btn--white" href="kontakt.html?branche=Bau#kontakt">Anfragen</a><a class="a-lnk a-lnk--white" href="branchen.html#bau">Mehr erfahren<span aria-hidden="true">&nbsp;›</span></a></div>
+        </div>
+      </article>
+      <article class="a-tile reveal" aria-labelledby="a-b-gastronomie">
+        <picture><source type="image/webp" srcset="assets/img/branchen/gastronomie-klein.webp 800w, assets/img/branchen/gastronomie.webp 1600w" sizes="(max-width: 734px) 100vw, 50vw"><img src="assets/img/branchen/gastronomie.jpg" srcset="assets/img/branchen/gastronomie-klein.jpg 800w, assets/img/branchen/gastronomie.jpg 1600w" sizes="(max-width: 734px) 100vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="Restaurant-Team mit Köchen, Kellnern und Servicekräften"></picture>
+        <div class="a-tile__txt">
+          <h3 id="a-b-gastronomie">Gastronomie</h3>
+          <p>Küche. Service. Housekeeping.</p>
+          <div class="a-links"><a class="a-btn a-btn--white" href="kontakt.html?branche=Gastronomie#kontakt">Anfragen</a><a class="a-lnk a-lnk--white" href="branchen.html#gastronomie">Mehr erfahren<span aria-hidden="true">&nbsp;›</span></a></div>
+        </div>
+      </article>
+      <article class="a-tile reveal a-tile--wide" aria-labelledby="a-b-logistik">
+        <picture><source type="image/webp" srcset="assets/img/branchen/logistik-klein.webp 800w, assets/img/branchen/logistik.webp 1600w" sizes="(max-width: 734px) 100vw, 100vw"><img src="assets/img/branchen/logistik.jpg" srcset="assets/img/branchen/logistik-klein.jpg 800w, assets/img/branchen/logistik.jpg 1600w" sizes="(max-width: 734px) 100vw, 100vw" width="1600" height="1067" loading="lazy" decoding="async" alt="Zwei Lagermitarbeiter mit Helm und Warnweste prüfen den Bestand im Regal"></picture>
+        <div class="a-tile__txt">
+          <h3 id="a-b-logistik">Lager und Logistik</h3>
+          <p>Lagern. Packen. Versenden.</p>
+          <div class="a-links"><a class="a-btn a-btn--white" href="kontakt.html?branche=Lager%20und%20Logistik#kontakt">Anfragen</a><a class="a-lnk a-lnk--white" href="branchen.html#logistik">Mehr erfahren<span aria-hidden="true">&nbsp;›</span></a></div>
+        </div>
+      </article>
   </section>
 
-  <section class="n-sec" id="branchen" aria-labelledby="n-branchen">
-    <div class="container">
-      <div class="n-head reveal">
-        <h2 id="n-branchen">Für diese Branchen</h2>
-        <p>Wir vermitteln Hilfs- und Fachkräfte in fünf Bereichen.</p>
-      </div>
-      <ul class="n-tiles" role="list">
-        <li class="reveal" style="--i:0"><a class="n-tile" href="branchen.html#landwirtschaft">
-      <span class="n-tile__icon"><svg class="icon" aria-hidden="true"><use href="#s-agrar"/></svg></span>
-      <span class="n-tile__text"><strong>Landwirtschaft</strong><span>Erntehelfer, Stallhelfer und Melker für Ihren Hof.</span></span>
-      <svg class="icon n-tile__go" aria-hidden="true"><use href="#i-arrow"/></svg>
-    </a></li>
-        <li class="reveal" style="--i:1"><a class="n-tile" href="branchen.html#pflege">
-      <span class="n-tile__icon"><svg class="icon" aria-hidden="true"><use href="#s-pflege"/></svg></span>
-      <span class="n-tile__text"><strong>Häusliche Pflege</strong><span>Betreuungskräfte, die im Alltag zu Hause helfen.</span></span>
-      <svg class="icon n-tile__go" aria-hidden="true"><use href="#i-arrow"/></svg>
-    </a></li>
-        <li class="reveal" style="--i:2"><a class="n-tile" href="branchen.html#bau">
-      <span class="n-tile__icon"><svg class="icon" aria-hidden="true"><use href="#s-bau"/></svg></span>
-      <span class="n-tile__text"><strong>Bau</strong><span>Helfer und Fachkräfte für Baustelle und Handwerk.</span></span>
-      <svg class="icon n-tile__go" aria-hidden="true"><use href="#i-arrow"/></svg>
-    </a></li>
-        <li class="reveal" style="--i:3"><a class="n-tile" href="branchen.html#gastronomie">
-      <span class="n-tile__icon"><svg class="icon" aria-hidden="true"><use href="#s-gastro"/></svg></span>
-      <span class="n-tile__text"><strong>Gastronomie</strong><span>Personal für Küche, Service und Housekeeping.</span></span>
-      <svg class="icon n-tile__go" aria-hidden="true"><use href="#i-arrow"/></svg>
-    </a></li>
-        <li class="reveal" style="--i:4"><a class="n-tile" href="branchen.html#logistik">
-      <span class="n-tile__icon"><svg class="icon" aria-hidden="true"><use href="#s-logistik"/></svg></span>
-      <span class="n-tile__text"><strong>Lager und Logistik</strong><span>Lagerhelfer und Kommissionierer für Lager und Versand.</span></span>
-      <svg class="icon n-tile__go" aria-hidden="true"><use href="#i-arrow"/></svg>
-    </a></li>
-      </ul>
-    </div>
+  <section class="a-gal" id="ablauf" aria-labelledby="a-ablauf">
+    <div class="a-gal__head"><h2 id="a-ablauf" class="reveal">So läuft es ab.</h2><a class="a-lnk reveal" href="ablauf.html">Ablauf im Detail<span aria-hidden="true">&nbsp;›</span></a></div>
+    <ol class="a-gal__row" data-galerie tabindex="0" aria-label="Fünf Schritte der Vermittlung">
+        <li class="a-card"><span class="a-card__no" aria-hidden="true">1</span><h3>Anfrage.</h3><p>Sie rufen an oder schreiben uns. Ganz unverbindlich.</p></li>
+        <li class="a-card"><span class="a-card__no" aria-hidden="true">2</span><h3>Bedarf klären.</h3><p>Wir besprechen, wen Sie brauchen: Aufgaben, Anzahl, Zeitraum.</p></li>
+        <li class="a-card"><span class="a-card__no" aria-hidden="true">3</span><h3>Suchen und prüfen.</h3><p>Wir suchen passende Kandidaten und prüfen sie selbst.</p></li>
+        <li class="a-card"><span class="a-card__no" aria-hidden="true">4</span><h3>Arbeitskraft startet.</h3><p>Sie entscheiden. Dann beginnt Ihr neuer Mitarbeiter.</p></li>
+        <li class="a-card"><span class="a-card__no" aria-hidden="true">5</span><h3>Betreuung und Ersatz.</h3><p>Wir bleiben für Sie da. Fällt jemand aus, kümmern wir uns um Ersatz.</p></li>
+    </ol>
+    <div class="a-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
   </section>
 
-  <section class="n-sec n-sec--tint" id="ablauf" aria-labelledby="n-ablauf">
-    <div class="container">
-      <div class="n-head reveal">
-        <h2 id="n-ablauf">So läuft eine Vermittlung ab</h2>
-        <p>Fünf Schritte – von Ihrer Anfrage bis zur laufenden Betreuung.</p>
-      </div>
-      <ol class="n-steps" data-steps>
-        <li class="n-step" style="--i:0"><span class="n-step__no" aria-hidden="true">1</span><div><h3>Anfrage</h3><p>Sie rufen an oder schreiben uns. Ganz unverbindlich.</p></div></li>
-        <li class="n-step" style="--i:1"><span class="n-step__no" aria-hidden="true">2</span><div><h3>Bedarf klären</h3><p>Wir besprechen, wen Sie brauchen: Aufgaben, Anzahl, Zeitraum.</p></div></li>
-        <li class="n-step" style="--i:2"><span class="n-step__no" aria-hidden="true">3</span><div><h3>Suchen und prüfen</h3><p>Wir suchen passende Kandidaten und prüfen sie selbst.</p></div></li>
-        <li class="n-step" style="--i:3"><span class="n-step__no" aria-hidden="true">4</span><div><h3>Arbeitskraft startet</h3><p>Sie entscheiden. Dann beginnt Ihr neuer Mitarbeiter.</p></div></li>
-        <li class="n-step" style="--i:4"><span class="n-step__no" aria-hidden="true">5</span><div><h3>Betreuung und Ersatz</h3><p>Wir bleiben für Sie da. Fällt jemand aus, kümmern wir uns um Ersatz.</p></div></li>
-      </ol>
-    </div>
+  <section class="a-team" id="team" aria-labelledby="a-team">
+    <h2 id="a-team" class="reveal">Die Menschen hinter Standard Plus.</h2>
+    <p class="a-sub reveal">Zehn Ansprechpartner. Ein Ziel: Ihr Betrieb läuft.</p>
+    <ul class="a-faces" role="list">
+        <li class="a-face reveal" style="--i:0"><figure><picture><source type="image/webp" srcset="assets/img/team/andreas-loch-klein.webp 400w, assets/img/team/andreas-loch.webp 720w" sizes="(max-width: 734px) 42vw, 190px"><img src="assets/img/team/andreas-loch.jpg" srcset="assets/img/team/andreas-loch-klein.jpg 400w, assets/img/team/andreas-loch.jpg 720w" sizes="(max-width: 734px) 42vw, 190px" width="720" height="900" loading="lazy" decoding="async" alt="Andreas Loch, Inhaber bei Standard Plus"></picture><figcaption><strong>Andreas Loch</strong><span class="a-face__rolle">Inhaber</span><span class="a-face__satz">Leitet Standard Plus und steht für jede Vermittlung persönlich ein.</span></figcaption></figure></li>
+        <li class="a-face reveal" style="--i:1"><figure><picture><source type="image/webp" srcset="assets/img/team/arif-oezen-klein.webp 400w, assets/img/team/arif-oezen.webp 720w" sizes="(max-width: 734px) 42vw, 190px"><img src="assets/img/team/arif-oezen.jpg" srcset="assets/img/team/arif-oezen-klein.jpg 400w, assets/img/team/arif-oezen.jpg 720w" sizes="(max-width: 734px) 42vw, 190px" width="720" height="900" loading="lazy" decoding="async" alt="Arif Özen, Vertrieb bei Standard Plus"></picture><figcaption><strong>Arif Özen</strong><span class="a-face__rolle">Vertrieb</span><span class="a-face__satz">Berät Sie zu den Paketen und findet die passende Lösung für Ihren Betrieb.</span></figcaption></figure></li>
+        <li class="a-face reveal" style="--i:2"><figure><picture><source type="image/webp" srcset="assets/img/team/daniel-rusitschka-klein.webp 400w, assets/img/team/daniel-rusitschka.webp 720w" sizes="(max-width: 734px) 42vw, 190px"><img src="assets/img/team/daniel-rusitschka.jpg" srcset="assets/img/team/daniel-rusitschka-klein.jpg 400w, assets/img/team/daniel-rusitschka.jpg 720w" sizes="(max-width: 734px) 42vw, 190px" width="720" height="900" loading="lazy" decoding="async" alt="Daniel Rusitschka, Kundenservice bei Standard Plus"></picture><figcaption><strong>Daniel Rusitschka</strong><span class="a-face__rolle">Kundenservice</span><span class="a-face__satz">Hilft Ihnen weiter, wenn im Alltag Fragen auftauchen.</span></figcaption></figure></li>
+        <li class="a-face reveal" style="--i:3"><figure><picture><source type="image/webp" srcset="assets/img/team/jasmin-loch-klein.webp 400w, assets/img/team/jasmin-loch.webp 720w" sizes="(max-width: 734px) 42vw, 190px"><img src="assets/img/team/jasmin-loch.jpg" srcset="assets/img/team/jasmin-loch-klein.jpg 400w, assets/img/team/jasmin-loch.jpg 720w" sizes="(max-width: 734px) 42vw, 190px" width="720" height="900" loading="lazy" decoding="async" alt="Jasmin Loch, Buchhaltung &amp; Finanzen bei Standard Plus"></picture><figcaption><strong>Jasmin Loch</strong><span class="a-face__rolle">Buchhaltung &amp; Finanzen</span><span class="a-face__satz">Sorgt für klare Verträge und saubere Rechnungen.</span></figcaption></figure></li>
+        <li class="a-face reveal" style="--i:4"><figure><picture><source type="image/webp" srcset="assets/img/team/patricia-rusitschka-klein.webp 400w, assets/img/team/patricia-rusitschka.webp 720w" sizes="(max-width: 734px) 42vw, 190px"><img src="assets/img/team/patricia-rusitschka.jpg" srcset="assets/img/team/patricia-rusitschka-klein.jpg 400w, assets/img/team/patricia-rusitschka.jpg 720w" sizes="(max-width: 734px) 42vw, 190px" width="720" height="900" loading="lazy" decoding="async" alt="Patricia Rusitschka, Recruiting bei Standard Plus"></picture><figcaption><strong>Patricia Rusitschka</strong><span class="a-face__rolle">Recruiting</span><span class="a-face__satz">Sucht Arbeitskräfte, die zu Ihren Aufgaben passen.</span></figcaption></figure></li>
+        <li class="a-face reveal" style="--i:0"><figure><picture><source type="image/webp" srcset="assets/img/team/bahar-mirau-klein.webp 400w, assets/img/team/bahar-mirau.webp 720w" sizes="(max-width: 734px) 42vw, 190px"><img src="assets/img/team/bahar-mirau.jpg" srcset="assets/img/team/bahar-mirau-klein.jpg 400w, assets/img/team/bahar-mirau.jpg 720w" sizes="(max-width: 734px) 42vw, 190px" width="720" height="900" loading="lazy" decoding="async" alt="Bahar Mirau, CTO bei Standard Plus"></picture><figcaption><strong>Bahar Mirau</strong><span class="a-face__rolle">CTO</span><span class="a-face__satz">Verantwortet Technik und Abläufe im Hintergrund.</span></figcaption></figure></li>
+        <li class="a-face reveal" style="--i:1"><figure><picture><source type="image/webp" srcset="assets/img/team/tamara-doyle-klein.webp 400w, assets/img/team/tamara-doyle.webp 720w" sizes="(max-width: 734px) 42vw, 190px"><img src="assets/img/team/tamara-doyle.jpg" srcset="assets/img/team/tamara-doyle-klein.jpg 400w, assets/img/team/tamara-doyle.jpg 720w" sizes="(max-width: 734px) 42vw, 190px" width="720" height="900" loading="lazy" decoding="async" alt="Tamara Doyle, Vertrieb bei Standard Plus"></picture><figcaption><strong>Tamara Doyle</strong><span class="a-face__rolle">Vertrieb</span><span class="a-face__satz">Nimmt Ihre Anfrage auf und klärt mit Ihnen den Bedarf.</span></figcaption></figure></li>
+        <li class="a-face reveal" style="--i:2"><figure><picture><source type="image/webp" srcset="assets/img/team/bianca-archire-klein.webp 400w, assets/img/team/bianca-archire.webp 720w" sizes="(max-width: 734px) 42vw, 190px"><img src="assets/img/team/bianca-archire.jpg" srcset="assets/img/team/bianca-archire-klein.jpg 400w, assets/img/team/bianca-archire.jpg 720w" sizes="(max-width: 734px) 42vw, 190px" width="720" height="900" loading="lazy" decoding="async" alt="Bianca Archire, Recruiting bei Standard Plus"></picture><figcaption><strong>Bianca Archire</strong><span class="a-face__rolle">Recruiting</span><span class="a-face__satz">Spricht mit Bewerbern und prüft, wer wirklich passt.</span></figcaption></figure></li>
+        <li class="a-face reveal" style="--i:3"><figure><picture><source type="image/webp" srcset="assets/img/team/manuel-crenicianu-klein.webp 400w, assets/img/team/manuel-crenicianu.webp 720w" sizes="(max-width: 734px) 42vw, 190px"><img src="assets/img/team/manuel-crenicianu.jpg" srcset="assets/img/team/manuel-crenicianu-klein.jpg 400w, assets/img/team/manuel-crenicianu.jpg 720w" sizes="(max-width: 734px) 42vw, 190px" width="720" height="900" loading="lazy" decoding="async" alt="Manuel Crenicianu, Recruiting bei Standard Plus"></picture><figcaption><strong>Manuel Crenicianu</strong><span class="a-face__rolle">Recruiting</span><span class="a-face__satz">Begleitet Bewerber von der ersten Nachricht bis zum Arbeitsbeginn.</span></figcaption></figure></li>
+        <li class="a-face reveal" style="--i:4"><figure><picture><source type="image/webp" srcset="assets/img/team/patrick-danes-klein.webp 400w, assets/img/team/patrick-danes.webp 720w" sizes="(max-width: 734px) 42vw, 190px"><img src="assets/img/team/patrick-danes.jpg" srcset="assets/img/team/patrick-danes-klein.jpg 400w, assets/img/team/patrick-danes.jpg 720w" sizes="(max-width: 734px) 42vw, 190px" width="720" height="900" loading="lazy" decoding="async" alt="Patrick Danes, Recruiting bei Standard Plus"></picture><figcaption><strong>Patrick Danes</strong><span class="a-face__rolle">Recruiting</span><span class="a-face__satz">Hält Kontakt zu den Arbeitskräften, auch nach dem Start.</span></figcaption></figure></li>
+    </ul>
   </section>
 
-  <section class="n-sec" id="pakete" aria-labelledby="n-pakete">
-    <div class="container">
-      <div class="n-head reveal">
-        <h2 id="n-pakete">Was es kostet</h2>
-        <p>Drei Pakete mit festem Preis. Keine versteckten Kosten.</p>
-      </div>
-      <div class="n-plans">
-        <div class="n-plan-wrap reveal" style="--i:0"><article class="n-plan n-plan--petrol" aria-labelledby="n-plan-abo6">
-          <h3 id="n-plan-abo6">Betreuung 6&nbsp;Monate</h3>
-          <p class="n-plan__price"><strong><span data-count="399">399</span>&nbsp;€</strong> <span>einmalig</span></p>
-          <p class="n-plan__sub"><b>+ 119&nbsp;€ / Monat</b><br>Laufzeit 6&nbsp;Monate</p>
-          <ul class="n-checks">
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Suche nach qualifizierten Arbeitskräften</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Fortlaufende Betreuung</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Ersatz innerhalb von 84&nbsp;Stunden bei längeren Ausfällen</li>
-          </ul>
-          <a class="btn btn--white btn--block" href="#kontakt" data-paket="Betreuung 6 Monate (399 € + 119 € / Monat)">6 Monate anfragen</a>
-        </article></div>
-        <div class="n-plan-wrap reveal" style="--i:1"><article class="n-plan n-plan--petrol" aria-labelledby="n-plan-abo12">
-          <h3 id="n-plan-abo12">Betreuung 12&nbsp;Monate</h3>
-          <p class="n-plan__price"><strong><span data-count="399">399</span>&nbsp;€</strong> <span>einmalig</span></p>
-          <p class="n-plan__sub"><b>+ 99&nbsp;€ / Monat</b><br>Laufzeit 12&nbsp;Monate</p>
-          <ul class="n-checks">
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Suche nach qualifizierten Arbeitskräften</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Fortlaufende Betreuung</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Ersatz innerhalb von 84&nbsp;Stunden bei längeren Ausfällen</li>
-          </ul>
-          <a class="btn btn--white btn--block" href="#kontakt" data-paket="Betreuung 12 Monate (399 € + 99 € / Monat)">12 Monate anfragen</a>
-        </article></div>
-        <div class="n-plan-wrap reveal" style="--i:2"><article class="n-plan n-plan--gelb" aria-labelledby="n-plan-einmal">
-          <p class="n-plan__badge">Beliebteste Wahl</p>
-          <h3 id="n-plan-einmal">Übernahme-Paket</h3>
-          <p class="n-plan__price"><strong><span data-count="899">899</span>&nbsp;€</strong> <span>einmalig</span></p>
-          <p class="n-plan__sub">3&nbsp;Monate Betreuung kostenlos<br>(im Wert von 357&nbsp;€)</p>
-          <ul class="n-checks">
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Suche nach qualifizierten Arbeitskräften</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>3&nbsp;Monate Betreuung kostenlos</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Austausch innerhalb von zwei Wochen, falls nötig</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Danach keine weiteren Gebühren</li>
-          </ul>
-          <a class="btn btn--dark btn--block" href="#kontakt" data-paket="Übernahme-Paket (899 € einmalig)">Übernahme-Paket anfragen</a>
-        </article></div>
-      </div>
-      <p class="n-note reveal">Alle Preise inkl. MwSt. Es gelten unsere <a href="agb.html">AGB</a>. <a href="pakete.html">Alle Details zu den Paketen</a></p>
-    </div>
-  </section>
-
-  <section class="n-sec n-sec--tint" id="team" aria-labelledby="n-team">
-    <div class="container">
-      <div class="n-head reveal">
-        <h2 id="n-team">Unser Team</h2>
-        <p>Die Menschen, mit denen Sie bei Standard Plus sprechen.</p>
-      </div>
-      <ul class="n-crew" role="list" tabindex="0" aria-label="Team von Standard Plus">
-        <li class="n-member reveal" style="--i:0"><figure><picture><source type="image/webp" srcset="assets/img/team/andreas-loch-klein.webp 400w, assets/img/team/andreas-loch.webp 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px"><img src="assets/img/team/andreas-loch.jpg" srcset="assets/img/team/andreas-loch-klein.jpg 400w, assets/img/team/andreas-loch.jpg 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px" width="720" height="900" loading="lazy" decoding="async" alt="Andreas Loch, Inhaber bei Standard Plus"></picture><figcaption><strong>Andreas Loch</strong><span class="n-member__rolle">Inhaber</span><span class="n-member__satz">Leitet Standard Plus und steht für jede Vermittlung persönlich ein.</span></figcaption></figure></li>
-        <li class="n-member reveal" style="--i:1"><figure><picture><source type="image/webp" srcset="assets/img/team/arif-oezen-klein.webp 400w, assets/img/team/arif-oezen.webp 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px"><img src="assets/img/team/arif-oezen.jpg" srcset="assets/img/team/arif-oezen-klein.jpg 400w, assets/img/team/arif-oezen.jpg 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px" width="720" height="900" loading="lazy" decoding="async" alt="Arif Özen, Vertrieb bei Standard Plus"></picture><figcaption><strong>Arif Özen</strong><span class="n-member__rolle">Vertrieb</span><span class="n-member__satz">Berät Sie zu den Paketen und findet die passende Lösung für Ihren Betrieb.</span></figcaption></figure></li>
-        <li class="n-member reveal" style="--i:2"><figure><picture><source type="image/webp" srcset="assets/img/team/daniel-rusitschka-klein.webp 400w, assets/img/team/daniel-rusitschka.webp 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px"><img src="assets/img/team/daniel-rusitschka.jpg" srcset="assets/img/team/daniel-rusitschka-klein.jpg 400w, assets/img/team/daniel-rusitschka.jpg 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px" width="720" height="900" loading="lazy" decoding="async" alt="Daniel Rusitschka, Kundenservice bei Standard Plus"></picture><figcaption><strong>Daniel Rusitschka</strong><span class="n-member__rolle">Kundenservice</span><span class="n-member__satz">Hilft Ihnen weiter, wenn im Alltag Fragen auftauchen.</span></figcaption></figure></li>
-        <li class="n-member reveal" style="--i:3"><figure><picture><source type="image/webp" srcset="assets/img/team/jasmin-loch-klein.webp 400w, assets/img/team/jasmin-loch.webp 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px"><img src="assets/img/team/jasmin-loch.jpg" srcset="assets/img/team/jasmin-loch-klein.jpg 400w, assets/img/team/jasmin-loch.jpg 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px" width="720" height="900" loading="lazy" decoding="async" alt="Jasmin Loch, Buchhaltung &amp; Finanzen bei Standard Plus"></picture><figcaption><strong>Jasmin Loch</strong><span class="n-member__rolle">Buchhaltung &amp; Finanzen</span><span class="n-member__satz">Sorgt für klare Verträge und saubere Rechnungen.</span></figcaption></figure></li>
-        <li class="n-member reveal" style="--i:4"><figure><picture><source type="image/webp" srcset="assets/img/team/patricia-rusitschka-klein.webp 400w, assets/img/team/patricia-rusitschka.webp 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px"><img src="assets/img/team/patricia-rusitschka.jpg" srcset="assets/img/team/patricia-rusitschka-klein.jpg 400w, assets/img/team/patricia-rusitschka.jpg 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px" width="720" height="900" loading="lazy" decoding="async" alt="Patricia Rusitschka, Recruiting bei Standard Plus"></picture><figcaption><strong>Patricia Rusitschka</strong><span class="n-member__rolle">Recruiting</span><span class="n-member__satz">Sucht Arbeitskräfte, die zu Ihren Aufgaben passen.</span></figcaption></figure></li>
-        <li class="n-member reveal" style="--i:0"><figure><picture><source type="image/webp" srcset="assets/img/team/bahar-mirau-klein.webp 400w, assets/img/team/bahar-mirau.webp 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px"><img src="assets/img/team/bahar-mirau.jpg" srcset="assets/img/team/bahar-mirau-klein.jpg 400w, assets/img/team/bahar-mirau.jpg 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px" width="720" height="900" loading="lazy" decoding="async" alt="Bahar Mirau, CTO bei Standard Plus"></picture><figcaption><strong>Bahar Mirau</strong><span class="n-member__rolle">CTO</span><span class="n-member__satz">Verantwortet Technik und Abläufe im Hintergrund.</span></figcaption></figure></li>
-        <li class="n-member reveal" style="--i:1"><figure><picture><source type="image/webp" srcset="assets/img/team/tamara-doyle-klein.webp 400w, assets/img/team/tamara-doyle.webp 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px"><img src="assets/img/team/tamara-doyle.jpg" srcset="assets/img/team/tamara-doyle-klein.jpg 400w, assets/img/team/tamara-doyle.jpg 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px" width="720" height="900" loading="lazy" decoding="async" alt="Tamara Doyle, Vertrieb bei Standard Plus"></picture><figcaption><strong>Tamara Doyle</strong><span class="n-member__rolle">Vertrieb</span><span class="n-member__satz">Nimmt Ihre Anfrage auf und klärt mit Ihnen den Bedarf.</span></figcaption></figure></li>
-        <li class="n-member reveal" style="--i:2"><figure><picture><source type="image/webp" srcset="assets/img/team/bianca-archire-klein.webp 400w, assets/img/team/bianca-archire.webp 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px"><img src="assets/img/team/bianca-archire.jpg" srcset="assets/img/team/bianca-archire-klein.jpg 400w, assets/img/team/bianca-archire.jpg 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px" width="720" height="900" loading="lazy" decoding="async" alt="Bianca Archire, Recruiting bei Standard Plus"></picture><figcaption><strong>Bianca Archire</strong><span class="n-member__rolle">Recruiting</span><span class="n-member__satz">Spricht mit Bewerbern und prüft, wer wirklich passt.</span></figcaption></figure></li>
-        <li class="n-member reveal" style="--i:3"><figure><picture><source type="image/webp" srcset="assets/img/team/manuel-crenicianu-klein.webp 400w, assets/img/team/manuel-crenicianu.webp 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px"><img src="assets/img/team/manuel-crenicianu.jpg" srcset="assets/img/team/manuel-crenicianu-klein.jpg 400w, assets/img/team/manuel-crenicianu.jpg 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px" width="720" height="900" loading="lazy" decoding="async" alt="Manuel Crenicianu, Recruiting bei Standard Plus"></picture><figcaption><strong>Manuel Crenicianu</strong><span class="n-member__rolle">Recruiting</span><span class="n-member__satz">Begleitet Bewerber von der ersten Nachricht bis zum Arbeitsbeginn.</span></figcaption></figure></li>
-        <li class="n-member reveal" style="--i:4"><figure><picture><source type="image/webp" srcset="assets/img/team/patrick-danes-klein.webp 400w, assets/img/team/patrick-danes.webp 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px"><img src="assets/img/team/patrick-danes.jpg" srcset="assets/img/team/patrick-danes-klein.jpg 400w, assets/img/team/patrick-danes.jpg 720w" sizes="(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 200px" width="720" height="900" loading="lazy" decoding="async" alt="Patrick Danes, Recruiting bei Standard Plus"></picture><figcaption><strong>Patrick Danes</strong><span class="n-member__rolle">Recruiting</span><span class="n-member__satz">Hält Kontakt zu den Arbeitskräften, auch nach dem Start.</span></figcaption></figure></li>
-      </ul>
-      <p class="n-swipe" aria-hidden="true">← Wischen, um alle zu sehen →</p>
-    </div>
-  </section>
-
-  <section class="n-sec" id="fragen" aria-labelledby="n-fragen">
-    <div class="container">
-      <div class="n-head reveal">
-        <h2 id="n-fragen">Häufige Fragen</h2>
-        <p>Kurz beantwortet. Alles Weitere klären wir gern am Telefon.</p>
-      </div>
-      <div class="faq n-faq reveal">
+  <section class="a-faq" id="fragen" aria-labelledby="a-fragen">
+    <h2 id="a-fragen" class="reveal">Häufige Fragen.</h2>
+    <div class="faq n-faq reveal">
         <details>
       <summary>Wie läuft eine Vermittlung ab?</summary>
       <div class="answer"><p>Sie fragen an, wir klären Ihren Bedarf. Dann suchen und prüfen wir passende Kandidaten. Sie entscheiden, wer bei Ihnen anfängt. Nach dem Start bleiben wir Ihr Ansprechpartner.</p></div>
@@ -484,14 +490,13 @@
       <summary>Wann erreiche ich Sie?</summary>
       <div class="answer"><p>An 6 Tagen pro Woche – telefonisch unter <a href="tel:+4915228986993">0152 28986993</a> oder per E-Mail an <a href="mailto:info@standard-plus.net">info@standard-plus.net</a>.</p></div>
     </details>
-      </div>
     </div>
   </section>
 
-  <section class="n-sec n-contact" id="kontakt" aria-labelledby="n-kontakt">
+  <section class="n-sec n-contact a-contact--tuerkis" id="kontakt" aria-labelledby="n-kontakt">
     <div class="container n-contact__grid">
       <div class="n-contact__info reveal">
-        <h2 id="n-kontakt">Jetzt anfragen</h2>
+        <h2 id="n-kontakt">Personal gesucht?</h2>
         <p>Sagen Sie uns, wen Sie suchen. Wir senden Ihnen passende Profile an Ihre E-Mail-Adresse.</p>
         <ul class="n-ways">
           <li><a href="tel:+4915228986993"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span><small>Telefon</small>0152 28986993</span></a></li>
@@ -627,6 +632,6 @@
   </dialog>
 
 <script src="assets/js/main.js?v=54c96cb6" defer></script>
-<script src="assets/js/start.js?v=2cf4db5f" defer></script>
+<script src="assets/js/start.js?v=d57b0441" defer></script>
 </body>
 </html>

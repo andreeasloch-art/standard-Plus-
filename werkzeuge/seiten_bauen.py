@@ -214,6 +214,7 @@ def kontakt_link(paket: str = "", branche: str = "") -> str:
 
 
 # Branchen der Unterseite → Auswahl im Anfrageformular
+BRANCHEN_ALT = {b["id"]: b["alt"] for b in BRANCHEN}
 FORM_BRANCHE = {"bau": "Bau", "landwirtschaft": "Landwirtschaft", "pferde": "Landwirtschaft", "pflege": "Häusliche Pflege",
                 "logistik": "Lager und Logistik", "gastronomie": "Gastronomie"}
 
@@ -541,11 +542,11 @@ LOGO = '''<span class="logo__row">
 CUR = ' aria-current="page"'
 
 
-def header(active: str, nav: list | None = None, cta: str = "kontakt.html#kontakt") -> str:
+def header(active: str, nav: list | None = None, cta: str = "kontakt.html#kontakt", ueber: bool = False) -> str:
     links = "\n".join(
         f'      <a href="{href}"{CUR if href == active else ""}>{label}</a>' for href, label in (nav or NAV)
     )
-    return f'''<header class="site-header">
+    return f'''<header class="site-header{' site-header--over' if ueber else ''}">
   <div class="container">
     <a class="logo" href="index.html" aria-label="Standard Plus Personalvermittlung – zur Startseite">
       {LOGO}
@@ -632,7 +633,7 @@ def head(file: str, title: str, desc: str, robots: str, ld: list, og_title: str 
     mehr_css = "".join(f'\n  <link rel="stylesheet" href="{c}?v={version(c)}">' for c in css)
     url = DOMAIN + "/" if file == "index.html" else f"{DOMAIN}/{file}"
     ld_json = json.dumps({"@context": "https://schema.org", "@graph": ld}, ensure_ascii=False, indent=2)
-    preload = ('\n  <link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/team-klein.webp 800w, assets/img/team.webp 1344w" imagesizes="(max-width: 900px) calc(100vw - 32px), 560px" fetchpriority="high">'
+    preload = ('\n  <link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/team-klein.webp 800w, assets/img/team.webp 1344w" imagesizes="100vw" fetchpriority="high">'
                if preload_hero else "")
     return f'''<head>
   <meta charset="utf-8">
@@ -676,19 +677,19 @@ def head(file: str, title: str, desc: str, robots: str, ld: list, og_title: str 
 
 def build(file: str, title: str, desc: str, body: str, ld: list, robots: str = "index, follow, max-image-preview:large, max-snippet:-1",
           strip: bool = True, og_title: str | None = None, preload_hero: bool = False,
-          nav: list | None = None, cta: str = "kontakt.html#kontakt",
-          css: tuple = ("assets/css/start.css",), js: tuple = ("assets/js/start.js",)) -> None:
+          nav: list | None = None, cta: str = "kontakt.html#kontakt", ueber: bool = False,
+          css: tuple = ("assets/css/start.css", "assets/css/apple.css"), js: tuple = ("assets/js/start.js",)) -> None:
     mehr_js = "".join(f'\n<script src="{j}?v={version(j)}" defer></script>' for j in js)
     page = f'''<!doctype html>
 <html lang="de" class="no-js">
 {head(file, title, desc, robots, ld, og_title, preload_hero, css)}
-<body>
+<body class="{'is-start' if file == 'index.html' else 'is-sub'}">
 
 {sprite()}
 
 <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 
-{header(file, nav, cta)}
+{header(file, nav, cta, ueber)}
 
 <main id="inhalt">
 {body}
@@ -854,9 +855,9 @@ n_optionen = "\n".join(f'                <option>{esc(name)}</option>' for _b, _
 
 
 
-def kontakt_block(h: str = "h2", titel: str = "Jetzt anfragen") -> str:
+def kontakt_block(h: str = "h2", titel: str = "Jetzt anfragen", tuerkis: bool = False) -> str:
     """Anfrageformular mit Kontaktdaten – Startseite und Kontaktseite."""
-    return f'''  <section class="n-sec n-contact" id="kontakt" aria-labelledby="n-kontakt">
+    return f'''  <section class="n-sec n-contact{' a-contact--tuerkis' if tuerkis else ''}" id="kontakt" aria-labelledby="n-kontakt">
     <div class="container n-contact__grid">
       <div class="n-contact__info reveal">
         <{h} id="n-kontakt">{titel}</{h}>
@@ -958,95 +959,131 @@ def main() -> None:
     )
 
     # ---------- Start (neue Fassung: alles auf einer Seite) ----------
-    start = f'''
-  <section class="n-hero" aria-labelledby="n-titel">
-    <div class="container n-hero__grid">
-      <div class="n-hero__text">
-        <p class="n-eyebrow">Personalvermittlung Ludwigsburg · Raum Stuttgart</p>
-        <h1 id="n-titel">Gute Arbeitskräfte. <span>Fester Preis.</span></h1>
-        <p class="n-hero__lead">Wir suchen und prüfen Ihre neuen Mitarbeiter selbst – und betreuen Sie auch nach dem Start.</p>
-        <div class="n-hero__actions">
-          <a class="btn btn--primary btn--lg" href="#kontakt" data-anfrage>Jetzt anfragen<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          <a class="btn btn--outline btn--lg" href="#pakete">Pakete ansehen</a>
+    a_branchen = [
+        ("landwirtschaft", "Landwirtschaft", "Erntehelfer. Stallhelfer. Melker."),
+        ("pflege", "Häusliche Pflege", "Hilfe im Alltag. Zu Hause."),
+        ("bau", "Bau", "Helfer und Fachkräfte für jede Baustelle."),
+        ("gastronomie", "Gastronomie", "Küche. Service. Housekeeping."),
+        ("logistik", "Lager und Logistik", "Lagern. Packen. Versenden."),
+    ]
+    a_tiles = "\n".join(
+        f'''      <article class="a-tile reveal{' a-tile--wide' if i == 4 else ''}" aria-labelledby="a-b-{bid}">
+        {picture(bid, BRANCHEN_ALT[bid], sizes="(max-width: 734px) 100vw, " + ("100vw" if i == 4 else "50vw"))}
+        <div class="a-tile__txt">
+          <h3 id="a-b-{bid}">{esc(name)}</h3>
+          <p>{esc(satz)}</p>
+          <div class="a-links"><a class="a-btn a-btn--white" href="{kontakt_link(branche=FORM_BRANCHE[bid])}">Anfragen</a><a class="a-lnk a-lnk--white" href="branchen.html#{bid}">Mehr erfahren<span aria-hidden="true">&nbsp;›</span></a></div>
         </div>
-        <ul class="n-facts">
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Kein Geld im Voraus</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Feste Preise inkl. MwSt.</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Ersatz bei Ausfall</li>
-        </ul>
-      </div>
-      <figure class="n-hero__media">{foto("team", "Arbeitskräfte aus verschiedenen Branchen stehen nebeneinander: Handwerk, Bau, Service, Küche, Landwirtschaft, Lager, Pflege und Reinigung", 1344, 640, "(max-width: 900px) calc(100vw - 32px), 560px", lazy=False, gross=1344, klein=800)}</figure>
+      </article>'''
+        for i, (bid, name, satz) in enumerate(a_branchen)
+    )
+    a_cards = "\n".join(
+        f'''        <li class="a-card"><span class="a-card__no" aria-hidden="true">{i + 1}</span><h3>{esc(h)}.</h3><p>{esc(kurz)}</p></li>'''
+        for i, (h, kurz, _l) in enumerate(start_schritte)
+    )
+    a_team = "\n".join(
+        f'''        <li class="a-face reveal" style="--i:{i % 5}"><figure>{foto("team/" + bild, f"{name}, {rolle} bei Standard Plus", 720, 900, "(max-width: 734px) 42vw, 190px", gross=720, klein=400)}<figcaption><strong>{esc(name)}</strong><span class="a-face__rolle">{esc(rolle)}</span><span class="a-face__satz">{esc(team_saetze[bild])}</span></figcaption></figure></li>'''
+        for i, (bild, name, rolle) in enumerate(TEAM)
+    )
+
+    def a_spalte(pk: dict, hi: bool = False) -> str:
+        badge = '<p class="a-col__badge">Beliebteste Wahl</p>' if hi else ""
+        liste = pk["punkte"] + ([f"Laufzeit {pk['id'][3:]}&nbsp;Monate"] if pk["id"].startswith("abo") else [])
+        punkte = "".join(f"            <li>{x}</li>\n" for x in liste)
+        if pk["id"] == "einmal":
+            unter = "3&nbsp;Monate Betreuung gratis"
+        else:
+            unter = pk["sub"].split("<br>")[0].replace("<b>", "").replace("</b>", "")
+        return f'''        <article class="a-col{' a-col--hi' if hi else ''} reveal" aria-labelledby="a-p-{pk["id"]}">{badge}
+          <h3 id="a-p-{pk["id"]}">{pk["name"]}</h3>
+          <p class="a-col__preis"><span data-count="{pk["preis"]}">{pk["preis"]}</span>&nbsp;€ <small>einmalig</small></p>
+          <p class="a-col__monat">{unter}</p>
+          <ul>
+{punkte}          </ul>
+          <a class="a-btn{' a-btn--gelb' if hi else ''}" href="#kontakt" data-paket="{pk["paket"]}">{pk["knopf"]}</a>
+        </article>'''
+
+    pk6, pk12, pku = PAKETE
+    start = f'''
+  <section class="a-hero" aria-labelledby="a-titel">
+    {foto("team", "Arbeitskräfte aus verschiedenen Branchen stehen nebeneinander: Handwerk, Bau, Service, Küche, Landwirtschaft, Lager, Pflege und Reinigung", 1344, 640, "100vw", lazy=False, gross=1344, klein=800)}
+    <div class="a-hero__txt">
+      <p class="a-eye">Personalvermittlung Ludwigsburg · Raum Stuttgart</p>
+      <h1 id="a-titel">Gute Leute.<br>Fester Preis.</h1>
+      <p class="a-sub">Wir suchen, prüfen und betreuen Ihre neuen Mitarbeiter.</p>
+      <div class="a-links"><a class="a-btn a-btn--white" href="#kontakt" data-anfrage>Jetzt anfragen</a><a class="a-lnk a-lnk--white" href="#pakete">Pakete ansehen<span aria-hidden="true">&nbsp;›</span></a></div>
     </div>
   </section>
 
-  <section class="n-sec" id="branchen" aria-labelledby="n-branchen">
-    <div class="container">
-      <div class="n-head reveal">
-        <h2 id="n-branchen">Für diese Branchen</h2>
-        <p>Wir vermitteln Hilfs- und Fachkräfte in fünf Bereichen.</p>
-      </div>
-      <ul class="n-tiles" role="list">
-{n_tiles}
-      </ul>
-    </div>
+  <section class="a-stats" aria-labelledby="a-einfach">
+    <h2 id="a-einfach" class="reveal">Personal finden war noch nie so <span class="a-grad">einfach.</span></h2>
+    <dl class="a-stats__row">
+      <div class="reveal" style="--i:0"><dt><span data-count="0">0</span>&nbsp;€</dt><dd>Kein Geld<br>im Voraus</dd></div>
+      <div class="reveal" style="--i:1"><dt><span data-count="84">84</span>&nbsp;h</dt><dd>Ersatz bei<br>längerem Ausfall</dd></div>
+      <div class="reveal" style="--i:2"><dt><span data-count="6">6</span></dt><dd>Tage pro Woche<br>erreichbar</dd></div>
+      <div class="reveal" style="--i:3"><dt><span data-count="5">5</span></dt><dd>Branchen,<br>ein Ansprechpartner</dd></div>
+    </dl>
   </section>
 
-  <section class="n-sec n-sec--tint" id="ablauf" aria-labelledby="n-ablauf">
-    <div class="container">
-      <div class="n-head reveal">
-        <h2 id="n-ablauf">So läuft eine Vermittlung ab</h2>
-        <p>Fünf Schritte – von Ihrer Anfrage bis zur laufenden Betreuung.</p>
-      </div>
-      <ol class="n-steps" data-steps>
-{n_steps}
-      </ol>
-    </div>
+  <section class="a-stage" aria-labelledby="a-uebernahme">
+    <p class="a-eye reveal">Übernahme-Paket</p>
+    <h2 id="a-uebernahme" class="reveal">Einmal zahlen.<br>Ganz Ihrer.</h2>
+    <p class="a-sub reveal">3&nbsp;Monate Betreuung inklusive. Danach keine Gebühren.</p>
+    <p class="a-stage__preis reveal"><span data-count="899">899</span>&nbsp;€<small>einmalig · inkl. MwSt.</small></p>
+    <div class="a-links reveal"><a class="a-btn a-btn--gelb" href="#kontakt" data-paket="{pku["paket"]}">Übernahme-Paket anfragen</a><a class="a-lnk a-lnk--white" href="pakete.html#einmal">Mehr erfahren<span aria-hidden="true">&nbsp;›</span></a></div>
+    <dl class="a-stage__band">
+      <div><dt>3 Monate</dt><dd>Betreuung kostenlos (im Wert von 357&nbsp;€)</dd></div>
+      <div><dt>2 Wochen</dt><dd>Austausch, falls nötig</dd></div>
+      <div><dt>0&nbsp;€</dt><dd>Danach keine Gebühren</dd></div>
+    </dl>
   </section>
 
-  <section class="n-sec" id="pakete" aria-labelledby="n-pakete">
-    <div class="container">
-      <div class="n-head reveal">
-        <h2 id="n-pakete">Was es kostet</h2>
-        <p>Drei Pakete mit festem Preis. Keine versteckten Kosten.</p>
-      </div>
-      {paket_karten()}
-      <p class="n-note reveal">Alle Preise inkl. MwSt. Es gelten unsere <a href="agb.html">AGB</a>. <a href="pakete.html">Alle Details zu den Paketen</a></p>
+  <section class="a-cmp" id="pakete" aria-labelledby="a-pakete">
+    <h2 id="a-pakete" class="reveal">Welches Paket passt zu Ihnen?</h2>
+    <p class="a-sub reveal">Drei Pakete. Feste Preise. Keine versteckten Kosten.</p>
+    <div class="a-cmp__grid">
+{a_spalte(pk6)}
+{a_spalte(pku, hi=True)}
+{a_spalte(pk12)}
     </div>
+    <p class="a-cmp__note reveal">Alle Preise inkl. MwSt. Es gelten unsere <a href="agb.html">AGB</a>. <a href="pakete.html">Alle Details zu den Paketen<span aria-hidden="true">&nbsp;›</span></a></p>
   </section>
 
-  <section class="n-sec n-sec--tint" id="team" aria-labelledby="n-team">
-    <div class="container">
-      <div class="n-head reveal">
-        <h2 id="n-team">Unser Team</h2>
-        <p>Die Menschen, mit denen Sie bei Standard Plus sprechen.</p>
-      </div>
-      <ul class="n-crew" role="list" tabindex="0" aria-label="Team von Standard Plus">
-{n_team}
-      </ul>
-      <p class="n-swipe" aria-hidden="true">← Wischen, um alle zu sehen →</p>
-    </div>
+  <section class="a-tiles" id="branchen" aria-labelledby="a-branchen">
+    <h2 id="a-branchen" class="a-visually">Branchen</h2>
+{a_tiles}
   </section>
 
-  <section class="n-sec" id="fragen" aria-labelledby="n-fragen">
-    <div class="container">
-      <div class="n-head reveal">
-        <h2 id="n-fragen">Häufige Fragen</h2>
-        <p>Kurz beantwortet. Alles Weitere klären wir gern am Telefon.</p>
-      </div>
-      <div class="faq n-faq reveal">
+  <section class="a-gal" id="ablauf" aria-labelledby="a-ablauf">
+    <div class="a-gal__head"><h2 id="a-ablauf" class="reveal">So läuft es ab.</h2><a class="a-lnk reveal" href="ablauf.html">Ablauf im Detail<span aria-hidden="true">&nbsp;›</span></a></div>
+    <ol class="a-gal__row" data-galerie tabindex="0" aria-label="Fünf Schritte der Vermittlung">
+{a_cards}
+    </ol>
+    <div class="a-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+  </section>
+
+  <section class="a-team" id="team" aria-labelledby="a-team">
+    <h2 id="a-team" class="reveal">Die Menschen hinter Standard Plus.</h2>
+    <p class="a-sub reveal">Zehn Ansprechpartner. Ein Ziel: Ihr Betrieb läuft.</p>
+    <ul class="a-faces" role="list">
+{a_team}
+    </ul>
+  </section>
+
+  <section class="a-faq" id="fragen" aria-labelledby="a-fragen">
+    <h2 id="a-fragen" class="reveal">Häufige Fragen.</h2>
+    <div class="faq n-faq reveal">
 {n_faq}
-      </div>
     </div>
   </section>
 
-{kontakt_block()}
-
+{kontakt_block(titel="Personal gesucht?", tuerkis=True)}
 '''
     titel = "Standard Plus – Personalvermittlung Ludwigsburg & Stuttgart"
     ld = org_graph() + [webpage(DOMAIN + "/", titel), catalog()]
     build("index.html", titel,
           "Standard Plus Personalvermittlung aus Ludwigsburg: Arbeitskräfte für Landwirtschaft, häusliche Pflege, Bau, Gastronomie und Lager im Raum Stuttgart. Feste Preise ab 899 €, Betreuung und Ersatz inklusive.",
-          start, ld, strip=False, preload_hero=True, nav=start_nav, cta="#kontakt")
+          start, ld, strip=False, preload_hero=True, nav=start_nav, cta="#kontakt", ueber=True)
 
     # ---------- Über uns ----------
     body = page_hero("Über uns", "Mehr als Vermittlung.",

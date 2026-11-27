@@ -56,6 +56,22 @@
     });
   }
 
+  /* ---------- Ablauf-Karten: Punkte zeigen, welche Karte vorne ist ---------- */
+  document.querySelectorAll('[data-galerie]').forEach(function (row) {
+    var dots = row.parentNode.querySelectorAll('.a-dots i');
+    if (!dots.length) return;
+    function update() {
+      var cards = row.children, best = 0, min = Infinity, left = row.getBoundingClientRect().left;
+      for (var i = 0; i < cards.length; i++) {
+        var d = Math.abs(cards[i].getBoundingClientRect().left - left - parseFloat(getComputedStyle(row).paddingLeft));
+        if (d < min) { min = d; best = i; }
+      }
+      dots.forEach(function (dot, i) { dot.classList.toggle('is-on', i === best); });
+    }
+    row.addEventListener('scroll', function () { window.requestAnimationFrame(update); }, { passive: true });
+    update();
+  });
+
   /* ---------- Paket-Button: Paket ins Formular übernehmen ---------- */
   var form = document.getElementById('anfrage');
   if (!form) return;
