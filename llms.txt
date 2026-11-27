@@ -12,18 +12,18 @@ Wichtige Fakten:
 
 ## Seiten
 
-- [Startseite](https://standard-plus.net/): Überblick über Leistungen, Branchen, Ablauf und Pakete
-- [Branchen](https://standard-plus.net/branchen.html): wen Standard Plus in den zehn Branchen Bau & Handwerk, Landwirtschaft & Milchvieh, Pferdebetriebe, Pflege & Betreuung, Lager & Logistik, Gastronomie, Hotellerie, Reinigung, Industrie und Produktion vermittelt
-- [Pakete & Preise](https://standard-plus.net/pakete.html): Betreuung 6 Monate (399 Euro + 119 Euro monatlich), Betreuung 12 Monate (399 Euro + 99 Euro monatlich) und Übernahme-Paket (899 Euro einmalig)
-- [Ablauf](https://standard-plus.net/ablauf.html): Vermittlung in 4 Schritten
-- [Über uns](https://standard-plus.net/ueber-uns.html): wofür Standard Plus steht, woran man seriöse Vermittler erkennt
-- [Häufige Fragen](https://standard-plus.net/fragen.html)
-- [Kontakt](https://standard-plus.net/kontakt.html): Telefon, WhatsApp, E-Mail, Kontaktformular
-- [Ausführliche Zusammenfassung für KI-Assistenten](https://standard-plus.net/llms-full.txt): alle Inhalte der Website als Text
+- [Startseite](https://www.standard-plus.net/): Überblick über Leistungen, Branchen, Ablauf und Pakete
+- [Branchen](https://www.standard-plus.net/branchen.html): wen Standard Plus in den zehn Branchen Bau & Handwerk, Landwirtschaft & Milchvieh, Pferdebetriebe, Pflege & Betreuung, Lager & Logistik, Gastronomie, Hotellerie, Reinigung, Industrie und Produktion vermittelt
+- [Pakete & Preise](https://www.standard-plus.net/pakete.html): Betreuung 6 Monate (399 Euro + 119 Euro monatlich), Betreuung 12 Monate (399 Euro + 99 Euro monatlich) und Übernahme-Paket (899 Euro einmalig)
+- [Ablauf](https://www.standard-plus.net/ablauf.html): Vermittlung in 4 Schritten
+- [Über uns](https://www.standard-plus.net/ueber-uns.html): wofür Standard Plus steht, woran man seriöse Vermittler erkennt
+- [Häufige Fragen](https://www.standard-plus.net/fragen.html)
+- [Kontakt](https://www.standard-plus.net/kontakt.html): Telefon, WhatsApp, E-Mail, Kontaktformular
+- [Ausführliche Zusammenfassung für KI-Assistenten](https://www.standard-plus.net/llms-full.txt): alle Inhalte der Website als Text
 
 ## Rechtliches
 
-- [Impressum](https://standard-plus.net/impressum.html)
-- [AGB](https://standard-plus.net/agb.html)
-- [Datenschutz](https://standard-plus.net/datenschutz.html)
-- [Widerrufsbelehrung](https://standard-plus.net/widerruf.html)
+- [Impressum](https://www.standard-plus.net/impressum.html)
+- [AGB](https://www.standard-plus.net/agb.html)
+- [Datenschutz](https://www.standard-plus.net/datenschutz.html)
+- [Widerrufsbelehrung](https://www.standard-plus.net/widerruf.html)

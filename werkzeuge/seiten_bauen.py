@@ -19,7 +19,7 @@ import re
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INHALTE = os.path.join(ROOT, "werkzeuge", "inhalte")
 
-DOMAIN = "https://standard-plus.net"
+DOMAIN = "https://www.standard-plus.net"
 TEL = "0152 28986993"
 TEL_LINK = "tel:+4915228986993"
 # WhatsApp läuft über eine eigene Nummer; sie wird nirgends angezeigt, nur verlinkt.
