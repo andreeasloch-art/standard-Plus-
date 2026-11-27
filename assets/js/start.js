@@ -239,23 +239,55 @@
     function get(k) { return (fd.get(k) || '').toString().trim(); }
     if (get('website')) return;                       /* Spam-Schutz */
     var to = form.getAttribute('data-mailto');
-    var lines = [
-      'Name: ' + get('name'),
-      'Firma: ' + (get('firma') || '–'),
-      'Telefon: ' + get('telefon'),
-      'E-Mail: ' + get('email'),
-      'Branche: ' + get('branche'),
-      'Gesucht: ' + get('gesucht'),
-      'Paket: ' + (paket || '–'),
-      '',
-      'Nachricht:',
-      get('nachricht') || '–',
-      '',
-      'Bitte senden Sie mir passende Profile an meine E-Mail-Adresse.'
-    ];
-    window.location.href = 'mailto:' + to +
-      '?subject=' + encodeURIComponent('Anfrage: ' + get('gesucht') + ' (' + get('branche') + ')' + (paket ? ' – ' + paket : '')) +
-      '&body=' + encodeURIComponent(lines.join('\n'));
-    show('ok', 'Ihr E-Mail-Programm wurde mit Ihrer Anfrage geöffnet – bitte dort nur noch auf „Senden“ klicken. Falls sich nichts öffnet, schreiben Sie uns an ' + to + ' oder rufen Sie an: 0152 28986993.');
+    var betreff = 'Anfrage: ' + get('gesucht') + ' (' + get('branche') + ')' + (paket ? ' – ' + paket : '');
+    function perMail() {
+      var lines = [
+        'Name: ' + get('name'),
+        'Firma: ' + (get('firma') || '–'),
+        'Telefon: ' + get('telefon'),
+        'E-Mail: ' + get('email'),
+        'Branche: ' + get('branche'),
+        'Gesucht: ' + get('gesucht'),
+        'Paket: ' + (paket || '–'),
+        '',
+        'Nachricht:',
+        get('nachricht') || '–',
+        '',
+        'Bitte senden Sie mir passende Profile an meine E-Mail-Adresse.'
+      ];
+      window.location.href = 'mailto:' + to +
+        '?subject=' + encodeURIComponent(betreff) +
+        '&body=' + encodeURIComponent(lines.join('\n'));
+      show('ok', 'Ihr E-Mail-Programm wurde mit Ihrer Anfrage geöffnet – bitte dort nur noch auf „Senden“ klicken. Falls sich nichts öffnet, schreiben Sie uns an ' + to + ' oder rufen Sie an: 0152 28986993.');
+    }
+    var knopf = form.querySelector('[type="submit"]');
+    if (!window.fetch || location.protocol === 'file:') { perMail(); return; }
+    if (knopf) knopf.disabled = true;
+    status.className = 'form-status is-busy';
+    status.textContent = 'Ihre Anfrage wird gesendet …';
+    fetch('/api/anfrage', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: get('name'), firma: get('firma'), telefon: get('telefon'), email: get('email'),
+        branche: get('branche'), gesucht: get('gesucht'), paket: paket || '',
+        nachricht: get('nachricht'), seite: location.pathname, website: get('website')
+      })
+    }).then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok && d.ok, status: r.status, d: d }; });
+    }).then(function (x) {
+      if (knopf) knopf.disabled = false;
+      if (x.ok) {
+        form.reset();
+        show('ok', 'Vielen Dank! Ihre Anfrage ist bei uns angekommen. Wir melden uns schnellstmöglich – passende Profile senden wir an Ihre E-Mail-Adresse.');
+      } else if (x.status === 400 && x.d && x.d.fehler) {
+        show('err', 'Bitte prüfen Sie Ihre Angaben: ' + x.d.fehler + '.');
+      } else {
+        perMail();
+      }
+    }).catch(function () {
+      if (knopf) knopf.disabled = false;
+      perMail();
+    });
   });
 })();

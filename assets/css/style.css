@@ -324,6 +324,7 @@ p { margin: 0 0 1em; }
 .form-status { margin-top: 16px; padding: 14px 16px; border-radius: 12px; font-size: 15px; display: none; }
 .form-status.is-ok { display: block; background: #e8f6ee; color: #1e6b41; }
 .form-status.is-err { display: block; background: #fff1ec; color: #a1401d; }
+.form-status.is-busy { display: block; background: #eef6f6; color: #13737b; }
 @media (max-width: 900px) { .contact { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .form__grid { grid-template-columns: 1fr; } }
 
