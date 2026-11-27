@@ -23,7 +23,11 @@ Was Kunden erwarten können:
 - **Pferdebetriebe:** Pferdepfleger, Stallhelfer, Mitarbeiter für Pensions- und Reitställe
 - **Pflege & Betreuung:** Betreuungskräfte für die häusliche Pflege, Alltagshelfer, Pflegehilfskräfte für Einrichtungen
 - **Lager & Logistik:** Lagerhelfer, Kommissionierer, Packer und Versandmitarbeiter, Mitarbeiter für den Wareneingang
-- **Gastronomie & Hotellerie:** Servicekräfte, Küchenhilfen und Spülkräfte, Housekeeping-Kräfte, Reinigungskräfte
+- **Gastronomie:** Servicekräfte und Kellner, Köche und Beiköche, Küchenhilfen und Spülkräfte, Thekenkräfte
+- **Hotellerie:** Rezeptionisten und Nachtportiers, Zimmermädchen und Housekeeping-Kräfte, Frühstücks- und Servicepersonal, Hausmeister
+- **Reinigung:** Reinigungskräfte und Gebäudereiniger, Unterhalts- und Büroreinigung, Fensterputzer, Haushaltshilfen
+- **Industrie:** Industriehelfer, Schweißer und Schlosser, Maschinen- und Anlagenführer, Mitarbeiter für Montage und Instandhaltung
+- **Produktion:** Produktionshelfer, Maschinenbediener, Mitarbeiter für Verpackung und Kontrolle, Helfer in der Lebensmittelproduktion
 
 ## Ablauf in 4 Schritten
 
@@ -83,7 +87,7 @@ Das hängt vom Einsatz und der Vereinbarung zwischen Arbeitgeber und Mitarbeiter
 Betreuung 6 Monate (399 Euro einmalig + 119 Euro pro Monat), Betreuung 12 Monate (399 Euro einmalig + 99 Euro pro Monat) oder Übernahme-Paket (899 Euro einmalig inkl. 3 Monate Betreuung).
 
 **Für welche Branchen wird Personal vermittelt?**
-Bau & Handwerk, Landwirtschaft (auch Milchvieh- und Pferdebetriebe), Pflege, Lager & Logistik, Gastronomie & Hotellerie.
+Zehn Branchen: Landwirtschaft, Pferdebetriebe, Pflege, Bau & Handwerk, Gastronomie, Hotellerie, Reinigung, Lager & Logistik, Industrie und Produktion.
 
 **Muss man Geld im Voraus bezahlen?**
 Nein. Standard Plus verlangt kein Geld im Voraus und arbeitet mit klaren Verträgen und Rechnungen.

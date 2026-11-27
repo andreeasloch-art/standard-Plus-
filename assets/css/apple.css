@@ -124,6 +124,10 @@ h1, h2, h3, h4 { font-family: "Inter", -apple-system, BlinkMacSystemFont, "SF Pr
 .a-tile .a-btn { font-size: 15px; min-height: 40px; padding: 9px 18px; }
 .a-tile .a-lnk { font-size: 17px; }
 .a-tile--wide { grid-column: 1 / -1; height: clamp(520px, 50vw, 720px); }
+/* Kachel mit Text unten, wenn das Gesicht oben im Bild ist */
+.a-tile--unten { display: flex; flex-direction: column; justify-content: flex-end; }
+.a-tile--unten::after { background: linear-gradient(0deg, rgba(19,115,123,.94) 0%, rgba(19,115,123,.6) 30%, rgba(19,115,123,0) 58%); }
+.a-tile--unten .a-tile__txt { padding: 0 20px 48px; }
 @media (hover: hover) and (pointer: fine) { .a-tile:hover img { transform: scale(1.04); } }
 
 /* ---------- 6. Ablauf: Karten zum Wischen ---------- */

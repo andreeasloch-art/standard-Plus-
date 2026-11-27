@@ -144,22 +144,102 @@ BRANCHEN = [
     },
     {
         "id": "gastronomie",
-        "name": "Gastronomie & Hotellerie",
+        "name": "Gastronomie",
         "icon": "s-gastro",
-        "kurz": "Personal für Service, Küche, Housekeeping und Reinigung.",
+        "kurz": "Personal für Service und Küche.",
         "alt": "Restaurant-Team mit Köchen, Kellnern und Servicekräften",
-        "lead": "In Gastronomie und Hotellerie zählt jede helfende Hand. Wir vermitteln Personal für Service, Küche, Housekeeping und Reinigung.",
+        "lead": "In der Gastronomie zählt jede helfende Hand. Wir vermitteln Personal für Service, Küche und Ausschank – für Restaurants, Imbisse, Kantinen und Veranstaltungen.",
         "wen": [
-            "Servicekräfte",
+            "Servicekräfte und Kellner",
+            "Köche und Beiköche",
             "Küchenhilfen und Spülkräfte",
-            "Housekeeping-Kräfte",
-            "Reinigungskräfte",
+            "Thekenkräfte und Barkeeper",
         ],
         "einsatz": [
             "Service im Restaurant und bei Veranstaltungen",
             "Mithilfe in der Küche",
-            "Zimmerreinigung im Hotel",
+            "Ausschank, Theke und Buffet",
             "Unterstützung in der Saison",
+        ],
+    },
+    {
+        "id": "hotellerie",
+        "name": "Hotellerie",
+        "icon": "s-hotel",
+        "kurz": "Rezeption, Housekeeping und Service im Hotel.",
+        "alt": "Rezeptionistin und Rezeptionist an der Hotelrezeption",
+        "lead": "Ein Hotel lebt von seinem Team. Wir vermitteln Personal für Rezeption, Housekeeping und Service – für Hotels, Pensionen und Ferienanlagen.",
+        "wen": [
+            "Rezeptionisten und Nachtportiers",
+            "Zimmermädchen und Housekeeping-Kräfte",
+            "Frühstücks- und Servicepersonal",
+            "Hausmeister und Haustechnik",
+        ],
+        "einsatz": [
+            "Empfang und Betreuung der Gäste",
+            "Zimmerreinigung und Wäsche",
+            "Frühstück und Bankett",
+            "Unterstützung in der Saison",
+        ],
+    },
+    {
+        "id": "reinigung",
+        "name": "Reinigung",
+        "icon": "s-reinigung",
+        "kurz": "Reinigungskräfte für Büro, Gebäude und Haushalt.",
+        "alt": "Lächelndes Reinigungsteam mit Wischmopp, Eimer und Handschuhen",
+        "lead": "Sauberkeit braucht Zuverlässigkeit. Wir vermitteln Reinigungskräfte für Gebäude, Büros, Praxen und Privathaushalte – für feste Einsätze oder zur Verstärkung.",
+        "wen": [
+            "Reinigungskräfte und Gebäudereiniger",
+            "Unterhalts- und Büroreinigung",
+            "Fensterputzer",
+            "Haushaltshilfen",
+        ],
+        "einsatz": [
+            "Büro-, Praxis- und Treppenhausreinigung",
+            "Grund- und Bauendreinigung",
+            "Reinigung in Hotels und Gastronomie",
+            "Reinigung im Privathaushalt",
+        ],
+    },
+    {
+        "id": "industrie",
+        "name": "Industrie",
+        "icon": "s-industrie",
+        "kurz": "Helfer und Fachkräfte für Werk und Halle.",
+        "alt": "Lächelnder Industriearbeiter mit Schutzhelm in einer Werkshalle",
+        "lead": "Wenn in der Halle Hände fehlen, steht die Arbeit. Wir vermitteln Industriehelfer und Fachkräfte für Metall, Montage und Instandhaltung.",
+        "wen": [
+            "Industriehelfer",
+            "Schweißer und Schlosser",
+            "Maschinen- und Anlagenführer",
+            "Mitarbeiter für Montage und Instandhaltung",
+        ],
+        "einsatz": [
+            "Mithilfe in Werk und Halle",
+            "Metallbearbeitung und Schweißen",
+            "Bedienen von Maschinen und Anlagen",
+            "Verstärkung bei hoher Auslastung",
+        ],
+    },
+    {
+        "id": "produktion",
+        "name": "Produktion",
+        "icon": "s-produktion",
+        "kurz": "Produktionshelfer für Fertigung und Verpackung.",
+        "alt": "Mitarbeiterin an einer Produktionslinie in einer Großbäckerei",
+        "lead": "Für eine laufende Produktion braucht es verlässliche Leute. Wir vermitteln Produktionshelfer für Fertigung, Lebensmittelherstellung und Verpackung.",
+        "wen": [
+            "Produktionshelfer",
+            "Maschinenbediener",
+            "Mitarbeiter für Verpackung und Kontrolle",
+            "Helfer in der Lebensmittelproduktion",
+        ],
+        "einsatz": [
+            "Arbeit an Produktionslinien",
+            "Bestücken und Bedienen von Maschinen",
+            "Verpacken, Etikettieren, Sichtkontrolle",
+            "Schichtarbeit und Saisonspitzen",
         ],
     },
 ]
@@ -215,7 +295,8 @@ def kontakt_link(paket: str = "", branche: str = "") -> str:
 
 # Branchen der Unterseite → Auswahl im Anfrageformular
 BRANCHEN_ALT = {b["id"]: b["alt"] for b in BRANCHEN}
-FORM_BRANCHE = {"bau": "Bau", "landwirtschaft": "Landwirtschaft", "pferde": "Landwirtschaft", "pflege": "Häusliche Pflege",
+FORM_BRANCHE = {"bau": "Bau", "landwirtschaft": "Landwirtschaft", "pferde": "Pferdebetriebe", "pflege": "Häusliche Pflege",
+                "reinigung": "Reinigung", "hotellerie": "Hotellerie", "industrie": "Industrie", "produktion": "Produktion",
                 "logistik": "Lager und Logistik", "gastronomie": "Gastronomie"}
 
 
@@ -386,7 +467,7 @@ FAQ = [
     ("Was kostet die Personalvermittlung bei Standard Plus?",
      "Es gibt drei Pakete, alle Preise inklusive MwSt.: Betreuung 6 Monate für 399 Euro einmalig + 119 Euro pro Monat, Betreuung 12 Monate für 399 Euro einmalig + 99 Euro pro Monat, jeweils inklusive Ersatz innerhalb von 84 Stunden bei längeren Ausfällen, sowie das Übernahme-Paket für 899 Euro einmalig mit 3 Monaten kostenloser Betreuung und Austausch innerhalb von zwei Wochen – danach fallen keine weiteren Gebühren an."),
     ("Für welche Branchen vermitteln Sie Personal?",
-     "Für Bau & Handwerk, Landwirtschaft (auch Milchvieh- und Pferdebetriebe), Pflege & Betreuung, Lager & Logistik sowie Gastronomie & Hotellerie."),
+     "Für zehn Branchen: Landwirtschaft, Pferdebetriebe, häusliche Pflege, Bau & Handwerk, Gastronomie, Hotellerie, Reinigung, Lager & Logistik, Industrie und Produktion."),
     ("Muss ich Geld im Voraus bezahlen?",
      "Nein. Wir verlangen kein Geld im Voraus und arbeiten mit klaren Verträgen und Rechnungen."),
     ("Wo hat Standard Plus seinen Sitz?",
@@ -434,7 +515,7 @@ def org_graph() -> list:
         "@id": ORG_ID,
         "name": "Standard Plus Personalvermittlung",
         "alternateName": ["Standard Plus", "Standard AAA+"],
-        "description": "Personalvermittlung europaweit: Standard Plus vermittelt Hilfs- und Fachkräfte aus ganz Europa für Bau & Handwerk, Landwirtschaft (Milchvieh- und Pferdebetriebe), Pflege & Betreuung, Lager & Logistik sowie Gastronomie & Hotellerie – mit persönlicher Betreuung vor, während und nach dem Arbeitsbeginn.",
+        "description": "Personalvermittlung europaweit: Standard Plus vermittelt Hilfs- und Fachkräfte aus ganz Europa für zehn Branchen: Landwirtschaft, Pferdebetriebe, Pflege & Betreuung, Bau & Handwerk, Gastronomie, Hotellerie, Reinigung, Lager & Logistik, Industrie und Produktion – mit persönlicher Betreuung vor, während und nach dem Arbeitsbeginn.",
         "slogan": "Persönlich. Erreichbar. Zuverlässig.",
         "url": DOMAIN + "/",
         "logo": {"@type": "ImageObject", "url": DOMAIN + "/assets/img/logo.png", "width": 600, "height": 200},
@@ -448,7 +529,8 @@ def org_graph() -> list:
         "knowsLanguage": ["de"],
         "knowsAbout": ["Personalvermittlung", "Arbeitsvermittlung", "Arbeitskräfte aus Europa", "Erntehelfer", "Pferdepfleger",
                        "Melker", "Bauhelfer", "Pflegekräfte", "Betreuungskräfte", "Lagerhelfer", "Kommissionierer",
-                       "Servicekräfte", "Küchenhilfen", "Housekeeping"],
+                       "Servicekräfte", "Küchenhilfen", "Housekeeping",
+                       "Reinigungskräfte", "Rezeptionisten", "Industriehelfer", "Produktionshelfer", "Maschinenbediener"],
         "contactPoint": {"@type": "ContactPoint", "telephone": "+49 152 28986993", "email": MAIL,
                          "contactType": "customer service", "availableLanguage": ["German"], "areaServed": "DE"},
         "hasOfferCatalog": {"@id": DOMAIN + "/pakete.html#pakete"},
@@ -963,12 +1045,17 @@ def main() -> None:
         ("landwirtschaft", "Landwirtschaft", "Erntehelfer. Stallhelfer. Melker."),
         ("pflege", "Häusliche Pflege", "Hilfe im Alltag. Zu Hause."),
         ("bau", "Bau", "Helfer und Fachkräfte für jede Baustelle."),
-        ("gastronomie", "Gastronomie", "Küche. Service. Housekeeping."),
+        ("gastronomie", "Gastronomie", "Küche. Service. Theke."),
         ("logistik", "Lager und Logistik", "Lagern. Packen. Versenden."),
+        ("reinigung", "Reinigung", "Büro. Gebäude. Haushalt."),
+        ("hotellerie", "Hotellerie", "Rezeption. Housekeeping. Service."),
+        ("industrie", "Industrie", "Für Werk und Halle."),
+        ("produktion", "Produktion", "Fertigen. Kontrollieren. Verpacken."),
+        ("pferde", "Pferdebetriebe", "Pferdepfleger und Stallhelfer."),
     ]
     a_tiles = "\n".join(
-        f'''      <article class="a-tile reveal{' a-tile--wide' if i == 4 else ''}" aria-labelledby="a-b-{bid}">
-        {picture(bid, BRANCHEN_ALT[bid], sizes="(max-width: 734px) 100vw, " + ("100vw" if i == 4 else "50vw"))}
+        f'''      <article class="a-tile{' a-tile--unten' if bid == 'industrie' else ''} reveal" aria-labelledby="a-b-{bid}">
+        {picture(bid, BRANCHEN_ALT[bid], sizes="(max-width: 734px) 100vw, 50vw")}
         <div class="a-tile__txt">
           <h3 id="a-b-{bid}">{esc(name)}</h3>
           <p>{esc(satz)}</p>
@@ -1152,7 +1239,7 @@ def main() -> None:
       <dl class="facts reveal">
         <div><dt>Unternehmen</dt><dd>Standard Plus Personalvermittlung</dd></div>
         <div><dt>Leistung</dt><dd>Vermittlung von Hilfs- und Fachkräften aus ganz Europa – mit Betreuung vor, während und nach dem Arbeitsbeginn</dd></div>
-        <div><dt>Branchen</dt><dd><a href="branchen.html">Bau &amp; Handwerk, Landwirtschaft &amp; Milchvieh, Pferdebetriebe, Pflege &amp; Betreuung, Lager &amp; Logistik, Gastronomie &amp; Hotellerie</a></dd></div>
+        <div><dt>Branchen</dt><dd><a href="branchen.html">Bau &amp; Handwerk, Landwirtschaft &amp; Milchvieh, Pferdebetriebe, Pflege &amp; Betreuung, Lager &amp; Logistik, Gastronomie, Hotellerie, Reinigung, Industrie, Produktion</a></dd></div>
         <div><dt>Pakete</dt><dd><a href="pakete.html">Betreuung 6&nbsp;Monate 399&nbsp;€ + 119&nbsp;€/Monat · Betreuung 12&nbsp;Monate 399&nbsp;€ + 99&nbsp;€/Monat · Übernahme-Paket 899&nbsp;€ einmalig</a></dd></div>
         <div><dt>Service</dt><dd>Fester, deutschsprachiger Ansprechpartner · erreichbar an 6 Tagen pro Woche · kein Geld im Voraus</dd></div>
         <div><dt>Sitz</dt><dd>Heilbronner Straße 142, 71634 Ludwigsburg, Deutschland</dd></div>
@@ -1167,7 +1254,7 @@ def main() -> None:
 
     # ---------- Branchen ----------
     body = page_hero("Branchen", "Was wir vermitteln.",
-                     "Standard Plus vermittelt Hilfs- und Fachkräfte aus ganz Europa für sechs Bereiche. Hier sehen Sie, wen wir in welcher Branche vermitteln und wofür unsere Mitarbeiter typischerweise eingesetzt werden.",
+                     "Standard Plus vermittelt Hilfs- und Fachkräfte aus ganz Europa für zehn Branchen. Hier sehen Sie, wen wir in welcher Branche vermitteln und wofür unsere Mitarbeiter typischerweise eingesetzt werden.",
                      "Branchen") + f'''
 
   <section class="section section--tight">
@@ -1180,8 +1267,8 @@ def main() -> None:
     </div>
   </section>
 '''
-    build("branchen.html", "Personal für Bau, Landwirtschaft, Pflege, Gastronomie & Lager | Standard Plus",
-          "Welche Arbeitskräfte vermittelt Standard Plus? Bau & Handwerk, Landwirtschaft & Milchvieh, Pferdebetriebe, Pflege, Lager & Logistik, Gastronomie & Hotellerie.",
+    build("branchen.html", "Personal für 10 Branchen: Bau, Pflege, Gastro, Industrie & mehr | Standard Plus",
+          "Welche Arbeitskräfte vermittelt Standard Plus? Zehn Branchen: Bau, Landwirtschaft, Pferdebetriebe, Pflege, Lager & Logistik, Gastronomie, Hotellerie, Reinigung, Industrie und Produktion.",
           body, sub("branchen.html", "Branchen") + services())
 
     # ---------- Ablauf ----------
