@@ -1079,10 +1079,10 @@ def main() -> None:
 
 {kontakt_block(titel="Personal gesucht?", tuerkis=True)}
 '''
-    titel = "Standard Plus – Personalvermittlung Ludwigsburg & Stuttgart"
+    titel = "Standard Plus – Personalvermittlung europaweit"
     ld = org_graph() + [webpage(DOMAIN + "/", titel), catalog()]
     build("index.html", titel,
-          "Standard Plus Personalvermittlung aus Ludwigsburg: Arbeitskräfte für Landwirtschaft, häusliche Pflege, Bau, Gastronomie und Lager im Raum Stuttgart. Feste Preise ab 899 €, Betreuung und Ersatz inklusive.",
+          "Standard Plus Personalvermittlung europaweit: Arbeitskräfte für Landwirtschaft, häusliche Pflege, Bau, Gastronomie, Lager und mehr. Feste Preise ab 899 €, Betreuung und Ersatz inklusive.",
           start, ld, strip=False, preload_hero=True, nav=start_nav, cta="#kontakt", ueber=True)
 
     # ---------- Über uns ----------
