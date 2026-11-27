@@ -1008,7 +1008,7 @@ def main() -> None:
   <section class="a-hero" aria-labelledby="a-titel">
     {foto("team", "Arbeitskräfte aus verschiedenen Branchen stehen nebeneinander: Handwerk, Bau, Service, Küche, Landwirtschaft, Lager, Pflege und Reinigung", 1344, 640, "100vw", lazy=False, gross=1344, klein=800)}
     <div class="a-hero__txt">
-      <p class="a-eye">Personalvermittlung Ludwigsburg · Raum Stuttgart</p>
+      <p class="a-eye">Personalvermittlung europaweit</p>
       <h1 id="a-titel">Gute Leute.<br>Fester Preis.</h1>
       <p class="a-sub">Wir suchen, prüfen und betreuen Ihre neuen Mitarbeiter.</p>
       <div class="a-links"><a class="a-btn a-btn--white" href="#kontakt" data-anfrage>Jetzt anfragen</a><a class="a-lnk a-lnk--white" href="#pakete">Pakete ansehen<span aria-hidden="true">&nbsp;›</span></a></div>
@@ -1021,7 +1021,7 @@ def main() -> None:
       <div class="reveal" style="--i:0"><dt><span data-count="0">0</span>&nbsp;€</dt><dd>Kein Geld<br>im Voraus</dd></div>
       <div class="reveal" style="--i:1"><dt><span data-count="84">84</span>&nbsp;h</dt><dd>Ersatz bei<br>längerem Ausfall</dd></div>
       <div class="reveal" style="--i:2"><dt><span data-count="6">6</span></dt><dd>Tage pro Woche<br>erreichbar</dd></div>
-      <div class="reveal" style="--i:3"><dt><span data-count="5">5</span></dt><dd>Branchen,<br>ein Ansprechpartner</dd></div>
+      <div class="reveal" style="--i:3"><dt><span data-count="10">10</span></dt><dd>Branchen,<br>ein Ansprechpartner</dd></div>
     </dl>
   </section>
 
