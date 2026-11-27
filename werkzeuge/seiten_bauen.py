@@ -300,12 +300,51 @@ FORM_BRANCHE = {"bau": "Bau", "landwirtschaft": "Landwirtschaft", "pferde": "Pfe
                 "logistik": "Lager und Logistik", "gastronomie": "Gastronomie"}
 
 
+# Eigene Seite je Branche (für Google): Dateiname, Suchbegriff, Überschrift, Unterzeile, Seitentitel, Plural für Fließtext
+BRANCH_SEITEN = {
+    "bau": ("personalvermittlung-bau.html", "Bau & Handwerk", "Personal für Bau und Handwerk.",
+            "Bauhelfer und Fachkräfte aus ganz Europa – für Ihre Baustelle, zu festen Preisen.",
+            "Personalvermittlung Bau: Bauhelfer & Fachkräfte | Standard Plus", "Bauhelfer"),
+    "landwirtschaft": ("personalvermittlung-landwirtschaft.html", "Landwirtschaft", "Personal für die Landwirtschaft.",
+            "Erntehelfer, Stallhelfer und Melker aus ganz Europa – für die Saison oder das ganze Jahr.",
+            "Personalvermittlung Landwirtschaft: Erntehelfer & Melker | Standard Plus", "Erntehelfer und Stallhelfer"),
+    "pferde": ("personalvermittlung-pferdebetriebe.html", "Pferdebetriebe", "Personal für Pferdebetriebe.",
+            "Pferdepfleger und Stallhelfer für Reit-, Pensions- und Zuchtställe.",
+            "Pferdepfleger & Stallhelfer finden – Personalvermittlung | Standard Plus", "Pferdepfleger"),
+    "pflege": ("personalvermittlung-pflege.html", "Pflege & Betreuung", "Personal für Pflege und Betreuung.",
+            "Betreuungskräfte für die häusliche Pflege, Alltagshelfer und Pflegehilfskräfte für Einrichtungen.",
+            "Personalvermittlung Pflege & Betreuung | Standard Plus", "Betreuungskräfte"),
+    "logistik": ("personalvermittlung-logistik.html", "Lager & Logistik", "Personal für Lager und Logistik.",
+            "Lagerhelfer, Kommissionierer und Packer – für Wareneingang, Lager und Versand.",
+            "Personalvermittlung Lager & Logistik: Lagerhelfer | Standard Plus", "Lagerhelfer"),
+    "gastronomie": ("personalvermittlung-gastronomie.html", "Gastronomie", "Personal für die Gastronomie.",
+            "Köche, Küchenhilfen, Servicekräfte und Thekenpersonal – für Küche, Service und Theke.",
+            "Personalvermittlung Gastronomie: Küche & Service | Standard Plus", "Servicekräfte und Küchenhilfen"),
+    "hotellerie": ("personalvermittlung-hotellerie.html", "Hotellerie", "Personal für Hotels.",
+            "Rezeption, Housekeeping, Frühstücksservice und Haustechnik – Personal für Ihr Hotel.",
+            "Personalvermittlung Hotellerie: Rezeption & Housekeeping | Standard Plus", "Hotelpersonal"),
+    "reinigung": ("personalvermittlung-reinigung.html", "Reinigung", "Personal für die Reinigung.",
+            "Reinigungskräfte für Büro, Gebäude und Haushalt – zuverlässig und gründlich.",
+            "Personalvermittlung Reinigung: Reinigungskräfte | Standard Plus", "Reinigungskräfte"),
+    "industrie": ("personalvermittlung-industrie.html", "Industrie", "Personal für die Industrie.",
+            "Industriehelfer, Schweißer, Schlosser und Anlagenführer – für Werk und Halle.",
+            "Personalvermittlung Industrie: Helfer & Facharbeiter | Standard Plus", "Industriehelfer"),
+    "produktion": ("personalvermittlung-produktion.html", "Produktion", "Personal für die Produktion.",
+            "Produktionshelfer und Maschinenbediener – für Fertigung, Verpackung und Kontrolle.",
+            "Personalvermittlung Produktion: Produktionshelfer | Standard Plus", "Produktionshelfer"),
+}
+
+
+def branch_url(bid: str) -> str:
+    return BRANCH_SEITEN[bid][0]
+
+
 # ---------------------------------------------------------------------------
 # Wiederverwendete Bausteine
 # ---------------------------------------------------------------------------
 def branchen_teaser() -> str:
     cards = "\n".join(
-        f'''        <a class="bcard reveal" href="branchen.html#{b["id"]}">
+        f'''        <a class="bcard reveal" href="{branch_url(b["id"])}">
           <span class="bcard__img">{picture(b["id"], b["alt"], sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 360px")}</span>
           <span class="bcard__body"><strong>{esc(b["name"])}</strong><span>{esc(b["kurz"])}</span><em>Mehr erfahren<svg class="icon"><use href="#i-arrow"/></svg></em></span>
         </a>'''
@@ -342,6 +381,7 @@ def branchen_detail() -> str:
             </div>
           </div>
           <a class="btn btn--primary" href="{kontakt_link(branche=FORM_BRANCHE[b["id"]])}">Personal für {esc(b["name"])} anfragen<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="a-lnk branch__mehr" href="{branch_url(b["id"])}">Alles über Personal für {esc(b["name"])}<span aria-hidden="true">&nbsp;›</span></a>
         </div>
       </article>''')
     return "\n".join(out)
@@ -583,9 +623,9 @@ def catalog(gesamt: bool = False) -> dict:
 
 
 def services() -> list:
-    return [{"@type": "Service", "@id": f"{DOMAIN}/branchen.html#{b['id']}", "name": f"Personalvermittlung {b['name']}",
+    return [{"@type": "Service", "@id": f"{DOMAIN}/{branch_url(b['id'])}#leistung", "name": f"Personalvermittlung {b['name']}",
              "serviceType": "Personalvermittlung", "description": b["lead"], "provider": {"@id": ORG_ID},
-             "areaServed": {"@type": "Country", "name": "Deutschland"}, "url": f"{DOMAIN}/branchen.html#{b['id']}"}
+             "areaServed": {"@type": "Country", "name": "Deutschland"}, "url": f"{DOMAIN}/{branch_url(b['id'])}"}
             for b in BRANCHEN]
 
 
@@ -811,7 +851,7 @@ start_branchen = [
     ("logistik", "s-logistik", "Lager und Logistik", "Lagerhelfer und Kommissionierer für Lager und Versand."),
 ]
 n_tiles = "\n".join(
-    f'''        <li class="reveal" style="--i:{i}"><a class="n-tile" href="branchen.html#{bid}">
+    f'''        <li class="reveal" style="--i:{i}"><a class="n-tile" href="{branch_url(bid)}">
       <span class="n-tile__icon"><svg class="icon" aria-hidden="true"><use href="#{icon}"/></svg></span>
       <span class="n-tile__text"><strong>{esc(name)}</strong><span>{esc(satz)}</span></span>
       <svg class="icon n-tile__go" aria-hidden="true"><use href="#i-arrow"/></svg>
@@ -937,7 +977,7 @@ n_optionen = "\n".join(f'                <option>{esc(name)}</option>' for _b, _
 
 
 
-def kontakt_block(h: str = "h2", titel: str = "Jetzt anfragen", tuerkis: bool = False) -> str:
+def kontakt_block(h: str = "h2", titel: str = "Jetzt anfragen", tuerkis: bool = False, branche: str = "") -> str:
     """Anfrageformular mit Kontaktdaten – Startseite und Kontaktseite."""
     return f'''  <section class="n-sec n-contact{' a-contact--tuerkis' if tuerkis else ''}" id="kontakt" aria-labelledby="n-kontakt">
     <div class="container n-contact__grid">
@@ -952,7 +992,7 @@ def kontakt_block(h: str = "h2", titel: str = "Jetzt anfragen", tuerkis: bool = 
           <li><span class="n-ways__plain"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span><small>Erreichbar</small>An 6 Tagen pro Woche</span></span></li>
         </ul>
       </div>
-      <form class="n-form reveal" id="anfrage" novalidate data-mailto="{MAIL}">
+      <form class="n-form reveal" id="anfrage" novalidate data-mailto="{MAIL}"{f' data-branche="{esc(branche)}"' if branche else ""}>
         <div class="n-form__grid">
           <div class="field">
             <label for="a-name">Name <span class="req">*</span></label>
@@ -1059,7 +1099,7 @@ def main() -> None:
         <div class="a-tile__txt">
           <h3 id="a-b-{bid}">{esc(name)}</h3>
           <p>{esc(satz)}</p>
-          <div class="a-links"><a class="a-btn a-btn--white" href="{kontakt_link(branche=FORM_BRANCHE[bid])}">Anfragen</a><a class="a-lnk a-lnk--white" href="branchen.html#{bid}">Mehr erfahren<span aria-hidden="true">&nbsp;›</span></a></div>
+          <div class="a-links"><a class="a-btn a-btn--white" href="{kontakt_link(branche=FORM_BRANCHE[bid])}">Anfragen</a><a class="a-lnk a-lnk--white" href="{branch_url(bid)}">Mehr erfahren<span aria-hidden="true">&nbsp;›</span></a></div>
         </div>
       </article>'''
         for i, (bid, name, satz) in enumerate(a_branchen)
@@ -1251,6 +1291,127 @@ def main() -> None:
     build("ueber-uns.html", "Über uns – Personalvermittlung aus Ludwigsburg | Standard Plus",
           "Wer ist Standard Plus? Personalvermittlung aus Ludwigsburg für Arbeitskräfte aus ganz Europa – persönlich, erreichbar, zuverlässig. Kein Geld im Voraus.",
           body, sub("ueber-uns.html", "Über uns") + [{"@type": "AboutPage", "url": DOMAIN + "/ueber-uns.html", "about": {"@id": ORG_ID}}])
+
+    # ---------- Eine Seite je Branche ----------
+    for b in BRANCHEN:
+        bid = b["id"]
+        datei, wort, h1, unter, seitentitel, leute = BRANCH_SEITEN[bid]
+        url = f"{DOMAIN}/{datei}"
+        wen = n_checks([esc(x) for x in b["wen"]])
+        ein = n_checks([esc(x) for x in b["einsatz"]])
+        fragen = [
+            (f"Welche Arbeitskräfte vermitteln Sie für {wort}?",
+             "Wir vermitteln unter anderem: " + "; ".join(b["wen"]) + ". Sagen Sie uns, wen Sie genau suchen – wir finden passende Kandidaten aus ganz Europa."),
+            (f"Wofür kann ich {leute} einsetzen?",
+             "Typische Einsätze sind: " + "; ".join(b["einsatz"]) + "."),
+            (f"Was kostet es, {leute} über Standard Plus zu finden?",
+             "Sie wählen aus drei Paketen: Betreuung 6 Monate für 399 Euro einmalig plus 119 Euro pro Monat, Betreuung 12 Monate für 399 Euro einmalig plus 99 Euro pro Monat oder das Übernahme-Paket für 899 Euro einmalig mit 3 Monaten Betreuung. Alle Preise sind inklusive MwSt."),
+            ("Muss ich Geld im Voraus bezahlen?",
+             "Nein. Wir verlangen kein Geld im Voraus und arbeiten mit klaren Verträgen und Rechnungen."),
+            (f"Wie schnell bekomme ich {leute}?",
+             "Je nach Bedarf und Einsatzort oft auch kurzfristig. Sagen Sie uns, ab wann und wie lange Sie Unterstützung brauchen – wir sagen Ihnen ehrlich, was realistisch ist."),
+        ]
+        faq_items = "\n".join(
+            f'''        <details>
+      <summary>{esc(q)}</summary>
+      <div class="answer"><p>{n_antwort(a)}</p></div>
+    </details>''' for q, a in fragen)
+        andere = "".join(f'<li><a href="{branch_url(x["id"])}">{esc(x["name"])}</a></li>' for x in BRANCHEN if x["id"] != bid)
+        body = f'''
+  <section class="a-bhero" aria-labelledby="b-titel">
+    <div class="a-bhero__grid">
+      <div class="a-bhero__txt">
+        <p class="crumb"><a href="index.html">Start</a> <span aria-hidden="true">›</span> <a href="branchen.html">Branchen</a> <span aria-hidden="true">›</span> <span aria-current="page">{esc(wort)}</span></p>
+        <p class="a-eye">Personalvermittlung {esc(wort)}</p>
+        <h1 id="b-titel">{esc(h1)}</h1>
+        <p class="a-sub">{esc(unter)}</p>
+        <div class="a-links"><a class="a-btn" href="#kontakt">Jetzt anfragen</a><a class="a-lnk" href="#pakete">Pakete ansehen<span aria-hidden="true">&nbsp;›</span></a></div>
+      </div>
+      <div class="a-bhero__bild">{foto("branchen/" + bid, b["alt"], 1600, 1067, "(max-width: 900px) 100vw, 50vw", lazy=False)}</div>
+    </div>
+  </section>
+
+  <section class="n-sec" aria-labelledby="b-wen">
+    <div class="container">
+      <div class="a-bintro reveal">
+        <h2 id="b-wen">{esc(leute)} aus ganz Europa.</h2>
+        <p>{esc(b["lead"])}</p>
+      </div>
+      <div class="n-duo">
+        <div class="n-card reveal" style="--i:0">
+          <h3>Wen wir vermitteln</h3>
+          <ul class="n-checks n-checks--plain">
+{wen}
+          </ul>
+        </div>
+        <div class="n-card reveal" style="--i:1">
+          <h3>Typische Einsätze</h3>
+          <ul class="n-checks n-checks--plain">
+{ein}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="a-stats" aria-labelledby="b-warum">
+    <h2 id="b-warum" class="reveal">Warum Standard Plus?</h2>
+    <dl class="a-stats__row">
+      <div class="reveal" style="--i:0"><dt><span data-count="0">0</span>&nbsp;€</dt><dd>Kein Geld<br>im Voraus</dd></div>
+      <div class="reveal" style="--i:1"><dt><span data-count="84">84</span>&nbsp;h</dt><dd>Ersatz bei<br>längerem Ausfall</dd></div>
+      <div class="reveal" style="--i:2"><dt><span data-count="6">6</span></dt><dd>Tage pro Woche<br>erreichbar</dd></div>
+      <div class="reveal" style="--i:3"><dt><span data-count="899">899</span>&nbsp;€</dt><dd>Übernahme-Paket,<br>einmalig</dd></div>
+    </dl>
+  </section>
+
+  <section class="a-cmp" id="pakete" aria-labelledby="b-pakete">
+    <h2 id="b-pakete" class="reveal">Feste Preise für {esc(leute)}.</h2>
+    <p class="a-sub reveal">Drei Pakete. Keine versteckten Kosten.</p>
+    <div class="a-cmp__grid">
+{a_spalte(pk6)}
+{a_spalte(pku, hi=True)}
+{a_spalte(pk12)}
+    </div>
+    <p class="a-cmp__note reveal">Alle Preise inkl. MwSt. Es gelten unsere <a href="agb.html">AGB</a>. <a href="pakete.html">Alle Details zu den Paketen<span aria-hidden="true">&nbsp;›</span></a></p>
+  </section>
+
+  <section class="a-gal" id="ablauf" aria-labelledby="b-ablauf">
+    <div class="a-gal__head"><h2 id="b-ablauf" class="reveal">So läuft es ab.</h2><a class="a-lnk reveal" href="ablauf.html">Ablauf im Detail<span aria-hidden="true">&nbsp;›</span></a></div>
+    <ol class="a-gal__row" data-galerie tabindex="0" aria-label="Fünf Schritte der Vermittlung">
+{a_cards}
+    </ol>
+    <div class="a-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+  </section>
+
+  <section class="a-faq" id="fragen" aria-labelledby="b-fragen">
+    <h2 id="b-fragen" class="reveal">Fragen zu {esc(wort)}.</h2>
+    <div class="faq n-faq reveal">
+{faq_items}
+    </div>
+  </section>
+
+  <nav class="a-andere" aria-labelledby="b-andere">
+    <h2 id="b-andere" class="reveal">Weitere Branchen.</h2>
+    <ul class="reveal">{andere}</ul>
+  </nav>
+
+{kontakt_block(titel="Personal gesucht?", tuerkis=True, branche=FORM_BRANCHE[bid])}
+'''
+        ld = org_graph() + [
+            webpage(url, seitentitel),
+            {"@type": "BreadcrumbList", "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Start", "item": DOMAIN + "/"},
+                {"@type": "ListItem", "position": 2, "name": "Branchen", "item": DOMAIN + "/branchen.html"},
+                {"@type": "ListItem", "position": 3, "name": wort, "item": url}]},
+            {"@type": "Service", "@id": url + "#leistung", "name": f"Personalvermittlung {wort}", "serviceType": "Personalvermittlung",
+             "description": b["lead"], "provider": {"@id": ORG_ID}, "areaServed": {"@type": "Country", "name": "Deutschland"},
+             "url": url, "hasOfferCatalog": {"@id": DOMAIN + "/pakete.html#pakete"}},
+            catalog(),
+            {"@type": "FAQPage", "@id": url + "#faq", "url": url, "isPartOf": {"@id": DOMAIN + "/#website"},
+             "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in fragen]},
+        ]
+        beschreibung = f"Personalvermittlung {wort}: {unter} Feste Preise ab 899 €, kein Geld im Voraus, Betreuung und Ersatz inklusive."
+        build(datei, seitentitel, beschreibung, body, ld, ueber=True, cta="#kontakt", strip=False)
 
     # ---------- Branchen ----------
     body = page_hero("Branchen", "Was wir vermitteln.",

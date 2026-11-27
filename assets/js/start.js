@@ -189,7 +189,7 @@
   try {
     var params = new URLSearchParams(window.location.search);
     var pPaket = (params.get('paket') || params.get('betreff') || '').slice(0, 120);
-    var pBranche = (params.get('branche') || '').slice(0, 60);
+    var pBranche = (params.get('branche') || form.getAttribute('data-branche') || '').slice(0, 60);
     if (pPaket) paketSetzen(pPaket);
     if (pBranche && branche) { branche.value = pBranche; branche.dispatchEvent(new Event('change', { bubbles: true })); }
   } catch (e) { /* ältere Browser: Felder bleiben leer */ }
